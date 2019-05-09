@@ -11,7 +11,7 @@ topic-tags: répartiteur
 content-type: référence
 discoiquuid: 40 d 91 d 66-c 99 b -422 d -8 e 61-c 0 ced 23272 ef
 translation-type: tm+mt
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 

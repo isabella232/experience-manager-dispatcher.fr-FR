@@ -9,7 +9,7 @@ content-type: référence
 products: SG_ EXPERIENCEMANAGER/6.4
 discoiquuid: ff 3 d 38 e 0-71 c 9-4 b 41-85 f 9-fa 896393 aac 5
 translation-type: tm+mt
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
 
 ---
 
