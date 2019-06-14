@@ -1,52 +1,52 @@
 ---
-title: Présentation du répartiteur
-seo-title: Présentation du répartiteur Adobe AEM
-description: Cet article fournit une présentation générale du Répartiteur.
-seo-description: Cet article présente un aperçu général d'Adobe Experience Manager Dispatcher.
-uuid: 71766 f 86-5 e 91-446 b-a 078-061 b 179 d 090 d
+title: Présentation de Dispatcher
+seo-title: Présentation d’Adobe AEM Dispatcher
+description: Cet article présente un aperçu général de Dispatcher.
+seo-description: Cet article présente un aperçu général d’Adobe Experience Manager Dispatcher.
+uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: '1193211344162'
 contentOwner: Utilisateur
-topic-tags: répartiteur
+topic-tags: dispatcher
 content-type: référence
-discoiquuid: 1 d 449 ee 2-4 cdd -4 b 7 a -8 b 4 e -7 e 6 fc 0 a 1 d 7 ee
-translation-type: tm+mt
-source-git-commit: 5fcff5b840e8c7bb79eb96375ff37ccfacc615c9
+discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
+translation-type: ht
+source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
 
 
-# Présentation du répartiteur {#dispatcher-overview}
+# Présentation de Dispatcher {#dispatcher-overview}
 
 >[!NOTE]
 >
->Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher qui est incluse dans la documentation d’une précédente version d’AEM.
+>Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
 Dispatcher est l’outil de mise en cache et/ou d’équilibrage de charge d’Adobe Experience Manager. L’utilisation de Dispatcher AEM contribue également à protéger le serveur AEM contre les attaques. Par conséquent, vous pouvez augmenter la sécurité de l’instance AEM en utilisant Dispatcher conjointement à un serveur web de niveau élevé.
 
-Le processus de déploiement d&#39;un répartiteur est indépendant du serveur Web et de la plate-forme du système d&#39;exploitation choisi :
+La procédure de déploiement de Dispatcher est indépendante du serveur web et de la plateforme du système d’exploitation :
 
-1. En savoir plus sur Dispatcher (cette page). En outre, voir [les questions fréquentes sur Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Installez un [serveur Web pris en charge](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) conformément à la documentation du serveur Web.
+1. En savoir plus sur Dispatcher (cette page). Voir également les [questions fréquentes sur Dispatcher](https://helpx.adobe.com/fr/experience-manager/using/dispatcher-faq.html).
+1. Installez un [serveur web pris en charge](https://helpx.adobe.com/fr/experience-manager/6-3/sites/deploying/using/technical-requirements.html) selon la documentation du serveur web.
 
-1. [Installez le module Répartiteur](dispatcher-install.md) sur votre serveur Web et configurez le serveur Web en conséquence.
-1. [Configuration du répartiteur](dispatcher-configuration.md) (fichier dispatcher. any).
+1. [Installez le module Dispatcher](dispatcher-install.md) sur votre serveur web et configurez-le en conséquence.
+1. [Configurez Dispatcher](dispatcher-configuration.md) (fichier dispatcher.any).
 
-1. [Configurez AEM](page-invalidate.md) de sorte que le contenu soit mis à jour invaliquement.
+1. [Configurez AEM](page-invalidate.md) pour que les mises à jour de contenu invalident le cache.
 
 >[!NOTE]
 >
->Pour mieux déterminer comment fonctionne le répartiteur avec AEM, consultez [la section Ask the AEM Community Experts for juillet 2017](https://bit.ly/ATACE0717)(Demander aux experts de la communauté AEM) de se déconnecter.
+>Pour mieux déterminer comment fonctionnent Dispatcher avec AEM, voir [Demandez aux experts de la communauté AEM pour juillet 2017](https://bit.ly/ATACE0717).
 
 Utilisez les informations suivantes, selon vos besoins :
 
 * [Liste de contrôle de sécurité de Dispatcher](security-checklist.md)
-* [Base de connaissances de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Base de connaissance de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
+* [Optimisation d’un site Web pour le cache Performance](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Utilisation de Dispatcher avec plusieurs domaines](dispatcher-domains.md)
-* [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
-* [Implémentation de la mise en cache prenant en compte les permissions](permissions-cache.md)
+* [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
+* [Mise en œuvre de la mise en cache sensible aux autorisations](permissions-cache.md)
 * [Résolution des problèmes liés à Dispatcher](dispatcher-troubleshooting.md)
-* [FAQ sur les problèmes fréquents du répartiteur](dispatcher-faq.md)
+* [FAQ sur les problèmes fréquents de Dispatcher](dispatcher-faq.md)
 
 >[!NOTE]
 >
@@ -54,7 +54,7 @@ Utilisez les informations suivantes, selon vos besoins :
 >
 >En revanche, vous pouvez également utiliser Dispatcher pour améliorer la réactivité de l’**instance de création**, en particulier si un grand nombre d’utilisateurs est en train de modifier et de mettre à jour le site web. Pour obtenir des informations spécifiques à ce cas, voir [Utilisation d’un Dispatcher avec un serveur de création](#using-a-dispatcher-with-an-author-server) ci-dessous.
 
-## Pourquoi utiliser Dispatcher pour mettre en œuvre la mise en cache ? {#why-use-dispatcher-to-implement-caching}
+## Pourquoi utiliser Dispatcher pour mettre en œuvre la mise en cache ?  {#why-use-dispatcher-to-implement-caching}
 
 Il existe deux approches possibles pour la publication web :
 
@@ -68,15 +68,15 @@ Dispatcher contribue à la mise en place d’un environnement à la fois rapide 
 
 Cela signifie que :
 
-* **contenu** statique est géré avec exactement la même vitesse et la même facilité que sur un serveur Web statique ;*vous pouvez en outre utiliser les outils d&#39;administration et de sécurité disponibles pour vos serveurs Web*statiques.
+* **le contenu statique** est géré avec la même rapidité et la même facilité que sur un serveur web statique, *mais vous pouvez également utiliser les outils d’administration et de sécurité disponibles pour vos serveurs web statiques*.
 
-* **le contenu dynamique** est généré si nécessaire, sans ralentir le système de manière absolument nécessaire.
+* **le contenu dynamique** est généré en fonction des besoins, sans ralentir le système plus que nécessaire.
 
 Dispatcher contient des mécanismes permettant de générer et de mettre à jour du code HTML statique en fonction du contenu du site dynamique. Vous pouvez spécifier en détail les documents qui sont stockés sous forme de fichiers statiques et ceux qui sont systématiquement générés de façon dynamique.
 
 Cette section illustre les principes de cet environnement.
 
-### Serveur web statique {#static-web-server}
+### Serveur web statique  {#static-web-server}
 
 ![](assets/chlimage_1-3.png)
 
@@ -84,7 +84,7 @@ Un serveur web statique, par exemple Apache ou IIS, diffuse les fichiers HTML st
 
 Ce processus est très simple et, de ce fait, très efficace. Si un visiteur demande un fichier (par exemple une page HTML), il est généralement extrait directement de la mémoire. Sinon, il est lu depuis le disque local. Les serveurs web statiques existent depuis longtemps. De ce fait, il existe une grande variété d’outils pour l’administration et la gestion de la sécurité, et ils sont parfaitement intégrés aux infrastructures réseau.
 
-### Serveurs de gestion de contenu {#content-management-servers}
+### Serveurs de gestion de contenu  {#content-management-servers}
 
 ![](assets/chlimage_1-4.png)
 
@@ -92,7 +92,7 @@ Si vous utilisez un serveur de gestion de contenu, par exemple AEM, un moteur de
 
 Vous pouvez ainsi créer un contenu plus évolué, dynamique, qui améliore la souplesse et la fonctionnalité du site web. Toutefois, le moteur de mise en page nécessite davantage de puissance de traitement qu’un serveur statique, de sorte que cette configuration peut être sujette à un ralentissement si de nombreux visiteurs utilisent le système.
 
-## Procédure de mise en cache par Dispatcher {#how-dispatcher-performs-caching}
+## Procédure de mise en cache par Dispatcher  {#how-dispatcher-performs-caching}
 
 ![](assets/chlimage_1-5.png)
 
@@ -100,11 +100,11 @@ Vous pouvez ainsi créer un contenu plus évolué, dynamique, qui améliore la s
 
 >[!NOTE]
 >
->Lorsque la configuration de la mise en cache HTTP est manquante, le Répartiteur stocke uniquement le code HTML de la page ; il ne stocke pas les en-têtes HTTP. Cela peut créer un problème si vous utilisez différents codages pour le site web, car ceux-ci peuvent être perdus. Pour activer la mise en cache des en-têtes HTTP, voir [Configuration du cache du répartiteur.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Lorsque la configuration de la mise en cache HTTP est manquante, Dispatcher stocke uniquement le code HTML de la page ; il ne stocke pas les en-têtes HTTP. Cela peut créer un problème si vous utilisez différents codages pour le site web, car ceux-ci peuvent être perdus. Pour activer la mise en cache des en-têtes HTTP, voir [Configuration du cache de Dispatcher.](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
->La localisation de la racine du document du serveur web sur le périphérique de stockage réseau (NAS) entraîne une dégradation des performances. De même, lorsqu&#39;une racine de document située sur un NAS est partagée entre plusieurs serveurs Web, des verrous intermittents peuvent se produire lorsque des actions de réplication sont effectuées.
+>La localisation de la racine du document du serveur web sur le périphérique de stockage réseau (NAS) entraîne une dégradation des performances. De même, lorsqu’une racine de document située sur le NAS est partagée entre plusieurs serveurs web, des verrous intermittents peuvent se produire lorsque des actions de réplication sont effectuées.
 
 >[!NOTE]
 >
@@ -116,8 +116,8 @@ Vous pouvez ainsi créer un contenu plus évolué, dynamique, qui améliore la s
 
 Dispatcher dispose de deux méthodes principales pour mettre à jour le contenu du cache lorsque des modifications sont apportées au site web.
 
-* **Les mises à jour** de contenu suppriment les pages qui ont été modifiées, ainsi que les fichiers qui y sont directement associés.
-* **Auto-Invalidation** invalide automatiquement les parties du cache qui peuvent être prêtes à l&#39;emploi (date) après une mise à jour. L’invalidation automatique marque les pages correspondantes comme étant obsolètes, sans rien supprimer.
+* **Les mises à jour de contenu** suppriment les pages qui ont été modifiées, ainsi que les fichiers qui leur sont directement associés.
+* **L’invalidation automatique** invalide automatiquement les parties du cache susceptibles d’être obsolètes après une mise à jour. L’invalidation automatique marque les pages correspondantes comme étant obsolètes, sans rien supprimer.
 
 ### Mises à jour du contenu
 
@@ -148,15 +148,15 @@ Notez également ce qui suit :
 * L’invalidation automatique est généralement utilisée lorsque les interdépendances sont complexes, par exemple pour les pages HTML. Ces pages contiennent des liens et des entrées de navigation. Par conséquent, elles doivent généralement être mises à jour après une mise à jour du contenu. Si vous avez automatiquement généré des fichiers PDF ou image, vous pouvez également choisir de les invalider automatiquement.
 * L’invalidation automatique n’inclut aucune action de la part de Dispatcher au moment de la mise à jour, hormis la modification du fichier stat. Toutefois, la modification automatique du fichier stat rend le contenu du cache obsolète, sans le supprimer physiquement du cache.
 
-## Procédure de renvoi des documents par Dispatcher {#how-dispatcher-returns-documents}
+## Procédure de renvoi des documents par Dispatcher  {#how-dispatcher-returns-documents}
 
 ![](assets/chlimage_1-6.png)
 
 ### Déterminer si le document est soumis à la mise en cache
 
-Vous pouvez [définir les documents dans lesquels les caches répartiteur sont mis en cache dans le fichier de configuration](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
+Vous pouvez [définir les documents que Dispatcher met en cache dans le fichier de configuration](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
 
-Le Répartiteur *demande toujours* le document directement à partir de l&#39;instance AEM dans les cas suivants :
+*Dispatcher* demande toujours le document directement à partir de l’instance AEM dans les cas suivants :
 
 * Si l’URI de demande contient un point d’interrogation (?). Cela indique généralement une page dynamique, par exemple un résultat de recherche, qui n’a pas besoin d’être mis en cache.
 * L’extension de fichier est manquante. Le serveur web a besoin de l’extension pour déterminer le type de document (type MIME).
@@ -164,7 +164,7 @@ Le Répartiteur *demande toujours* le document directement à partir de l&#39;in
 
 >[!NOTE]
 >
->Les méthodes GET ou HEAD (pour les en-têtes HTTP) sont mises en cache par le répartiteur. Pour plus d&#39;informations sur la mise en cache de l&#39;en-tête de réponse, reportez-vous à [la section Mise en cache des en-têtes](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html) de réponse HTTP.
+>Les méthodes GET ou HEAD (pour les en-têtes HTTP) sont mises en cache par Dispatcher. Pour plus d’informations sur la mise en cache de l’en-tête de réponse, voir [Mise en cache des en-têtes de réponse HTTP](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Déterminer si un document est mis en cache
 
@@ -206,7 +206,7 @@ Vous bénéficiez des avantages suivants :
 >
 >Alors qu’une seule instance Dispatcher peut souvent saturer la capacité des instances de publication disponibles, pour certaines applications rares, il peut s’avérer judicieux d’équilibrer en plus la charge entre deux instances de Dispatcher. Les configurations avec plusieurs instances de Dispatcher doivent être envisagées avec soin, car une instance supplémentaire de Dispatcher accroît la charge sur les instances de publication disponibles et risque de réduire les performances de la plupart des applications.
 
-## Exécution de l’équilibrage de charge par Dispatcher {#how-the-dispatcher-performs-load-balancing}
+## Exécution de l’équilibrage de charge par Dispatcher  {#how-the-dispatcher-performs-load-balancing}
 
 ### Statistiques de performances
 
@@ -228,25 +228,25 @@ Les connexions persistantes limitent la capacité de Dispatcher à optimiser les
 >
 >Pour *quelques* applications, il est éventuellement possible d’utiliser à la fois des connexions persistantes et la mise en cache ; par exemple, si vous affichez un formulaire qui écrit des données dans la session.
 
-## Utilisation de plusieurs instances de Dispatcher {#using-multiple-dispatchers}
+## Utilisation de plusieurs instances de Dispatcher  {#using-multiple-dispatchers}
 
 Avec des configurations complexes, vous pouvez utiliser plusieurs instances de Dispatcher. Par exemple, vous pouvez utiliser :
 
-* une instance pour publier un site web sur l’intranet ;
+* une instance de Dispatcher pour publier un site web sur l’intranet ;
 * une seconde instance, à une autre adresse et avec d’autres paramètres de sécurité, pour publier le même contenu sur Internet.
 
 Dans ce cas, veillez à ce que chaque demande passe par une seule instance de Dispatcher. Une instance de Dispatcher ne traite pas les demandes provenant d’une autre instance. Par conséquent, assurez-vous que les deux instances de Dispatcher accèdent directement au site web AEM.
 
-## Utilisation de Dispatcher avec un CDN {#using-dispatcher-with-a-cdn}
+## Utilisation de Dispatcher avec un CDN  {#using-dispatcher-with-a-cdn}
 
 Un réseau de distribution de contenu (CDN), par exemple Akamai Edge Delivery ou Amazon Cloud Front, distribue du contenu à partir d’un emplacement proche de l’utilisateur final. Ainsi, il :
 
 * accélère les temps de réponse pour les utilisateurs finaux ;
-* prend le chargement de vos serveurs
+* soulage vos serveurs ;
 
 En tant que composant d’infrastructure HTTP, un CDN fonctionne comme une instance de Dispatcher : lorsqu’un nœud CDN reçoit une demande, il diffuse la demande depuis son cache, si possible (la ressource est valide et disponible dans le cache). Autrement, il contacte le serveur suivant le plus proche pour récupérer la ressource et la mettre en cache pour d’autres demandes, le cas échéant.
 
-Le « serveur suivant le plus proche » dépend de votre configuration spécifique. Par exemple, dans un environnement Akamai, la demande peut prendre le chemin suivant :
+Le « serveur suivant le plus proche » dépend de votre configuration spécifique. Par exemple, dans une installation Akamai, la requête peut prendre le chemin suivant :
 
 * Le nœud Akamai Edge
 * Le calque Akamai Midgres
@@ -257,36 +257,36 @@ Le « serveur suivant le plus proche » dépend de votre configuration spécif
 
 Dans la plupart des cas, Dispatcher est le serveur suivant qui peut diffuser le document depuis un cache et influencer les en-têtes de réponse renvoyés au serveur CDN.
 
-## Contrôle d’un cache CDN {#controlling-a-cdn-cache}
+## Contrôle d’un cache CDN  {#controlling-a-cdn-cache}
 
 Il existe plusieurs méthodes de contrôle de la durée pendant laquelle un CDN met en cache une ressource avant qu’elle ne soit récupérée auprès de Dispatcher.
 
 1. Configuration explicite\
-   Configurez la durée de stockage des ressources spécifiques dans le cache du réseau de diffusion de contenu, en fonction du type de mime, de l&#39;extension, du type de requête, etc.
+   Configurez la durée pendant laquelle des ressources particulières sont conservées dans le cache du CDN, en fonction du type mime, de l’extension, du type de requête, etc.
 
-1. En-têtes d&#39;expiration et de contrôle du cache\
-   La plupart des CDN seront honorés et `Expires:` les en-têtes `Cache-Control:` HTTP s&#39;ils sont envoyés par le serveur en amont. Pour cela, il faut par exemple utiliser le module Apache [mod_expires](https://httpd.apache.org/docs/2.2/mod/mod_expires.html).
+1. En-têtes d’expiration et de contrôle du cache\
+   La plupart des CDN honoreront les en-têtes HTTP `Expires:` et `Cache-Control:` s’ils sont envoyés par le serveur en amont. Pour ce faire, utilisez le module Apache [mod_expires](https://httpd.apache.org/docs/2.2/mod/mod_expires.html).
 
 1. Invalidation manuelle\
-   Les réseaux CDN permettent la suppression des ressources du cache par le biais d&#39;interfaces Web.
-1. Invalidation basée sur l&#39;API\
-   La plupart des CDN proposent également une API REST et/ou SOAP qui permet la suppression des ressources du cache.
+   Les CDN permettent de supprimer des ressources du cache via des interfaces web.
+1. Invalidation basée sur l’API\
+   La plupart des CDN offrent également une API REST et/ou SOAP qui permet de supprimer des ressources du cache.
 
 Dans une configuration standard d’AEM, la configuration par extension et/ou chemin d’accès, qui peut être obtenue en suivant les points 1 et 2 ci-dessus, offre des possibilités pour définir des périodes de mise en cache raisonnables pour les ressources utilisées fréquemment qui ne changent pas souvent, comme les images de conception et les bibliothèques client. Lorsque de nouvelles versions sont déployées, une invalidation manuelle est généralement nécessaire.
 
 Si cette approche est utilisée pour mettre en cache du contenu géré, cela implique que les modifications du contenu sont uniquement visibles par les utilisateurs finaux une fois que la période de mise en cache configurée est arrivée à expiration et que le document est récupéré à partir de Dispatcher.
 
-Pour un contrôle plus affiné, l’invalidation basée sur l’API vous permet d’invalider le cache d’un CDN si le cache de Dispatcher est invalidé. Sur la base de l’API du CDN, vous pouvez implémenter vos propres [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) et [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) (si l’API n’est pas basée sur REST) et configurer un agent de réplication qui utilise ces derniers pour invalider le cache du CDN.
+Pour un contrôle plus affiné, l’invalidation basée sur l’API vous permet d’invalider le cache d’un CDN si le cache de Dispatcher est invalidé. Sur la base de l’API CDN, vous pouvez implémenter vos propres [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) et [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) (si l’API n’est pas basée sur REST) et configurer un agent de réplication qui les utilisera pour invalider le cache du CDN.
 
 >[!NOTE]
 >
->Voir aussi [Sécurité de Dispatcher AEM (CQ) et mise en cache CDN+Navigateur](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) ainsi que la présentation enregistrée sur [la mise en cache de Dispatcher](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
+>Voir aussi [Sécurité AEM (CQ) Dispatcher Security et mise en cache du navigateur CDN+](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015), ainsi que la présentation enregistrée [Mise en cache de Dispatcher](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
 
 ## Utilisation de Dispatcher avec un serveur de création {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->si vous utilisez [AEM avec l&#39;interface](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) utilisateur tactile, vous **ne** devez pas mettre en cache le contenu de l&#39;instance d&#39;auteur. Si la mise en cache a été activée pour l&#39;instance d&#39;auteur, vous devez la désactiver et supprimer le contenu du répertoire de cache. Pour désactiver la mise en cache, vous devez modifier `author_dispatcher.any` le fichier et modifier `/rule` la propriété de `/cache` la section comme suit :
+>si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), vous **ne devez pas** mettre en cache le contenu de l’instance d’auteur. Si la mise en cache a été activée pour l’instance d’auteur, vous devez la désactiver et supprimer le contenu du répertoire du cache. Pour désactiver la mise en cache, vous devez modifier le fichier `author_dispatcher.any` et modifier la propriété `/rule` de la section `/cache` comme suit :
 
 ```xml
 /rules
@@ -298,28 +298,28 @@ Pour un contrôle plus affiné, l’invalidation basée sur l’API vous permet 
 
 Vous pouvez utiliser Dispatcher en regard d’une instance de création pour améliorer les performances de création. Pour configurer une instance Dispatcher de création, procédez comme suit :
 
-1. Installez un répartiteur dans un serveur Web (il peut s&#39;agir d&#39;un serveur Web Apache ou IIS, voir [Installation du répartiteur](dispatcher-install.md)).
+1. Installez Dispatcher sur un serveur web (serveur web Apache ou IIS, voir [Installation de Dispatcher](dispatcher-install.md)).
 1. Vous pouvez tester l’instance Dispatcher nouvellement installée par rapport à une instance de publication AEM afin de vous assurer que l’installation de la ligne de base est correcte.
 1. Vérifiez ensuite que Dispatcher parvient à se connecter à l’instance de création via TCP/IP.
-1. Remplacez l&#39;exemple de fichier dispatcher. any par le fichier author_ dispatcher. any fourni avec le téléchargement [Répartiteur](release-notes.md#downloads).
-1. Ouvrez le `author_dispatcher.any` fichier dans un éditeur de texte et apportez les modifications suivantes :
+1. Remplacez l’exemple de fichier dispatcher.any par le fichier author_dispatcher.any, fourni avec le [téléchargement de Dispatcher](release-notes.md#downloads).
+1. Ouvrez le `author_dispatcher.any` dans un éditeur de texte et apportez les modifications suivantes :
 
-   1. Modifiez la `/hostname` section et la `/port``/renders` section afin qu&#39;elle pointe vers votre instance d&#39;auteur.
-   1. Modifiez la `/docroot``/cache` section afin qu&#39;elle pointe vers un répertoire de cache. Si vous utilisez [AEM avec l&#39;interface utilisateur tactile](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consultez l&#39;avertissement ci-dessus.
+   1. Modifiez `/hostname` et `/port` dans la section `/renders` pour qu’ils pointent vers votre instance d’auteur.
+   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), voir l’avertissement ci-dessus.
    1. Enregistrez les modifications.
 
-1. Supprimez tous les fichiers existants dans `/cache` le `/docroot` répertoire &gt; que vous avez configuré ci-dessus.
+1. Supprimez tous les fichiers existants dans le répertoire `/cache` &gt; `/docroot` que vous avez configuré ci-dessus.
 1. Redémarrez le serveur web.
 
 >[!NOTE]
 >
->Veuillez noter qu&#39;avec `author_dispatcher.any` la configuration fournie, lorsque vous installez un pack de fonctionnalités CQ 5, un correctif logiciel ou un package de code d&#39;application qui affecte un contenu sous `/libs` ou `/apps` que vous devez supprimer les fichiers mis en cache sous ces répertoires dans le cache de répartiteur, vous devez vous assurer que la prochaine fois qu&#39;ils sont demandés, les fichiers nouvellement mis à niveau sont récupérés, et non les anciens en mémoire cache.
+>Veuillez noter qu’avec la configuration `author_dispatcher.any` fournie, lorsque vous installez un module de fonctions, correctif ou package de code d’application CQ5 qui affecte un contenu situé sous `/libs` ou `/apps`, vous devez supprimer les fichiers mis en cache sous ces répertoires, dans votre cache de Dispatcher, pour vous assurer que la prochaine fois qu’ils seront demandés, les fichiers récemment mis à niveau seront récupérés, et non les anciens mis en cache.
 
 >[!CAUTION]
 >
->Si vous avez déjà configuré le répartiteur d&#39;auteur configuré et activé un *agent* de purge de répartiteur, procédez comme suit :
+>Si vous avez utilisé l’instance Dispatcher de création configurée précédemment et si vous avez activé un *agent de purge du répartiteur*, procédez comme suit :
 
-1. Supprimez ou désactivez **l&#39;agent** de purge du répartiteur d&#39;auteur sur votre instance d&#39;auteur AEM.
+1. Supprimez ou désactivez l’agent de purge de **l’instance Dispatcher de création** sur votre instance d’auteur AEM.
 1. Rétablissez la configuration du Dispatcher de création en suivant les nouvelles instructions ci-dessus.
 
 <!--
