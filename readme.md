@@ -1,6 +1,6 @@
 ---
 source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
-translation-type: tm+mt
+translation-type: ht
 
 ---
 # Article relatif aux contributions
@@ -13,13 +13,13 @@ Ce projet a adopté le [Code de conduite Open Source d’Adobe](code-of-conduct.
 
 ## À propos de vos contributions au contenu Adobe
 
-Consultez le Guide du contributeur [Adobe Docs](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html).
+Voir le [Guide du contributeur de la documentation Adobe](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html).
 
 Votre contribution dépend de votre rôle et du type de modification que vous souhaitez effectuer :
 
 ### Modifications mineures
 
-Pour soumettre des mises à jour mineures, cliquez sur le lien **Modifier** dans un article afin d’ouvrir l’article source dans GitHub. Utilisez l’interface utilisateur de GitHub pour effectuer vos mises à jour. Pour plus d&#39;informations, consultez le guide du contributeur général [d&#39;Adobe](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html) Docs.
+Pour soumettre des mises à jour mineures, cliquez sur le lien **Modifier** dans un article afin d’ouvrir l’article source dans GitHub. Utilisez l’interface utilisateur de GitHub pour effectuer vos mises à jour. Voir le [Guide du contributeur de la documentation Adobe](https://docs.adobe.com/help/fr/contributor/contributor-guide/introduction.html) pour plus d’informations.
 
 Les corrections mineures ou les clarifications que vous soumettez pour la documentation et les exemples de code dans ce référentiel sont couverts par les conditions d’utilisation d’Adobe.
 
@@ -33,7 +33,7 @@ If you submit a pull request with significant changes to documentation and code 
 
 ### Modifications majeures par des employés d’Adobe
 
-Si vous êtes rédacteur technique, chef de programme ou développeur de l’équipe produit d’une solution [!UICONTROL Adobe Experience Cloud] et que votre rôle est de rédiger des articles techniques ou d’y contribuer, vous devriez utiliser le référentiel privé à l’adresse `https://git.corp.adobe.com/AdobeDocs`.
+Si vous êtes rédacteur technique, chef de programme ou développeur de l’équipe produit d’une solution [!UICONTROL Adobe Experience Cloud] et que votre rôle est de rédiger des articles techniques ou d’y contribuer, vous devriez utiliser le référentiel privé à l’adresse `https://git.corp.adobe.com/AdobeDocs`.
 
 <!--Employees from other parts of the Adobe world should use the public repo for minor updates.-->
 
@@ -41,14 +41,14 @@ Si vous êtes rédacteur technique, chef de programme ou développeur de l’éq
 
 Les contributeurs de la communauté peuvent utiliser l’interface utilisateur de GitHub pour les modifications de base ou dupliquer (fork) le référentiel pour apporter des contributions majeures.
 
-Pour plus [d&#39;informations, consultez le Guide](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html) du contributeur Adobe Docs.
+Voir le [Guide du contributeur de la documentation Adobe](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html) pour plus d’informations.
 
 ## Utilisation du langage Markdown pour mettre en forme votre rubrique
 
 Tous les articles de ce référentiel utilisent le langage Markdown adapté pour GitHub. Si vous n’êtes pas familiarisé avec Markdown, voir :
 
-* [Concepts de base des balises](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
-* [Signet d&#39;applet imprimable](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+* [Concepts de base de Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
+* [Aide-mémoire imprimable relatif au langage Markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ## Étiquettes
 
