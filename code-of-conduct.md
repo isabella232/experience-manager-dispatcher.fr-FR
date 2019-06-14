@@ -1,6 +1,6 @@
 ---
 source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
-translation-type: tm+mt
+translation-type: ht
 
 ---
 # Code de conduite d’Adobe
@@ -23,7 +23,7 @@ positif :
 * Respecter les différents points de vue et expériences
 * Accepter les critiques constructives
 * Se concentrer sur ce qui est le mieux pour la communauté
-* Faire preuve d&#39;empathie envers les autres membres de la communauté
+* Faire preuve d’empathie envers les autres membres de la communauté
 
 Voici quelques exemples de comportement de participants inacceptable :
 
@@ -62,5 +62,5 @@ foi s’exposent temporairement ou de façon permanente à des répercussions d�
 
 ## Attribution
 
-Ce code de conduite est adapté du [Covenant Covenant](https://contributor-covenant.org), version 1.4,
-disponible à [https://contributor-covenant.org/version/1/4](https://contributor-covenant.org/version/1/4/)
+Ce code de conduite est adapté à partir de la [Charte code de conduite contributeur ](https://contributor-covenant.org), version 1.4,
+disponible à l’adresse [https://contributor-covenant.org/version/1/4](https://contributor-covenant.org/version/1/4/).
