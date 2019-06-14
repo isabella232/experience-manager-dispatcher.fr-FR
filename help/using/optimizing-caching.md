@@ -1,19 +1,19 @@
 ---
 title: Optimisation d’un site web pour les performances du cache
 seo-title: Optimisation d’un site web pour les performances du cache
-description: Découvrez comment concevoir votre site Web pour optimiser les avantages de la mise en cache.
-seo-description: Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez utiliser pour optimiser les performances. Découvrez comment concevoir votre site Web pour optimiser les avantages de la mise en cache.
-uuid: 2 d 4114 d 1-f 464-4 e 10-b 25 c-a 1 b 9 a 9 c 715 d 1
+description: Apprenez comment concevoir votre site web afin de tirer le meilleur parti des avantages de la mise en cache.
+seo-description: Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez utiliser pour optimiser les performances. Apprenez comment concevoir votre site web afin de tirer le meilleur parti des avantages de la mise en cache.
+uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
 contentOwner: Utilisateur
-products: SG_ EXPERIENCEMANAGER/RÉPARTICHER
-topic-tags: répartiteur
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: dispatcher
 content-type: référence
-discoiquuid: ba 323503-1494-4048-941 d-c 1 d 14 f 2 e 85 b 2
-redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+discoiquuid: ba323503-1494-4048-941d-c1d14f2e85b2
+redirecttarget: https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
@@ -33,7 +33,7 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->Les versions de Dispatcher sont indépendantes d’AEM. Vous avez peut-être été redirigé vers cette page si vous avez suivi un lien renvoyant vers la documentation de Dispatcher inséré dans la documentation d’une précédente version d’AEM.
+>Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
 Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez utiliser pour optimiser les performances. Cette section vous indique comment concevoir votre site web afin de profiter au mieux des avantages de la mise en cache.
 
@@ -47,12 +47,12 @@ Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez u
 >
 En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
 
-## Utilisation d’un codage cohérent de page {#using-consistent-page-encoding}
+## Utilisation d’un codage cohérent de page  {#using-consistent-page-encoding}
 
 Les en-têtes de requête HTTP ne sont pas mis en cache. Par conséquent, des problèmes peuvent survenir si vous enregistrez des informations de codage de page dans l’en-tête. Dans ce cas, lorsque Dispatcher diffuse une page du cache, le codage par défaut du serveur web est utilisé pour la page. Il existe deux méthodes pour contourner ce problème :
 
 * Si vous utilisez un seul codage, assurez-vous que le codage utilisé sur le serveur web est le même que le codage par défaut du site web AEM.
-* Utilisez `<META>` une balise dans `head` la section HTML pour définir l&#39;encodage, comme dans l&#39;exemple suivant :
+* Utilisez une balise `<META>` dans la section `head` du code HTML pour définir le codage, comme dans l’exemple suivant :
 
 ```xml
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
@@ -76,7 +76,7 @@ www.myCompany.com/pictures/gallery.christmas.1.html
 >
 >Cette URL invoque la même page et le même modèle que gallery.html. Dans la définition du modèle, vous pouvez spécifier le script qui effectue le rendu de la page ou utiliser le même script pour toutes les pages.
 
-## Personnalisation par URL {#customize-by-url}
+## Personnalisation par URL  {#customize-by-url}
 
 Si vous autorisez les utilisateurs à modifier la taille de police des caractères (ou toute autre personnalisation de la mise en page), assurez-vous que les différentes personnalisations sont répercutées dans l’URL.
 
@@ -92,18 +92,18 @@ www.myCompany.com/news/main.large.html
 >
 >Pour la plupart des aspects de mise en page, il est également possible d’utiliser des feuilles de style et/ou des scripts côté client. Ces deux options fonctionnent généralement bien avec la mise en cache.
 >
->Cela s&#39;avère également utile pour une version imprimée, où vous pouvez utiliser une URL telle que : « 
+>Elles sont également utiles pour une version imprimée. Dans ce cas, vous pouvez également utiliser une URL telle que : ``
 >
 >`www.myCompany.com/news/main.print.html`
 >
 >En utilisant l’expansion de nom de fichier du script de la définition du modèle, vous pouvez définir un script distinct qui effectue le rendu des pages d’impression.
 
-## Invalidation de fichiers image utilisés comme titres {#invalidating-image-files-used-as-titles}
+## Invalidation de fichiers image utilisés comme titres  {#invalidating-image-files-used-as-titles}
 
 Si vous affichez les titres de page ou tout autre texte sous la forme d’images, il est conseillé de stocker les fichiers de manière à ce qu’ils soient supprimés lors de la mise à jour du contenu de la page :
 
 1. Placez le fichier image dans le même dossier que la page.
-1. Utilisez le format d&#39;affectation de nom suivant pour le fichier image :
+1. Utilisez le format d’affectation de nom suivant pour le fichier image :
 
    `<page file name>.<image file name>`
 
@@ -111,9 +111,9 @@ Par exemple, vous pouvez stocker le titre de la page maPage.html dans le fichier
 
 >[!NOTE]
 >
->Le fichier image n’existe pas nécessairement physiquement sur l’instance AEM. Vous pouvez utiliser un script qui crée dynamiquement le fichier image. Le dispatcher stocke ensuite le fichier sur le serveur web.
+>Le fichier image n’existe pas nécessairement physiquement sur l’instance AEM. Vous pouvez utiliser un script qui crée dynamiquement le fichier image. Dispatcher stocke ensuite le fichier sur le serveur web.
 
-## Invalidation des fichiers image utilisés pour la navigation {#invalidating-image-files-used-for-navigation}
+## Invalidation des fichiers image utilisés pour la navigation  {#invalidating-image-files-used-for-navigation}
 
 Si vous utilisez des images pour les entrées de navigation, la méthode est fondamentalement la même qu’avec les titres. Elle est seulement un peu plus complexe. Stockez toutes les images de navigation avec les pages cibles. Si vous utilisez deux images pour les modes normal et actif, vous pouvez utiliser les scripts suivants :
 
@@ -125,7 +125,7 @@ Il est important de créer ces images avec le même descripteur de nommage que l
 
 Pour les pages qui ne sont pas modifiées, les images sont toujours dans le cache, bien que les pages elles-mêmes soient généralement invalidées automatiquement.
 
-## Personnalisation {#personalization}
+## Personnalisation  {#personalization}
 
 Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est donc recommandé de n’utiliser la personnalisation que lorsque cela est nécessaire. Explications :
 
@@ -144,11 +144,11 @@ Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est d
 
 
 
-## Connexions persistantes {#sticky-connections}
+## Connexions persistantes  {#sticky-connections}
 
 Les [connections persistantes](dispatcher.md#TheBenefitsofLoadBalancing) garantissent que les documents d’un utilisateur sont tous composés sur le même serveur. Si un utilisateur quitte ce dossier et y revient ultérieurement, la connexion reste valide. Définissez un dossier pour stocker tous les documents qui nécessitent des connexions persistantes pour le site web. Essayez de ne pas placer d’autres documents dans ce dossier. Si vous utilisez des pages personnalisées et des données de session, cela impacte l’équilibrage de charge.
 
-## Types MIME {#mime-types}
+## Types MIME  {#mime-types}
 
 Pour un navigateur, il existe deux manières de déterminer le type d’un fichier :
 
