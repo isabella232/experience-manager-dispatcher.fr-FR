@@ -1,20 +1,20 @@
 ---
 title: Liste de contrôle de sécurité de Dispatcher
 seo-title: Liste de contrôle de sécurité de Dispatcher
-description: Liste de contrôle de sécurité qui doit être renseignée avant la production.
-seo-description: Liste de contrôle de sécurité qui doit être renseignée avant la production.
-uuid: 7 bfa 3202-03 f 6-48 e 9-8 d 2 e -2 a 40 e 137 ecbe
+description: Liste de contrôle de sécurité, qui doit être renseignée avant la mise en production.
+seo-description: Liste de contrôle de sécurité, qui doit être renseignée avant la mise en production.
+uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
 contentOwner: Utilisateur
-products: SG_ EXPERIENCEMANAGER/RÉPARTICHER
-topic-tags: répartiteur
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: dispatcher
 content-type: référence
-discoiquuid: fbfafa 55-c 029-4 ed 7-ab 3 e -1 bebfde 18248
-jcr-lastmodifiedby: remove-legacypath -6-1
+discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
+jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
-source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
+translation-type: ht
+source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
 
@@ -36,7 +36,7 @@ Dispatcher comme système frontal offre une couche supplémentaire de sécurité
 
 >[!CAUTION]
 >
->Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) correspondante.
+>Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Pour plus d’informations, voir la [documentation d’Adobe Experience Manager correspondante](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html).
 
 ## Utilisation de la version la plus récente de Dispatcher {#use-the-latest-version-of-dispatcher}
 
@@ -79,7 +79,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 Lors de la configuration de Dispatcher, vous devez limiter l’accès externe autant que possible. Voir [Exemple de section /filter](dispatcher-configuration.md#main-pars_184_1_title) dans la documentation de Dispatcher.
 
-## S’assurer que l’accès aux URL d’administration est refusé {#make-sure-access-to-administrative-urls-is-denied}
+## S’assurer que l’accès aux URL d’administration est refusé  {#make-sure-access-to-administrative-urls-is-denied}
 
 Assurez-vous d’utiliser des filtres pour bloquer l’accès externe aux URL d’administration, par exemple la console web.
 
@@ -91,18 +91,18 @@ Les listes blanches sont le meilleur moyen de fournir un contrôle d’accès pu
 
 ## Exécution de Dispatcher avec un utilisateur système dédié {#run-dispatcher-with-a-dedicated-system-user}
 
-Lors de la configuration du répartiteur, assurez-vous que le serveur Web est exécuté par un utilisateur dédié avec les droits les moins appropriés. Il est conseillé d’octroyer uniquement l’accès en écriture au dossier du cache de Dispatcher.
+Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est conseillé d’octroyer uniquement l’accès en écriture au dossier du cache de Dispatcher.
 
 En outre, les utilisateurs IIS doivent configurer leur site web comme suit :
 
 1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
 1. Définissez l’utilisateur.
 
-## Prévention des attaques par déni de service (DoS) {#prevent-denial-of-service-dos-attacks}
+## Prévention des attaques par déni de service (DoS)  {#prevent-denial-of-service-dos-attacks}
 
 Une attaque par déni de service (DoS) est une tentative de rendre une ressource informatique indisponible à ses utilisateurs ciblés.
 
-Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’empêcher les attaques DoS : [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filtres))
+Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’empêcher les attaques DoS :  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filtres))
 
 * Utilisez le module mod_rewrite (par exemple [Apache 2.2](https://httpd.apache.org/docs/2.2/mod/mod_rewrite.html)) pour effectuer des validations d’URL (si les règles de modèle d’URL ne sont pas trop complexes).
 
@@ -132,7 +132,7 @@ Ensuite, configurez les filtres pour accorder l’accès aux chemins d’accès 
 * `/libs/cq/personalization/components/clickstreamcloud/content/config.json`
 * `/libs/wcm/stats/tracker.js`
 * `/libs/cq/personalization/*` (JS, CSS et JSON)
-* `/libs/cq/security/userinfo.json` (Informations utilisateur CQ)
+* `/libs/cq/security/userinfo.json` (Informations sur les utilisateurs CQ)
 * `/libs/granite/security/currentuser.json` (**les données ne doivent pas être mises en cache**)
 
 * `/libs/cq/i18n/*` (Internalisation)
@@ -149,16 +149,16 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez mettre en liste blanche la prise en charge du jeton CSRF dans Dispatcher. Vous pouvez le faire en procédant comme suit :
+AEM fournit une [structure](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinée à empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery). Pour utiliser correctement cette structure, vous devez mettre en liste blanche la prise en charge du jeton CSRF dans Dispatcher. Vous pouvez le faire en procédant comme suit :
 
-1. Création d&#39;un filtre pour autoriser `/libs/granite/csrf/token.json` le chemin ;
-1. Ajoutez l&#39; `CSRF-Token` en-tête à la `clientheaders` section de la configuration Répartiteur.
+1. Créez un filtre pour autoriser le chemin d’accès `/libs/granite/csrf/token.json` ;
+1. Ajoutez l’en-tête `CSRF-Token` à la section `clientheaders` de la configuration Dispatcher.
 
 ## Prévention du détournement de clic {#prevent-clickjacking}
 
 Pour empêcher le détournement de clic, il est conseillé de configurer le serveur web afin que l’en-tête HTTP `X-FRAME-OPTIONS` soit défini sur `SAMEORIGIN`.
 
-Pour plus [d’informations sur le détournement de clic, voir le site OWASP](https://www.owasp.org/index.php/Clickjacking).
+Pour plus [d’informations sur les clics publicitaires, voir le site OWASP](https://www.owasp.org/index.php/Clickjacking).
 
 ## Test de pénétration {#perform-a-penetration-test}
 
