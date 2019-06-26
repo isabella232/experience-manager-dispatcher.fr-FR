@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: référence
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 8e8638027c79015a4151539918a17069fb16873a
+source-git-commit: 4f1e3740c7eb91023b819ffed0bb5d0b432002be
 
 ---
 
@@ -1710,7 +1710,7 @@ Cette ligne de commande provoque automatiquement la rotation :
 * du fichier journal de Dispatcher ; avec un horodatage dans l’extension (logs/dispatcher.log%Y%m%d) ;
 * chaque semaine (60 x 60 x 24 x 7 = 604 800 secondes).
 
-Consultez la documentation du serveur web Apache sur la rotation des journaux et les journaux redirigés ; par exemple[ Apache 2.2](https://httpd.apache.org/docs/2.2/logs.html).
+Consultez la documentation du serveur web Apache sur la rotation des journaux et les journaux redirigés ; par exemple[ Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
 
 >[!NOTE]
 >
