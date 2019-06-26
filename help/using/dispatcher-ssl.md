@@ -12,8 +12,8 @@ discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
 
@@ -35,9 +35,9 @@ Configurez Dispatcher de sorte qu’il communique avec l’instance de rendu AEM
 
 Avant de configurer Dispatcher, configurez AEM ou CQ de sorte que ces applications utilisent le protocole SSL :
 
-* AEM 6.2 : [activation de HTTP via SSL](https://helpx.adobe.com/fr/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1 : [activation de HTTP via SSL](https://docs.adobe.com/content/docs/fr/aem/6-1/deploy/configuring/config-ssl.html)
-* Anciennes versions d’AEM : voir [cette page](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html).
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Anciennes versions d’AEM : voir [cette page](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
 
 ### En-têtes de demande associés au protocole SSL {#ssl-related-request-headers}
 
@@ -48,7 +48,7 @@ Lorsque Dispatcher reçoit une requête HTTPS, il inclut les en-têtes suivants 
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-Une demande via Apache 2.2 avec `mod_ssl` inclut des en-têtes similaires à l’exemple suivant :
+Une demande via Apache 2.4 avec `mod_ssl` inclut des en-têtes similaires à l’exemple suivant :
 
 ```shell
 X-Forwarded-SSL: on
@@ -142,7 +142,7 @@ Créez ou obtenez des certificats signés par une autorité de certification qui
 
 #### Création de l’autorité de certification  {#creating-your-ca}
 
-Si vous agissez comme autorité de certification, utilisez [OpenSSL](https://www.openssl.org/) pour créer l’autorité de certification qui signe les certificats du serveur et du client. (vous devez disposer des bibliothèques OpenSSL). Si vous utilisez une autorité de certification tierce, ne suivez pas cette procédure.
+Si vous agissez comme autorité de certification, utilisez [OpenSSL](https://www.openssl.org/) pour créer l’autorité de certification qui signe les certificats du serveur et du client (vous devez disposer des bibliothèques OpenSSL). Si vous utilisez une autorité de certification tierce, ne suivez pas cette procédure.
 
 1. Ouvrez un terminal et modifiez le répertoire actuel par le répertoire qui contient le fichier CA.sh, par exemple `/usr/local/ssl/misc`.
 1. Pour créer l’autorité de certification, saisissez la commande suivante, puis indiquez les valeurs lorsque vous y êtes invité :
@@ -251,9 +251,9 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Utilisez le certificat de rendu avec les instructions de la section *Activation du protocole SSL sur l’instance Publish* pour configurer le service HTTP de l’instance de rendu de sorte qu’il utilise le protocole SSL :
 
-* AEM 6.2 : [activation de HTTP via SSL](https://helpx.adobe.com/fr/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1 : [activation de HTTP via SSL](https://docs.adobe.com/fr/content/docs/fr/aem/6-1/deploy/configuring/config-ssl.html)
-* Anciennes versions d’AEM : voir [cette page.](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html)
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Anciennes versions d’AEM : voir [cette page.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
 ### Configuration du protocole SSL pour le module de Dispatcher {#configuring-ssl-for-the-dispatcher-module}
 
