@@ -9,8 +9,8 @@ converted: 'true'
 topic-tags: dispatcher
 content-type: référence
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
 
@@ -42,7 +42,6 @@ Le tableau suivant indique l’identifiant de serveur web utilisé dans les noms
 | Serveur web | Kit d’installation |
 |--- |--- |
 | Apache 2.4 | dispatcher-apache **2.4**-&lt;other parameters&gt; |
-| Apache 2.2 | dispatcher-apache **2.2**-&lt;other parameters&gt; |
 | Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;autres paramètres&gt; |
 | Serveur-iplanet web Sun Java | dispatcher-**ns**-&lt;autres paramètres&gt; |
 
@@ -90,7 +89,7 @@ Comment Type: draft
 Pour plus d’informations sur la manière d’installer ce serveur web, consultez les ressources suivantes :
 
 * La documentation Microsoft sur le serveur Internet Information Server
-* [« Site officiel Microsoft IIS »](https://www.iis.net/)
+* [Le site officiel de Microsoft IIS](https://www.iis.net/)
 
 ### Composants IIS requis {#required-iis-components}
 
@@ -274,7 +273,7 @@ Pour pouvoir commencer à utiliser Dispatcher, vous devez connaître :
 
 ### Installation du serveur web Apache  {#installing-apache-web-server}
 
-Pour plus d’informations sur le mode d’installation d’un serveur web Apache, lisez le manuel d’installation, [en ligne](https://httpd.apache.org/) ou en version imprimée.
+Pour plus d’informations sur le mode d’installation d’un serveur web Apache, lisez le manuel d’installation, que ce soit [en ligne](https://httpd.apache.org/) ou sur papier.
 
 >[!CAUTION]
 >
@@ -282,7 +281,7 @@ Pour plus d’informations sur le mode d’installation d’un serveur web Apach
 >
 >Vous trouverez plus d’informations dans le manuel d’installation du serveur web Apache.
 
-Voir également les [Conseils de sécurité](https://httpd.apache.org/docs/2.2/misc/security_tips.html) et [Rapports de sécurité](https://httpd.apache.org/security_report.html) du serveur HTTP Apache.
+Also see the Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) and [Security Reports](https://httpd.apache.org/security_report.html).
 
 ### Serveur web Apache - Ajout du module de Dispatcher {#apache-web-server-add-the-dispatcher-module}
 
@@ -405,7 +404,7 @@ Vous trouverez les paramètres de configuration dans le tableau suivant :
 | DispatcherLogLevel | Niveau de journal du fichier journal :<br/> 0 - Erreurs<br/> 1 - Avertissements<br/> 2 - Infos<br/> 3 - Déboguer<br/> **Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
 | DispatcherNoServerHeader | *Ce paramètre est obsolète et n’a plus aucun effet.*<br/><br/> Définit l’en-tête du serveur à utiliser : <br/><ul><li>Non défini ou 0 - L’en-tête du serveur HTTP contient la version AEM. </li><li>1 - L’en-tête du serveur Apache est utilisé.</li></ul> |
 | DispatcherDeclineRoot | Définit le refus ou l’acceptation des demandes à la racine « / » :<br/>**0** - accepte des requêtes à / <br/>**1** - les requêtes à / ne sont pas gérées par Dispatcher ; utilisez mod_alias pour le mappage correct. |
-| DispatcherUseProcessedURL | Définit s’il faut utiliser des URL prétraitées pour tout traitement supplémentaire par Dispatcher :<br/> **0** - utilise l’URL d’origine transmise au serveur web. <br/>**1** - Dispatcher utilise l’URL déjà traitée par les gestionnaires qui précèdent Dispatcher (c’est-à-dire `mod_rewrite`) à la place de l’URL d’origine transmise au serveur. Par exemple, l’URL d’origine ou l’URL traitée est mise en correspondance avec des filtres de Dispatcher. L’URL est également utilisée comme base de la structure de fichiers du cache.   Pour plus d’informations sur mod_rewrite, voir la documentation sur le site web d’Apache, par exemple Apache 2.2. Lors de l’utilisation de mod_rewrite, il est conseillé d’utiliser l’indicateur « passthrough » | PT&#39; (transmis au gestionnaire suivant) pour forcer le moteur de réécriture à définir le champ uri de la structure request_rec interne sur la valeur du champ de nom de fichier. |
+| DispatcherUseProcessedURL | Définit s’il faut utiliser des URL prétraitées pour tout traitement supplémentaire par Dispatcher :<br/> **0** - utilise l’URL d’origine transmise au serveur web. <br/>**1** - Dispatcher utilise l’URL déjà traitée par les gestionnaires qui précèdent Dispatcher (c’est-à-dire `mod_rewrite`) à la place de l’URL d’origine transmise au serveur. Par exemple, l’URL d’origine ou l’URL traitée est mise en correspondance avec des filtres de Dispatcher. L’URL est également utilisée comme base de la structure de fichiers du cache.   Pour plus d’informations sur mod_rewrite, voir la documentation sur le site web d’Apache, par exemple Apache 2.4. Lors de l’utilisation de mod_rewrite, il est conseillé d’utiliser l’indicateur « passthrough » | PT&#39; (transmis au gestionnaire suivant) pour forcer le moteur de réécriture à définir le champ uri de la structure request_rec interne sur la valeur du champ de nom de fichier. |
 | DispatcherPassError | Définit comment prendre en charge les codes d’erreur pour le traitement de ErrorDocument :<br/> **0** - Dispatcher met en file d’attente toutes les réponses d’erreur envoyées au client. <br/>**1** - Dispatcher ne met pas en file d’attente une réponse d’erreur envoyée au client (dont le code d’état est supérieur ou égal à 400), mais transfère le code d’état à Apache qui permet, par exemple, à une directive ErrorDocument de traiter ce code d’état. <br/>**Plage de codes** - Indiquez une plage de codes d’erreur pour lesquels la réponse est transmise à Apache. D’autres codes d’erreur sont transmis au client. Par exemple, la configuration suivante transmet les réponses au client pour l’erreur 412 et toutes les autres erreurs sont transmises à Apache : DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Indique le délai de persistance, en secondes. Depuis la version 4.2.0 de Dispatcher, la valeur de persistance par défaut est 60. La valeur 0 désactive la persistance. |
 | DispatcherNoCanonURL | Si vous définissez ce paramètre sur On, l’URL brute sera transmise au serveur principal au lieu de celle qui est canonisée et remplacera les paramètres de DispatcherUseProcessedURL. La valeur par défaut est Off. <br/>**Remarque** : Les règles de filtrage de la configuration Dispatcher sont toujours évaluées par rapport à l’URL expurgée et non à l’URL brute. |
@@ -424,7 +423,7 @@ ServerTokens Full` `
 DispatcherNoServerHeader 0`\
 Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir : `  
 ServerTokens Prod`\
-Pour plus d’informations, voir la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.2)](https://httpd.apache.org/docs/2.2/mod/core.html).
+See the [Apache Documentation about ServerTokens Directive (for example, for Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) for more information.
 
 **SetHandler**
 
@@ -497,7 +496,7 @@ Le paramètre **ModMimeUsePathInfo** doit être défini sur `On` pour toutes les
 
 `ModMimeUsePathInfo On`
 
-Le module mod_mime (voir par exemple [Module Apache mod_mime](https://httpd.apache.org/docs/2.2/mod/mod_mime.html)) est utilisé pour affecter des métadonnées de contenu au contenu sélectionné pour une réponse HTTP. La configuration par défaut signifie que, lorsque mod_mime détermine le type de contenu, seule la partie de l’URL qui correspond à un fichier ou à un répertoire est prise en considération.
+Le module mod_mime (voir par exemple [Module Apache mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html)) est utilisé pour affecter des métadonnées de contenu au contenu sélectionné pour une réponse HTTP. La configuration par défaut signifie que, lorsque mod_mime détermine le type de contenu, seule la partie de l’URL qui correspond à un fichier ou à un répertoire est prise en considération.
 
 Lorsque le paramètre `On` est défini sur `ModMimeUsePathInfo`, il indique que `mod_mime` doit déterminer le type de contenu en fonction de l’URL *complète*. Cela signifie que des métadonnées sont appliquées aux ressources virtuelles selon leur extension.
 
@@ -656,4 +655,4 @@ Service fn="dispService" method="(GET|HEAD|POST)" type="\*/\*"
 Pour pouvoir commencer à utiliser Dispatcher, vous devez connaître :
 
 * [La configuration de Dispatcher](dispatcher-configuration.md)
-* [La configuration d’AEM](page-invalidate.md) pour qu’il fonctionne avec Dispatcher
+* [La configuration d’AEM](page-invalidate.md) pour qu’il fonctionne avec Dispatcher.
