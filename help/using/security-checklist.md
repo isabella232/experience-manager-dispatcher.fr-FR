@@ -13,7 +13,7 @@ jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
@@ -36,7 +36,7 @@ Dispatcher comme système frontal offre une couche supplémentaire de sécurité
 
 >[!CAUTION]
 >
->Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) correspondante.
+>Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Pour plus d’informations, voir la [documentation d’Adobe Experience Manager correspondante](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html).
 
 ## Utilisation de la version la plus récente de Dispatcher {#use-the-latest-version-of-dispatcher}
 
@@ -149,7 +149,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez mettre en liste blanche la prise en charge du jeton CSRF dans Dispatcher. Vous pouvez le faire en procédant comme suit :
+AEM fournit une [structure](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinée à empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery). Pour utiliser correctement cette structure, vous devez mettre en liste blanche la prise en charge du jeton CSRF dans Dispatcher. Vous pouvez le faire en procédant comme suit :
 
 1. Créez un filtre pour autoriser le chemin d’accès `/libs/granite/csrf/token.json` ;
 1. Ajoutez l’en-tête `CSRF-Token` à la section `clientheaders` de la configuration Dispatcher.
@@ -158,7 +158,7 @@ AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/
 
 Pour empêcher le détournement de clic, il est conseillé de configurer le serveur web afin que l’en-tête HTTP `X-FRAME-OPTIONS` soit défini sur `SAMEORIGIN`.
 
-Pour plus [d’informations sur le détournement de clic, voir le site OWASP](https://www.owasp.org/index.php/Clickjacking).
+Pour plus [d’informations sur les clics publicitaires, voir le site OWASP](https://www.owasp.org/index.php/Clickjacking).
 
 ## Test de pénétration {#perform-a-penetration-test}
 
