@@ -1,10 +1,11 @@
 ---
 cloud: experience-cloud
-product: AEM Dispatcher
-archtype: Administrateur
+product: Experience Manager
+sub-product: Experience Manager répartiteur
+archetype: Administrateur
 user-guide-title: Aide en ligne d’Experience Manager Dispatcher
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 5cd966c0e317949582084d3268c6914540b707b1
 
 ---
 
@@ -19,7 +20,7 @@ source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 + Configuration {#configuring}
    + [Configuration de Dispatcher](dispatcher-configuration.md)
    + [Invalidation de pages mises en cache depuis AEM](page-invalidate.md)
-   + [Optimisation d’un site web pour le cache Performance](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+   + [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
    + [Mise en cache de contenu sécurisé](permissions-cache.md)
    + [Utilisation de Dispatcher avec plusieurs domaines ](dispatcher-domains.md)
    + [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
