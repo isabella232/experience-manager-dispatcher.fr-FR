@@ -3,8 +3,8 @@ title: Problèmes fréquents de Dispatcher
 seo-title: Problèmes fréquents d’AEM Dispatcher
 description: Problèmes fréquents d’AEM Dispatcher
 seo-description: Problèmes fréquents d’Adobe AEM Dispatcher
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 
@@ -115,7 +115,7 @@ Voir la page [Mise en cache de contenu sécurisé](permissions-cache.md).
 
 ### Comment sécuriser les communications entre les instances Dispatcher et CQ ?
 
-Voir les pages [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) et [Liste de contrôle de sécurité d’AEM](https://helpx.adobe.com/fr/experience-manager/6-4/sites/administering/using/security-checklist.html).
+Reportez-vous à la liste de contrôle [de sécurité du](security-checklist.md) répartiteur et aux pages de liste de contrôle [de sécurité](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html) AEM.
 
 ### Le problème lié à `jcr:content` de Dispatcher a été remplacé par `jcr%3acontent`
 
@@ -123,17 +123,17 @@ Voir les pages [Liste de contrôle de sécurité de Dispatcher](security-checkli
 
 **Réponse** : utilisez la méthode `ResourceResolver.map()` pour obtenir une URL « conviviale » qui permet d’utiliser/recevoir des requêtes d’origine et de résoudre le problème de mise en cache avec Dispatcher. La méthode map() code les deux points `:` en caractères de soulignement et la méthode resolve() les décode au format lisible SLING JCR. Utilisez la méthode map() pour générer l’URL utilisée dans l’appel Ajax.
 
-Pour plus d’informations, voir : [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+Further read: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
 ## Purge de Dispatcher
 
 ### Comment configurer les agents de purge de Dispatcher sur une instance de publication ?
 
-Voir la page [Réplication](https://helpx.adobe.com/content/help/fr/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents).
+Voir la page [Réplication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
 
 ### Comment résoudre les problèmes de purge de Dispatcher ?
 
-[Reportez-vous à cet article de dépannage](https://helpx.adobe.com/content/help/fr/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) qui répond aux questions suivantes :
+[Reportez-vous à cet article](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) de dépannage qui répond aux questions suivantes :
 
 * Comment déboguer une situation où aucun contenu n’est enregistré dans le cache de Dispatcher ?
 * Comment déboguer une situation où les fichiers de cache ne sont pas mis à jour ?
