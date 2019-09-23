@@ -9,7 +9,7 @@ pageversionid: '1193211344162'
 topic-tags: dispatcher
 content-type: référence
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
-translation-type: ht
+translation-type: tm+mt
 source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
 
 ---
@@ -25,7 +25,7 @@ Les sections suivantes décrivent comment configurer les différents aspects de 
 
 ## Prise en charge d’IPv6 et IPv4  {#support-for-ipv-and-ipv}
 
-Vous pouvez installer tous les éléments d’AEM et de Dispatcher sur des réseaux IPv4 et IPv6. Consultez [IPV 4 et IPV 6](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html#AdditionalPlatformNotes).
+Vous pouvez installer tous les éléments d’AEM et de Dispatcher sur des réseaux IPv4 et IPv6. Voir [IPV4 et IPV6](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html#AdditionalPlatformNotes).
 
 ## Fichiers de configuration de Dispatcher {#dispatcher-configuration-files}
 
@@ -218,9 +218,9 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 
 >[!CAUTION]
 >
->Le paramètre `/homepage` (IIS uniquement) ne fonctionne plus. Vous devez utiliser à la place le [Module de réécriture d’URL d’IIS](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
+>Le paramètre `/homepage` (IIS uniquement) ne fonctionne plus. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Si vous utilisez Apache, utilisez le module `mod_rewrite`. Consultez la documentation sur le site web d’Apache pour en savoir plus sur `mod_rewrite` (par exemple, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Lorsque vous utilisez `mod_rewrite`, il est recommandé d’utiliser l’indicateur ** [&#39;passthrough|PT’ (passage au gestionnaire suivant)](https://helpx.adobe.com/fr/dispatcher/kb/DispatcherModReWrite.html)** pour forcer le moteur de réécriture à définir le champ `uri` de la structure interne `request_rec` sur la valeur du champ `filename`.
+>Si vous utilisez Apache, utilisez le module `mod_rewrite`. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag ** ['passthrough|PT' (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
 
 <!-- 
 
@@ -328,7 +328,7 @@ La propriété `/virtualhosts` définit une liste de toutes les combinaisons de 
 ```
 
 * `scheme` : (facultatif) soit `https://` soit `https://.`
-* `host` : nom ou adresse IP de l’ordinateur hôte ainsi que le numéro de port, le cas échéant. (Voir [https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23))
+* `host` : nom ou adresse IP de l’ordinateur hôte ainsi que le numéro de port, le cas échéant. (See [https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23))
 * `uri` : (facultatif) chemin d’accès aux ressources.
 
 L’exemple de configuration suivant traite des demandes pour les domaines .com et .ch de monEntreprise, ainsi que tous les domaines de maSousDivison :
@@ -413,7 +413,7 @@ Dans cet exemple, le tableau suivant affiche les hôtes virtuels qui sont résol
 >
 >`/allowAuthorized` **doit** être défini sur `"0"` dans la section `/cache` afin d’activer cette fonction.
 
-Créez une session sécurisée pour l’accès à la ferme de serveurs de rendus, de sorte que les utilisateurs doivent ouvrir une session pour accéder à n’importe quelle page de la ferme de serveurs. Après avoir ouvert une session, les utilisateurs peuvent accéder à toutes les pages de la ferme de serveurs. Voir [Création d’un groupe d’utilisateurs fermé](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) pour plus d’informations sur l’utilisation de cette fonctionnalité avec les groupes d’utilisateurs fermés. Consultez également la [Liste de contrôle de sécurité](/help/using/security-checklist.md) de Dispatcher avant la mise en ligne.
+Créez une session sécurisée pour l’accès à la ferme de serveurs de rendus, de sorte que les utilisateurs doivent ouvrir une session pour accéder à n’importe quelle page de la ferme de serveurs. Après avoir ouvert une session, les utilisateurs peuvent accéder à toutes les pages de la ferme de serveurs. Voir [Création d’un groupe d’utilisateurs fermé](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) pour plus d’informations sur l’utilisation de cette fonction avec des groupes d’utilisateurs fermés. Consultez également la [Liste de contrôle de sécurité](/help/using/security-checklist.md) de Dispatcher avant la mise en ligne.
 
 La propriété `/sessionmanagement` est une sous-propriété de `/farms`.
 
@@ -563,7 +563,7 @@ Utilisez la section `/filter` pour définir les requêtes HTTP que Dispatcher ac
 
 >[!CAUTION]
 >
->Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez aussi la [Liste de contrôle de sécurité d’AEM](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html) pour plus de détails sur la sécurité de votre installation AEM.
+>Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez également la liste de contrôle [de sécurité](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) AEM pour plus d’informations sur la sécurité de votre installation AEM.
 
 La section /filter se compose d’une série de règles qui refusent ou accordent l’accès au contenu en fonction de modèles situés dans la partie des lignes de demandes de la requête HTTP. Vous devez utiliser une stratégie de liste blanche pour la section /filter :
 
@@ -598,7 +598,7 @@ vous devez utiliser
 
 #### Partie de la ligne de demande des requêtes HTTP {#the-request-line-part-of-http-requests}
 
-HTTP/1.1 définit la [ligne de demande](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) comme suit :
+HTTP/1.1 defines the [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) as follows:
 
 *Method Request-URI HTTP-Version*&lt;CRLF&gt;
 
@@ -808,7 +808,7 @@ En fonction de l’installation, il peut y avoir des ressources supplémentaires
 
 >[!CAUTION]
 >
->Si vous [utilisez des rapports dans un environnement de publication](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/reporting.html#UsingReportsinaPublishEnvironment), vous devez configurer Dispatcher pour refuser l’accès à `/etc/reports` aux visiteurs externes.
+>If you are [using reports in a publish environment](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/reporting.html#UsingReportsinaPublishEnvironment) you should configure Dispatcher to deny access to `/etc/reports` for external visitors.
 
 ### Restriction des chaînes de requête {#restricting-query-strings}
 
@@ -941,7 +941,7 @@ La section `/vanity_urls` contient les propriétés suivantes :
 
 >[!NOTE]
 >
->Si votre rendu est une instance d’AEM, vous devez installer le module [VanityURLS-Components](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq600/component/vanityurls-components) pour installer le service d’URL de redirection. (Voir[Connexion à un partage de modules](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/package-manager.html#SigningIntoPackageShare).)
+>If your render is an instance of AEM you must install the [VanityURLS-Components](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq600/component/vanityurls-components) package to install the vanity URL service. (See [Signing In to Package Share](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/package-manager.html#SigningIntoPackageShare).)
 
 Utilisez la procédure suivante pour autoriser l’accès aux URL de redirection vers un microsite.
 
@@ -1172,7 +1172,7 @@ Lorsqu’un fichier dans `/content/myWebsite/xx` est invalidé, tous les fichier
 
 >[!NOTE]
 >
->L’invalidation peut être empêchée en envoyant un en-tête `CQ-Action-Scope:ResourceOnly` supplémentaire. Cela peut être utilisé pour vider des ressources particulières sans invalider les autres parties du cache. Voir [cette page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) et [Invalidation manuelle du cache de Dispatcher](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/page-invalidate.html) pour plus de détails.
+>L’invalidation peut être empêchée en envoyant un en-tête `CQ-Action-Scope:ResourceOnly` supplémentaire. Cela peut être utilisé pour vider des ressources particulières sans invalider les autres parties du cache. Voir [cette page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) et Invalidation [manuelle du cache](https://helpx.adobe.com/experience-manager/dispatcher/using/page-invalidate.html) du répartiteur pour plus d’informations.
 
 >[!NOTE]
 >
@@ -1348,7 +1348,7 @@ Voici ci-dessous un exemple de la configuration par défaut :
 >Si Dispatcher est requis pour stocker et livrer les en-têtes de réponse ETag d’AEM, procédez comme suit :
 >
 >* Ajoutez le nom de l’en-tête dans la section`/cache/headers`.
->* Ajoutez la [directive Apache suivante](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) dans la section relative à Dispatcher :
+>* Add the following [Apache directive](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) in the Dispatcher related section:
 >
 
 
@@ -1501,7 +1501,7 @@ Lorsqu’une page est constituée de contenu provenant de plusieurs nœuds de co
 
 Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur `httponly`, qui doit être ajouté à des fins de sécurité. Pour l’ajouter, définissez la propriété `httpOnly` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (0 ou 1) définit si le cookie `renderid` se fait adjoindre l’attribut `HttpOnly`. La valeur par défaut est 0, ce qui signifie que l’attribut ne sera pas ajouté.
 
-Pour plus d’informations sur l’indicateur `httponly`, voir [la page](https://www.owasp.org/index.php/HttpOnly).
+For additional information about the `httponly` flag, read [this page](https://www.owasp.org/index.php/HttpOnly).
 
 ### secure {#secure}
 
@@ -1602,7 +1602,7 @@ Les valeurs glob peuvent inclure des caractères génériques et des caractères
 | Caractère générique | Description | Exemples |
 |--- |--- |--- |
 | `*` | Correspond à aucune ou à plusieurs instances contiguës de n’importe quel caractère de la chaîne. Le dernier caractère de la correspondance est déterminé par l’une des situations suivantes :  <br/>Un caractère de la chaîne correspond au caractère suivant du modèle, et le caractère du modèle possède les caractéristiques suivantes :<br/><ul><li>N’est pas un *</li><li>N’est pas un ?</li><li>Un caractère littéral (incluant un espace) ou une classe de caractères.</li><li>La fin du modèle est atteinte.</li></ul>Dans une classe de caractères, le caractère est interprété littéralement. | `*/geo*`Correspond à n’importe quelle page sous les nœud `/content/geometrixx` et `/content/geometrixx-outdoors`. Les demandes HTTP suivantes correspondent au modèle glob : <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*`<br/>Représente n’importe quelle page sous le nœud `/content/geometrixx-outdoors`. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
-| `?` | Correspond à tout caractère unique. Utilisation en dehors des classes de caractères. Dans une classe de caractères, ce caractère est interprété littéralement. | `*outdoors/??/*`<br/> Correspond aux pages du site geometrixx-outdoor dans n’importe quelle langue. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>La demande suivante ne correspond pas au modèle glob : <br/><ul><li>&quot;GET /content/geometrixx-outdoors/fr.html&quot;</li></ul> |
+| `?` | Correspond à tout caractère unique. Utilisation en dehors des classes de caractères. Dans une classe de caractères, ce caractère est interprété littéralement. | `*outdoors/??/*`<br/> Correspond aux pages du site geometrixx-outdoor dans n’importe quelle langue. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>La demande suivante ne correspond pas au modèle glob : <br/><ul><li>"GET /content/geometrixx-outdoors/fr.html"</li></ul> |
 | `[ and ]` | Marque le début et la fin d’une classe de caractères. Les classes de caractères peuvent inclure une ou plusieurs plages de caractères et des caractères uniques.<br/>Une correspondance se produit si le caractère cible correspond à n’importe quel caractère de la classe de caractères ou d’une plage définie.<br/>Si le crochet fermant n’est pas inclus, le modèle ne produit pas de correspondance. | `*[o]men.html*`<br/>Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>Correspond aux requêtes HTTP suivantes : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | Indique une plage de caractères. À utiliser dans des classes de caractères.  En dehors d’une classe de caractères, ce caractère est interprété littéralement. | `*[m-p]men.html*`Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | Annule le caractère ou la classe de caractères qui suit. À utiliser uniquement pour annuler des caractères et des plages de caractères dans des classes de caractères. Équivalent au `^ wildcard` <br/>En dehors d’une classe de caractères, ce caractère est interprété littéralement. | `*[!o]men.html*`<br/>Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>Ne correspond pas à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` ou `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
@@ -1721,7 +1721,7 @@ Cette ligne de commande provoque automatiquement la rotation :
 * du fichier journal de Dispatcher ; avec un horodatage dans l’extension (logs/dispatcher.log%Y%m%d) ;
 * chaque semaine (60 x 60 x 24 x 7 = 604 800 secondes).
 
-Voir la documentation du serveur web Apache sur la rotation des journaux et les journaux redirigés. Par exemple [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
+Consultez la documentation du serveur web Apache sur la rotation des journaux et les journaux redirigés ; par exemple[ Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
 
 >[!NOTE]
 >
@@ -1797,7 +1797,7 @@ Dans ce cas, veillez à ce que chaque demande passe par une seule instance de Di
 
 ## Débogage {#debugging}
 
-Lors de l’ajout de l’en-tête `X-Dispatcher-Info` à une requête, Dispatcher indique si la cible était mise en cache, renvoyée de mise en cache ou si elle ne pouvait absolument pas faire l’objet d&#39;une mise en cache. L’en-tête de la réponse `X-Cache-Info` contient ces informations sous une forme lisible. Vous pouvez utiliser ces en-têtes de réponse pour déboguer des problèmes impliquant des réponses mises en cache par Dispatcher.
+Lors de l’ajout de l’en-tête `X-Dispatcher-Info` à une requête, Dispatcher indique si la cible était mise en cache, renvoyée de mise en cache ou si elle ne pouvait absolument pas faire l’objet d'une mise en cache. L’en-tête de la réponse `X-Cache-Info` contient ces informations sous une forme lisible. Vous pouvez utiliser ces en-têtes de réponse pour déboguer des problèmes impliquant des réponses mises en cache par Dispatcher.
 
 Cette fonctionnalité n’est pas activée par défaut. Par conséquent, pour que l’en-tête de la réponse `X-Cache-Info` soit inclus, la ferme de serveurs doit contenir l’entrée suivante :
 
