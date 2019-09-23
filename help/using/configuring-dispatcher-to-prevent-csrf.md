@@ -7,8 +7,8 @@ uuid: f290bdeb-54e2-4649-b0fc-6257b422af2d
 topic-tags: dispatcher
 content-type: référence
 discoiquuid: d61d021e-b338-4a1d-91ee-55427557e931
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 69edbe7608b46c93d238515e4223606eadad0ac4
 
 ---
 
