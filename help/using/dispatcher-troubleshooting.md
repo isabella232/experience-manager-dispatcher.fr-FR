@@ -12,8 +12,8 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: référence
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 
@@ -28,7 +28,7 @@ source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 >[!NOTE]
 >
->Pour plus d’informations, voir également les sections [Base de connaissances de Dispatcher](https://docs.adobe.com/content/docs/fr/dispatcher/disp-tshoot.html), [Dépannage des problèmes de purge du répartiteur](hhttps://helpx.adobe.com/fr/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) et la [FAQ des problèmes fréquents de Dispatcher](dispatcher-faq.md).
+>Veuillez également consulter la Base de connaissances [du répartiteur](https://helpx.adobe.com/cq/kb/index/dispatcher.html), la [résolution des problèmes](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) de vidage du répartiteur et la FAQ [sur les principaux problèmes du](dispatcher-faq.md) répartiteur pour plus d'informations.
 
 ## Vérification de la configuration de base {#check-the-basic-configuration}
 
@@ -60,8 +60,8 @@ Ces outils peuvent vous aider à surveiller l’activité.
 
 Lorsque vous utilisez IIS, une erreur `404 Not Found` peut survenir dans plusieurs cas de figure. Si cela se produit, consultez les articles suivants de la base de connaissances.
 
-* [IIS 6/7 : la méthode POST renvoie 404](https://helpx.adobe.com/fr/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6 : les requêtes aux URL qui contiennent le chemin de base `/bin` renvoient `404 Not Found`](https://helpx.adobe.com/fr/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7 : la méthode POST renvoie une erreur 404.](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
+* [IIS 6 : Demandes d’URL contenant le `/bin` retour du chemin de base `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 Vous devez également vérifier que la racine du cache de Dispatcher et la racine du document IIS sont placées dans le même répertoire.
 
