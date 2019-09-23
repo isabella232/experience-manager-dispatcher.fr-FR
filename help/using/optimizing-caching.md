@@ -13,8 +13,8 @@ redirecttarget: https://helpx.adobe.com/fr/experience-manager/6-4/sites/deployin
 index: y
 internal: n
 snippet: y
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
 
 ---
 
