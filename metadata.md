@@ -1,6 +1,6 @@
 ---
 cloud: experience-cloud
-solution-title: Formation et support
+solution-title: Formation et assistance
 solution-hub-url: https://helpx.adobe.com/fr/support/experience-manager/6-4.html
 solution-image: null
 getting-started-title: Prise en main
@@ -9,7 +9,7 @@ tutorials-title: Tutoriels
 tutorials-url: https://helpx.adobe.com/fr/experience-manager/kt/index/aem-6-4-videos.html
 git-repo: https://github.com/AdobeDocs/experience-manager-dispatcher.en
 index: y
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: 713a9f285da2ce16d9b8806c20e92d6ed37160c1
 
 ---
