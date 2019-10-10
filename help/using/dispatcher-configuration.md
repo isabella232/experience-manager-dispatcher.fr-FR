@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: référence
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
+source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
 
 ---
 
@@ -163,7 +163,7 @@ La propriété `/farms` définit un ou plusieurs groupes de comportements de Dis
 
 La propriété `/farms` est une propriété de niveau supérieur dans la structure de configuration. Pour définir une ferme de serveurs, ajoutez une propriété enfant à la propriété `/farms`. Utilisez un nom de propriété qui identifie la ferme de serveurs de manière unique dans l’instance de Dispatcher.
 
-La propriété `/*farmname*` est composée de plusieurs valeurs et contient d’autres propriétés définissant le comportement de Dispatcher :
+La propriété `/farmname` est composée de plusieurs valeurs et contient d’autres propriétés définissant le comportement de Dispatcher :
 
 * Les URL des pages pour lesquelles la ferme de serveurs s’applique.
 * Une ou plusieurs URL de service (généralement des instances de publication AEM) à utiliser pour le rendu des documents.
@@ -213,6 +213,7 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 | [/retryDelay](#specifying-the-page-retry-delay) | Délai avant de réessayer de se connecter suite à un échec. |
 | [/unavailablePenalty](#reflecting-server-unavailability-in-dispatcher-statistics) | Pénalités qui affectent les statistiques de calculs de l’équilibrage de charge. |
 | [/failover](#using-the-fail-over-mechanism) | Renvoie les demandes à différents rendus lorsque la demande d’origine échoue. |
+| [/auth_checker](permissions-cache.md) | For permission-sensitive caching, see [Caching Secured Content](permissions-cache.md). |
 
 ## Spécification d’une page par défaut (IIS uniquement) - /homepage {#specify-a-default-page-iis-only-homepage}
 
@@ -545,7 +546,7 @@ Avec la version **4.1.6** de Dispatcher, vous pouvez configurer la propriété `
 En outre, cette propriété peut être utilisée si vous rencontrez des problèmes de résolution IP dynamique, comme illustré dans l’exemple suivant :
 
 ```xml
-/rend {
+/renders {
   /0001 {
      /hostname "host-name-here"
      /port "4502"
@@ -974,6 +975,7 @@ La section `/cache` contrôle la manière dont Dispatcher met en cache les doc
 * /headers
 * /mode
 * /gracePeriod
+* /enableTTL
 
 
 Un exemple de section cache pourrait ressembler à ce qui suit :
@@ -1505,7 +1507,7 @@ For additional information about the `httponly` flag, read [this page](https://w
 
 ### secure {#secure}
 
-Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur **sécurisé**, qui doit être ajouté afin d’améliorer la sécurité. Pour l’ajouter, définissez la propriété `secure` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (0 ou 1) définit si le cookie `renderid` se fait adjoindre l’attribut `secure`. La valeur par défaut est 0, ce qui signifie que l’attribut sera ajouté si* *la demande entrante est sécurisée. Si la valeur est définie sur 1, l’indicateur sécurisé sera ajouté, que la demande entrante soit sécurisée ou non.
+Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur **sécurisé**, qui doit être ajouté afin d’améliorer la sécurité. Pour l’ajouter, définissez la propriété `secure` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (0 ou 1) définit si le cookie `renderid` se fait adjoindre l’attribut `secure`. The default value is 0, which means the attribute will be added **if** the incoming request is secure. Si la valeur est définie sur 1, l’indicateur sécurisé sera ajouté, que la demande entrante soit sécurisée ou non.
 
 ## Gestion des erreurs de connexion au serveur de rendu {#handling-render-connection-errors}
 
