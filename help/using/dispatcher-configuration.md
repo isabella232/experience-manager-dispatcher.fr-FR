@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: référence
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -221,7 +221,7 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 >
 >Le paramètre `/homepage` (IIS uniquement) ne fonctionne plus. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Si vous utilisez Apache, utilisez le module `mod_rewrite`. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag ** ['passthrough|PT' (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
+>Si vous utilisez Apache, utilisez le module `mod_rewrite`. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **['passthrough|PT' (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
 
 <!-- 
 
@@ -1163,7 +1163,7 @@ Utilisez la propriété `/statfileslevel` pour invalider une sélection de fichi
 
    * Par exemple : si vous définissez la propriété `statfileslevel` sur 6 et qu’un fichier est invalidé au niveau 5, tous les fichiers `.stat` de docroot jusqu’à 5 seront touchés. Si nous continuons avec cet exemple, lorsqu’un fichier est invalidé au niveau 7, alors tous les fichiers `stat` de docroot jusqu’à 6 seront touchés (depuis `/statfileslevel = "6"`). 
 
-Seules les ressources ** situées le long du chemin ** vers le fichier invalidé sont affectées. Prenons l’exemple suivant : un site web utilise la structure `/content/myWebsite/xx/.`. Si vous définissez `statfileslevel` sur 3, un fichier `.stat` est créé comme suit :
+Only resources **along the path** to the invalidated file are affected. Prenons l’exemple suivant : un site web utilise la structure `/content/myWebsite/xx/.`. Si vous définissez `statfileslevel` sur 3, un fichier `.stat` est créé comme suit :
 
 * `docroot`
 * `/content`
