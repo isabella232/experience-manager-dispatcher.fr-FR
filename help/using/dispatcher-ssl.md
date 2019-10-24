@@ -13,7 +13,7 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -120,7 +120,7 @@ Configurez les connexions entre Dispatcher et l’ordinateur de rendu (général
 
 * Dispatcher se connecte à l’instance de rendu via SSL.
 * L’instance de rendu vérifie la validité du certificat de Dispatcher.
-* Dispatcher vérifie que l’autorité de certification du certificat de l’instance de rendu est approuvée.
+* Le répartiteur vérifie que l’autorité de certification du certificat de l’instance de rendu est approuvée.
 * (Facultatif) Dispatcher vérifie que le certificat de l’instance de rendu correspond à l’adresse du serveur de l’instance de rendu.
 
 Pour configurer un protocole SSL mutuel, vous avez besoin de certificats signés par une autorité de certification approuvée. Les certificats auto-signés ne sont pas appropriés. Vous pouvez agir comme autorité de certification ou utiliser les services d’une autorité de certification tierce pour la signature des certificats. Pour configurer un protocole SSL mutuel, vous avez besoin des éléments suivants :
@@ -162,7 +162,7 @@ Utilisez OpenSSL pour créer des demandes de certificat à envoyer à l’autori
 Lorsque vous créez un certificat, OpenSSL utilise la propriété Nom commun pour identifier le détenteur du certificat. Pour le certificat de l’instance de rendu, utilisez le nom d’hôte de l’ordinateur de l’instance en tant que Nom commun si vous configurez Dispatcher de sorte à accepter le certificat uniquement s’il correspond au nom d’hôte de l’instance de publication. (Voir la propriété [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11).)
 
 1. Ouvrez un terminal et définissez le répertoire actuel sur le répertoire contenant le fichier CH.sh des bibliothèques d’OpenSSL.
-1. Entrez la commande suivante et indiquez les valeurs lorsque vous y êtes invité. Le cas échéant, utilisez le nom d’hôte de l’instance de publication comme Nom commun. Le nom d’hôte est le nom résolvable DNS pour l’adresse IP du rendu :
+1. Entrez la commande suivante et indiquez les valeurs lorsque vous y êtes invité. Si nécessaire, utilisez le nom d’hôte de l’instance de publication comme nom commun. Le nom d’hôte est le nom résolvable DNS pour l’adresse IP du rendu :
 
    ```shell
    ./CA.sh -newreq
