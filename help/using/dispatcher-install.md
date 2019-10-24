@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: référence
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -250,7 +250,7 @@ Utilisez la procédure suivante pour consigner des messages de journal de Dispat
    `IIS AppPool\DefaultAppPool`
 
 1. Cliquez sur le bouton Vérifier les noms. Lorsque Windows résout le compte d’utilisateur, cliquez sur OK.
-1. Dans la boîte de dialogue Autorisations du dossier de Dispatcher, sélectionnez le compte que vous venez d’ajouter. Activez toutes les autorisations pour le compte** à l’exception du contrôle total, puis cliquez sur OK. Cliquez sur OK pour fermer la boîte de dialogue Propriétés du dossier.
+1. Dans la boîte de dialogue Autorisations du dossier de Dispatcher, sélectionnez le compte que vous venez d’ajouter, activez toutes les autorisations pour le compte **à l’exception du contrôle total**, puis cliquez sur OK. Cliquez sur OK pour fermer la boîte de dialogue Propriétés du dossier.
 1. Utilisez un éditeur de texte pour ouvrir le fichier `disp_iis.ini`
 1. Ajoutez une ligne de texte similaire à l’exemple suivant pour configurer l’emplacement du fichier journal, puis enregistrez le fichier :
 
