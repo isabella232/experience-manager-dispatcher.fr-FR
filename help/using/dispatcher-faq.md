@@ -4,7 +4,7 @@ seo-title: Problèmes fréquents d’AEM Dispatcher
 description: Problèmes fréquents d’AEM Dispatcher
 seo-description: Problèmes fréquents d’Adobe AEM Dispatcher
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -82,7 +82,7 @@ Pour certaines applications, il peut être possible d’utiliser à la fois des 
 
 Oui, si l’ordinateur est suffisamment puissant. Toutefois, il est recommandé de configurer Dispatcher et l’instance AEM de publication sur différents ordinateurs.
 
-En général, l’instance de publication réside à l’intérieur du pare-feu et Dispatcher réside dans le DMZ. Si vous décidez de disposer à la fois de l’instance de publication et de Dispatcher sur la même machine physique, assurez-vous que les paramètres du pare-feu interdisent l’accès direct à l’instance de publication à partir de réseaux externes.
+En règle générale, l’instance de publication se trouve à l’intérieur du pare-feu et le répartiteur se trouve dans la zone démilitarisée. Si vous décidez de disposer à la fois de l’instance de publication et de Dispatcher sur la même machine physique, assurez-vous que les paramètres du pare-feu interdisent l’accès direct à l’instance de publication à partir de réseaux externes.
 
 ### Puis-je mettre en cache uniquement les fichiers avec des extensions spécifiques ?
 
