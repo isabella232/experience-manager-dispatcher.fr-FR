@@ -3,14 +3,14 @@ title: Configuration de Dispatcher
 seo-title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher.
 seo-description: Découvrez comment configurer Dispatcher.
-uuid: 253 ef 0 f 7-2491-4 cec-ab 22-97439 df 29 fd 6
+uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
 
 ---
 
@@ -1383,19 +1383,13 @@ La propriété `/gracePeriod` définit le nombre de secondes pendant lesquelles 
 
 Pour plus de détails, vous pouvez aussi lire les sections `/invalidate` et `/statfileslevel` ci-dessus.
 
-## Configuration d’une invalidation temporelle du cache - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### Configuration d’une invalidation temporelle du cache - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Si la propriété `enableTTL` est définie, elle évalue les en-têtes de réponse du serveur principal et, s’ils contiennent un âge maximal `Cache-Control` ou une date `Expires`, un fichier vide auxiliaire en regard du fichier de cache est créé, avec l’heure de modification définie sur la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
-
-Vous pouvez activer la fonction en ajoutant la ligne suivante au fichier `dispatcher.any` :
-
-```xml
-/enableTTL "1"
-```
+Si la propriété `/enableTTL` est définie, elle évalue les en-têtes de réponse du serveur principal et, s’ils contiennent un âge maximal `Cache-Control` ou une date `Expires`, un fichier vide auxiliaire en regard du fichier de cache est créé, avec l’heure de modification définie sur la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
 
 >[!NOTE]
 >
->Cette fonction est disponible avec la version **4.1.11** de Dispatcher.
+>Cette fonctionnalité est disponible dans la version **4.1.11** ou ultérieure du répartiteur.
 
 ## Configuration de l’équilibrage de charge - /statistics {#configuring-load-balancing-statistics}
 
