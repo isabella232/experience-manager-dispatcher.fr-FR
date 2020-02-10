@@ -11,7 +11,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
+source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
 
 ---
 
@@ -70,8 +70,8 @@ Pour utiliser Dispatcher avec plusieurs domaines, vous devez configurer AEM, Dis
 
 Pour permettre aux URL de domaine et aux chemins d’accès au contenu de se résoudre sur les fichiers mis en cache, à un moment du processus, un chemin d’accès aux fichiers ou une URL de page doit être traduite. Les descriptions des stratégies courantes suivantes sont fournies. Les traductions des chemins d’accès ou des URL se produisent à différents stades du processus :
 
-* (Recommandé) L’instance de publication AEM utilise le mappage Sling pour la résolution des ressources afin de mettre en œuvre des règles de réécriture des URL internes. Les URL de domaine sont traduites en chemins d’accès au référentiel du contenu. (Voir [AEM réécrit les URL entrantes](#aem-rewrites-incoming-urls).)
-* Le serveur web utilise des règles de réécriture des URL internes qui traduisent les URL de domaine en chemins d’accès au cache. (Voir [Le serveur web réécrit les URL entrantes](#the-web-server-rewrites-incoming-urls).)
+* (Recommandé) L’instance de publication AEM utilise le mappage Sling pour la résolution des ressources afin de mettre en œuvre des règles de réécriture des URL internes. Les URL de domaine sont traduites en chemins d’accès au référentiel du contenu. Voir [AEM réécrit les URL entrantes](#aem-rewrites-incoming-urls).
+* Le serveur web utilise des règles de réécriture des URL internes qui traduisent les URL de domaine en chemins d’accès au cache. Voir [Le serveur web réécrit les URL entrantes](#the-web-server-rewrites-incoming-urls).
 
 Il est généralement préférable d’utiliser des URL courtes pour les pages web. En règle générale, les URL de page reflètent la structure des dossiers du référentiel contenant le contenu web. Cependant, les URL ne sont pas en mesure de lire les nœuds les plus élevés du référentiel, tels que `/content`. Le client ne connaît pas nécessairement la structure du référentiel AEM.
 
