@@ -4,17 +4,17 @@ seo-title: Liste de contrôle de sécurité de Dispatcher
 description: Liste de contrôle de sécurité, qui doit être renseignée avant la mise en production.
 seo-description: Liste de contrôle de sécurité, qui doit être renseignée avant la mise en production.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
-contentOwner: Utilisateur
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
 jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -91,9 +91,9 @@ Les listes blanches sont le meilleur moyen de fournir un contrôle d’accès pu
 
 ## Exécution de Dispatcher avec un utilisateur système dédié {#run-dispatcher-with-a-dedicated-system-user}
 
-Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est conseillé d’octroyer uniquement l’accès en écriture au dossier du cache de Dispatcher.
+Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est recommandé d’accorder uniquement l’accès en écriture au dossier cache du répartiteur.
 
-En outre, les utilisateurs IIS doivent configurer leur site web comme suit :
+De plus, les utilisateurs IIS doivent configurer leur site Web comme suit :
 
 1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
 1. Définissez l’utilisateur.
@@ -102,7 +102,7 @@ En outre, les utilisateurs IIS doivent configurer leur site web comme suit :
 
 Une attaque par déni de service (DoS) est une tentative de rendre une ressource informatique indisponible à ses utilisateurs ciblés.
 
-Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’empêcher les attaques DoS :  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filters))
+Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’empêcher les attaques DoS :  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filtres))
 
 * Utilisez le module mod_rewrite (par exemple [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) pour effectuer des validations d’URL (si les règles de modèle d’URL ne sont pas trop complexes).
 
