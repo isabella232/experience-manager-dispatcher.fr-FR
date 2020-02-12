@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -200,19 +200,19 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 |--- |--- |
 | [/homepage](#specify-a-default-page-iis-only-homepage) | Page d’accueil par défaut (facultative) (IIS uniquement) |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | En-têtes provenant de la requête HTTP client à transférer. |
-| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | Hôtes virtuels pour cette ferme de serveurs. |
-| [/sessionmanagement](#enabling-secure-sessions-session-management) | Prise en charge de la gestion et de l’authentification des sessions. |
+| [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | Hôtes virtuels pour cette ferme de serveurs. |
+| [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | Prise en charge de la gestion et de l’authentification des sessions. |
 | [/renders](#defining-page-renderers-renders) | Serveurs qui fournissent le rendu des pages (généralement des instances de publication AEM). |
 | [/filter](#configuring-access-to-content-filter) | Définit les URL auxquelles Dispatcher accorde l’accès. |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | Configure l’accès aux URL de redirection vers un microsite. |
-| [/propagateSyndPost](#forwarding-syndication-requests-propagate-syndpost) | Prise en charge du transfert des demandes de syndication. |
+| [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | Prise en charge du transfert des demandes de syndication. |
 | [/cache](#configuring-the-dispatcher-cache-cache) | Configure le comportement de la mise en cache. |
 | [/statistics](#configuring-load-balancing-statistics) | Définition des catégories de statistiques pour les calculs d’équilibrage de charge. |
-| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-sticky-connections-for) | Dossier contenant des documents persistants. |
+| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | Dossier contenant des documents persistants. |
 | [/health_check](#specifying-a-health-check-page) | URL à utiliser pour déterminer la disponibilité du serveur. |
 | [/retryDelay](#specifying-the-page-retry-delay) | Délai avant de réessayer de se connecter suite à un échec. |
 | [/unavailablePenalty](#reflecting-server-unavailability-in-dispatcher-statistics) | Pénalités qui affectent les statistiques de calculs de l’équilibrage de charge. |
-| [/failover](#using-the-fail-over-mechanism) | Renvoie les demandes à différents rendus lorsque la demande d’origine échoue. |
+| [/failover](#using-the-failover-mechanism) | Renvoie les demandes à différents rendus lorsque la demande d’origine échoue. |
 | [/auth_checker](permissions-cache.md) | For permission-sensitive caching, see [Caching Secured Content](permissions-cache.md). |
 
 ## Spécification d’une page par défaut (IIS uniquement) - /homepage {#specify-a-default-page-iis-only-homepage}
