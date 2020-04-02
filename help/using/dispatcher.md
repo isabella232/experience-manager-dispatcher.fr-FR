@@ -4,12 +4,12 @@ seo-title: Présentation d’Adobe AEM Dispatcher
 description: Cet article présente un aperçu général de Dispatcher.
 seo-description: Cet article présente un aperçu général d’Adobe Experience Manager Dispatcher.
 uuid: 71766f86-5e91-446b-a078-061b179d090d
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
-translation-type: ht
-source-git-commit: de6a513baf3e6b1a1463a442fa840e59f2196e8e
+translation-type: tm+mt
+source-git-commit: 3bf255c54b46f571fab64f0754b71e050c3bda3f
 
 ---
 
@@ -24,8 +24,8 @@ Dispatcher est l’outil de mise en cache et/ou d’équilibrage de charge d’A
 
 La procédure de déploiement de Dispatcher est indépendante du serveur web et de la plateforme du système d’exploitation :
 
-1. En savoir plus sur Dispatcher (cette page). Voir également les [questions fréquentes sur Dispatcher](https://helpx.adobe.com/fr/experience-manager/using/dispatcher-faq.html).
-1. Installez un [serveur web pris en charge](https://helpx.adobe.com/fr/experience-manager/6-3/sites/deploying/using/technical-requirements.html) selon la documentation du serveur web.
+1. En savoir plus sur Dispatcher (cette page). En outre, voir [les questions fréquentes sur Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
+1. Install a [supported web server](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) according to the web server documentation.
 
 1. [Installez le module Dispatcher](dispatcher-install.md) sur votre serveur web et configurez-le en conséquence.
 1. [Configurez Dispatcher](dispatcher-configuration.md) (fichier dispatcher.any).
@@ -39,8 +39,8 @@ La procédure de déploiement de Dispatcher est indépendante du serveur web et 
 Utilisez les informations suivantes, selon vos besoins :
 
 * [Liste de contrôle de sécurité de Dispatcher](security-checklist.md)
-* [Base de connaissance de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [Optimisation d’un site Web pour le cache Performance](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Base de connaissances de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
+* [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Utilisation de Dispatcher avec plusieurs domaines](dispatcher-domains.md)
 * [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
 * [Mise en œuvre de la mise en cache sensible aux autorisations](permissions-cache.md)
@@ -99,7 +99,7 @@ Vous pouvez ainsi créer un contenu plus évolué, dynamique, qui améliore la s
 
 >[!NOTE]
 >
->Lorsque la configuration de la mise en cache HTTP est manquante, Dispatcher stocke uniquement le code HTML de la page ; il ne stocke pas les en-têtes HTTP. Cela peut créer un problème si vous utilisez différents codages pour le site web, car ceux-ci peuvent être perdus. Pour activer la mise en cache des en-têtes HTTP, voir [Configuration du cache de Dispatcher.](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Lorsque la configuration de la mise en cache HTTP est manquante, Dispatcher stocke uniquement le code HTML de la page ; il ne stocke pas les en-têtes HTTP. Cela peut créer un problème si vous utilisez différents codages pour le site web, car ceux-ci peuvent être perdus. Pour activer la mise en cache des en-têtes HTTP, voir [Configuration du cache de Dispatcher.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -153,7 +153,7 @@ Notez également ce qui suit :
 
 ### Déterminer si le document est soumis à la mise en cache
 
-Vous pouvez [définir les documents que Dispatcher met en cache dans le fichier de configuration](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
+You can [define which documents the Dispatcher caches in the configuration file](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
 
 Dispatcher demande *toujours* le document directement à partir de l’instance AEM dans les cas suivants :
 
@@ -163,7 +163,7 @@ Dispatcher demande *toujours* le document directement à partir de l’instance 
 
 >[!NOTE]
 >
->Les méthodes GET ou HEAD (pour les en-têtes HTTP) sont mises en cache par Dispatcher. Pour plus d’informations sur la mise en cache de l’en-tête de réponse, voir [Mise en cache des en-têtes de réponse HTTP](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Les méthodes GET ou HEAD (pour les en-têtes HTTP) sont mises en cache par Dispatcher. Pour plus d’informations sur la mise en cache des en-têtes de réponse, voir [Mise en cache des en-têtes de réponse HTTP](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Déterminer si un document est mis en cache
 
@@ -264,7 +264,7 @@ Il existe plusieurs méthodes de contrôle de la durée pendant laquelle un CDN 
    Configurez la durée pendant laquelle des ressources particulières sont conservées dans le cache du CDN, en fonction du type mime, de l’extension, du type de requête, etc.
 
 1. En-têtes d’expiration et de contrôle du cache\
-   La plupart des CDN honoreront les en-têtes HTTP `Expires:` et `Cache-Control:` s’ils sont envoyés par le serveur en amont. Pour ce faire, utilisez le module Apache [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html).
+   La plupart des CDN honoreront les en-têtes HTTP `Expires:` et `Cache-Control:` s’ils sont envoyés par le serveur en amont. Pour cela, il faut par exemple utiliser le module Apache [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html).
 
 1. Invalidation manuelle\
    Les CDN permettent de supprimer des ressources du cache via des interfaces web.
@@ -275,17 +275,17 @@ Dans une configuration standard d’AEM, la configuration par extension et/ou ch
 
 Si cette approche est utilisée pour mettre en cache du contenu géré, cela implique que les modifications du contenu sont uniquement visibles par les utilisateurs finaux une fois que la période de mise en cache configurée est arrivée à expiration et que le document est récupéré à partir de Dispatcher.
 
-Pour un contrôle plus affiné, l’invalidation basée sur l’API vous permet d’invalider le cache d’un CDN si le cache de Dispatcher est invalidé. Sur la base de l’API CDN, vous pouvez implémenter vos propres [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) et [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) (si l’API n’est pas basée sur REST) et configurer un agent de réplication qui les utilisera pour invalider le cache du CDN.
+Pour un contrôle plus affiné, l’invalidation basée sur l’API vous permet d’invalider le cache d’un CDN si le cache de Dispatcher est invalidé. Sur la base de l’API du CDN, vous pouvez implémenter vos propres [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) et [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html) (si l’API n’est pas basée sur REST) et configurer un agent de réplication qui utilise ces derniers pour invalider le cache du CDN.
 
 >[!NOTE]
 >
->Voir aussi [Sécurité AEM (CQ) Dispatcher Security et mise en cache du navigateur CDN+](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015), ainsi que la présentation enregistrée [Mise en cache de Dispatcher](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
+>Voir aussi [Sécurité de Dispatcher AEM (CQ) et mise en cache CDN+Navigateur](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) ainsi que la présentation enregistrée sur [la mise en cache de Dispatcher](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
 
 ## Utilisation de Dispatcher avec un serveur de création {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), vous **ne devez pas** mettre en cache le contenu de l’instance d’auteur. Si la mise en cache a été activée pour l’instance d’auteur, vous devez la désactiver et supprimer le contenu du répertoire du cache. Pour désactiver la mise en cache, vous devez modifier le fichier `author_dispatcher.any` et modifier la propriété `/rule` de la section `/cache` comme suit :
+>if you are using [AEM with Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) you should **not** cache author instance content. Si la mise en cache a été activée pour l’instance d’auteur, vous devez la désactiver et supprimer le contenu du répertoire du cache. Pour désactiver la mise en cache, vous devez modifier le fichier `author_dispatcher.any` et modifier la propriété `/rule` de la section `/cache` comme suit :
 
 ```xml
 /rules
@@ -304,10 +304,10 @@ Vous pouvez utiliser Dispatcher en regard d’une instance de création pour am�
 1. Ouvrez le `author_dispatcher.any` dans un éditeur de texte et apportez les modifications suivantes :
 
    1. Modifiez `/hostname` et `/port` dans la section `/renders` pour qu’ils pointent vers votre instance d’auteur.
-   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), voir l’avertissement ci-dessus.
+   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec l’interface utilisateur](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)tactile, reportez-vous à l’avertissement ci-dessus.
    1. Enregistrez les modifications.
 
-1. Supprimez tous les fichiers existants dans le répertoire `/cache` &gt; `/docroot` que vous avez configuré ci-dessus.
+1. Supprimez tous les fichiers existants dans le répertoire `/cache` > `/docroot` que vous avez configuré ci-dessus.
 1. Redémarrez le serveur web.
 
 >[!NOTE]
