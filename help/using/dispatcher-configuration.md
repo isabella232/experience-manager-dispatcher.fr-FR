@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 183131dec51b67e152a8660c325ed980ae9ef458
 
 ---
 
@@ -405,7 +405,7 @@ Dans cet exemple, le tableau suivant affiche les hôtes virtuels qui sont résol
 
 | URL de la demande | Hôte virtuel résolu |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## Activation des sessions sécurisées - /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
