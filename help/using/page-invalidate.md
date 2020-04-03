@@ -5,15 +5,15 @@ description: Découvrez comment configurer l’interaction entre Dispatcher et A
 seo-description: Découvrez comment configurer l’interaction entre Adobe AEM Dispatcher et AEM pour assurer une gestion efficace du cache.
 uuid: 66533299-55c0-4864-9beb-77e281af9359
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
-contentOwner: Utilisateur
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
 
 ---
 
@@ -24,7 +24,7 @@ Lors de l’utilisation de Dispatcher avec AEM, vous devez configurer l’intera
 
 ## Configuration des comptes d’utilisateur AEM  {#setting-up-aem-user-accounts}
 
-Le compte d’utilisateur `admin` par défaut est utilisé pour authentifier les agents de réplication qui sont installés par défaut. Vous devez créer un compte utilisateur dédié pour l’utiliser avec des agents de réplication. [](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)
+Le compte d’utilisateur `admin` par défaut est utilisé pour authentifier les agents de réplication qui sont installés par défaut. Vous devez créer un compte utilisateur dédié pour l’utiliser avec des agents de réplication.
 
 For more information see the [Configure Replication and Transport Users](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) section of the AEM Security Checklist.
 
@@ -58,7 +58,7 @@ Procédez comme suit pour configurer un agent de réplication sur l’instance d
 
 1. (Facultatif) Pour activer les requêtes d’invalidation de chemin d’alias ou de redirection vers les microsites, activez l’option **Mise à jour d’alias**.
 1. Sous l’onglet Transfert, saisissez l’URI requis pour accéder à Dispatcher.\
-   Si vous utilisez l’agent de purge standard de Dispatcher, vous devrez probablement mettre à jour le nom d’hôte et le port. Par exemple, https://&lt;*dispatcherhost*&gt;:&lt;*portApache*&gt;/dispatcher/invalidate.cache
+   Si vous utilisez l’agent de purge standard de Dispatcher, vous devrez probablement mettre à jour le nom d’hôte et le port. Par exemple, https://&lt;*dispatcherhost*>:&lt;*portApache*>/dispatcher/invalidate.cache
 
    **Remarque :** Pour les agents de purge de Dispatcher, la propriété URI n’est utilisée que si vous utilisez des entrées virtualhost basées sur un chemin pour différencier les fermes de serveurs. Utilisez ce champ pour cibler la ferme de serveurs à invalider. Par exemple, la ferme de serveurs n°1 dispose d’un hôte virtuel de `www.mysite.com/path1/*` et la ferme de serveurs n°2 d’un hôte virtuel de `www.mysite.com/path2/*`. Vous pouvez utiliser une URL de `/path1/invalidate.cache` pour cibler la première ferme de serveurs et `/path2/invalidate.cache` pour cibler la seconde ferme de serveurs. Pour plus d’informations, voir [Utilisation de Dispatcher avec plusieurs domaines](dispatcher-domains.md).
 
