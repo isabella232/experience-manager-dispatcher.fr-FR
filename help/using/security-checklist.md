@@ -14,7 +14,10 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+workflow-type: tm+mt
+source-wordcount: '672'
+ht-degree: 86%
 
 ---
 
@@ -36,7 +39,7 @@ Dispatcher comme système frontal offre une couche supplémentaire de sécurité
 
 >[!CAUTION]
 >
->Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) correspondante.
+>Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html) correspondante.
 
 ## Utilisation de la version la plus récente de Dispatcher {#use-the-latest-version-of-dispatcher}
 
@@ -85,15 +88,15 @@ Assurez-vous d’utiliser des filtres pour bloquer l’accès externe aux URL d�
 
 Voir [Test de la sécurité de Dispatcher](dispatcher-configuration.md#testing-dispatcher-security) pour obtenir une liste des URL qui doivent être bloquées.
 
-## Utilisation des listes blanches au lieu des listes noires {#use-whitelists-instead-of-blacklists}
+## Utiliser des Listes autorisées plutôt que des Listes bloquées {#use-allowlists-instead-of-blocklists}
 
-Les listes blanches sont le meilleur moyen de fournir un contrôle d’accès puisque, par nature, elles partent du principe que toutes les demandes d’accès doivent être refusées, à moins qu’elles ne se trouvent explicitement sur la liste blanche. Ce modèle fournit un contrôle plus restrictif des nouvelles demandes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
+Les Listes autorisées sont un meilleur moyen de fournir un contrôle d&#39;accès car, par essence, ils supposent que toutes les demandes d&#39;accès doivent être refusées à moins qu&#39;elles ne fassent explicitement partie de la liste autorisée. Ce modèle fournit un contrôle plus restrictif des nouvelles demandes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
 
 ## Exécution de Dispatcher avec un utilisateur système dédié {#run-dispatcher-with-a-dedicated-system-user}
 
 Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est recommandé d’accorder uniquement l’accès en écriture au dossier cache du répartiteur.
 
-De plus, les utilisateurs IIS doivent configurer leur site Web comme suit :
+En outre, les utilisateurs IIS doivent configurer leur site Web comme suit :
 
 1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
 1. Définissez l’utilisateur.
@@ -117,6 +120,7 @@ Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’emp�
    * `.doc`
    * `.pdf`
    * `.ppt`
+
    Un exemple de fichier de configuration peut être consulté pour [limiter l’accès externe](#restrict-access). Il comprend les limitations pour les types MIME.
 
 Pour activer la fonctionnalité complète sur les instances de publication en toute sécurité, configurez les filtres pour empêcher l’accès aux nœuds suivants :
@@ -149,7 +153,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez mettre en liste blanche la prise en charge du jeton CSRF dans Dispatcher. Vous pouvez le faire en procédant comme suit :
+AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur l&#39;liste autorisée la prise en charge des jetons CSRF dans le répartiteur. Vous pouvez le faire en procédant comme suit :
 
 1. Créez un filtre pour autoriser le chemin d’accès `/libs/granite/csrf/token.json` ;
 1. Ajoutez l’en-tête `CSRF-Token` à la section `clientheaders` de la configuration Dispatcher.
