@@ -10,7 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 183131dec51b67e152a8660c325ed980ae9ef458
+source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+workflow-type: tm+mt
+source-wordcount: '8802'
+ht-degree: 96%
 
 ---
 
@@ -221,7 +224,7 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 >
 >Le paramètre `/homepage` (IIS uniquement) ne fonctionne plus. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Si vous utilisez Apache, utilisez le module `mod_rewrite`. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **[&#39;passthrough|PT&#39; (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**to force the rewrite engine to set the`uri`field of the internal`request_rec`structure to the value of the`filename`field.
+>Si vous utilisez Apache, utilisez le module `mod_rewrite`. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **[&#39;passthrough|PT&#39; (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
 
 <!-- 
 
@@ -482,7 +485,7 @@ La propriété /renders définit l’URL à laquelle Dispatcher envoie les deman
   }
 ```
 
-L’exemple de section /renders suivant identifie une instance AEM qui s’exécute sur le même ordinateur que le répartiteur :
+La section d’exemple /renders suivante identifie une instance d’AEM qui s’exécute sur le même ordinateur que le répartiteur :
 
 ```xml
 /renders
@@ -564,7 +567,7 @@ Utilisez la section `/filter` pour définir les requêtes HTTP que Dispatcher ac
 
 >[!CAUTION]
 >
->Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez également la liste de contrôle [de sécurité](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) AEM pour plus d’informations sur la sécurité de votre installation AEM.
+>Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez également la liste de vérification [de sécurité](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html) AEM pour plus d’informations sur la sécurité de votre installation AEM.
 
 La section /filter se compose d’une série de règles qui refusent ou accordent l’accès au contenu en fonction de modèles situés dans la partie des lignes de demandes de la requête HTTP. Vous devez utiliser une stratégie de liste blanche pour la section /filter :
 
@@ -942,7 +945,7 @@ La section `/vanity_urls` contient les propriétés suivantes :
 
 >[!NOTE]
 >
->If your render is an instance of AEM you must install the [VanityURLS-Components](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq600/component/vanityurls-components) package to install the vanity URL service. (See [Signing In to Package Share](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/package-manager.html#SigningIntoPackageShare).)
+>If your render is an instance of AEM you must install the [VanityURLS-Components](https://www.adobeaemcloud.com/fr/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq600/component/vanityurls-components) package to install the vanity URL service. (See [Signing In to Package Share](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/package-manager.html#SigningIntoPackageShare).)
 
 Utilisez la procédure suivante pour autoriser l’accès aux URL de redirection vers un microsite.
 
@@ -1174,7 +1177,7 @@ Lorsqu’un fichier dans `/content/myWebsite/xx` est invalidé, tous les fichier
 
 >[!NOTE]
 >
->L’invalidation peut être empêchée en envoyant un en-tête `CQ-Action-Scope:ResourceOnly` supplémentaire. Cela peut être utilisé pour vider des ressources particulières sans invalider les autres parties du cache. Voir [cette page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) et Invalidation [manuelle du cache](https://helpx.adobe.com/experience-manager/dispatcher/using/page-invalidate.html) du répartiteur pour plus d’informations.
+>L’invalidation peut être empêchée en envoyant un en-tête `CQ-Action-Scope:ResourceOnly` supplémentaire. Cela peut être utilisé pour vider des ressources particulières sans invalider les autres parties du cache. Voir [cette page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) et Invalidation [manuelle du cache](https://helpx.adobe.com/experience-manager/dispatcher/using/page-invalidate.html) du répartiteur pour en savoir plus.
 
 >[!NOTE]
 >
@@ -1351,6 +1354,7 @@ Voici ci-dessous un exemple de la configuration par défaut :
 >
 >* Ajoutez le nom de l’en-tête dans la section`/cache/headers`.
 >* Add the following [Apache directive](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) in the Dispatcher related section:
+
 >
 
 
@@ -1577,9 +1581,11 @@ Utilisez le paramètre /ignoreEINTR si l’instance comporte une telle configura
 
 En interne, Dispatcher lit la réponse depuis le serveur distant (c’est-à-dire AEM) en utilisant une boucle qui peut être représentée ainsi :
 
-`while (response not finished) {  
+```
+while (response not finished) {  
 read more data  
-}`
+}
+```
 
 De tels messages peuvent être générés lorsque des interruptions `EINTR` se produisent dans la section « `read more data` » et sont provoqués par la réception d’un signal avant que des données n’aient été reçues.
 
@@ -1765,7 +1771,7 @@ Pour confirmer le fonctionnement de base et l’interaction du serveur web, de D
 1. Définissez le niveau du journal `loglevel` sur `3`.
 
 1. Démarrez le serveur web. Cela lance également Dispatcher.
-1. Démarrez l’instance AEM.
+1. Démarrez l’instance AEM.
 1. Vérifiez le journal et les fichiers d’erreurs du serveur web et de Dispatcher.\
    Selon votre serveur web, vous devriez voir des messages tels que :\
    `[Thu May 30 05:16:36 2002] [notice] Apache/2.0.50 (Unix) configured`\
@@ -1829,7 +1835,8 @@ Vous trouverez ci-dessous une liste contenant les en-têtes de réponse que `X-D
 * **mise en cache : le fichier statistique est plus récent**
 Le fichier cible est contenu dans le cache, mais il est invalidé par un fichier de statistiques plus récent. Dispatcher supprimera le fichier cible, le recréera à partir de la sortie et le diffusera.
 * **mise en cache impossible : pas de racine de document**
-La configuration de la ferme de serveurs ne contient pas de racine de document (élément de configuration `cache.docroot`).
+La configuration de la ferme de serveurs ne contient pas de racine de document (élément de configuration 
+`cache.docroot`).
 * **mise en cache impossible : chemin du fichier de cache trop long**\
    Le fichier cible (concaténation de la racine du document et du fichier URL) dépasse le nom de fichier le plus long possible sur le système.
 * **mise en cache impossible : chemin du fichier temporaire trop long**\
@@ -1854,6 +1861,7 @@ La méthode HTTP n’est ni un GET ni un HEAD. Dispatcher suppose que la sortie 
    Le vérificateur d’autorisation de la ferme de serveurs a refusé l’accès au fichier mis en cache.
 * **mise en cache impossible : session non valide**
 Le cache de la ferme de serveurs est régi par un gestionnaire de session (la configuration contient un nœud `sessionmanagement`) et la session de l’utilisateur n’est pas ou plus valide.
-* **mise en cache impossible : la réponse contient`no_cache `**Le serveur distant a renvoyé un en-tête`Dispatcher: no_cache`, interdisant à Dispatcher de mettre en cache la sortie.
+* **impossible à mettre en cache : contient`no_cache `** Le serveur distant a renvoyé une 
+`Dispatcher: no_cache` , empêchant le répartiteur de mettre en cache la sortie.
 * **mise en cache impossible : la longueur du contenu de la réponse est zéro**
 La longueur du contenu de la réponse est zéro ; Dispatcher ne créera pas de fichier de longueur nulle.
