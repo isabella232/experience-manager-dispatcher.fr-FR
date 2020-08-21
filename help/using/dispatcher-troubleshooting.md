@@ -5,15 +5,18 @@ description: Découvrez comment résoudre les problèmes liés à Dispatcher.
 seo-description: Découvrez comment résoudre les problèmes liés à AEM Dispatcher.
 uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
-contentOwner: Utilisateur
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+workflow-type: tm+mt
+source-wordcount: '553'
+ht-degree: 90%
 
 ---
 
@@ -28,7 +31,7 @@ source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 >[!NOTE]
 >
->Veuillez également consulter la Base de connaissances [du répartiteur](https://helpx.adobe.com/cq/kb/index/dispatcher.html), la [résolution des problèmes](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) de vidage du répartiteur et la FAQ [sur les principaux problèmes du](dispatcher-faq.md) répartiteur pour plus d'informations.
+>Veuillez également consulter la Base [de connaissances du](https://helpx.adobe.com/cq/kb/index/dispatcher.html)répartiteur, la [résolution des problèmes de vidange du répartiteur et la FAQ](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) [](dispatcher-faq.md) sur les principaux problèmes du répartiteur pour plus d&#39;informations.
 
 ## Vérification de la configuration de base {#check-the-basic-configuration}
 
@@ -89,14 +92,16 @@ Ajoutez les en-têtes suivants à la section `/clientheaders` du fichier `dispat
 * `x-http-method-override`
 * `x-requested-with`
 
-`{  
+```
+{  
 {  
 /clientheaders  
 {  
 ...  
 "x-http-method-override"  
 "x-requested-with"  
-}`
+}
+```
 
 ## Interférence avec mod_dir (Apache) {#interference-with-mod-dir-apache}
 
