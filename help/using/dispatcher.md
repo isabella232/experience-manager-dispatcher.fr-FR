@@ -9,7 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 translation-type: tm+mt
-source-git-commit: 3bf255c54b46f571fab64f0754b71e050c3bda3f
+source-git-commit: 88ea38c9ad7fe67edbaf68c4882a01c3f9a475d9
+workflow-type: tm+mt
+source-wordcount: '3222'
+ht-degree: 95%
 
 ---
 
@@ -20,27 +23,30 @@ source-git-commit: 3bf255c54b46f571fab64f0754b71e050c3bda3f
 >
 >Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
-Dispatcher est l’outil de mise en cache et/ou d’équilibrage de charge d’Adobe Experience Manager. L’utilisation de Dispatcher AEM contribue également à protéger le serveur AEM contre les attaques. Par conséquent, vous pouvez augmenter la sécurité de l’instance AEM en utilisant Dispatcher conjointement à un serveur web de niveau élevé.
+Le Dispatcher est l’outil de mise en cache et/ou d’équilibrage de charge d’Adobe Experience Manager. L’utilisation du Dispatcher AEM contribue également à protéger le serveur AEM contre les attaques. Vous pouvez donc accroître la sécurité de l’instance AEM en utilisant le Dispatcher conjointement à un serveur web de niveau élevé.
 
 La procédure de déploiement de Dispatcher est indépendante du serveur web et de la plateforme du système d’exploitation :
 
 1. En savoir plus sur Dispatcher (cette page). En outre, voir [les questions fréquentes sur Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Install a [supported web server](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) according to the web server documentation.
-
+1. Install a [supported web server](https://helpx.adobe.com/fr/experience-manager/6-3/sites/deploying/using/technical-requirements.html) according to the web server documentation.
 1. [Installez le module Dispatcher](dispatcher-install.md) sur votre serveur web et configurez-le en conséquence.
 1. [Configurez Dispatcher](dispatcher-configuration.md) (fichier dispatcher.any).
-
 1. [Configurez AEM](page-invalidate.md) pour que les mises à jour de contenu invalident le cache.
 
 >[!NOTE]
 >
->Pour mieux déterminer comment fonctionnent Dispatcher avec AEM, voir [Demandez aux experts de la communauté AEM pour juillet 2017](https://bit.ly/ATACE0717).
+>Pour mieux comprendre comment le Répartiteur fonctionne avec AEM :
+>
+>* Voir [Demander aux experts de la communauté AEM pour juillet 2017](https://bit.ly/ATACE0717).
+>* Accédez à [ce référentiel](https://github.com/adobe/aem-dispatcher-experiments). Il contient une collection d&#39;expériences en laboratoire &quot;à emporter&quot;.
+
+
 
 Utilisez les informations suivantes, selon vos besoins :
 
 * [Liste de contrôle de sécurité de Dispatcher](security-checklist.md)
 * [Base de connaissances de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Utilisation de Dispatcher avec plusieurs domaines](dispatcher-domains.md)
 * [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
 * [Mise en œuvre de la mise en cache sensible aux autorisations](permissions-cache.md)
@@ -49,7 +55,7 @@ Utilisez les informations suivantes, selon vos besoins :
 
 >[!NOTE]
 >
->**L’utilisation la plus courante de Dispatcher** consiste à mettre en cache les réponses d’une **instance de publication** AEM afin d’améliorer la réactivité et la sécurité du site web publié en externe. La plupart des sujets abordés se concentrent sur ce cas.
+>******L’utilisation la plus courante du Dispatcher consiste à mettre en cache les réponses d’une instance de publication AEM** pour améliorer la réactivité et la sécurité du site web publié en externe. La plupart des sujets abordés se concentrent sur ce cas.
 >
 >En revanche, vous pouvez également utiliser Dispatcher pour améliorer la réactivité de l’**instance de création**, en particulier si un grand nombre d’utilisateurs est en train de modifier et de mettre à jour le site web. Pour obtenir des informations spécifiques à ce cas, voir [Utilisation d’un Dispatcher avec un serveur de création](#using-a-dispatcher-with-an-author-server) ci-dessous.
 
@@ -99,7 +105,7 @@ Vous pouvez ainsi créer un contenu plus évolué, dynamique, qui améliore la s
 
 >[!NOTE]
 >
->Lorsque la configuration de la mise en cache HTTP est manquante, Dispatcher stocke uniquement le code HTML de la page ; il ne stocke pas les en-têtes HTTP. Cela peut créer un problème si vous utilisez différents codages pour le site web, car ceux-ci peuvent être perdus. Pour activer la mise en cache des en-têtes HTTP, voir [Configuration du cache de Dispatcher.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Lorsque la configuration de la mise en cache HTTP est manquante, Dispatcher stocke uniquement le code HTML de la page ; il ne stocke pas les en-têtes HTTP. Cela peut créer un problème si vous utilisez différents codages pour le site web, car ceux-ci peuvent être perdus. Pour activer la mise en cache des en-têtes HTTP, voir [Configuration du cache de Dispatcher.](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -153,7 +159,7 @@ Notez également ce qui suit :
 
 ### Déterminer si le document est soumis à la mise en cache
 
-You can [define which documents the Dispatcher caches in the configuration file](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
+You can [define which documents the Dispatcher caches in the configuration file](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
 
 Dispatcher demande *toujours* le document directement à partir de l’instance AEM dans les cas suivants :
 
@@ -163,7 +169,7 @@ Dispatcher demande *toujours* le document directement à partir de l’instance 
 
 >[!NOTE]
 >
->Les méthodes GET ou HEAD (pour les en-têtes HTTP) sont mises en cache par Dispatcher. Pour plus d’informations sur la mise en cache des en-têtes de réponse, voir [Mise en cache des en-têtes de réponse HTTP](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Les méthodes GET ou HEAD (pour les en-têtes HTTP) sont mises en cache par Dispatcher. Pour plus d’informations sur la mise en cache des en-têtes de réponse, voir [Mise en cache des en-têtes de réponse HTTP](https://helpx.adobe.com/fr/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Déterminer si un document est mis en cache
 
@@ -304,7 +310,7 @@ Vous pouvez utiliser Dispatcher en regard d’une instance de création pour am�
 1. Ouvrez le `author_dispatcher.any` dans un éditeur de texte et apportez les modifications suivantes :
 
    1. Modifiez `/hostname` et `/port` dans la section `/renders` pour qu’ils pointent vers votre instance d’auteur.
-   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec l’interface utilisateur](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)tactile, reportez-vous à l’avertissement ci-dessus.
+   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec interface utilisateur](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)tactile, reportez-vous à l’avertissement ci-dessus.
    1. Enregistrez les modifications.
 
 1. Supprimez tous les fichiers existants dans le répertoire `/cache` > `/docroot` que vous avez configuré ci-dessus.
