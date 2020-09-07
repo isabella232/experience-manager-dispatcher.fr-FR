@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
 workflow-type: tm+mt
-source-wordcount: '672'
+source-wordcount: '653'
 ht-degree: 86%
 
 ---
@@ -35,7 +35,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-Dispatcher comme système frontal offre une couche supplémentaire de sécurité à l’infrastructure Adobe Experience Manager. Adobe vous recommande vivement de suivre la liste de contrôle suivante avant de passer en production.
+Adobe vous recommande vivement de suivre la liste de contrôle suivante avant de passer en production.
 
 >[!CAUTION]
 >
@@ -153,7 +153,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur l&#39;liste autorisée la prise en charge des jetons CSRF dans le répartiteur. Vous pouvez le faire en procédant comme suit :
+AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur la liste autorisée la prise en charge des jetons CSRF dans le répartiteur. Vous pouvez le faire en procédant comme suit :
 
 1. Créez un filtre pour autoriser le chemin d’accès `/libs/granite/csrf/token.json` ;
 1. Ajoutez l’en-tête `CSRF-Token` à la section `clientheaders` de la configuration Dispatcher.
