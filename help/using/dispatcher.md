@@ -9,7 +9,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 translation-type: tm+mt
-source-git-commit: 590a9a2b6005cd48676cf525b0e029e42d1b3ca6
+source-git-commit: 10f436e941e553bd85abe978059aac3a60c6769f
 workflow-type: tm+mt
 source-wordcount: '3199'
 ht-degree: 93%
@@ -23,7 +23,7 @@ ht-degree: 93%
 >
 >Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
-Le répartiteur est un outil de mise en cache et/ou d’équilibrage de charge Adobe Experience Manager qui peut être utilisé conjointement avec un serveur Web de classe entreprise.
+Le répartiteur est un outil de mise en cache et/ou d’équilibrage de charge Adobe Experience Manager qui peut être utilisé conjointement avec un serveur Web d’entreprise.
 
 Le processus de déploiement du répartiteur est indépendant du serveur Web et de la plate-forme de système d’exploitation choisie :
 
