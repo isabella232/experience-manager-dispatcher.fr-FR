@@ -4,13 +4,16 @@ seo-title: Installation d’AEM Dispatcher
 description: Découvrez comment installer le module Dispatcher sur le serveur Microsoft Internet Information, le serveur web Apache et le serveur-iplanet web Sun Java.
 seo-description: Découvrez comment installer le module AEM Dispatcher sur le serveur Microsoft Internet Information, le serveur web Apache et le serveur-iplanet web Sun Java.
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
-contentOwner: Utilisateur
-converted: 'true'
+contentOwner: User
+converted: true
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -41,9 +44,9 @@ Le tableau suivant indique l’identifiant de serveur web utilisé dans les noms
 
 | Serveur web | Kit d’installation |
 |--- |--- |
-| Apache 2.4 | dispatcher-apache **2.4**-&lt;other parameters&gt; |
-| Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;autres paramètres&gt; |
-| Serveur-iplanet web Sun Java | dispatcher-**ns**-&lt;autres paramètres&gt; |
+| Apache 2.4 | dispatcher-apache **2.4**-&lt;other parameters> |
+| Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;autres paramètres> |
+| Serveur-iplanet web Sun Java | dispatcher-**ns**-&lt;autres paramètres> |
 
 >[!NOTE]
 >
@@ -107,7 +110,7 @@ L’archive requise pour Microsoft Internet Information Server est la suivante 
 
 Le fichier .zip contient les fichiers suivants :
 
-| Fichier | Description |
+| File | Description |
 |--- |--- |
 | `disp_iis.dll` | Fichier de bibliothèque de liens dynamiques de Dispatcher. |
 | `disp_iis.ini` | Fichier de configuration d’IIS. Cet exemple peut être mis à jour en fonction de vos besoins. **Remarque** : Le fichier ini doit avoir la même racine de nom (name-root) que le fichier dll. |
@@ -292,12 +295,12 @@ Dispatcher est fourni en tant que :
 
 Les fichiers d’archivage d’installation contiennent les fichiers suivants (selon si vous avez sélectionné Windows ou Unix) :
 
-| Fichier | Description |
+| File | Description |
 |--- |--- |
-| disp_apache&lt;x.y&gt;.dll | Windows : fichier de bibliothèque de liens dynamiques de Dispatcher. |
-| dispatcher-apache&lt;x.y&gt;-&lt;rel-nr&gt;.so | Unix : fichier de bibliothèque d’objets partagés de Dispatcher. |
+| disp_apache&lt;x.y>.dll | Windows : fichier de bibliothèque de liens dynamiques de Dispatcher. |
+| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | Unix : fichier de bibliothèque d’objets partagés de Dispatcher. |
 | mod_dispatcher.so | Unix : exemple de lien. |
-| http.conf.disp&lt;x&gt; | Exemple de fichier de configuration pour le serveur Apache. |
+| http.conf.disp&lt;x> | Exemple de fichier de configuration pour le serveur Apache. |
 | dispatcher.any | Exemple de fichier de configuration pour Dispatcher. |
 | LISEZMOI | Fichier Lisezmoi contenant les instructions d’installation et les informations de dernière minute. **Remarque** : Consultez le fichier avant de commencer l’installation. |
 | MODIFICATIONS | Fichier Modifications qui répertorie les problèmes résolus dans les versions actuelle et antérieures. |
@@ -401,11 +404,11 @@ Vous trouverez les paramètres de configuration dans le tableau suivant :
 |--- |--- |
 | DispatcherConfig | Emplacement et nom du fichier de configuration de Dispatcher. <br/>Lorsque cette propriété est située dans la configuration du serveur principal, tous les hôtes virtuels héritent de la valeur de la propriété. Toutefois, les hôtes virtuels peuvent inclure une propriété DispatcherConfig pour remplacer la configuration du serveur principal. |
 | DispatcherLog | Emplacement et nom du fichier journal. |
-| DispatcherLogLevel | Niveau de journal du fichier journal :<br/> 0 - Erreurs<br/> 1 - Avertissements<br/> 2 - Infos<br/> 3 - Déboguer<br/> **Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
+| DispatcherLogLevel | Niveau de journal du fichier journal :<br/> 0 - Erreurs<br/> 1 - Avertissements<br/> 2 - Infos<br/> 3 - Déboguer <br/>**Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
 | DispatcherNoServerHeader | *Ce paramètre est obsolète et n’a plus aucun effet.*<br/><br/> Définit l’en-tête du serveur à utiliser : <br/><ul><li>Non défini ou 0 - L’en-tête du serveur HTTP contient la version AEM. </li><li>1 - L’en-tête du serveur Apache est utilisé.</li></ul> |
 | DispatcherDeclineRoot | Définit le refus ou l’acceptation des demandes à la racine « / » :<br/>**0** - accepte des requêtes à / <br/>**1** - les requêtes à / ne sont pas gérées par Dispatcher ; utilisez mod_alias pour le mappage correct. |
-| DispatcherUseProcessedURL | Définit s’il faut utiliser des URL prétraitées pour tout traitement supplémentaire par Dispatcher :<br/> **0** - utilise l’URL d’origine transmise au serveur web. <br/>**1** - Dispatcher utilise l’URL déjà traitée par les gestionnaires qui précèdent Dispatcher (c’est-à-dire `mod_rewrite`) à la place de l’URL d’origine transmise au serveur. Par exemple, l’URL d’origine ou l’URL traitée est mise en correspondance avec des filtres de Dispatcher. L’URL est également utilisée comme base de la structure de fichiers du cache.   Pour plus d’informations sur mod_rewrite, voir la documentation sur le site web d’Apache, par exemple Apache 2.4. Lors de l’utilisation de mod_rewrite, il est conseillé d’utiliser l’indicateur 'passthrough | PT' (transmis au gestionnaire suivant) pour forcer le moteur de réécriture à définir le champ uri de la structure request_rec interne sur la valeur du champ de nom de fichier. |
-| DispatcherPassError | Définit comment prendre en charge les codes d’erreur pour le traitement de ErrorDocument :<br/> **0** - Dispatcher met en file d’attente toutes les réponses d’erreur envoyées au client. <br/>**1** - Dispatcher ne met pas en file d’attente une réponse d’erreur envoyée au client (dont le code d’état est supérieur ou égal à 400), mais transfère le code d’état à Apache qui permet, par exemple, à une directive ErrorDocument de traiter ce code d’état. <br/>**Plage de codes** - Indiquez une plage de codes d’erreur pour lesquels la réponse est transmise à Apache. D’autres codes d’erreur sont transmis au client. Par exemple, la configuration suivante transmet les réponses au client pour l’erreur 412 et toutes les autres erreurs sont transmises à Apache : DispatcherPassError 400-411,413-417 |
+| DispatcherUseProcessedURL | Définit s’il faut utiliser des URL prétraitées pour tout traitement supplémentaire par Dispatcher :<br/>**0** - utilise l’URL d’origine transmise au serveur web. <br/>**1** - Dispatcher utilise l’URL déjà traitée par les gestionnaires qui précèdent Dispatcher (c’est-à-dire `mod_rewrite`) à la place de l’URL d’origine transmise au serveur. Par exemple, l’URL d’origine ou l’URL traitée est mise en correspondance avec des filtres de Dispatcher. L’URL est également utilisée comme base de la structure de fichiers du cache.   Pour plus d’informations sur mod_rewrite, voir la documentation sur le site web d’Apache, par exemple Apache 2.4. Lors de l’utilisation de mod_rewrite, il est conseillé d’utiliser l’indicateur &#39;passthrough | PT&#39; (transmis au gestionnaire suivant) pour forcer le moteur de réécriture à définir le champ uri de la structure request_rec interne sur la valeur du champ de nom de fichier. |
+| DispatcherPassError | Définit comment prendre en charge les codes d’erreur pour le traitement de ErrorDocument :<br/>**0** - Dispatcher met en file d’attente toutes les réponses d’erreur envoyées au client. <br/>**1** - Dispatcher ne met pas en file d’attente une réponse d’erreur envoyée au client (dont le code d’état est supérieur ou égal à 400), mais transfère le code d’état à Apache qui permet, par exemple, à une directive ErrorDocument de traiter ce code d’état. <br/>**Plage de codes** - Indiquez une plage de codes d’erreur pour lesquels la réponse est transmise à Apache. D’autres codes d’erreur sont transmis au client. Par exemple, la configuration suivante transmet les réponses au client pour l’erreur 412 et toutes les autres erreurs sont transmises à Apache : DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Indique le délai de persistance, en secondes. Depuis la version 4.2.0 de Dispatcher, la valeur de persistance par défaut est 60. La valeur 0 désactive la persistance. |
 | DispatcherNoCanonURL | Si vous définissez ce paramètre sur On, l’URL brute sera transmise au serveur principal au lieu de celle qui est canonisée et remplacera les paramètres de DispatcherUseProcessedURL. La valeur par défaut est Off. <br/>**Remarque** : Les règles de filtrage de la configuration Dispatcher sont toujours évaluées par rapport à l’URL expurgée et non à l’URL brute. |
 
@@ -567,7 +570,7 @@ Dispatcher est fourni en tant que :
 
 Les fichiers d’archivage d’installation contiennent les fichiers suivants (selon si vous avez sélectionné Windows ou Unix) :
 
-| Fichier | Description |
+| File | Description |
 |---|---|
 | `disp_ns.dll` | Windows : fichier de bibliothèque de liens dynamiques de Dispatcher. |
 | `dispatcher.so` | Unix : fichier de bibliothèque d’objets partagés de Dispatcher. |
