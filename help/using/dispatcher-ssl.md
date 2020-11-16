@@ -4,16 +4,19 @@ seo-title: Utilisation du protocole SSL avec Dispatcher
 description: Découvrez comment configurer Dispatcher pour communiquer avec AEM à l’aide de connexions SSL.
 seo-description: Découvrez comment configurer Dispatcher pour communiquer avec AEM à l’aide de connexions SSL.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
-contentOwner: Utilisateur
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: f9fb0e94dbd1c67bf87463570e8b5eddaca11bf3
+workflow-type: tm+mt
+source-wordcount: '1375'
+ht-degree: 94%
 
 ---
 
@@ -22,8 +25,8 @@ source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 Utilisez les connexions SSL entre Dispatcher et l’ordinateur de rendu :
 
-* [SSL à sens unique](dispatcher-ssl.md#main-pars-title-1)
-* [SSL mutuel](dispatcher-ssl.md#main-pars-title-2)
+* [SSL à sens unique](#use-ssl-when-dispatcher-connects-to-aem)
+* [SSL mutuel](#configuring-mutual-ssl-between-dispatcher-and-aem)
 
 >[!NOTE]
 >
@@ -37,7 +40,7 @@ Avant de configurer Dispatcher, configurez AEM ou CQ de sorte que ces applicatio
 
 * AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
 * AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Anciennes versions d’AEM : voir [cette page](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* Anciennes versions d’AEM : voir [cette page](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html).
 
 ### En-têtes de demande associés au protocole SSL {#ssl-related-request-headers}
 
@@ -253,7 +256,7 @@ Utilisez le certificat de rendu avec les instructions de la section *Activation
 
 * AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
 * AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Anciennes versions d’AEM : voir [cette page.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
+* Anciennes versions d’AEM : voir [cette page.](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html)
 
 ### Configuration du protocole SSL pour le module de Dispatcher {#configuring-ssl-for-the-dispatcher-module}
 
