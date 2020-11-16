@@ -13,7 +13,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
 workflow-type: tm+mt
 source-wordcount: '553'
 ht-degree: 90%
@@ -37,10 +37,10 @@ ht-degree: 90%
 
 Comme toujours, les premières étapes consistent à vérifier les principes de base :
 
-* [Confirmation du fonctionnement de base](#ConfirmBasicOperation)
-* Passez en revue tous les fichiers journaux du serveur web et de Dispatcher. Si nécessaire, augmentez le paramètre `loglevel` utilisé pour la [journalisation](#Logging) de Dispatcher.
+* [Confirmation du fonctionnement de base](/help/using/dispatcher-configuration.md#confirming-basic-operation)
+* Passez en revue tous les fichiers journaux du serveur web et de Dispatcher. Si nécessaire, augmentez le paramètre `loglevel` utilisé pour la [journalisation](/help/using/dispatcher-configuration.md#logging) de Dispatcher.
 
-* [Vérifiez votre configuration](#ConfiguringtheDispatcher) :
+* [Vérifiez votre configuration](/help/using/dispatcher-configuration.md) :
 
    * Disposez-vous de plusieurs instances de Dispatcher ?
 
