@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
 workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+source-wordcount: '3684'
+ht-degree: 98%
 
 ---
 
@@ -28,11 +28,11 @@ Comment Type: draft
 
  -->
 
+Utilisez la page [Notes de mises à jour de Dispatcher](release-notes.md) pour obtenir le dernier fichier d’installation de Dispatcher pour votre système d’exploitation et votre serveur web. Les numéros de version de Dispatcher sont indépendants des numéros de version d’Adobe Experience Manager et compatibles avec les versions 6.x et 5.x d’Adobe Experience Manager et 5.x d’Adobe CQ.
+
 >[!NOTE]
 >
->Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
-
-Utilisez la page [Notes de mises à jour de Dispatcher](release-notes.md) pour obtenir le dernier fichier d’installation de Dispatcher pour votre système d’exploitation et votre serveur web. Les numéros de version de Dispatcher sont indépendants des numéros de version d’Adobe Experience Manager et compatibles avec les versions 6.x et 5.x d’Adobe Experience Manager et 5.x d’Adobe CQ.
+>Veuillez noter que Adobe Experience Manager 6.5 nécessite Dispatcher version 4.3.2 ou ultérieure. Ceci dit, les versions du répartiteur sont indépendantes de AEM, par exemple, Dispatcher version 4.3.2 est également compatible avec Adobe Experience Manager 6.4.
 
 La convention de dénomination suivante est utilisée :
 
@@ -48,7 +48,7 @@ Le tableau suivant indique l’identifiant de serveur web utilisé dans les noms
 | Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;autres paramètres> |
 | Serveur-iplanet web Sun Java | dispatcher-**ns**-&lt;autres paramètres> |
 
->[!NOTE]
+>[!CAUTION]
 >
 >Il est conseillé d’installer la dernière version de Dispatcher disponible pour votre plate-forme. Chaque année, vous devez mettre à jour votre instance de Dispatcher afin d’utiliser la version la plus récente. Cela vous permet de tirer parti des améliorations du produit.
 
