@@ -5,10 +5,13 @@ description: Découvrez comment configurer AEM Dispatcher pour empêcher les at
 seo-description: Découvrez comment configurer Adobe AEM Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery).
 uuid: f290bdeb-54e2-4649-b0fc-6257b422af2d
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: d61d021e-b338-4a1d-91ee-55427557e931
 translation-type: tm+mt
 source-git-commit: 69edbe7608b46c93d238515e4223606eadad0ac4
+workflow-type: tm+mt
+source-wordcount: '246'
+ht-degree: 100%
 
 ---
 
