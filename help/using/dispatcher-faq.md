@@ -5,6 +5,9 @@ description: Problèmes fréquents d’AEM Dispatcher
 seo-description: Problèmes fréquents d’Adobe AEM Dispatcher
 translation-type: tm+mt
 source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+workflow-type: tm+mt
+source-wordcount: '1644'
+ht-degree: 95%
 
 ---
 
@@ -82,7 +85,7 @@ Pour certaines applications, il peut être possible d’utiliser à la fois des 
 
 Oui, si l’ordinateur est suffisamment puissant. Toutefois, il est recommandé de configurer Dispatcher et l’instance AEM de publication sur différents ordinateurs.
 
-En règle générale, l’instance de publication se trouve à l’intérieur du pare-feu et le répartiteur se trouve dans la zone démilitarisée. Si vous décidez de disposer à la fois de l’instance de publication et de Dispatcher sur la même machine physique, assurez-vous que les paramètres du pare-feu interdisent l’accès direct à l’instance de publication à partir de réseaux externes.
+En règle générale, l’instance de publication se trouve à l’intérieur du pare-feu et le répartiteur réside dans la zone démilitarisée. Si vous décidez de disposer à la fois de l’instance de publication et de Dispatcher sur la même machine physique, assurez-vous que les paramètres du pare-feu interdisent l’accès direct à l’instance de publication à partir de réseaux externes.
 
 ### Puis-je mettre en cache uniquement les fichiers avec des extensions spécifiques ?
 
@@ -115,7 +118,7 @@ Voir la page [Mise en cache de contenu sécurisé](permissions-cache.md).
 
 ### Comment sécuriser les communications entre les instances Dispatcher et CQ ?
 
-Reportez-vous à la liste de contrôle [de sécurité du](security-checklist.md) répartiteur et aux pages de liste de contrôle [de sécurité](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html) AEM.
+Consultez les pages [Liste de contrôle de sécurité du répartiteur](security-checklist.md) et [Liste de contrôle de sécurité AEM](https://helpx.adobe.com/fr/experience-manager/6-4/sites/administering/using/security-checklist.html).
 
 ### Le problème lié à `jcr:content` de Dispatcher a été remplacé par `jcr%3acontent`
 
@@ -123,17 +126,17 @@ Reportez-vous à la liste de contrôle [de sécurité du](security-checklist.md)
 
 **Réponse** : utilisez la méthode `ResourceResolver.map()` pour obtenir une URL « conviviale » qui permet d’utiliser/recevoir des requêtes d’origine et de résoudre le problème de mise en cache avec Dispatcher. La méthode map() code les deux points `:` en caractères de soulignement et la méthode resolve() les décode au format lisible SLING JCR. Utilisez la méthode map() pour générer l’URL utilisée dans l’appel Ajax.
 
-Further read: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+Lire plus loin : [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
 ## Purge de Dispatcher
 
 ### Comment configurer les agents de purge de Dispatcher sur une instance de publication ?
 
-Voir la page [Réplication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
+Voir la page [Réplication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents).
 
 ### Comment résoudre les problèmes de purge de Dispatcher ?
 
-[Reportez-vous à cet article](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) de dépannage qui répond aux questions suivantes :
+[Reportez-vous à cet ](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) article de dépannage qui répond aux questions suivantes :
 
 * Comment déboguer une situation où aucun contenu n’est enregistré dans le cache de Dispatcher ?
 * Comment déboguer une situation où les fichiers de cache ne sont pas mis à jour ?
