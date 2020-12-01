@@ -82,7 +82,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 Lors de la configuration de Dispatcher, vous devez limiter l’accès externe autant que possible. Voir [Exemple de section /filter](dispatcher-configuration.md#main-pars_184_1_title) dans la documentation de Dispatcher.
 
-## S’assurer que l’accès aux URL d’administration est refusé  {#make-sure-access-to-administrative-urls-is-denied}
+## S’assurer que l’accès aux URL d’administration est refusé   {#make-sure-access-to-administrative-urls-is-denied}
 
 Assurez-vous d’utiliser des filtres pour bloquer l’accès externe aux URL d’administration, par exemple la console web.
 
@@ -101,7 +101,7 @@ En outre, les utilisateurs IIS doivent configurer leur site Web comme suit :
 1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
 1. Définissez l’utilisateur.
 
-## Prévention des attaques par déni de service (DoS)  {#prevent-denial-of-service-dos-attacks}
+## Prévention des attaques par déni de service (DoS)   {#prevent-denial-of-service-dos-attacks}
 
 Une attaque par déni de service (DoS) est une tentative de rendre une ressource informatique indisponible à ses utilisateurs ciblés.
 
