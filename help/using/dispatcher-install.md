@@ -102,7 +102,7 @@ Les versions 8.5 et 10 d’IIS nécessitent que les composants IIS suivants soi
 
 En outre, vous devez ajouter le rôle de serveur web (IIS). Utilisez le gestionnaire de serveur pour ajouter le rôle et les composants.
 
-## Microsoft IIS - Installation du module de Dispatcher  {#microsoft-iis-installing-the-dispatcher-module}
+## Microsoft IIS - Installation du module de Dispatcher   {#microsoft-iis-installing-the-dispatcher-module}
 
 L’archive requise pour Microsoft Internet Information Server est la suivante :
 
@@ -274,7 +274,7 @@ Pour pouvoir commencer à utiliser Dispatcher, vous devez connaître :
 >
 >Les instructions d’installation sous **Windows** et **Unix** sont traitées dans cette section. Soyez attentif en effectuant les étapes.
 
-### Installation du serveur web Apache  {#installing-apache-web-server}
+### Installation du serveur web Apache   {#installing-apache-web-server}
 
 Pour plus d’informations sur le mode d’installation d’un serveur web Apache, lisez le manuel d’installation, que ce soit [en ligne](https://httpd.apache.org/) ou sur papier.
 
@@ -284,7 +284,7 @@ Pour plus d’informations sur le mode d’installation d’un serveur web Apach
 >
 >Vous trouverez plus d’informations dans le manuel d’installation du serveur web Apache.
 
-Also see the Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) and [Security Reports](https://httpd.apache.org/security_report.html).
+Consultez également les rapports de sécurité Apache HTTP Server [Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) et [Security Reports](https://httpd.apache.org/security_report.html).
 
 ### Serveur web Apache - Ajout du module de Dispatcher {#apache-web-server-add-the-dispatcher-module}
 
@@ -295,7 +295,7 @@ Dispatcher est fourni en tant que :
 
 Les fichiers d’archivage d’installation contiennent les fichiers suivants (selon si vous avez sélectionné Windows ou Unix) :
 
-| File | Description |
+| Fichier | Description |
 |--- |--- |
 | disp_apache&lt;x.y>.dll | Windows : fichier de bibliothèque de liens dynamiques de Dispatcher. |
 | dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | Unix : fichier de bibliothèque d’objets partagés de Dispatcher. |
@@ -319,7 +319,7 @@ Suivez les étapes ci-dessous pour ajouter Dispatcher au serveur web Apache :
 
    **Remarque :** Vous pouvez placer ce fichier dans un autre emplacement tant que la propriété DispatcherLog du module de Dispatcher est configurée en conséquence. (Voir Entrées de configuration spécifiques à Dispatcher ci-dessous.)
 
-### Serveur web Apache - Configuration des propriétés SELinux  {#apache-web-server-configure-selinux-properties}
+### Serveur web Apache - Configuration des propriétés SELinux   {#apache-web-server-configure-selinux-properties}
 
 Si vous exécutez Dispatcher sur RedHat Linux Kernel 2.6 avec des propriétés SELinux activées, vous pouvez rencontrer des messages d’erreur de ce type dans le fichier journal de Dispatcher.
 
@@ -426,7 +426,7 @@ ServerTokens Full` `
 DispatcherNoServerHeader 0`\
 Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir : `  
 ServerTokens Prod`\
-See the [Apache Documentation about ServerTokens Directive (for example, for Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) for more information.
+Pour plus d&#39;informations, consultez la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html).
 
 **SetHandler**
 
@@ -554,14 +554,14 @@ Pour pouvoir commencer à utiliser Dispatcher, vous devez connaître :
 Les instructions pour les environnements Windows et Unix sont traitées dans cette section.
 Sélectionnez les étapes à exécuter avec précaution.
 
-### Serveur web Sun Java System/iPlanet - Installation du serveur web  {#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Serveur web Sun Java System/iPlanet - Installation du serveur web   {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 Pour obtenir des informations complètes sur l’installation de ces serveurs web, consultez leur documentation correspondante :
 
 * Serveur web Sun Java System
 * Serveur web iPlanet
 
-### Serveur web Sun Java System/iPlanet - Ajout du module de Dispatcher  {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Serveur web Sun Java System/iPlanet - Ajout du module de Dispatcher   {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher est fourni en tant que :
 
@@ -570,7 +570,7 @@ Dispatcher est fourni en tant que :
 
 Les fichiers d’archivage d’installation contiennent les fichiers suivants (selon si vous avez sélectionné Windows ou Unix) :
 
-| File | Description |
+| Fichier | Description |
 |---|---|
 | `disp_ns.dll` | Windows : fichier de bibliothèque de liens dynamiques de Dispatcher. |
 | `dispatcher.so` | Unix : fichier de bibliothèque d’objets partagés de Dispatcher. |
@@ -626,7 +626,7 @@ où :
 | Paramètre | Description |
 |--- |--- |
 | config | Emplacement et nom du fichier de configuration `dispatcher.any.` |
-| logfile | Emplacement et nom du fichier journal. |
+| journal | Emplacement et nom du fichier journal. |
 | loglevel | Niveau de journal lors de l’écriture de messages dans le fichier journal :<br/>**0** erreur <br/>**1** avertissement <br/>**2** infos <br/>**3** messages de débogage <br/>**Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
 | keepalivetimeout | Indique le délai de persistance, en secondes. Depuis la version 4.2.0 de Dispatcher, la valeur de persistance par défaut est 60. La valeur 0 désactive la persistance. |
 
