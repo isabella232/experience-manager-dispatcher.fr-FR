@@ -4,17 +4,20 @@ seo-title: Optimisation d’un site web pour les performances du cache
 description: Apprenez comment concevoir votre site web afin de tirer le meilleur parti des avantages de la mise en cache.
 seo-description: Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez utiliser pour optimiser les performances. Apprenez comment concevoir votre site web afin de tirer le meilleur parti des avantages de la mise en cache.
 uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
-contentOwner: Utilisateur
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: ba323503-1494-4048-941d-c1d14f2e85b2
-redirecttarget: https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
 source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
+workflow-type: tm+mt
+source-wordcount: '1167'
+ht-degree: 100%
 
 ---
 
@@ -43,11 +46,12 @@ Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez u
 >
 >* vous pouvez mettre en cache tous les éléments que vous pouvez enregistrer en tant que page et demander à l’aide d’une URL ;
 >* vous ne pouvez pas enregistrer d’autres éléments, tels que des en-têtes HTTP, des cookies, des données de session et des données de formulaire.
+
 >
 >
 En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
 
-## Utilisation d’un codage cohérent de page  {#using-consistent-page-encoding}
+## Utilisation d’un codage cohérent de page   {#using-consistent-page-encoding}
 
 Les en-têtes de requête HTTP ne sont pas mis en cache. Par conséquent, des problèmes peuvent survenir si vous enregistrez des informations de codage de page dans l’en-tête. Dans ce cas, lorsque Dispatcher diffuse une page du cache, le codage par défaut du serveur web est utilisé pour la page. Il existe deux méthodes pour contourner ce problème :
 
@@ -76,7 +80,7 @@ www.myCompany.com/pictures/gallery.christmas.1.html
 >
 >Cette URL invoque la même page et le même modèle que gallery.html. Dans la définition du modèle, vous pouvez spécifier le script qui effectue le rendu de la page ou utiliser le même script pour toutes les pages.
 
-## Personnalisation par URL  {#customize-by-url}
+## Personnalisation par URL   {#customize-by-url}
 
 Si vous autorisez les utilisateurs à modifier la taille de police des caractères (ou toute autre personnalisation de la mise en page), assurez-vous que les différentes personnalisations sont répercutées dans l’URL.
 
@@ -98,7 +102,7 @@ www.myCompany.com/news/main.large.html
 >
 >En utilisant l’expansion de nom de fichier du script de la définition du modèle, vous pouvez définir un script distinct qui effectue le rendu des pages d’impression.
 
-## Invalidation de fichiers image utilisés comme titres  {#invalidating-image-files-used-as-titles}
+## Invalidation de fichiers image utilisés comme titres   {#invalidating-image-files-used-as-titles}
 
 Si vous affichez les titres de page ou tout autre texte sous la forme d’images, il est conseillé de stocker les fichiers de manière à ce qu’ils soient supprimés lors de la mise à jour du contenu de la page :
 
@@ -113,7 +117,7 @@ Par exemple, vous pouvez stocker le titre de la page maPage.html dans le fichier
 >
 >Le fichier image n’existe pas nécessairement physiquement sur l’instance AEM. Vous pouvez utiliser un script qui crée dynamiquement le fichier image. Dispatcher stocke ensuite le fichier sur le serveur web.
 
-## Invalidation des fichiers image utilisés pour la navigation  {#invalidating-image-files-used-for-navigation}
+## Invalidation des fichiers image utilisés pour la navigation   {#invalidating-image-files-used-for-navigation}
 
 Si vous utilisez des images pour les entrées de navigation, la méthode est fondamentalement la même qu’avec les titres. Elle est seulement un peu plus complexe. Stockez toutes les images de navigation avec les pages cibles. Si vous utilisez deux images pour les modes normal et actif, vous pouvez utiliser les scripts suivants :
 
@@ -125,7 +129,7 @@ Il est important de créer ces images avec le même descripteur de nommage que l
 
 Pour les pages qui ne sont pas modifiées, les images sont toujours dans le cache, bien que les pages elles-mêmes soient généralement invalidées automatiquement.
 
-## Personnalisation  {#personalization}
+## Personnalisation   {#personalization}
 
 Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est donc recommandé de n’utiliser la personnalisation que lorsque cela est nécessaire. Explications :
 
@@ -140,15 +144,16 @@ Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est d
 >
 >* Utiliser des iFrames pour partager la page en une partie identique pour tous les utilisateurs et une partie identique pour toutes les pages de l’utilisateur. Vous pouvez ensuite mettre en cache les deux parties.
 >* Utiliser du JavaScript côté client pour afficher des informations personnalisées. Cependant, vous devez vous assurer que la page s’affiche toujours correctement si un utilisateur désactive JavaScript.
+
 >
 
 
 
-## Connexions persistantes  {#sticky-connections}
+## Connexions persistantes   {#sticky-connections}
 
 Les [connections persistantes](dispatcher.md#TheBenefitsofLoadBalancing) garantissent que les documents d’un utilisateur sont tous composés sur le même serveur. Si un utilisateur quitte ce dossier et y revient ultérieurement, la connexion reste valide. Définissez un dossier pour stocker tous les documents qui nécessitent des connexions persistantes pour le site web. Essayez de ne pas placer d’autres documents dans ce dossier. Si vous utilisez des pages personnalisées et des données de session, cela impacte l’équilibrage de charge.
 
-## Types MIME  {#mime-types}
+## Types MIME   {#mime-types}
 
 Pour un navigateur, il existe deux manières de déterminer le type d’un fichier :
 
