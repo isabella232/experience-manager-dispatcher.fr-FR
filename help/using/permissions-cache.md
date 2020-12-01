@@ -4,13 +4,16 @@ seo-title: Mise en cache du contenu sécurisé dans AEM Dispatcher
 description: Découvrez le fonctionnement de la mise en cache sensible aux autorisations dans Dispatcher.
 seo-description: Découvrez le fonctionnement de la mise en cache sensible aux autorisations dans AEM Dispatcher.
 uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
-contentOwner: Utilisateur
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: référence
+content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 translation-type: tm+mt
 source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
+workflow-type: tm+mt
+source-wordcount: '762'
+ht-degree: 100%
 
 ---
 
@@ -29,7 +32,7 @@ Les méthodes d’authentification et d’autorisation étant spécifiques au d�
 
 Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisent lorsqu’un navigateur web demande une page sur laquelle la mise en cache sensible aux autorisations est utilisée.
 
-## La page est mise en cache et l’utilisateur est autorisé  {#page-is-cached-and-user-is-authorized}
+## La page est mise en cache et l’utilisateur est autorisé   {#page-is-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1.png)
 
@@ -38,7 +41,7 @@ Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisen
 1. La fonctionnalité de rendu appelle l’agent d’autorisation pour exécuter la vérification de sécurité, puis répond à Dispatcher. Le message de réponse comprend le code d’état HTTP 200 pour indiquer que l’utilisateur est autorisé.
 1. Dispatcher envoie un message de réponse au navigateur, avec les lignes d’en-tête de la réponse du rendu et le contenu mis en cache dans le corps.
 
-## La page n’est pas mise en cache et l’utilisateur est autorisé  {#page-is-not-cached-and-user-is-authorized}
+## La page n’est pas mise en cache et l’utilisateur est autorisé   {#page-is-not-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1-1.png)
 
@@ -47,7 +50,7 @@ Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisen
 1. La fonctionnalité de rendu appelle le servlet de l’agent d’autorisation pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
 1. Dispatcher transfère la réponse au navigateur. Dispatcher ajoute le corps du message de réponse du rendu au cache.
 
-## L’utilisateur n’est pas autorisé  {#user-is-not-authorized}
+## L’utilisateur n’est pas autorisé   {#user-is-not-authorized}
 
 ![](assets/chlimage_1-2.png)
 
@@ -67,7 +70,7 @@ Pour mettre en œuvre la mise en cache sensible aux autorisations, procédez com
 >En règle générale, les ressources sécurisées sont stockées dans un dossier distinct des fichiers non sécurisés. Par exemple, /content/secure/
 
 
-## Création du servlet d’autorisation  {#create-the-authorization-servlet}
+## Création du servlet d’autorisation   {#create-the-authorization-servlet}
 
 Créez et déployez un servlet qui authentifie et autorise l’utilisateur qui demande le contenu web. Le servlet peut utiliser n’importe quelle méthode d’authentification et d’autorisation, par exemple le compte utilisateur AEM, les listes de contrôle d’accès des référentiels ou un service de recherche LDAP. Déployez le servlet vers l’instance AEM que Dispatcher utilise comme rendu.
 
@@ -89,7 +92,7 @@ L’exemple de servlet suivant obtient l’URL de la ressource demandée depuis 
 >
 >La valeur de la propriété sling.servlet.paths doit être activée dans le service Sling Servlet Resolver (org.apache.sling.servlets.resolver.SlingServletResolver).
 
-### Exemple de servlet  {#example-servlet}
+### Exemple de servlet   {#example-servlet}
 
 ```java
 package com.adobe.example;
@@ -154,7 +157,7 @@ Lorsque Dispatcher démarre, son fichier journal comprend le message de débogag
 
 L’exemple suivant de la section auth_checker configure Dispatcher pour qu’il utilise le servlet de la rubrique précédente. La section filter entraîne des vérifications d’autorisation à exécuter uniquement sur les ressources HTML sécurisées.
 
-### Exemple de configuration  {#example-configuration}
+### Exemple de configuration   {#example-configuration}
 
 ```xml
 /auth_checker
