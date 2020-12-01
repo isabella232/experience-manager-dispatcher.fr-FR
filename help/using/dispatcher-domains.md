@@ -12,6 +12,9 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
 source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
+workflow-type: tm+mt
+source-wordcount: '2983'
+ht-degree: 99%
 
 ---
 
@@ -84,7 +87,7 @@ Votre environnement doit mettre en œuvre les fonctionnalités suivantes pour pr
 * Le système de noms de domaine (DNS) résout les noms de domaine sur l’adresse IP du serveur web.
 * Le cache de Dispatcher reflète la structure des répertoires du référentiel de contenu d’AEM. Les chemins d’accès aux fichiers sous la racine du document du serveur web sont les mêmes que les chemins d’accès aux fichiers du référentiel.
 
-## Environnement pour les exemples proposés  {#environment-for-the-provided-examples}
+## Environnement pour les exemples proposés   {#environment-for-the-provided-examples}
 
 Les exemples de solution proposés s’appliquent à un environnement doté des caractéristiques suivantes :
 
@@ -148,7 +151,7 @@ Avec cette configuration, le serveur web effectue les actions suivantes lorsqu�
 
 * Transfère l’URL à Dispatcher.
 
-### httpd.conf  {#httpd-conf}
+### httpd.conf   {#httpd-conf}
 
 ```xml
 # load the Dispatcher module
@@ -198,7 +201,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 Notez que les hôtes virtuels héritent de la valeur de la propriété [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) configurée dans la section du serveur principal. Les hôtes virtuels peuvent inclure leur propre propriété DispatcherConfig pour remplacer la configuration du serveur principal.
 
-### Configuration de Dispatcher pour gérer plusieurs domaines  {#configure-dispatcher-to-handle-multiple-domains}
+### Configuration de Dispatcher pour gérer plusieurs domaines   {#configure-dispatcher-to-handle-multiple-domains}
 
 Pour prendre en charge les URL qui contiennent des noms de domaine et leurs hôtes virtuels correspondants, définissez les fermes de serveurs suivantes pour Dispatcher :
 
@@ -280,11 +283,11 @@ Dispatcher initializing (build 4.1.2)
 [Fri Nov 02 16:27:18 2012] [I] [24974(140006182991616)] Dispatcher initialized (build 4.1.2)
 ```
 
-### Configuration du mappage Sling pour la résolution des ressources  {#configure-sling-mapping-for-resource-resolution}
+### Configuration du mappage Sling pour la résolution des ressources   {#configure-sling-mapping-for-resource-resolution}
 
 Utilisez le mappage Sling pour la résolution des ressources afin que les URL basées sur le domaine se résolvent sur le contenu de l’instance de publication AEM. Le mappage des ressources convertit les URL entrantes provenant de Dispatcher (à l’origine provenant des requêtes HTTP du client) en nœuds de contenu.
 
-To learn about Sling resource mapping, see [Mappings for Resource Resolution](https://sling.apache.org/site/mappings-for-resource-resolution.html) in the Sling documentation.
+Pour en savoir plus sur le mappage des ressources Sling, voir [Mappages pour la résolution des ressources](https://sling.apache.org/site/mappings-for-resource-resolution.html) dans la documentation Sling.
 
 En règle générale, les mappages sont nécessaires pour les ressources suivantes, bien que des mappages supplémentaires puissent être nécessaires :
 
@@ -306,13 +309,13 @@ Une fois le mappage créé pour la page de contenu, pour identifier les mappages
 
 Le tableau suivant répertorie les nœuds qui mettent en œuvre le mappage des ressources pour le domaine marquea.com. Des nœuds similaires sont créés pour le domaine `brandb.com`, par exemple `/etc/map/http/brandb.com`. Dans tous les cas, les mappages sont nécessaires lorsque des références de la page HTML ne se résolvent pas correctement dans le cadre de Sling.
 
-| Chemin d’accès au nœud | Type | Propriétés |
+| Chemin d’accès au nœud | Type | Propriété |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | Nom : sling:internalRedirect Type : String Valeur : /content/sitea |
-| `/etc/map/http/branda.com/libs` | sling:Mapping | Nom : sling:internalRedirect<br/> Type : String<br/> Valeur : /libs |
-| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
-| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling:mappage | Nom : sling:internalRedirect<br/> Type : String<br/> Valeur : /libs |
+| `/etc/map/http/branda.com/etc` | sling:mappage |  |
+| `/etc/map/http/branda.com/etc/designs` | sling:mappage | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling:mappage | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/clientlibs |
 
 ## Configuration de l’agent de réplication de vidage de Dispatcher {#configuring-the-dispatcher-flush-replication-agent}
 
@@ -498,11 +501,11 @@ Comme d’habitude, la racine du document du cache est identique à la racine du
 >
 >Comme une seule ferme de serveurs de Dispatcher est définie, l’agent de réplication du vidage de Dispatcher de l’instance de publication AEM ne nécessite aucune configuration spéciale.
 
-## Réécriture de liens vers des fichiers non HTML  {#rewriting-links-to-non-html-files}
+## Réécriture de liens vers des fichiers non HTML   {#rewriting-links-to-non-html-files}
 
 Pour réécrire des références à des fichiers dont l’extension est autre que .html ou .htm, créez un composant de transformateur de réécriture Sling et ajoutez-le au pipeline de réécriture par défaut.
 
-Réécrivez les références lorsque les chemins d’accès aux ressources ne se résolvent pas correctement dans le contexte du serveur web. Par exemple, un transformateur est requis lorsque les composants de génération des images créent des liens tels que /content/sitea/en/products.navimage.png. Le composant topnav de la section [Création d’un site web haut de Gamme](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html) crée des liens de ce type.
+Réécrivez les références lorsque les chemins d’accès aux ressources ne se résolvent pas correctement dans le contexte du serveur web. Par exemple, un transformateur est requis lorsque les composants de génération des images créent des liens tels que /content/sitea/en/products.navimage.png. Le composant topnav de la section [Création d’un site web haut de Gamme](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/the-basics.html) crée des liens de ce type.
 
 Le [module de réécriture Sling](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) est un module qui post-traite la sortie Sling. Les mises en œuvre de pipeline SAX du module de réécriture se composent d’un générateur, d’un ou de plusieurs transformateurs et d’un sérialiseur :
 
@@ -512,7 +515,7 @@ Le [module de réécriture Sling](https://sling.apache.org/documentation/bundles
 
 ![](assets/chlimage_1-15.png)
 
-### Pipeline de module de réécriture par défaut d’AEM  {#the-aem-default-rewriter-pipeline}
+### Pipeline de module de réécriture par défaut d’AEM   {#the-aem-default-rewriter-pipeline}
 
 AEM utilise un pipeline de module de réécriture par défaut qui traite les documents de type text/html :
 
@@ -541,7 +544,7 @@ Procédez comme suit pour créer un composant du transformateur et l’utiliser 
 
 >[!NOTE]
 >
->Utilisez l’archétype [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) du module externe Content Package Maven pour créer le projet Maven. Les POM créent et installent automatiquement un module de contenu.
+>Utilisez l’archétype [multimodule](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html) du module externe Content Package Maven pour créer le projet Maven. Les POM créent et installent automatiquement un module de contenu.
 
 Les exemples suivants mettent en œuvre un transformateur qui réécrit les références aux fichiers d’images.
 
@@ -550,7 +553,7 @@ Les exemples suivants mettent en œuvre un transformateur qui réécrit les réf
 
 Les exemples ne sont pas concrets et ne doivent pas être utilisés dans un environnement de production.
 
-### Exemple de mise en œuvre de TransformerFactory  {#example-transformerfactory-implementation}
+### Exemple de mise en œuvre de TransformerFactory   {#example-transformerfactory-implementation}
 
 ```java
 package com.adobe.example;
