@@ -46,8 +46,10 @@ Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez u
 >
 >* vous pouvez mettre en cache tous les éléments que vous pouvez enregistrer en tant que page et demander à l’aide d’une URL ;
 >* vous ne pouvez pas enregistrer d’autres éléments, tels que des en-têtes HTTP, des cookies, des données de session et des données de formulaire.
+
 >
->En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
+>
+En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
 
 ## Utilisation d’un codage cohérent de page   {#using-consistent-page-encoding}
 
@@ -142,6 +144,7 @@ Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est d
 >
 >* Utiliser des iFrames pour partager la page en une partie identique pour tous les utilisateurs et une partie identique pour toutes les pages de l’utilisateur. Vous pouvez ensuite mettre en cache les deux parties.
 >* Utiliser du JavaScript côté client pour afficher des informations personnalisées. Cependant, vous devez vous assurer que la page s’affiche toujours correctement si un utilisateur désactive JavaScript.
+
 >
 
 
