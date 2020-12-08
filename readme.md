@@ -1,16 +1,12 @@
 ---
-source-git-commit: 21f7d8e620bb6dc220bf08a996b5f273e0c11743
+source-git-commit: d83eb9ce10c2f324163ac629ea7c02d154dc387d
 workflow-type: tm+mt
 translation-type: tm+mt
-source-wordcount: '155'
-ht-degree: 41%
+source-wordcount: '73'
+ht-degree: 79%
 
 ---
 # Documentation du répartiteur Adobe Experience Manager
-
-| EXL-PR | EXL | Aperçu | Activer | Publié | Aide |
-|--- |--- |--- |--- |--- |--- |
-| [![État de la création](https://docs.ci.corp.adobe.com/view/exl-pr/job/authoring-guide-exl.en_pr-exl/badge/icon)](https://docs.ci.corp.adobe.com/view/exl-pr/job/authoring-guide-exl.en_pr-exl/lastBuild/) | [![État de la création](https://docs.ci.corp.adobe.com/view/exl-pr/job/authoring-guide-exl.en_exl/lastBuild/badge/icon)](https://docs.ci.corp.adobe.com/view/exl-pr/job/authoring-guide-exl.en_exl/lastBuild/lastBuild) | [URL de la prévisualisation](https://experienceleague.corp.adobe.com/docs/authoring-guide-exl/using/dispatcher.html?lang=en) | [activate-exl](https://docs.ci.corp.adobe.com/job/activate-exl/build/) | [URL en direct](https://experienceleague.adobe.com/docs/authoring-guide-exl/using/dispatcher.html?lang=en) | [Guide de création](https://experienceleague.adobe.com/docs/authoring-guide-exl/using/home.html?lang=en) |
 
 Il s’agit du référentiel de la documentation du répartiteur Adobe Experience Manager.
 
