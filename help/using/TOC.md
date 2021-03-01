@@ -9,8 +9,8 @@ user-guide-description: Découvrez comment utiliser Dispatcher pour le cache, la
 translation-type: tm+mt
 source-git-commit: 5765970c0335df084b5d49efae60997b3a021c47
 workflow-type: tm+mt
-source-wordcount: '87'
-ht-degree: 100%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
