@@ -7,14 +7,13 @@ uuid: f290bdeb-54e2-4649-b0fc-6257b422af2d
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: d61d021e-b338-4a1d-91ee-55427557e931
-translation-type: tm+mt
-source-git-commit: 69edbe7608b46c93d238515e4223606eadad0ac4
+exl-id: bcd38878-f977-46a6-b01a-03e4d90aef01
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '246'
 ht-degree: 100%
 
 ---
-
 
 # Configuration de Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configuring-dispatcher-to-prevent-csrf-attacks}
 
