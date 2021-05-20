@@ -1,14 +1,13 @@
 ---
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher.
-translation-type: tm+mt
-source-git-commit: 6177dafa64d7c22f72ccb64e343b85f4ee133d73
+exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '8513'
 ht-degree: 84%
 
 ---
-
 
 # Configuration du Dispatcher {#configuring-dispatcher}
 
@@ -18,7 +17,7 @@ ht-degree: 84%
 
 Les sections suivantes décrivent comment configurer les différents aspects de Dispatcher.
 
-## Prise en charge d’IPv6 et IPv4   {#support-for-ipv-and-ipv}
+## Prise en charge d’IPv6 et IPv4  {#support-for-ipv-and-ipv}
 
 Vous pouvez installer tous les éléments d’AEM et de Dispatcher sur des réseaux IPv4 et IPv6. Voir [IPV4 et IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=en#ipv-and-ipv).
 
@@ -208,7 +207,7 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 | [/retryDelay](#specifying-the-page-retry-delay) | Délai avant de réessayer de se connecter suite à un échec. |
 | [/unavailablePenalty](#reflecting-server-unavailability-in-dispatcher-statistics) | Pénalités qui affectent les statistiques de calculs de l’équilibrage de charge. |
 | [/failover](#using-the-failover-mechanism) | Renvoie les demandes à différents rendus lorsque la demande d’origine échoue. |
-| [/auth_checker](permissions-cache.md) | Pour une mise en cache sensible aux autorisations, voir [Mise en cache du contenu sécurisé](permissions-cache.md). |
+| [/auth_checker](permissions-cache.md) | Pour la mise en cache sensible aux autorisations, voir [Mise en cache de contenu sécurisé](permissions-cache.md). |
 
 ## Spécification d’une page par défaut (IIS uniquement) - /homepage {#specify-a-default-page-iis-only-homepage}
 
@@ -216,7 +215,7 @@ Chaque propriété /farm peut contenir les propriétés enfants suivantes :
 >
 >Le paramètre `/homepage` (IIS uniquement) ne fonctionne plus. Vous devez plutôt utiliser le [module de réécriture d’URL IIS](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Si vous utilisez Apache, utilisez le module `mod_rewrite`. Consultez la documentation du site Web d’Apache pour en savoir plus sur `mod_rewrite` (par exemple, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Lors de l&#39;utilisation de `mod_rewrite`, il est conseillé d&#39;utiliser l&#39;indicateur **[&#39;passthrough|PT&#39; (passer au gestionnaire suivant)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** pour forcer le moteur de réécriture à définir le champ `uri` de la structure interne `request_rec` sur la valeur du champ `filename`.
+>Si vous utilisez Apache, utilisez le module `mod_rewrite`. Consultez la documentation du site web Apache pour plus d’informations sur `mod_rewrite` (par exemple, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Lors de l’utilisation de `mod_rewrite`, il est conseillé d’utiliser l’indicateur **[&#39;passthrough|PT&#39; (passage au gestionnaire suivant)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** pour forcer le moteur de réécriture à définir le champ `uri` de la structure interne `request_rec` sur la valeur du champ `filename`.
 
 <!-- 
 
@@ -324,7 +323,7 @@ La propriété `/virtualhosts` définit une liste de toutes les combinaisons de 
 ```
 
 * `scheme` : (facultatif) soit `https://` soit `https://.`
-* `host` : nom ou adresse IP de l’ordinateur hôte ainsi que le numéro de port, le cas échéant. (Voir [https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23)).
+* `host` : nom ou adresse IP de l’ordinateur hôte ainsi que le numéro de port, le cas échéant. (Voir [https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23))
 * `uri` : (facultatif) chemin d’accès aux ressources.
 
 L’exemple de configuration suivant traite des demandes pour les domaines .com et .ch de monEntreprise, ainsi que tous les domaines de maSousDivison :
@@ -364,7 +363,7 @@ Par conséquent, vous devez définir l’hôte virtuel par défaut dans la parti
 
 ### Exemple de résolution du nom d’hôte virtuel {#example-virtual-host-resolution}
 
-L&#39;exemple suivant représente un extrait de code d&#39;un fichier `dispatcher.any` qui définit deux fermes de répartiteurs et chaque ferme définit une propriété `virtualhosts`.
+L’exemple suivant représente un extrait de code provenant d’un fichier `dispatcher.any` qui définit deux fermes de serveurs de Dispatcher et chaque ferme définit une propriété `virtualhosts`.
 
 ```xml
 /farms
@@ -444,7 +443,7 @@ Nom de l’en-tête HTTP ou du cookie qui stocke les informations d’autorisati
 
 **/timeout** (facultatif)
 
-Nombre de secondes avant l’expiration de la session suite à sa dernière utilisation. Si `"800"` n&#39;est pas spécifié, la session expire un peu plus de 13 minutes après la dernière requête de l&#39;utilisateur.
+Nombre de secondes avant l’expiration de la session suite à sa dernière utilisation. Si elle n’est pas spécifiée, `"800"` est utilisé. La session expire donc un peu plus de 13 minutes après la dernière requête de l’utilisateur.
 
 Un exemple de configuration se présente comme suit :
 
@@ -477,7 +476,7 @@ La propriété /renders définit l’URL à laquelle Dispatcher envoie les deman
   }
 ```
 
-La section d’exemple /renders suivante identifie une instance d’AEM qui s’exécute sur le même ordinateur que le répartiteur :
+La section d’exemple suivante /renders identifie une instance AEM qui s’exécute sur le même ordinateur que Dispatcher :
 
 ```xml
 /renders
@@ -512,31 +511,31 @@ La section d’exemple suivante /renders répartit les demandes de rendu à éga
 
 **/timeout**
 
-Indique le délai de connexion (en millisecondes) pour accéder à l’instance AEM. La valeur par défaut est `"0"`, ce qui entraîne l’attente indéfinie du Répartiteur.
+Indique le délai de connexion (en millisecondes) pour accéder à l’instance AEM. La valeur par défaut est `"0"`, ce qui entraîne l’attente indéfinie de Dispatcher.
 
 **/receiveTimeout**
 
-Indique la durée (en millisecondes) autorisée d’une réponse. La valeur par défaut est `"600000"`, ce qui provoque l’attente de 10 minutes du répartiteur. Un paramètre `"0"` élimine complètement le délai d’attente.
+Indique la durée (en millisecondes) autorisée d’une réponse. La valeur par défaut est `"600000"`, ce qui entraîne Dispatcher à attendre 10 minutes. Un paramètre de `"0"` élimine complètement le délai d’expiration.
 
 Si le délai est atteint pendant l’analyse des en-têtes de réponse, un état HTTP 504 (passerelle erronée) est renvoyé. Si le délai est atteint alors que le corps de la réponse est lu, Dispatcher renvoie la réponse incomplète au client, mais supprime tout fichier cache pouvant avoir été écrit.
 
 **/ipv4**
 
-Indique si Dispatcher utilise la fonction `getaddrinfo` (pour IPv6) ou la fonction `gethostbyname` (pour IPv4) pour obtenir l’adresse IP du rendu. Une valeur de 0 provoque l’utilisation de `getaddrinfo`. Si la valeur `1` est définie, `gethostbyname` est utilisé. La valeur par défaut est `0`.
+Indique si Dispatcher utilise la fonction `getaddrinfo` (pour IPv6) ou la fonction `gethostbyname` (pour IPv4) pour obtenir l’adresse IP du rendu. Une valeur de 0 provoque l’utilisation de `getaddrinfo`. Une valeur `1` provoque l’utilisation de `gethostbyname`. La valeur par défaut est `0`.
 
-La fonction `getaddrinfo` renvoie une liste d&#39;adresses IP. Dispatcher effectue une itération au sein de la liste d’adresses jusqu’à ce qu’il établisse une connexion TCP/IP. Par conséquent, la propriété `ipv4` est importante lorsque le nom d’hôte de rendu est associé à plusieurs adresses IP et que l’hôte, en réponse à la fonction `getaddrinfo`, renvoie une liste d’adresses IP toujours dans le même ordre. Dans ce cas, vous devez utiliser la fonction `gethostbyname` afin que l’adresse IP à laquelle le répartiteur se connecte soit aléatoire.
+La fonction `getaddrinfo` renvoie une liste d’adresses IP. Dispatcher effectue une itération au sein de la liste d’adresses jusqu’à ce qu’il établisse une connexion TCP/IP. Par conséquent, la propriété `ipv4` est importante lorsque le nom d’hôte du rendu est associé à plusieurs adresses IP et que l’hôte, en réponse à la fonction `getaddrinfo`, renvoie une liste d’adresses IP toujours dans le même ordre. Dans ce cas, vous devez utiliser la fonction `gethostbyname` afin que l’adresse IP avec laquelle Dispatcher se connecte soit randomisée.
 
 Amazon Elastic Load Balancing (ELB) est un service qui répond à la fonction getaddrinfo avec une liste d’adresses IP potentiellement dans le même ordre.
 
 **/secure**
 
-Si la propriété `/secure` a la valeur `"1"` Répartiteur utilise HTTPS pour communiquer avec l&#39;instance AEM. Pour plus de détails, voir aussi [Configuration de Dispatcher pour l’utilisation de SSL](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
+Si la propriété `/secure` a une valeur `"1"` Dispatcher utilise HTTPS pour communiquer avec l’instance AEM. Pour plus de détails, voir aussi [Configuration de Dispatcher pour l’utilisation de SSL](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
 
 **/always-resolve**
 
 Avec la version **4.1.6** de Dispatcher, vous pouvez configurer la propriété `/always-resolve` comme suit :
 
-* Lorsqu&#39;elle est définie sur `"1"`, elle résout le nom d&#39;hôte sur chaque requête (le répartiteur ne met jamais en cache aucune adresse IP). Il peut y avoir un léger impact sur les performances en raison de l’appel supplémentaire nécessaire pour obtenir les informations d’hôte pour chaque requête.
+* Lorsqu’elle est définie sur `"1"`, elle résout le nom d’hôte sur chaque demande (Dispatcher ne met jamais en cache d’adresse IP). Il peut y avoir un léger impact sur les performances en raison de l’appel supplémentaire nécessaire pour obtenir les informations d’hôte pour chaque requête.
 * Si la propriété n’est pas définie, l’adresse IP sera mise en cache par défaut.
 
 En outre, cette propriété peut être utilisée si vous rencontrez des problèmes de résolution IP dynamique, comme illustré dans l’exemple suivant :
@@ -560,9 +559,9 @@ Utilisez la section `/filter` pour définir les requêtes HTTP que Dispatcher ac
 
 >[!CAUTION]
 >
->Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Consultez également la [Liste de contrôle de sécurité AEM](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security) pour plus d&#39;informations sur la sécurité de votre installation AEM.
+>Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez également la [Liste de contrôle de sécurité AEM](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security) pour plus d’informations de sécurité concernant votre installation AEM.
 
-La section `/filter` comprend une série de règles qui refusent ou autorisent l’accès au contenu selon des modèles de la partie ligne de requête de la requête HTTP. Utilisez une stratégie de liste autorisée pour votre section `/filter` :
+La section `/filter` se compose d’une série de règles qui interdisent ou autorisent l’accès au contenu selon les modèles de la partie ligne de demande de la requête HTTP. Vous devez utiliser une stratégie de liste autorisée pour votre section `/filter` :
 
 * Tout d’abord, refusez l’accès à l’ensemble des éléments.
 * Accordez l’accès au contenu en fonction de vos besoins.
@@ -595,15 +594,15 @@ Chaque élément de la section `/filter` comprend un type et un modèle associé
 
 #### Partie de la ligne de demande des requêtes HTTP {#the-request-line-part-of-http-requests}
 
-HTTP/1.1 définit la ligne de requête [](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) comme suit :
+HTTP/1.1 définit la [ligne-demande](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) comme suit :
 
 `Method Request-URI HTTP-Version<CRLF>`
 
-Les caractères `<CRLF>` représentent un retour chariot suivi d’un flux de ligne. L’exemple suivant est la ligne de requête reçue lorsqu’un client demande la page Anglais-Etats-Unis du site WKND :
+Les caractères `<CRLF>` représentent un retour chariot suivi d’un flux de ligne. L’exemple suivant est la ligne de demande reçue lorsqu’un client demande la page en anglais américain du site WKND :
 
 `GET /content/wknd/us/en.html HTTP.1.1<CRLF>`
 
-Vos modèles doivent prendre en compte les caractères d’espace dans la ligne de requête et les caractères `<CRLF>`.
+Vos modèles doivent prendre en compte les espaces contenus dans la ligne de demande et les caractères `<CRLF>`.
 
 #### Guillemets doubles contre guillemets simples{#double-quotes-vs-single-quotes}
 
@@ -611,7 +610,7 @@ Lors de la création de vos règles de filtrage, utilisez des guillemets doubles
 
 #### Expressions régulières {#regular-expressions}
 
-Dans les versions de Dispatcher ultérieures à la version 4.2.0, vous pouvez inclure des Expressions régulières POSIX Extended dans vos modèles de filtre.
+Dans les versions de Dispatcher ultérieures à la version 4.2.0, vous pouvez inclure des expressions régulières POSIX étendues dans vos modèles de filtre.
 
 #### Résolution des problèmes de filtres {#troubleshooting-filters}
 
@@ -627,7 +626,7 @@ La section d’exemple de filtre suivante entraîne le refus des demandes par Di
 
 Les demandes concernant une zone explicitement refusée renvoient le code d’erreur 404 (page introuvable).
 
-#### Exemple de filtre : Refuser l&#39;accès à des zones spécifiques {#example-filter-deny-access-to-specific-areas}
+#### Exemple de filtre : Refuser l’accès à des zones spécifiques {#example-filter-deny-access-to-specific-areas}
 
 Les filtres permettent également de refuser l’accès à divers éléments, par exemple à des pages ASP et à des zones sensibles de l’instance de publication. Le filtre suivant refuse l’accès aux pages ASP :
 
@@ -706,9 +705,9 @@ Lors de la configuration de Dispatcher, limitez l’accès externe autant que po
 
 Une fois que vous avez créé des filtres, [testez l’accès à la page](#testing-dispatcher-security) pour vérifier que l’instance AEM est sécurisée.
 
-La section `/filter` suivante du fichier `dispatcher.any` peut être utilisée comme base dans votre fichier de configuration du répartiteur [.](#dispatcher-configuration-files)
+La section `/filter` suivante du fichier `dispatcher.any` peut être utilisée comme base dans votre fichier de configuration [Dispatcher.](#dispatcher-configuration-files)
 
-Cet exemple se base sur le fichier de configuration par défaut fourni avec Dispatcher. C’est un exemple d’utilisation dans un environnement de production. Les éléments précédés du préfixe `#` sont désactivés (commentés), il faut prendre garde si vous décidez d&#39;activer l&#39;un de ces éléments (en supprimant le préfixe `#` sur cette ligne) car cela peut avoir un impact sur la sécurité.
+Cet exemple se base sur le fichier de configuration par défaut fourni avec Dispatcher. C’est un exemple d’utilisation dans un environnement de production. Les éléments dotés du préfixe `#` sont désactivés (commentés). Soyez prudent si vous décidez d’activer l’un d’eux (en supprimant `#` sur cette ligne), car cela peut avoir un impact sur la sécurité.
 
 Vous devez refuser l’accès à tous les éléments, puis accorder l’accès à des éléments (limités) spécifiques :
 
@@ -781,7 +780,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!NOTE]
 >
->Les filtres `0030` et `0031` concernant les médias dynamiques sont applicables à AEM 6.0 et versions ultérieures.
+>Les filtres `0030` et `0031` concernant Dynamic Media s’appliquent à AEM 6.0 et versions ultérieures.
 
 Tenez compte des recommandations suivantes si vous choisissez d’étendre l’accès :
 
@@ -805,13 +804,13 @@ En fonction de l’installation, il peut y avoir des ressources supplémentaires
 
 >[!CAUTION]
 >
->Si vous utilisez [des rapports dans un environnement de publication](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=en#using-reports-in-a-publish-environment), vous devez configurer le répartiteur pour qu’il refuse l’accès à `/etc/reports` pour les visiteurs externes.
+>Si vous utilisez [des rapports dans un environnement de publication](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=en#using-reports-in-a-publish-environment), vous devez configurer Dispatcher pour refuser l’accès à `/etc/reports` aux visiteurs externes.
 
 ### Restriction des chaînes de requête {#restricting-query-strings}
 
 Depuis la version 4.1.5 de Dispatcher, utilisez la section `/filter` pour limiter les chaînes de requête. Il est fortement recommandé d’autoriser explicitement les chaînes de requête et d’exclure l’allocation générique par l’intermédiaire des éléments de filtre `allow`.
 
-Une entrée unique peut avoir `glob` ou une combinaison de `method`, `url`, `query` et `version`, mais pas les deux. L’exemple suivant autorise la chaîne de requête `a=*` et refuse toutes les autres chaînes de requête des URL qui se résolvent sur le nœud `/etc` :
+Une entrée unique peut comporter `glob` ou une combinaison de `method`, `url`, `query` et `version`, mais pas les deux. L’exemple suivant autorise la chaîne de requête `a=*` et refuse toutes les autres chaînes de requête des URL qui se résolvent sur le nœud `/etc` :
 
 ```xml
 /filter {
@@ -840,7 +839,7 @@ Une entrée unique peut avoir `glob` ou une combinaison de `method`, `url`, `que
 
 Les filtres de Dispatcher doivent bloquer l’accès aux pages et scripts suivants sur les instances de publication AEM. Utilisez un navigateur web pour tenter d’ouvrir les pages suivantes en tant que visiteur du site et vérifier qu’un code 404 est renvoyé. Si un autre résultat est obtenu, ajustez vos filtres.
 
-Notez que le rendu normal des pages doit s’afficher pour `/content/add_valid_page.html?debug=layout`.
+Notez que le rendu de page normal doit s’afficher pour `/content/add_valid_page.html?debug=layout`.
 
 * `/admin`
 * `/system/console`
@@ -898,7 +897,7 @@ Notez que le rendu normal des pages doit s’afficher pour `/content/add_valid_p
 
 `curl -X POST "https://anonymous:anonymous@hostname:port/content/usergenerated/mytestnode"`
 
-Émettez la commande suivante dans un terminal ou une invite de commande pour tenter d&#39;invalider le cache du répartiteur et assurez-vous que vous recevez une réponse du code 404 :
+Émettez la commande suivante dans un terminal ou une invite de commande pour tenter d’invalider le cache de Dispatcher et assurez-vous que vous recevez une réponse 404 du code :
 
 `curl -H "CQ-Handle: /content" -H "CQ-Path: /content" https://yourhostname/dispatcher/invalidate.cache`
 
@@ -914,7 +913,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
  -->
 
-Configurez le répartiteur pour activer l’accès aux URL vanity qui sont configurées pour vos pages AEM.
+Configurez Dispatcher pour activer l’accès aux URL de redirection vers un microsite configurées pour vos pages AEM.
 
 Lorsque l’accès aux URL de redirection vers un microsite est activé, Dispatcher appelle régulièrement un service qui s’exécute sur l’instance de rendu afin d’obtenir une liste des URL de redirection vers un microsite. Dispatcher stocke cette liste dans un fichier local. Lorsqu’une demande de page est refusée en raison d’un filtre de la section `/filter`, Dispatcher consulte la liste des URL de redirection vers un microsite. Si l’URL refusée se trouve dans la liste, Dispatcher autorise l’accès à l’URL de redirection vers un microsite.
 
@@ -937,11 +936,11 @@ La section `/vanity_urls` contient les propriétés suivantes :
 
 >[!NOTE]
 >
->Si votre rendu est une instance d&#39;AEM, vous devez installer le [package VanityURLS-Components de Software Distribution](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) pour activer le service d&#39;URL vanity. (Voir [Distribution de logiciels](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=en#software-distribution) pour plus de détails.)
+>Si votre rendu est une instance d’AEM, vous devez installer le package [VanityURLS-Components à partir de Distribution logicielle](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) pour activer le service URL de redirection vers un microsite. (Voir [Distribution logicielle](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=en#software-distribution) pour plus d’informations.)
 
 Utilisez la procédure suivante pour autoriser l’accès aux URL de redirection vers un microsite.
 
-1. Si votre service de rendu est une instance AEM, installez le package `com.adobe.granite.dispatcher.vanityurl.content sur l’instance de publication (voir la note ci-dessus).
+1. Si votre service de rendu est une instance AEM, installez le package com.adobe.granite.dispatcher.vanityurl.content sur l’instance de publication (voir la note ci-dessus).
 1. Pour chaque URL de redirection vers un microsite que vous avez configurée pour une page d’AEM ou de CQ, assurez-vous que la configuration de [`/filter`](#configuring-access-to-content-filter) refuse l’URL. Si nécessaire, ajoutez un filtre qui refuse l’URL.
 1. Ajoutez la section `/vanity_urls` sous la section `/farms`.
 1. Redémarrez le serveur web Apache.
@@ -950,7 +949,7 @@ Utilisez la procédure suivante pour autoriser l’accès aux URL de redirection
 
 Les demandes de syndication sont généralement prévues uniquement pour Dispatcher. De ce fait, par défaut, elles ne sont pas envoyées au rendu (par exemple, une instance AEM).
 
-Si nécessaire, définissez la propriété `/propagateSyndPost` sur `"1"` pour transférer les demandes de syndication au répartiteur. Si les demandes POST sont définies, vous devez vous assurer qu’elles ne sont pas refusées dans la section filter.
+Si nécessaire, définissez la propriété `/propagateSyndPost` sur `"1"` pour transférer les demandes de syndication à Dispatcher. Si les demandes POST sont définies, vous devez vous assurer qu’elles ne sont pas refusées dans la section filter.
 
 ## Configuration du cache de Dispatcher - /cache {#configuring-the-dispatcher-cache-cache}
 
@@ -1012,29 +1011,29 @@ Si vous utilisez plusieurs fermes de serveurs, chacune doit utiliser une racine 
 
 La propriété `/statfile` identifie le fichier à utiliser en tant que fichier stat. Dispatcher utilise ce fichier pour enregistrer l’heure de la mise à jour du contenu la plus récente. Le fichier stat peut être n’importe quel fichier du serveur web.
 
-Le fichier stat n’a aucun contenu. Lorsque le contenu est mis à jour, Dispatcher met à jour l’horodatage. Le fichier d’état par défaut est nommé `.stat` et est stocké dans le dossier. Dispatcher bloque l’accès au fichier stat.
+Le fichier stat n’a aucun contenu. Lorsque le contenu est mis à jour, Dispatcher met à jour l’horodatage. Le fichier stat par défaut est nommé `.stat` et est stocké dans le docroot. Dispatcher bloque l’accès au fichier stat.
 
 >[!NOTE]
 >
->Si `/statfileslevel` est configuré, le répartiteur ignore la propriété `/statfile` et utilise `.stat` comme nom.
+>Si `/statfileslevel` est configuré, Dispatcher ignore la propriété `/statfile` et utilise `.stat` comme nom.
 
 ### Distribution de documents obsolètes lorsque des erreurs se produisent {#serving-stale-documents-when-errors-occur}
 
 La propriété `/serveStaleOnError` contrôle si Dispatcher renvoie des documents invalidés lorsque le serveur de rendu renvoie une erreur. Par défaut, lorsqu’un fichier stat est modifié et invalide un contenu mis en cache, Dispatcher supprime le contenu mis en cache la prochaine fois qu’il est demandé.
 
-Si `/serveStaleOnError` est défini sur `"1"`, le répartiteur ne supprime pas le contenu invalidé du cache, sauf si le serveur de rendu renvoie une réponse positive. Une réponse 5xx d’AEM ou une expiration du délai de connexion entraîne Dispatcher à diffuser du contenu obsolète et à répondre avec l’état HTTP 111 (Échec de la revalidation).
+Si `/serveStaleOnError` est défini sur `"1"`, Dispatcher ne supprime pas le contenu invalidé du cache à moins que le serveur de rendu ne renvoie une réponse réussie. Une réponse 5xx d’AEM ou une expiration du délai de connexion entraîne Dispatcher à diffuser du contenu obsolète et à répondre avec l’état HTTP 111 (Échec de la revalidation).
 
 ### Mise en cache lors de l’utilisation de l’authentification {#caching-when-authentication-is-used}
 
 La propriété `/allowAuthorized` contrôle si les demandes contenant les informations d’authentification suivantes sont mises en cache :
 
-* L&#39;en-tête `authorization`
+* En-tête `authorization`
 * Un cookie appelé `authorization`
 * Un cookie appelé `login-token`
 
 Par défaut, les demandes qui incluent ces informations d’authentification ne sont pas mises en cache, car l’authentification n’est pas effectuée lorsqu’un document mis en cache est renvoyé au client. Cette configuration empêche Dispatcher de diffuser des documents mis en cache aux utilisateurs qui n’ont pas les droits requis.
 
-Cependant, si vos exigences permettent la mise en cache de documents authentifiés, définissez `/allowAuthorized` sur un :
+Cependant, si vos besoins permettent la mise en cache de documents authentifiés, définissez `/allowAuthorized` sur un :
 
 `/allowAuthorized "1"`
 
@@ -1167,7 +1166,7 @@ Lorsqu’un fichier dans `/content/myWebsite/xx` est invalidé, tous les fichier
 
 >[!NOTE]
 >
->L’invalidation peut être empêchée en envoyant un en-tête `CQ-Action-Scope:ResourceOnly` supplémentaire. Cela peut être utilisé pour vider des ressources particulières sans invalider les autres parties du cache. Voir [cette page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) et [Invalidation manuelle du cache du répartiteur](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=en#configuring) pour plus de détails.
+>L’invalidation peut être empêchée en envoyant un en-tête `CQ-Action-Scope:ResourceOnly` supplémentaire. Cela peut être utilisé pour vider des ressources particulières sans invalider les autres parties du cache. Voir [cette page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) et [Invalidation manuelle du cache de Dispatcher](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=en#configuring) pour plus d’informations.
 
 >[!NOTE]
 >
@@ -1195,7 +1194,7 @@ Cette configuration provoque l’activité suivante lorsque `/content/wknd/us/en
 
 * Tous les fichiers dotés du modèle fr.* sont supprimés du dossier `/content/wknd/us`.
 * Le dossier `/content/wknd/us/en./_jcr_content` est supprimé.
-* Tous les autres fichiers correspondant à la configuration `/invalidate` ne sont pas immédiatement supprimés. Ces fichiers sont supprimés lorsque la demande suivante se produit. Dans notre exemple, `/content/wknd.html` n&#39;est pas supprimé, il sera supprimé lorsque `/content/wknd.html` est demandé.
+* Tous les autres fichiers correspondant à la configuration `/invalidate` ne sont pas immédiatement supprimés. Ces fichiers sont supprimés lorsque la demande suivante se produit. Dans notre exemple, `/content/wknd.html` n’est pas supprimé, il sera supprimé lorsque `/content/wknd.html` est demandé.
 
 Si vous proposez des fichiers PDF et ZIP générés automatiquement en téléchargement, vous devrez peut-être les invalider automatiquement. Un exemple de configuration se présente comme suit :
 
@@ -1209,7 +1208,7 @@ Si vous proposez des fichiers PDF et ZIP générés automatiquement en télécha
   }
 ```
 
-L’intégration AEM à Adobe Analytics fournit des données de configuration dans un fichier `analytics.sitecatalyst.js` de votre site Web. Le fichier `dispatcher.any` exemple fourni avec Dispatcher contient la règle d&#39;invalidation suivante pour ce fichier :
+L’intégration d’AEM à Adobe Analytics fournit des données de configuration dans un fichier `analytics.sitecatalyst.js` de votre site web. L’exemple de fichier `dispatcher.any` fourni avec Dispatcher inclut la règle d’invalidation suivante pour ce fichier :
 
 ```xml
 {
@@ -1219,13 +1218,13 @@ L’intégration AEM à Adobe Analytics fournit des données de configuration da
 
 ### Utilisation de scripts d’invalidation personnalisés   {#using-custom-invalidation-scripts}
 
-La propriété `/invalidateHandler` vous permet de définir un script appelé pour chaque demande d&#39;invalidation reçue par le répartiteur.
+La propriété `/invalidateHandler` vous permet de définir un script appelé pour chaque demande d’invalidation reçue par Dispatcher.
 
 Elle est appelée avec les arguments suivants :
 
-* Handle : chemin de contenu invalidé
-* Action - Action de réplication (par exemple, activer, désactiver)
-* Portée de l&#39;action - Portée de l&#39;action de réplication (vide, sauf si un en-tête `CQ-Action-Scope: ResourceOnly` est envoyé, voir [Invalidation des pages mises en cache à partir d&#39;AEM](page-invalidate.md) pour plus de détails)
+* Handle : chemin d’accès au contenu invalidé.
+* Action - Action de réplication (par exemple Activer, Désactiver).
+* Action Scope - Domaine de l’action de réplication (vide, sauf si un en-tête `CQ-Action-Scope: ResourceOnly` est envoyé). Voir [Invalidation des pages mises en cache à partir d’AEM](page-invalidate.md) pour plus d’informations.
 
 Ceci peut être utilisé pour plusieurs cas d’utilisation différents, tels que l’invalidation de caches spécifiques à d’autres applications, ou pour traiter les cas où la place d’une URL externalisée d’une page dans le docroot ne correspond pas au chemin d’accès au contenu.
 
@@ -1282,7 +1281,7 @@ Pour spécifier les paramètres qui sont ignorés, ajoutez les règles glob à l
 * Pour ignorer un paramètre, créez une propriété glob qui active le paramètre.
 * Pour empêcher la page d’être mise en cache, créez une propriété glob qui refuse le paramètre.
 
-L&#39;exemple suivant montre comment faire en sorte que Dispatcher ignore le paramètre `q`, de sorte que les URL de requête incluant le paramètre q soient mises en cache :
+L’exemple suivant fait en sorte que Dispatcher ignore le paramètre `q` , de sorte que les URL de demande contenant le paramètre q soient mises en cache :
 
 ```xml
 /ignoreUrlParams
@@ -1333,14 +1332,14 @@ Voici ci-dessous un exemple de la configuration par défaut :
 
 >[!NOTE]
 >
->Sachez également que les caractères de blocage de fichiers ne sont pas autorisés. Pour plus de détails, voir [Conception de modèles pour les propriétés glob](#designing-patterns-for-glob-properties).
+>Sachez également que les caractères d’extension métacaractère des fichiers ne sont pas autorisés. Pour plus de détails, voir [Conception de modèles pour les propriétés glob](#designing-patterns-for-glob-properties).
 
 >[!NOTE]
 >
 >Si Dispatcher est requis pour stocker et livrer les en-têtes de réponse ETag d’AEM, procédez comme suit :
 >
 >* Ajoutez le nom de l’en-tête dans la section`/cache/headers`.
->* Ajoutez la [directive Apache](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) suivante dans la section relative au répartiteur :
+>* Ajoutez la [directive Apache](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) suivante dans la section relative à Dispatcher :
 
 >
 >
@@ -1362,7 +1361,7 @@ La propriété `mode` définit les autorisations de fichier appliquées aux nouv
 * `0002` Autoriser l’écriture par d’autres personnes.
 * `0001` Autoriser d’autres personnes à effectuer une recherche dans le répertoire.
 
-La valeur par défaut est `0755`, ce qui permet au propriétaire de lire, d&#39;écrire ou de rechercher, et au groupe et aux autres utilisateurs de lire ou de rechercher.
+La valeur par défaut est `0755` , ce qui permet au propriétaire de lire, écrire ou rechercher et au groupe et à d’autres personnes de lire ou rechercher.
 
 ### Fichier limitant .stat touchant {#throttling-stat-file-touching}
 
@@ -1378,7 +1377,7 @@ Si la propriété `/enableTTL` est définie, elle évalue les en-têtes de répo
 
 >[!NOTE]
 >
->Cette fonctionnalité est disponible dans la version **4.1.11** ou ultérieure du répartiteur.
+>Cette fonctionnalité est disponible dans la version **4.1.11** ou ultérieure de Dispatcher.
 
 ## Configuration de l’équilibrage de charge - /statistics {#configuring-load-balancing-statistics}
 
@@ -1411,7 +1410,7 @@ Le score d’une catégorie de rendu est basé sur les temps de réponse précé
 
 ### Définition des catégories de statistiques   {#defining-statistics-categories}
 
-Définissez une catégorie pour chaque type de document pour lequel vous voulez conserver les statistiques pour la sélection du rendu. La section `/statistics` contient une section `/categories`. Pour définir une catégorie, ajoutez une ligne sous la section `/categories` qui présente le format suivant :
+Définissez une catégorie pour chaque type de document pour lequel vous voulez conserver les statistiques pour la sélection du rendu. La section `/statistics` contient une section `/categories` . Pour définir une catégorie, ajoutez une ligne sous la section `/categories` au format suivant :
 
 `/name { /glob "pattern"}`
 
@@ -1419,7 +1418,7 @@ La catégorie `name` doit être unique à la ferme de serveurs. `pattern` est d�
 
 Pour déterminer la catégorie d’un URI, Dispatcher compare l’URI à chaque modèle de catégorie jusqu’à ce qu’une correspondance soit trouvée. Dispatcher commence par la première catégorie de la liste et continue dans l’ordre. Par conséquent, placez en premier les catégories contenant plusieurs modèles spécifiques.
 
-Par exemple, le répartiteur du fichier `dispatcher.any` par défaut définit une catégorie HTML et une autre catégorie. La catégorie HTML est plus précise et, de ce fait, elle s’affiche en premier :
+Par exemple, le fichier `dispatcher.any` par défaut de Dispatcher définit une catégorie HTML et une autre catégorie. La catégorie HTML est plus précise et, de ce fait, elle s’affiche en premier :
 
 ```xml
 /statistics
@@ -1454,7 +1453,7 @@ Par exemple, la pénalité est appliquée lorsque la connexion TCP/IP au nom d�
 
 La propriété `/unavailablePenalty` est un enfant direct de la section `/farm` (également enfant de la section `/statistics`).
 
-Si aucune propriété `/unavailablePenalty` n’existe, une valeur de `"1"` est utilisée.
+Si aucune propriété `/unavailablePenalty` n’existe, une valeur `"1"` est utilisée.
 
 ```xml
 /unavailablePenalty "1"
@@ -1484,13 +1483,13 @@ Lorsqu’une page est constituée de contenu provenant de plusieurs nœuds de co
 
 ### httpOnly {#httponly}
 
-Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur `httponly`, qui doit être ajouté à des fins de sécurité. Pour l’ajouter, définissez la propriété `httpOnly` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (`0` ou `1`) définit si l’attribut `renderid` est ajouté au cookie `HttpOnly`. La valeur par défaut est `0`, ce qui signifie que l’attribut ne sera pas ajouté.
+Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur `httponly`, qui doit être ajouté à des fins de sécurité. Pour l’ajouter, définissez la propriété `httpOnly` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (`0` ou `1`) définit si le cookie `renderid` est associé à l’attribut `HttpOnly`. La valeur par défaut est `0`, ce qui signifie que l’attribut ne sera pas ajouté.
 
-Pour plus d&#39;informations sur l&#39;indicateur `httponly`, consultez [cette page](https://www.owasp.org/index.php/HttpOnly).
+Pour plus d’informations sur l’indicateur `httponly`, consultez [cette page](https://www.owasp.org/index.php/HttpOnly).
 
 ### secure {#secure}
 
-Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur `secure`, qui doit être ajouté à des fins de sécurité. Pour l’ajouter, définissez la propriété `secure` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (`0` ou `1`) définit si l’attribut `renderid` est ajouté au cookie `secure`. La valeur par défaut est `0`, ce qui signifie que l’attribut sera ajouté **si** la requête entrante est sécurisée. Si la valeur est définie sur `1`, l’indicateur sécurisé est ajouté, que la requête entrante soit sécurisée ou non.
+Lorsque les connexions persistantes sont activées, le module de Dispatcher définit le cookie `renderid`. Ce cookie n’est pas doté de l’indicateur `secure`, qui doit être ajouté à des fins de sécurité. Pour l’ajouter, définissez la propriété `secure` dans le nœud `/stickyConnections` d’un fichier de configuration `dispatcher.any`. La valeur de la propriété (`0` ou `1`) définit si le cookie `renderid` est associé à l’attribut `secure`. La valeur par défaut est `0`, ce qui signifie que l’attribut sera ajouté **si** la requête entrante est sécurisée. Si la valeur est définie sur `1`, l’indicateur sécurisé sera ajouté, que la requête entrante soit sécurisée ou non.
 
 ## Gestion des erreurs de connexion au serveur de rendu {#handling-render-connection-errors}
 
@@ -1510,7 +1509,7 @@ Utilisez la propriété `/health_check` pour indiquer une URL qui est vérifiée
 
 ### Définition du délai entre deux tentatives de connexion à une page {#specifying-the-page-retry-delay}
 
-La propriété `/retryDelay` définit le temps (en secondes) que le répartiteur attend entre les tours de tentatives de connexion avec la batterie de serveurs générés. Pour chaque série, le nombre maximal de tentatives de connexion de Dispatcher à un rendu est le nombre de rendus de la ferme de serveurs.
+La propriété `/retryDelay` définit le temps (en secondes) pendant lequel Dispatcher attend entre les séries de tentatives de connexion aux rendus de la ferme de serveurs. Pour chaque série, le nombre maximal de tentatives de connexion de Dispatcher à un rendu est le nombre de rendus de la ferme de serveurs.
 
 Dispatcher utilise la valeur `"1"` si la propriété `/retryDelay` n’est pas explicitement définie. La valeur par défaut est appropriée dans la plupart des cas.
 
@@ -1559,7 +1558,7 @@ Pour activer le basculement, ajoutez la ligne suivante à la ferme de serveurs (
 
 Tout appel à un système orienté fichiers peut être interrompu `EINTR` si l’objet de l’appel au système se trouve sur un système distant accessible au moyen de NFS. On détermine si ces appels à un système peuvent expirer ou être interrompus par la façon dont le système de fichiers sous-jacent a été installé sur la machine locale.
 
-Utilisez le paramètre `/ignoreEINTR` si votre instance possède une telle configuration et si le journal contient le message suivant :
+Utilisez le paramètre `/ignoreEINTR` si votre instance possède une telle configuration et que le journal contient le message suivant :
 
 `Error while reading response: Interrupted system call`
 
@@ -1581,7 +1580,7 @@ La définition du paramètre `/ignoreEINTR` sur `"1"` fait en sorte que Dispatch
 
 ## Création de modèles pour les propriétés glob {#designing-patterns-for-glob-properties}
 
-Plusieurs sections du fichier de configuration de Dispatcher utilisent les propriétés `glob` comme critères de sélection des demandes du client. Les valeurs des propriétés `glob` sont des modèles que Dispatcher compare à un aspect de la requête, tel que le chemin d&#39;accès de la ressource demandée ou l&#39;adresse IP du client. Par exemple, les éléments de la section `/filter` utilisent les modèles pour identifier les chemins d’accès des pages que Dispatcher traite ou rejette.`glob`
+Plusieurs sections du fichier de configuration de Dispatcher utilisent les propriétés `glob` comme critères de sélection des demandes du client. Les valeurs des propriétés `glob` sont des modèles que Dispatcher compare à un aspect de la requête, comme le chemin d’accès à la ressource demandée ou l’adresse IP du client. Par exemple, les éléments de la section `/filter` utilisent les modèles pour identifier les chemins d’accès des pages que Dispatcher traite ou rejette.`glob`
 
 Les valeurs `glob` peuvent inclure des caractères génériques et des caractères alphanumériques pour définir le modèle.
 
@@ -1704,7 +1703,7 @@ Si vous utilisez un serveur web **Apache**, vous pouvez utiliser la fonctionnali
 
 Cette ligne de commande provoque automatiquement la rotation :
 
-* le fichier journal du répartiteur ; avec un horodatage dans l’extension (`logs/dispatcher.log%Y%m%d`).
+* le fichier journal du dispatcher ; avec un horodatage dans l’extension (`logs/dispatcher.log%Y%m%d`).
 * chaque semaine (60 x 60 x 24 x 7 = 604 800 secondes).
 
 Consultez la documentation du serveur web Apache sur la rotation des journaux et les journaux redirigés ; par exemple[ Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
@@ -1844,8 +1843,8 @@ La méthode HTTP n’est ni un GET ni un HEAD. Dispatcher suppose que la sortie 
    Le vérificateur d’autorisation de la ferme de serveurs a refusé l’accès au fichier mis en cache.
 * **mise en cache impossible : session non valide**
 Le cache de la ferme de serveurs est régi par un gestionnaire de session (la configuration contient un nœud `sessionmanagement`) et la session de l’utilisateur n’est pas ou plus valide.
-* **impossible à mettre en cache : contient`no_cache`**
-Le serveur distant a renvoyé une 
-`Dispatcher: no_cache` , empêchant le répartiteur de mettre en cache la sortie.
+* **mise en cache impossible : La réponse contient`no_cache`**
+le serveur distant a renvoyé une 
+`Dispatcher: no_cache` en-tête, interdisant au Dispatcher de mettre en cache la sortie.
 * **mise en cache impossible : la longueur du contenu de la réponse est zéro**
 La longueur du contenu de la réponse est zéro ; Dispatcher ne créera pas de fichier de longueur nulle.
