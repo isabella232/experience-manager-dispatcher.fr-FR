@@ -12,14 +12,13 @@ discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
-source-git-commit: f9fb0e94dbd1c67bf87463570e8b5eddaca11bf3
+exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '1375'
 ht-degree: 94%
 
 ---
-
 
 # Utilisation du protocole SSL avec Dispatcher {#using-ssl-with-dispatcher}
 
@@ -38,9 +37,9 @@ Configurez Dispatcher de sorte qu’il communique avec l’instance de rendu AEM
 
 Avant de configurer Dispatcher, configurez AEM ou CQ de sorte que ces applications utilisent le protocole SSL :
 
-* aem 6.2 : [Activation du protocole HTTP via SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* aem 6.1 : [Activation du protocole HTTP via SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Anciennes versions d’AEM : voir [cette page](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html).
+* AEM 6.2 : [Activation de HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1 : [Activation de HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Anciennes versions d’AEM : voir [cette page](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=fr#previous-updates).
 
 ### En-têtes de demande associés au protocole SSL {#ssl-related-request-headers}
 
@@ -123,7 +122,7 @@ Configurez les connexions entre Dispatcher et l’ordinateur de rendu (général
 
 * Dispatcher se connecte à l’instance de rendu via SSL.
 * L’instance de rendu vérifie la validité du certificat de Dispatcher.
-* Le répartiteur vérifie que l’autorité de certification du certificat de l’instance de rendu est approuvée.
+* Dispatcher vérifie que l’autorité de certification du certificat de l’instance de rendu est approuvée.
 * (Facultatif) Dispatcher vérifie que le certificat de l’instance de rendu correspond à l’adresse du serveur de l’instance de rendu.
 
 Pour configurer un protocole SSL mutuel, vous avez besoin de certificats signés par une autorité de certification approuvée. Les certificats auto-signés ne sont pas appropriés. Vous pouvez agir comme autorité de certification ou utiliser les services d’une autorité de certification tierce pour la signature des certificats. Pour configurer un protocole SSL mutuel, vous avez besoin des éléments suivants :
@@ -139,7 +138,7 @@ Procédez comme suit pour configurer le protocole SSL mutuel :
 1. [Créez un magasin de clés contenant le certificat du rendu](dispatcher-ssl.md#main-pars-title-6) et configurez le service HTTP pour l’utiliser.
 1. [Configurez le module de serveur web de Dispatcher](dispatcher-ssl.md#main-pars-title-4) pour le protocole SSL mutuel.
 
-### Création ou obtention de certificats signés par une autorité de certification   {#creating-or-obtaining-ca-signed-certificates}
+### Création ou obtention de certificats signés par une autorité de certification  {#creating-or-obtaining-ca-signed-certificates}
 
 Créez ou obtenez des certificats signés par une autorité de certification qui authentifient l’instance de publication et Dispatcher.
 
@@ -254,8 +253,8 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Utilisez le certificat de rendu avec les instructions de la section *Activation du protocole SSL sur l’instance Publish* pour configurer le service HTTP de l’instance de rendu de sorte qu’il utilise le protocole SSL :
 
-* aem 6.2 : [Activation du protocole HTTP via SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* aem 6.1 : [Activation du protocole HTTP via SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* AEM 6.2 : [Activation de HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1 : [Activation de HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
 * Anciennes versions d’AEM : voir [cette page.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
 ### Configuration du protocole SSL pour le module de Dispatcher {#configuring-ssl-for-the-dispatcher-module}
@@ -310,4 +309,3 @@ Le code suivant est un exemple de configuration :
   DispatcherCheckPeerCN On
 </IfModule>
 ```
-
