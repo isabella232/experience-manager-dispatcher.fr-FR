@@ -10,14 +10,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
-translation-type: tm+mt
-source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
+exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '2983'
 ht-degree: 99%
 
 ---
-
 
 # Utilisation de Dispatcher avec plusieurs domaines {#using-dispatcher-with-multiple-domains}
 
@@ -87,7 +86,7 @@ Votre environnement doit mettre en œuvre les fonctionnalités suivantes pour pr
 * Le système de noms de domaine (DNS) résout les noms de domaine sur l’adresse IP du serveur web.
 * Le cache de Dispatcher reflète la structure des répertoires du référentiel de contenu d’AEM. Les chemins d’accès aux fichiers sous la racine du document du serveur web sont les mêmes que les chemins d’accès aux fichiers du référentiel.
 
-## Environnement pour les exemples proposés   {#environment-for-the-provided-examples}
+## Environnement pour les exemples proposés  {#environment-for-the-provided-examples}
 
 Les exemples de solution proposés s’appliquent à un environnement doté des caractéristiques suivantes :
 
@@ -312,10 +311,10 @@ Le tableau suivant répertorie les nœuds qui mettent en œuvre le mappage des r
 | Chemin d’accès au nœud | Type | Propriété |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | Nom : sling:internalRedirect Type : String Valeur : /content/sitea |
-| `/etc/map/http/branda.com/libs` | sling:mappage | Nom : sling:internalRedirect<br/> Type : String<br/> Valeur : /libs |
-| `/etc/map/http/branda.com/etc` | sling:mappage |  |
-| `/etc/map/http/branda.com/etc/designs` | sling:mappage | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling:mappage | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling:Mapping | Nom : sling:internalRedirect<br/> Type : String<br/> Valeur : /libs |
+| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
+| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | Nom : sling:internalRedirect <br/>VType : String <br/>VValeur : /etc/clientlibs |
 
 ## Configuration de l’agent de réplication de vidage de Dispatcher {#configuring-the-dispatcher-flush-replication-agent}
 
@@ -544,7 +543,7 @@ Procédez comme suit pour créer un composant du transformateur et l’utiliser 
 
 >[!NOTE]
 >
->Utilisez l’archétype [multimodule](https://helpx.adobe.com/fr/experience-manager/aem-previous-versions.html) du module externe Content Package Maven pour créer le projet Maven. Les POM créent et installent automatiquement un module de contenu.
+>Utilisez l’archétype [multimodule](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=fr#previous-updates) du module externe Content Package Maven pour créer le projet Maven. Les POM créent et installent automatiquement un module de contenu.
 
 Les exemples suivants mettent en œuvre un transformateur qui réécrit les références aux fichiers d’images.
 
