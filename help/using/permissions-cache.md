@@ -9,14 +9,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
-translation-type: tm+mt
-source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
+exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '762'
 ht-degree: 100%
 
 ---
-
 
 # Mise en cache du contenu sécurisé {#caching-secured-content}
 
@@ -32,7 +31,7 @@ Les méthodes d’authentification et d’autorisation étant spécifiques au d�
 
 Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisent lorsqu’un navigateur web demande une page sur laquelle la mise en cache sensible aux autorisations est utilisée.
 
-## La page est mise en cache et l’utilisateur est autorisé   {#page-is-cached-and-user-is-authorized}
+## La page est mise en cache et l’utilisateur est autorisé  {#page-is-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1.png)
 
@@ -197,4 +196,3 @@ L’exemple suivant de la section auth_checker configure Dispatcher pour qu’il
     }
   }
 ```
-
