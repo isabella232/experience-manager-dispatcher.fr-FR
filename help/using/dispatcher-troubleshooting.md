@@ -12,14 +12,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
-translation-type: tm+mt
-source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
+exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '553'
 ht-degree: 90%
 
 ---
-
 
 # Résolution des problèmes liés à Dispatcher {#troubleshooting-dispatcher-problems}
 
@@ -31,7 +30,7 @@ ht-degree: 90%
 
 >[!NOTE]
 >
->Pour plus d&#39;informations, consultez la [Base de connaissances du répartiteur](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Résolution des problèmes de vidange du répartiteur](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) et la [FAQ sur les principaux problèmes du répartiteur](dispatcher-faq.md).
+>Pour plus d’informations, consultez également la [Base de connaissances de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Dépannage des problèmes de purge du Dispatcher](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) et la [FAQ sur les problèmes fréquents de Dispatcher](dispatcher-faq.md).
 
 ## Vérification de la configuration de base {#check-the-basic-configuration}
 
@@ -50,7 +49,7 @@ Comme toujours, les premières étapes consistent à vérifier les principes de 
       * Ont-ils une incidence sur ce que vous êtes en train de tester ?
 
 
-## Outils de diagnostic IIS   {#iis-diagnostic-tools}
+## Outils de diagnostic IIS  {#iis-diagnostic-tools}
 
 IIS propose divers outils de trace, en fonction de la version :
 
@@ -64,7 +63,7 @@ Ces outils peuvent vous aider à surveiller l’activité.
 Lorsque vous utilisez IIS, une erreur `404 Not Found` peut survenir dans plusieurs cas de figure. Si cela se produit, consultez les articles suivants de la base de connaissances.
 
 * [IIS 6/7 : la méthode POST renvoie une erreur 404.](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6 : Demandes d’URL contenant le  `/bin` retour du chemin de base  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6 : Requêtes aux URL contenant le  `/bin` retour du chemin d’accès de base  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 Vous devez également vérifier que la racine du cache de Dispatcher et la racine du document IIS sont placées dans le même répertoire.
 
