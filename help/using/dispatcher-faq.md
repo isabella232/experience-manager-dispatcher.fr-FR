@@ -3,14 +3,13 @@ title: Problèmes fréquents de Dispatcher
 seo-title: Problèmes fréquents d’AEM Dispatcher
 description: Problèmes fréquents d’AEM Dispatcher
 seo-description: Problèmes fréquents d’Adobe AEM Dispatcher
-translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '1644'
 ht-degree: 95%
 
 ---
-
 
 # FAQ sur les problèmes fréquents d’AEM Dispatcher
 
@@ -85,7 +84,7 @@ Pour certaines applications, il peut être possible d’utiliser à la fois des 
 
 Oui, si l’ordinateur est suffisamment puissant. Toutefois, il est recommandé de configurer Dispatcher et l’instance AEM de publication sur différents ordinateurs.
 
-En règle générale, l’instance de publication se trouve à l’intérieur du pare-feu et le répartiteur réside dans la zone démilitarisée. Si vous décidez de disposer à la fois de l’instance de publication et de Dispatcher sur la même machine physique, assurez-vous que les paramètres du pare-feu interdisent l’accès direct à l’instance de publication à partir de réseaux externes.
+En règle générale, l’instance de publication se trouve à l’intérieur du pare-feu et Dispatcher se trouve dans la zone démilitarisée. Si vous décidez de disposer à la fois de l’instance de publication et de Dispatcher sur la même machine physique, assurez-vous que les paramètres du pare-feu interdisent l’accès direct à l’instance de publication à partir de réseaux externes.
 
 ### Puis-je mettre en cache uniquement les fichiers avec des extensions spécifiques ?
 
@@ -118,7 +117,7 @@ Voir la page [Mise en cache de contenu sécurisé](permissions-cache.md).
 
 ### Comment sécuriser les communications entre les instances Dispatcher et CQ ?
 
-Consultez les pages [Liste de contrôle de sécurité du répartiteur](security-checklist.md) et [Liste de contrôle de sécurité AEM](https://helpx.adobe.com/fr/experience-manager/6-4/sites/administering/using/security-checklist.html).
+Voir les [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) et les [Pages Liste de contrôle de sécurité AEM](https://helpx.adobe.com/fr/experience-manager/6-4/sites/administering/using/security-checklist.html) .
 
 ### Le problème lié à `jcr:content` de Dispatcher a été remplacé par `jcr%3acontent`
 
@@ -126,13 +125,13 @@ Consultez les pages [Liste de contrôle de sécurité du répartiteur](security-
 
 **Réponse** : utilisez la méthode `ResourceResolver.map()` pour obtenir une URL « conviviale » qui permet d’utiliser/recevoir des requêtes d’origine et de résoudre le problème de mise en cache avec Dispatcher. La méthode map() code les deux points `:` en caractères de soulignement et la méthode resolve() les décode au format lisible SLING JCR. Utilisez la méthode map() pour générer l’URL utilisée dans l’appel Ajax.
 
-Lire plus loin : [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+En savoir plus : [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
 ## Purge de Dispatcher
 
 ### Comment configurer les agents de purge de Dispatcher sur une instance de publication ?
 
-Voir la page [Réplication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents).
+Voir la page [Réplication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
 
 ### Comment résoudre les problèmes de purge de Dispatcher ?
 
@@ -186,4 +185,3 @@ Dispatcher stocke les fichiers mis en cache sur le serveur web comme s’ils fai
 ### Puis-je implémenter plusieurs Dispatcher dans une configuration ?
 
 Oui. Dans ce cas, assurez-vous que les deux Dispatcher peuvent accéder directement au site web AEM. Un Dispatcher ne peut pas traiter les requêtes provenant d’un autre Dispatcher.
-
