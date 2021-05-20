@@ -9,14 +9,13 @@ converted: true
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
-translation-type: tm+mt
-source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
+exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '3684'
 ht-degree: 98%
 
 ---
-
 
 # Installation de Dispatcher {#installing-dispatcher}
 
@@ -32,7 +31,7 @@ Utilisez la page [Notes de mises à jour de Dispatcher](release-notes.md) pour o
 
 >[!NOTE]
 >
->Veuillez noter que Adobe Experience Manager 6.5 nécessite Dispatcher version 4.3.2 ou ultérieure. Ceci dit, les versions du répartiteur sont indépendantes de AEM, par exemple, Dispatcher version 4.3.2 est également compatible avec Adobe Experience Manager 6.4.
+>Notez qu’Adobe Experience Manager 6.5 nécessite Dispatcher version 4.3.2 ou ultérieure. Cela dit, les versions de Dispatcher sont indépendantes de AEM, par exemple, la version 4.3.2 de Dispatcher est également compatible avec Adobe Experience Manager 6.4.
 
 La convention de dénomination suivante est utilisée :
 
@@ -102,7 +101,7 @@ Les versions 8.5 et 10 d’IIS nécessitent que les composants IIS suivants soi
 
 En outre, vous devez ajouter le rôle de serveur web (IIS). Utilisez le gestionnaire de serveur pour ajouter le rôle et les composants.
 
-## Microsoft IIS - Installation du module de Dispatcher   {#microsoft-iis-installing-the-dispatcher-module}
+## Microsoft IIS - Installation du module de Dispatcher  {#microsoft-iis-installing-the-dispatcher-module}
 
 L’archive requise pour Microsoft Internet Information Server est la suivante :
 
@@ -284,7 +283,7 @@ Pour plus d’informations sur le mode d’installation d’un serveur web Apach
 >
 >Vous trouverez plus d’informations dans le manuel d’installation du serveur web Apache.
 
-Consultez également les rapports de sécurité Apache HTTP Server [Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) et [Security Reports](https://httpd.apache.org/security_report.html).
+Voir également les [Conseils de sécurité](https://httpd.apache.org/docs/2.4/misc/security_tips.html) et [Rapports de sécurité](https://httpd.apache.org/security_report.html) d’Apache HTTP Server.
 
 ### Serveur web Apache - Ajout du module de Dispatcher {#apache-web-server-add-the-dispatcher-module}
 
@@ -426,7 +425,7 @@ ServerTokens Full` `
 DispatcherNoServerHeader 0`\
 Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir : `  
 ServerTokens Prod`\
-Pour plus d&#39;informations, consultez la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html).
+Pour plus d’informations, voir la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
 
 **SetHandler**
 
@@ -626,7 +625,7 @@ où :
 | Paramètre | Description |
 |--- |--- |
 | config | Emplacement et nom du fichier de configuration `dispatcher.any.` |
-| journal | Emplacement et nom du fichier journal. |
+| logfile | Emplacement et nom du fichier journal. |
 | loglevel | Niveau de journal lors de l’écriture de messages dans le fichier journal :<br/>**0** erreur <br/>**1** avertissement <br/>**2** infos <br/>**3** messages de débogage <br/>**Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
 | keepalivetimeout | Indique le délai de persistance, en secondes. Depuis la version 4.2.0 de Dispatcher, la valeur de persistance par défaut est 60. La valeur 0 désactive la persistance. |
 
