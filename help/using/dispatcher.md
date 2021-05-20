@@ -8,14 +8,13 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
-translation-type: tm+mt
-source-git-commit: 10f436e941e553bd85abe978059aac3a60c6769f
+exl-id: c9266683-6890-4359-96db-054b7e856dd0
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '3199'
-ht-degree: 93%
+ht-degree: 94%
 
 ---
-
 
 # Présentation de Dispatcher {#dispatcher-overview}
 
@@ -23,22 +22,22 @@ ht-degree: 93%
 >
 >Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
-Le répartiteur est un outil de mise en cache et/ou d’équilibrage de charge Adobe Experience Manager qui peut être utilisé conjointement avec un serveur Web d’entreprise.
+Dispatcher est un outil de mise en cache et/ou d’équilibrage de charge Adobe Experience Manager qui peut être utilisé conjointement avec un serveur web de niveau élevé.
 
-Le processus de déploiement du répartiteur est indépendant du serveur Web et de la plate-forme de système d’exploitation choisie :
+Le processus de déploiement de Dispatcher est indépendant du serveur web et de la plateforme du système d’exploitation choisie :
 
 1. En savoir plus sur Dispatcher (cette page). En outre, voir [les questions fréquentes sur Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Installez un [serveur Web pris en charge](https://helpx.adobe.com/fr/experience-manager/6-3/sites/deploying/using/technical-requirements.html) conformément à la documentation du serveur Web.
+1. Installez un [serveur web pris en charge](https://helpx.adobe.com/fr/experience-manager/6-3/sites/deploying/using/technical-requirements.html) conformément à la documentation du serveur web.
 1. [Installez le module Dispatcher](dispatcher-install.md) sur votre serveur web et configurez-le en conséquence.
 1. [Configurez Dispatcher](dispatcher-configuration.md) (fichier dispatcher.any).
 1. [Configurez AEM](page-invalidate.md) pour que les mises à jour de contenu invalident le cache.
 
 >[!NOTE]
 >
->Pour mieux comprendre comment le Répartiteur fonctionne avec AEM :
+>Pour mieux comprendre le fonctionnement de Dispatcher avec AEM :
 >
->* Voir [Poser une question aux experts de la communauté AEM pour juillet 2017](https://bit.ly/ATACE0717).
->* Accédez à [ce référentiel](https://github.com/adobe/aem-dispatcher-experiments). Il contient une collection d&#39;expériences en laboratoire &quot;à emporter&quot;.
+>* Voir [Poser des questions aux experts de la communauté AEM pour juillet 2017](https://bit.ly/ATACE0717).
+>* Accédez à [ce référentiel](https://github.com/adobe/aem-dispatcher-experiments). Il contient une collection d’expériences dans un format de laboratoire &quot;à emporter&quot;.
 
 
 
@@ -48,7 +47,7 @@ Utilisez les informations suivantes, selon vos besoins :
 * [Base de connaissances de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
 * [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Utilisation de Dispatcher avec plusieurs domaines](dispatcher-domains.md)
-* [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
+* [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
 * [Mise en œuvre de la mise en cache sensible aux autorisations](permissions-cache.md)
 * [Résolution des problèmes liés à Dispatcher](dispatcher-troubleshooting.md)
 * [FAQ sur les problèmes fréquents de Dispatcher](dispatcher-faq.md)
@@ -59,7 +58,7 @@ Utilisez les informations suivantes, selon vos besoins :
 >
 >En revanche, vous pouvez également utiliser Dispatcher pour améliorer la réactivité de l’**instance de création**, en particulier si un grand nombre d’utilisateurs est en train de modifier et de mettre à jour le site web. Pour obtenir des informations spécifiques à ce cas, voir [Utilisation d’un Dispatcher avec un serveur de création](#using-a-dispatcher-with-an-author-server) ci-dessous.
 
-## Pourquoi utiliser Dispatcher pour mettre en œuvre la mise en cache ?   {#why-use-dispatcher-to-implement-caching}
+## Pourquoi utiliser Dispatcher pour mettre en œuvre la mise en cache ?  {#why-use-dispatcher-to-implement-caching}
 
 Il existe deux approches possibles pour la publication web :
 
@@ -159,7 +158,7 @@ Notez également ce qui suit :
 
 ### Déterminer si le document est soumis à la mise en cache
 
-Vous pouvez [définir quels documents le Répartiteur met en cache dans le fichier de configuration](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
+Vous pouvez [définir les documents que Dispatcher met en cache dans le fichier de configuration](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
 
 Dispatcher demande *toujours* le document directement à partir de l’instance AEM dans les cas suivants :
 
@@ -291,7 +290,7 @@ Pour un contrôle plus affiné, l’invalidation basée sur l’API vous permet 
 
 >[!CAUTION]
 >
->si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), vous devez **ne pas** mettre en cache le contenu de l’instance d’auteur. Si la mise en cache a été activée pour l’instance d’auteur, vous devez la désactiver et supprimer le contenu du répertoire du cache. Pour désactiver la mise en cache, vous devez modifier le fichier `author_dispatcher.any` et modifier la propriété `/rule` de la section `/cache` comme suit :
+>si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), vous devez **ne pas** mettre en cache le contenu de l’instance d’auteur. Si la mise en cache a été activée pour l’instance d’auteur, vous devez la désactiver et supprimer le contenu du répertoire du cache. Pour désactiver la mise en cache, vous devez modifier le fichier `author_dispatcher.any` et modifier la propriété `/rule` de la section `/cache` comme suit :
 
 ```xml
 /rules
@@ -310,7 +309,7 @@ Vous pouvez utiliser Dispatcher en regard d’une instance de création pour am�
 1. Ouvrez le `author_dispatcher.any` dans un éditeur de texte et apportez les modifications suivantes :
 
    1. Modifiez `/hostname` et `/port` dans la section `/renders` pour qu’ils pointent vers votre instance d’auteur.
-   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec interface utilisateur tactile](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), reportez-vous à l’avertissement ci-dessus.
+   1. Modifiez `/docroot` dans la section `/cache` pour qu’il pointe vers un répertoire de cache. Si vous utilisez [AEM avec l’interface utilisateur tactile](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), reportez-vous à l’avertissement ci-dessus.
    1. Enregistrez les modifications.
 
 1. Supprimez tous les fichiers existants dans le répertoire `/cache` > `/docroot` que vous avez configuré ci-dessus.
