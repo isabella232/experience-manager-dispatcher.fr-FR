@@ -13,7 +13,6 @@ redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/u
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
 source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
 workflow-type: tm+mt
 source-wordcount: '1167'
@@ -46,10 +45,12 @@ Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez u
 >
 >* vous pouvez mettre en cache tous les éléments que vous pouvez enregistrer en tant que page et demander à l’aide d’une URL ;
 >* vous ne pouvez pas enregistrer d’autres éléments, tels que des en-têtes HTTP, des cookies, des données de session et des données de formulaire.
->
->En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
 
-## Utilisation d’un codage cohérent de page   {#using-consistent-page-encoding}
+>
+>
+En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
+
+## Utilisation d’un codage cohérent de page  {#using-consistent-page-encoding}
 
 Les en-têtes de requête HTTP ne sont pas mis en cache. Par conséquent, des problèmes peuvent survenir si vous enregistrez des informations de codage de page dans l’en-tête. Dans ce cas, lorsque Dispatcher diffuse une page du cache, le codage par défaut du serveur web est utilisé pour la page. Il existe deux méthodes pour contourner ce problème :
 
@@ -127,7 +128,7 @@ Il est important de créer ces images avec le même descripteur de nommage que l
 
 Pour les pages qui ne sont pas modifiées, les images sont toujours dans le cache, bien que les pages elles-mêmes soient généralement invalidées automatiquement.
 
-## Personnalisation   {#personalization}
+## Personnalisation  {#personalization}
 
 Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est donc recommandé de n’utiliser la personnalisation que lorsque cela est nécessaire. Explications :
 
@@ -142,6 +143,7 @@ Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est d
 >
 >* Utiliser des iFrames pour partager la page en une partie identique pour tous les utilisateurs et une partie identique pour toutes les pages de l’utilisateur. Vous pouvez ensuite mettre en cache les deux parties.
 >* Utiliser du JavaScript côté client pour afficher des informations personnalisées. Cependant, vous devez vous assurer que la page s’affiche toujours correctement si un utilisateur désactive JavaScript.
+
 >
 
 
