@@ -13,14 +13,13 @@ jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
-source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
+exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '653'
 ht-degree: 86%
 
 ---
-
 
 # Liste de contrôle de sécurité de Dispatcher{#the-dispatcher-security-checklist}
 
@@ -82,21 +81,21 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 Lors de la configuration de Dispatcher, vous devez limiter l’accès externe autant que possible. Voir [Exemple de section /filter](dispatcher-configuration.md#main-pars_184_1_title) dans la documentation de Dispatcher.
 
-## S’assurer que l’accès aux URL d’administration est refusé   {#make-sure-access-to-administrative-urls-is-denied}
+## S’assurer que l’accès aux URL d’administration est refusé  {#make-sure-access-to-administrative-urls-is-denied}
 
 Assurez-vous d’utiliser des filtres pour bloquer l’accès externe aux URL d’administration, par exemple la console web.
 
 Voir [Test de la sécurité de Dispatcher](dispatcher-configuration.md#testing-dispatcher-security) pour obtenir une liste des URL qui doivent être bloquées.
 
-## Utiliser des Listes autorisées plutôt que des Listes bloquées {#use-allowlists-instead-of-blocklists}
+## Utilisez des Listes autorisées plutôt que des Listes bloquées {#use-allowlists-instead-of-blocklists}
 
-Les Listes autorisées sont un meilleur moyen de fournir un contrôle d&#39;accès car, par essence, ils supposent que toutes les demandes d&#39;accès doivent être refusées à moins qu&#39;elles ne fassent explicitement partie de la liste autorisée. Ce modèle fournit un contrôle plus restrictif des nouvelles demandes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
+Les Listes autorisées sont un meilleur moyen de fournir un contrôle d’accès, car elles supposent par nature que toutes les demandes d’accès doivent être refusées, sauf si elles font explicitement partie de la liste autorisée. Ce modèle fournit un contrôle plus restrictif des nouvelles demandes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
 
 ## Exécution de Dispatcher avec un utilisateur système dédié {#run-dispatcher-with-a-dedicated-system-user}
 
-Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est recommandé d’accorder uniquement l’accès en écriture au dossier cache du répartiteur.
+Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est recommandé d’accorder uniquement l’accès en écriture au dossier du cache du Dispatcher.
 
-En outre, les utilisateurs IIS doivent configurer leur site Web comme suit :
+En outre, les utilisateurs d&#39;IIS doivent configurer leur site web comme suit :
 
 1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
 1. Définissez l’utilisateur.
@@ -153,7 +152,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur la liste autorisée la prise en charge des jetons CSRF dans le répartiteur. Vous pouvez le faire en procédant comme suit :
+AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur la liste autorisée la prise en charge du jeton CSRF dans le Dispatcher. Vous pouvez le faire en procédant comme suit :
 
 1. Créez un filtre pour autoriser le chemin d’accès `/libs/granite/csrf/token.json` ;
 1. Ajoutez l’en-tête `CSRF-Token` à la section `clientheaders` de la configuration Dispatcher.
@@ -167,4 +166,3 @@ Pour plus [d’informations sur le détournement de clic, voir le site OWASP](ht
 ## Test de pénétration {#perform-a-penetration-test}
 
 Adobe recommande vivement d’effectuer un test de pénétration de l’infrastructure AEM avant la mise en production.
-
