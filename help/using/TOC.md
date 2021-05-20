@@ -10,16 +10,15 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Administrator
-translation-type: tm+mt
 source-git-commit: da6af93fa3dec8e3b2f146e9c8c6183a3185199b
 workflow-type: tm+mt
-source-wordcount: '90'
+source-wordcount: '89'
 ht-degree: 100%
 
 ---
 
 
-# Aide en ligne d’AEM Dispatcher{#using}
+# Aide en ligne d’AEM Dispatcher {#using}
 
 + [Présentation](dispatcher.md)
 + Prise en main {#getting-started}
@@ -30,10 +29,10 @@ ht-degree: 100%
    + [Configuration de Dispatcher](dispatcher-configuration.md)
    + [Invalidation de pages mises en cache depuis AEM](page-invalidate.md)
    + [Optimisation d’un site web pour les performances du cache](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
-   + [Mise en cache de contenu sécurisé](permissions-cache.md)
+   + [Mise en cache du contenu sécurisé](permissions-cache.md)
    + [Utilisation de Dispatcher avec plusieurs domaines ](dispatcher-domains.md)
    + [Utilisation du protocole SSL avec Dispatcher](dispatcher-ssl.md)
    + [Configuration de Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery)](configuring-dispatcher-to-prevent-csrf.md)
-+ Résolution des incidents {#troubleshooting}
++ Résolution des problèmes {#troubleshooting}
    + [Résolution des problèmes liés à Dispatcher](dispatcher-troubleshooting.md)
    + [FAQ sur les problèmes fréquents de Dispatcher](dispatcher-faq.md)
