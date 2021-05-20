@@ -12,24 +12,23 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
-translation-type: tm+mt
-source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
+exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '1427'
 ht-degree: 97%
 
 ---
 
-
 # Invalidation de pages mises en cache depuis AEM {#invalidating-cached-pages-from-aem}
 
 Lors de l’utilisation de Dispatcher avec AEM, vous devez configurer l’interaction pour assurer une gestion efficace du cache. En fonction de votre environnement, la configuration peut également améliorer les performances.
 
-## Configuration des comptes d’utilisateur AEM   {#setting-up-aem-user-accounts}
+## Configuration des comptes d’utilisateur AEM  {#setting-up-aem-user-accounts}
 
 Le compte d’utilisateur `admin` par défaut est utilisé pour authentifier les agents de réplication qui sont installés par défaut. Vous devez créer un compte utilisateur dédié pour l’utiliser avec des agents de réplication.
 
-Pour plus d&#39;informations, consultez la section [Configurer les utilisateurs de réplication et de transport](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) de la liste de contrôle de sécurité AEM.
+Pour plus d’informations, voir la section [Configuration de la réplication et du transport d’utilisateurs](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) de la liste de contrôle de sécurité d’AEM.
 
 ## Invalidation du cache de Dispatcher depuis l’environnement de création {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -68,7 +67,7 @@ Procédez comme suit pour configurer un agent de réplication sur l’instance d
 1. Configurez les autres paramètres selon vos besoins.
 1. Cliquez sur OK pour activer l’agent.
 
-Vous pouvez également accéder à l&#39;agent de vidage du répartiteur et le configurer à partir de l&#39;[interface utilisateur tactile ](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent)AEM.
+Vous pouvez également accéder à l’agent de purge de Dispatcher et le configurer à partir de l’[interface utilisateur tactile d’AEM](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent).
 
 Pour plus d’informations sur l’activation d’accès aux URL de redirection vers les microsites, voir [Activation de l’accès aux URL de redirection vers les microsites](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
@@ -252,4 +251,3 @@ public class Flushcache extends SlingSafeMethodsServlet {
  }
 }
 ```
-
