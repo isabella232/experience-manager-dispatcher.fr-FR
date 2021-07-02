@@ -2,14 +2,14 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
-source-wordcount: '8513'
+source-wordcount: '8512'
 ht-degree: 84%
 
 ---
 
-# Configuration du Dispatcher {#configuring-dispatcher}
+# Configuration de Dispatcher {#configuring-dispatcher}
 
 >[!NOTE]
 >
@@ -314,7 +314,7 @@ Le code suivant est un exemple de configuration pour `/clientheaders` :
   }
 ```
 
-## Identification des hôtes virtuels {#identifying-virtual-hosts-virtualhosts}
+## Identification des hôtes virtuels  {#identifying-virtual-hosts-virtualhosts}
 
 La propriété `/virtualhosts` définit une liste de toutes les combinaisons de nom d’hôte/URI que Dispatcher accepte pour cette ferme de serveurs. Vous pouvez utiliser l’astérisque (`*`) comme caractère générique. Les valeurs de la propriété /`virtualhosts` utilisent le format suivant :
 
@@ -566,7 +566,7 @@ La section `/filter` se compose d’une série de règles qui interdisent ou aut
 * Tout d’abord, refusez l’accès à l’ensemble des éléments.
 * Accordez l’accès au contenu en fonction de vos besoins.
 
-### Définition d’un filtre   {#defining-a-filter}
+### Définition d’un filtre  {#defining-a-filter}
 
 Chaque élément de la section `/filter` comprend un type et un modèle associé à un élément spécifique de la ligne de requête ou à l’intégralité de la ligne de demande. Chaque filtre peut contenir les éléments suivants :
 
@@ -604,7 +604,7 @@ Les caractères `<CRLF>` représentent un retour chariot suivi d’un flux de li
 
 Vos modèles doivent prendre en compte les espaces contenus dans la ligne de demande et les caractères `<CRLF>`.
 
-#### Guillemets doubles contre guillemets simples{#double-quotes-vs-single-quotes}
+#### Guillemets doubles contre guillemets simples {#double-quotes-vs-single-quotes}
 
 Lors de la création de vos règles de filtrage, utilisez des guillemets doubles `"pattern"` pour les motifs simples. Si vous utilisez Dispatcher 4.2.0 ou version ultérieure et que votre motif inclut une expression régulière, vous devez placer l’expression régulière `'(pattern1|pattern2)'` entre des guillemets simples.
 
@@ -680,7 +680,7 @@ Ce filtre permet des extensions dans des répertoires de contenu non publics à 
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
 ```
 
-#### Exemple de filtre : Filtrer des éléments supplémentaires d’une URL de demande   {#example-filter-filter-additional-elements-of-a-request-url}
+#### Exemple de filtre : Filtrer des éléments supplémentaires d’une URL de demande  {#example-filter-filter-additional-elements-of-a-request-url}
 
 Voici un exemple de règle qui bloque la récupération de contenu du chemin `/content` en utilisant des filtres pour path, selectors et extension :
 
@@ -940,12 +940,12 @@ La section `/vanity_urls` contient les propriétés suivantes :
 
 Utilisez la procédure suivante pour autoriser l’accès aux URL de redirection vers un microsite.
 
-1. Si votre service de rendu est une instance AEM, installez le package com.adobe.granite.dispatcher.vanityurl.content sur l’instance de publication (voir la note ci-dessus).
+1. Si votre service de rendu est une instance AEM, installez le package `com.adobe.granite.dispatcher.vanityurl.content` sur l’instance de publication (voir la note ci-dessus).
 1. Pour chaque URL de redirection vers un microsite que vous avez configurée pour une page d’AEM ou de CQ, assurez-vous que la configuration de [`/filter`](#configuring-access-to-content-filter) refuse l’URL. Si nécessaire, ajoutez un filtre qui refuse l’URL.
 1. Ajoutez la section `/vanity_urls` sous la section `/farms`.
 1. Redémarrez le serveur web Apache.
 
-## Transfert des demandes de syndication - /propagateSyndPost   {#forwarding-syndication-requests-propagatesyndpost}
+## Transfert des demandes de syndication - /propagateSyndPost  {#forwarding-syndication-requests-propagatesyndpost}
 
 Les demandes de syndication sont généralement prévues uniquement pour Dispatcher. De ce fait, par défaut, elles ne sont pas envoyées au rendu (par exemple, une instance AEM).
 
@@ -996,7 +996,7 @@ Un exemple de section cache pourrait ressembler à ce qui suit :
 >
 >Pour la mise en cache sensible aux autorisations, lisez [Mise en cache de contenu sécurisé](permissions-cache.md).
 
-### Indication du répertoire du cache   {#specifying-the-cache-directory}
+### Indication du répertoire du cache  {#specifying-the-cache-directory}
 
 La propriété `/docroot` identifie le répertoire dans lequel les fichiers mis en cache sont stockés.
 
@@ -1216,7 +1216,7 @@ L’intégration d’AEM à Adobe Analytics fournit des données de configuratio
 }
 ```
 
-### Utilisation de scripts d’invalidation personnalisés   {#using-custom-invalidation-scripts}
+### Utilisation de scripts d’invalidation personnalisés  {#using-custom-invalidation-scripts}
 
 La propriété `/invalidateHandler` vous permet de définir un script appelé pour chaque demande d’invalidation reçue par Dispatcher.
 
@@ -1234,7 +1234,7 @@ L’exemple de script ci-dessous enregistre chaque demande d’invalidation dans
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
 ```
 
-#### exemple de script de gestionnaire d’invalidation   {#sample-invalidation-handler-script}
+#### exemple de script de gestionnaire d’invalidation  {#sample-invalidation-handler-script}
 
 ```shell
 #!/bin/bash
@@ -1267,7 +1267,7 @@ Pour plus d’informations sur les propriétés glob, voir [Création de modèl
 >
 >Si cela n’est pas fait, les clients peuvent envoyer un appel pour effacer le cache. Si cet appel est effectué à plusieurs reprises, cela peut considérablement affecter les performances du site.
 
-### Ignorer les paramètres d’URL   {#ignoring-url-parameters}
+### Ignorer les paramètres d’URL  {#ignoring-url-parameters}
 
 La section `ignoreUrlParams` définit les paramètres d’URL qui sont ignorés lorsque vous déterminez si une page est mise en cache ou exclue du cache :
 
@@ -1408,7 +1408,7 @@ Le score d’une catégorie de rendu est basé sur les temps de réponse précé
 >
 >Si vous n’utilisez pas l’équilibrage de charge, vous pouvez ignorer cette section.
 
-### Définition des catégories de statistiques   {#defining-statistics-categories}
+### Définition des catégories de statistiques  {#defining-statistics-categories}
 
 Définissez une catégorie pour chaque type de document pour lequel vous voulez conserver les statistiques pour la sélection du rendu. La section `/statistics` contient une section `/categories` . Pour définir une catégorie, ajoutez une ligne sous la section `/categories` au format suivant :
 
@@ -1517,7 +1517,7 @@ Dispatcher utilise la valeur `"1"` si la propriété `/retryDelay` n’est pas e
 /retryDelay "1"
 ```
 
-### Configuration du nombre de tentatives   {#configuring-the-number-of-retries}
+### Configuration du nombre de tentatives  {#configuring-the-number-of-retries}
 
 La propriété `/numberOfRetries` définit le nombre maximal de séries de tentatives de connexion que Dispatcher exécute avec les rendus. Si Dispatcher ne parvient pas à se connecter à un rendu après ce nombre de tentatives, il renvoie une réponse d’échec.
 
@@ -1548,7 +1548,7 @@ Pour activer le basculement, ajoutez la ligne suivante à la ferme de serveurs (
 >
 >Pour réessayer les demandes HTTP qui contiennent un corps, Dispatcher envoie un en-tête de demande `Expect: 100-continue` au rendu avant de mettre en file d’attente les contenus réels. CQ 5.5 avec CQSE répond alors immédiatement avec 100 (CONTINUER) ou un code d’erreur. D’autres conteneurs de servlet doivent également prendre en charge ces opérations.
 
-## Ignorer les erreurs d’interruption - /ignoreEINTR   {#ignoring-interruption-errors-ignoreeintr}
+## Ignorer les erreurs d’interruption - /ignoreEINTR  {#ignoring-interruption-errors-ignoreeintr}
 
 >[!CAUTION]
 >
@@ -1714,7 +1714,7 @@ Consultez la documentation du serveur web Apache sur la rotation des journaux et
 >
 >Toutefois, cette opération nécessite des ressources supplémentaires, de sorte que lorsque Dispatcher fonctionne sans problème *selon vos besoins*, vous pouvez (devez) réduire le niveau du journal.
 
-### Journalisation de trace   {#trace-logging}
+### Journalisation de trace  {#trace-logging}
 
 Entre autres améliorations de Dispatcher, la version 4.2.0 introduit également la connexion de trace.
 
@@ -1747,7 +1747,7 @@ Et un événement consigné lorsqu’un fichier qui correspond à une règle de 
 [Thu Mar 03 14:42:45 2016] [T] [11831] 'GET /content.infinity.json HTTP/1.1' was blocked because of /0082
 ```
 
-## Confirmation du fonctionnement de base   {#confirming-basic-operation}
+## Confirmation du fonctionnement de base  {#confirming-basic-operation}
 
 Pour confirmer le fonctionnement de base et l’interaction du serveur web, de Dispatcher et de l’instance AEM, procédez comme suit :
 
@@ -1770,7 +1770,7 @@ Pour confirmer le fonctionnement de base et l’interaction du serveur web, de D
 1. Activez une page pour vérifier que le cache est vidé correctement.
 1. Si tout fonctionne correctement, vous pouvez réduire le niveau du journal `loglevel` sur `0`.
 
-## Utilisation de plusieurs instances de Dispatcher {#using-multiple-dispatchers}
+## Utilisation de plusieurs instances de Dispatcher  {#using-multiple-dispatchers}
 
 Avec des configurations complexes, vous pouvez utiliser plusieurs instances de Dispatcher. Par exemple, vous pouvez utiliser :
 
