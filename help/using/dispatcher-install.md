@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
 source-wordcount: '3684'
 ht-degree: 98%
@@ -273,7 +273,7 @@ Pour pouvoir commencer à utiliser Dispatcher, vous devez connaître :
 >
 >Les instructions d’installation sous **Windows** et **Unix** sont traitées dans cette section. Soyez attentif en effectuant les étapes.
 
-### Installation du serveur web Apache   {#installing-apache-web-server}
+### Installation du serveur web Apache  {#installing-apache-web-server}
 
 Pour plus d’informations sur le mode d’installation d’un serveur web Apache, lisez le manuel d’installation, que ce soit [en ligne](https://httpd.apache.org/) ou sur papier.
 
@@ -318,7 +318,7 @@ Suivez les étapes ci-dessous pour ajouter Dispatcher au serveur web Apache :
 
    **Remarque :** Vous pouvez placer ce fichier dans un autre emplacement tant que la propriété DispatcherLog du module de Dispatcher est configurée en conséquence. (Voir Entrées de configuration spécifiques à Dispatcher ci-dessous.)
 
-### Serveur web Apache - Configuration des propriétés SELinux   {#apache-web-server-configure-selinux-properties}
+### Serveur web Apache - Configuration des propriétés SELinux  {#apache-web-server-configure-selinux-properties}
 
 Si vous exécutez Dispatcher sur RedHat Linux Kernel 2.6 avec des propriétés SELinux activées, vous pouvez rencontrer des messages d’erreur de ce type dans le fichier journal de Dispatcher.
 
@@ -339,7 +339,7 @@ chcon -R --type httpd_sys_content_t [path to the docroot]
 semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 ```
 
-### Serveur web Apache - Configuration du serveur web Apache pour Dispatcher.{#apache-web-server-configure-apache-web-server-for-dispatcher}
+### Serveur web Apache - Configuration du serveur web Apache pour Dispatcher. {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
 Le serveur web Apache doit être configuré à l’aide de `httpd.conf`. Le kit d’installation de Dispatcher contient un exemple de fichier de configuration nommé `httpd.conf.disp<x>`.
 
@@ -420,12 +420,17 @@ Vous trouverez les paramètres de configuration dans le tableau suivant :
 
 >[!NOTE]
 >
->Les paramètres par défaut de l’en-tête du serveur sont les suivants : `  
-ServerTokens Full` `  
-DispatcherNoServerHeader 0`\
-Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir : `  
-ServerTokens Prod`\
-Pour plus d’informations, voir la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
+>Les paramètres par défaut de l’en-tête du serveur sont les suivants :  
+>
+>`ServerTokens Full`
+>
+>`DispatcherNoServerHeader 0`
+>
+>Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir : 
+>
+>`ServerTokens Prod`
+>
+>Pour plus d’informations, voir la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
 
 **SetHandler**
 
@@ -483,16 +488,20 @@ AllowOverride None
 ```
 
 >[!NOTE]
-Le paramètre de l’instruction **SetHandler** doit être écrit *exactement comme dans les exemples ci-dessus*, car il s’agit du nom du gestionnaire défini dans le module.
-Pour des informations détaillées sur cette commande, voir les exemples de fichiers de configuration fournis et la documentation du serveur web Apache.
+>
+>Le paramètre de l’instruction **SetHandler** doit être écrit *exactement comme dans les exemples ci-dessus*, car il s’agit du nom du gestionnaire défini dans le module.
+>
+>Pour des informations détaillées sur cette commande, voir les exemples de fichiers de configuration fournis et la documentation du serveur web Apache.
 
 **ModMimeUsePathInfo**
 
 Après l’instruction **SetHandler**, vous devez également ajouter la définition **ModMimeUsePathInfo**.
 
 >[!NOTE]
-Le paramètre `ModMimeUsePathInfo` ne doit être utilisé et configuré que si vous utilisez la version 4.0.9 de Dispatcher ou une version ultérieure.
-(Notez que la version 4.0.9 de Dispatcher a été lancée en 2011. Si vous utilisez une version plus ancienne, il peut être judicieux de la mettre à niveau vers la dernière version de Dispatcher).
+>
+>Le paramètre `ModMimeUsePathInfo` ne doit être utilisé et configuré que si vous utilisez la version 4.0.9 de Dispatcher ou une version ultérieure.
+>
+>(Notez que la version 4.0.9 de Dispatcher a été lancée en 2011. Si vous utilisez une version plus ancienne, il peut être judicieux de la mettre à niveau vers la dernière version de Dispatcher).
 
 Le paramètre **ModMimeUsePathInfo** doit être défini sur `On` pour toutes les configurations d’Apache :
 
@@ -538,7 +547,8 @@ Dispatcher utilise OpenSSL pour implémenter une communication sécurisée via H
    ```
 
 >[!NOTE]
-Si vous utilisez une version personnalisée d’Apache, assurez-vous qu’Apache et Dispatcher sont compilés à l’aide de la même version de [OpenSSL](https://www.openssl.org/source/).
+>
+>Si vous utilisez une version personnalisée d’Apache, assurez-vous qu’Apache et Dispatcher sont compilés à l’aide de la même version de [OpenSSL](https://www.openssl.org/source/).
 
 ### Étapes suivantes {#next-steps-1}
 
@@ -550,17 +560,19 @@ Pour pouvoir commencer à utiliser Dispatcher, vous devez connaître :
 ## Serveur web Sun Java System/iPlanet {#sun-java-system-web-server-iplanet}
 
 >[!NOTE]
-Les instructions pour les environnements Windows et Unix sont traitées dans cette section.
-Sélectionnez les étapes à exécuter avec précaution.
+>
+>Les instructions pour les environnements Windows et Unix sont traitées dans cette section.
+>
+>Sélectionnez les étapes à exécuter avec précaution.
 
-### Serveur web Sun Java System/iPlanet - Installation du serveur web   {#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Serveur web Sun Java System/iPlanet - Installation du serveur web  {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 Pour obtenir des informations complètes sur l’installation de ces serveurs web, consultez leur documentation correspondante :
 
 * Serveur web Sun Java System
 * Serveur web iPlanet
 
-### Serveur web Sun Java System/iPlanet - Ajout du module de Dispatcher   {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Serveur web Sun Java System/iPlanet - Ajout du module de Dispatcher  {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher est fourni en tant que :
 
@@ -604,7 +616,8 @@ Le serveur web doit être configuré à l’aide de `obj.conf`. Le kit d’insta
 1. Enregistrez les modifications.
 
 >[!NOTE]
-Les configurations suivantes doivent toutes se trouver sur une seule ligne et `$(SERVER_ROOT)` et `$(PRODUCT_SUBDIR)` doivent être remplacés par leurs valeurs respectives.
+>
+>Les configurations suivantes doivent toutes se trouver sur une seule ligne et `$(SERVER_ROOT)` et `$(PRODUCT_SUBDIR)` doivent être remplacés par leurs valeurs respectives.
 
 **Init**
 
