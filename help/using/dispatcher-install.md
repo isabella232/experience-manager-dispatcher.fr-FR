@@ -1,8 +1,8 @@
 ---
 title: Installation de Dispatcher
-seo-title: Installation d’AEM Dispatcher
+seo-title: Installing AEM Dispatcher
 description: Découvrez comment installer le module Dispatcher sur le serveur Microsoft Internet Information, le serveur web Apache et le serveur-iplanet web Sun Java.
-seo-description: Découvrez comment installer le module AEM Dispatcher sur le serveur Microsoft Internet Information, le serveur web Apache et le serveur-iplanet web Sun Java.
+seo-description: Learn how to install the AEM Dispatcher module on Microsoft Internet Information Server, Apache Web Server and Sun Java Web Server-iPlanet.
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
 contentOwner: User
 converted: true
@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
+source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
 workflow-type: tm+mt
-source-wordcount: '3684'
-ht-degree: 98%
+source-wordcount: '3693'
+ht-degree: 97%
 
 ---
 
@@ -50,6 +50,10 @@ Le tableau suivant indique l’identifiant de serveur web utilisé dans les noms
 >[!CAUTION]
 >
 >Il est conseillé d’installer la dernière version de Dispatcher disponible pour votre plate-forme. Chaque année, vous devez mettre à jour votre instance de Dispatcher afin d’utiliser la version la plus récente. Cela vous permet de tirer parti des améliorations du produit.
+
+>[!NOTE]
+>
+>Les clients effectuant une mise à niveau spécifique de la version 4.3.3 vers la version 4.3.4 remarqueront un comportement différent dans la manière dont les en-têtes de mise en cache sont définis pour le contenu pouvant être mis en cache. Pour en savoir plus sur ce changement, voir [Notes de mise à jour](/help/using/release-notes.md#nov) page.
 
 Chaque archive contient les fichiers suivants :
 
@@ -283,7 +287,7 @@ Pour plus d’informations sur le mode d’installation d’un serveur web Apach
 >
 >Vous trouverez plus d’informations dans le manuel d’installation du serveur web Apache.
 
-Voir également les [Conseils de sécurité](https://httpd.apache.org/docs/2.4/misc/security_tips.html) et [Rapports de sécurité](https://httpd.apache.org/security_report.html) d’Apache HTTP Server.
+Voir aussi Serveur Apache HTTP [Conseils de sécurité](https://httpd.apache.org/docs/2.4/misc/security_tips.html) et [Rapports de sécurité](https://httpd.apache.org/security_report.html).
 
 ### Serveur web Apache - Ajout du module de Dispatcher {#apache-web-server-add-the-dispatcher-module}
 
@@ -430,7 +434,7 @@ Vous trouverez les paramètres de configuration dans le tableau suivant :
 >
 >`ServerTokens Prod`
 >
->Pour plus d’informations, voir la [documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
+>Voir [Documentation Apache sur la directive ServerTokens (par exemple, pour Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) pour plus d’informations.
 
 **SetHandler**
 
