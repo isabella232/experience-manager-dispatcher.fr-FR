@@ -9,9 +9,9 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
+source-git-commit: 505c13c5dc563bbe57682b4692547fc238b29e1b
 workflow-type: tm+mt
-source-wordcount: '941'
+source-wordcount: '951'
 ht-degree: 58%
 
 ---
@@ -50,7 +50,7 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 
 **Améliorations** :
 
-* DISP-874 - Crée une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818 par le biais d’un indicateur `DispatcherRestrictUncacheableContent`. La valeur par défaut est Off. Lorsqu’elle est désactivée, elle supprime tous les en-têtes de mise en cache définis par mod qui arrivent à expiration pour le contenu pouvant être mis en cache. Il s’agit d’un comportement différent de celui de la version 4.3.3 (mais identique aux versions antérieures à la version 4.3.3). Maintien `DispatcherRestrictUncacheableContent`La valeur par défaut de &quot;Désactivé&quot; est l’approche recommandée, de sorte que le cache du navigateur dispose d’une plus grande flexibilité. Si, lors de la mise à niveau de la version 4.3.3 vers la version 4.3.4, vous souhaitez conserver le même comportement que dans la version 4.3.3, vous devez définir explicitement `DispatcherRestrictUncacheableContent` sur Activé.
+* DISP-874 - Crée une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818 par le biais d’un indicateur `DispatcherRestrictUncacheableContent`. La valeur par défaut est Off. Lorsqu’elle est activée, elle supprime tous les en-têtes de mise en cache définis par mod qui arrivent à expiration pour le contenu pouvant être mis en cache. Il s’agit d’un comportement différent de celui de la version 4.3.3 (où la valeur par défaut était Activé), mais identique à celui des versions antérieures à la version 4.3.3 (où la valeur par défaut était Désactivé). Maintien `DispatcherRestrictUncacheableContent`La valeur par défaut de &quot;Désactivé&quot; est l’approche recommandée, de sorte que le cache du navigateur dispose d’une plus grande flexibilité. Si, lors de la mise à niveau de la version 4.3.3 vers la version 4.3.4, vous souhaitez conserver le même comportement que dans la version 4.3.3, vous devez définir explicitement `DispatcherRestrictUncacheableContent` sur Activé.
 * DISP-841 - Dispatcher ne respecte pas /serverStaleOnError pour le code de réponse 504
 * DISP-874 - Créez une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818.
 * DISP-883 - Trace affichant la décomposition de requête d’URL dans Dispatcher
