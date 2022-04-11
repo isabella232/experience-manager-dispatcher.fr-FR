@@ -1,8 +1,8 @@
 ---
 title: Mise en cache du contenu sécurisé
-seo-title: Mise en cache du contenu sécurisé dans AEM Dispatcher
+seo-title: Caching Secured Content in AEM Dispatcher
 description: Découvrez le fonctionnement de la mise en cache sensible aux autorisations dans Dispatcher.
-seo-description: Découvrez le fonctionnement de la mise en cache sensible aux autorisations dans AEM Dispatcher.
+seo-description: Learn how permission-sensitive caching works in AEM Dispatcher.
 uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 753f9fc35968996ee83d5947585fd52f2b981632
 workflow-type: tm+mt
-source-wordcount: '762'
-ht-degree: 100%
+source-wordcount: '827'
+ht-degree: 85%
 
 ---
 
@@ -21,7 +21,7 @@ ht-degree: 100%
 
 La mise en cache sensible aux autorisations vous permet de mettre en cache des pages sécurisées. Dispatcher vérifie les droits d’accès à une page avant de diffuser la page en cache.
 
-Dispatcher inclut le module AuthChecker, qui met en œuvre la mise en cache sensible aux autorisations. Lorsque le module est activé, la fonctionnalité de rendu appelle un servlet AEM pour effectuer une authentification et une autorisation utilisateur pour le contenu demandé. La réponse du servlet détermine si le contenu est diffusé au navigateur web.
+Dispatcher inclut le module AuthChecker, qui met en œuvre la mise en cache sensible aux autorisations. Lorsque le module est activé, Dispatcher appelle une servlet AEM pour effectuer l’authentification et l’autorisation de l’utilisateur pour le contenu demandé. La réponse du servlet détermine si le contenu est diffusé dans le navigateur web à partir du cache ou non.
 
 Les méthodes d’authentification et d’autorisation étant spécifiques au déploiement d’AEM, vous devez créer le servlet.
 
@@ -37,25 +37,29 @@ Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisen
 
 1. Dispatcher détermine que le contenu demandé est mis en cache et valide.
 1. Dispatcher envoie une requête la fonctionnalité de rendu. La section HEAD inclut toutes les lignes d’en-tête de la requête du navigateur.
-1. La fonctionnalité de rendu appelle l’agent d’autorisation pour exécuter la vérification de sécurité, puis répond à Dispatcher. Le message de réponse comprend le code d’état HTTP 200 pour indiquer que l’utilisateur est autorisé.
+1. Le rendu appelle le servlet Auth checker pour effectuer la vérification de sécurité et répond à Dispatcher. Le message de réponse comprend le code d’état HTTP 200 pour indiquer que l’utilisateur est autorisé.
 1. Dispatcher envoie un message de réponse au navigateur, avec les lignes d’en-tête de la réponse du rendu et le contenu mis en cache dans le corps.
 
-## La page n’est pas mise en cache et l’utilisateur est autorisé   {#page-is-not-cached-and-user-is-authorized}
+## La page n’est pas mise en cache et l’utilisateur est autorisé  {#page-is-not-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1-1.png)
 
 1. Dispatcher détermine que le contenu n’est pas mis en cache ou nécessite une mise à jour.
 1. Dispatcher transfère la demande d’origine à la fonctionnalité de rendu.
-1. La fonctionnalité de rendu appelle le servlet de l’agent d’autorisation pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
+1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChcker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
 1. Dispatcher transfère la réponse au navigateur. Dispatcher ajoute le corps du message de réponse du rendu au cache.
 
-## L’utilisateur n’est pas autorisé   {#user-is-not-authorized}
+## L’utilisateur n’est pas autorisé  {#user-is-not-authorized}
 
 ![](assets/chlimage_1-2.png)
 
 1. Dispatcher vérifie le cache.
 1. Dispatcher envoie un message de demande à la fonctionnalité de rendu, avec toutes les lignes d’en-tête de la demande du navigateur.
-1. La fonctionnalité de rendu appelle le servlet d’agent d’autorisation pour effectuer une vérification de sécurité qui échoue, et la fonctionnalité de rendu transfère la demande d’origine à Dispatcher.
+1. Le rendu appelle le servlet Auth Checker pour effectuer une vérification de sécurité qui échoue et le rendu transfère la demande d’origine à Dispatcher.
+1. Dispatcher transfère la demande d’origine à la fonctionnalité de rendu.
+1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChcker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
+1. Dispatcher transfère la réponse au navigateur. Dispatcher ajoute le corps du message de réponse du rendu au cache.
+
 
 ## Mise en œuvre de la mise en cache sensible aux autorisations {#implementing-permission-sensitive-caching}
 
@@ -68,8 +72,7 @@ Pour mettre en œuvre la mise en cache sensible aux autorisations, procédez com
 >
 >En règle générale, les ressources sécurisées sont stockées dans un dossier distinct des fichiers non sécurisés. Par exemple, /content/secure/
 
-
-## Création du servlet d’autorisation   {#create-the-authorization-servlet}
+## Création du servlet Auth Checker {#create-the-auth-checker-servlet}
 
 Créez et déployez un servlet qui authentifie et autorise l’utilisateur qui demande le contenu web. Le servlet peut utiliser n’importe quelle méthode d’authentification et d’autorisation, par exemple le compte utilisateur AEM, les listes de contrôle d’accès des référentiels ou un service de recherche LDAP. Déployez le servlet vers l’instance AEM que Dispatcher utilise comme rendu.
 
@@ -91,7 +94,7 @@ L’exemple de servlet suivant obtient l’URL de la ressource demandée depuis 
 >
 >La valeur de la propriété sling.servlet.paths doit être activée dans le service Sling Servlet Resolver (org.apache.sling.servlets.resolver.SlingServletResolver).
 
-### Exemple de servlet   {#example-servlet}
+### Exemple de servlet  {#example-servlet}
 
 ```java
 package com.adobe.example;
@@ -156,7 +159,7 @@ Lorsque Dispatcher démarre, son fichier journal comprend le message de débogag
 
 L’exemple suivant de la section auth_checker configure Dispatcher pour qu’il utilise le servlet de la rubrique précédente. La section filter entraîne des vérifications d’autorisation à exécuter uniquement sur les ressources HTML sécurisées.
 
-### Exemple de configuration   {#example-configuration}
+### Exemple de configuration  {#example-configuration}
 
 ```xml
 /auth_checker
