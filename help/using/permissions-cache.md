@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 11c3d7d627c96bb6ef647b5a067d3926eca347fc
+source-git-commit: 18fa55f4be3a93b5484c3a0fa408031a43944f27
 workflow-type: tm+mt
 source-wordcount: '829'
-ht-degree: 85%
+ht-degree: 83%
 
 ---
 
@@ -157,7 +157,7 @@ Lorsque Dispatcher démarre, son fichier journal comprend le message de débogag
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-L’exemple suivant de la section auth_checker configure Dispatcher pour qu’il utilise le servlet de la rubrique précédente. La section filter entraîne des vérifications d’autorisation à exécuter uniquement sur les ressources HTML sécurisées.
+L’exemple de section auth_checker suivant configure Dispatcher pour utiliser le servlet de la rubrique précédente. La section filter entraîne des vérifications d’autorisation à exécuter uniquement sur les ressources HTML sécurisées.
 
 ### Exemple de configuration  {#example-configuration}
 
