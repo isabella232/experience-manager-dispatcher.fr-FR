@@ -9,10 +9,10 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 377a104f7e8e506e2f61002d90851a38657e8fe5
+source-git-commit: 5430d53571414cf3bf764bb8523c252bb77a3bf2
 workflow-type: tm+mt
-source-wordcount: '977'
-ht-degree: 54%
+source-wordcount: '1037'
+ht-degree: 51%
 
 ---
 
@@ -171,6 +171,10 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 | Linux | x86_64 (64 bits) | Aucune | [dispatcher-apache2.4-linux-x86_64-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.5.tar.gz) |
 | Linux | x86_64 (64 bits) | 1,0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.5.tar.gz) |
 | Linux | x86_64 (64 bits) | 1,1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.5.tar.gz) |
+| Linux | aarch64 (64 bits) | Aucune | [dispatcher-apache2.4-linux-aarch64-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.5.tar.gz) |
+| Linux | aarch64 (64 bits) | 1,0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.5.tar.gz) |
+| Linux | aarch64 (64 bits) | 1,1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.5.tar.gz) |
+| Mac OS | arm64 (64 bits) | Aucune | [dispatcher-apache2.4-darwin-arm64-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.5.tar.gz) |
 | Mac OS | x86_64 (64 bits) | Aucune | [dispatcher-apache2.4-darwin-x86_64-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.5.tar.gz) |
 
 ### IIS {#iis}
