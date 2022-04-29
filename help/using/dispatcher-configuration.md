@@ -2,7 +2,7 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
+source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
 workflow-type: tm+mt
 source-wordcount: '8528'
 ht-degree: 84%
@@ -559,7 +559,7 @@ Utilisez la section `/filter` pour définir les requêtes HTTP que Dispatcher ac
 
 >[!CAUTION]
 >
->Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez également le [Liste de contrôle AEM sécurité](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security) pour plus d’informations sur la sécurité de votre installation AEM.
+>Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) pour en savoir plus sur la limitation de l’accès en utilisant Dispatcher. Lisez également le [Liste de contrôle AEM sécurité](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=fr#security) pour plus d’informations sur la sécurité de votre installation AEM.
 
 Le `/filter` se compose d’une série de règles qui refusent ou autorisent l’accès au contenu en fonction des modèles de la partie ligne de demande de la requête HTTP. Vous devez utiliser une stratégie de liste autorisée pour votre `/filter` section :
 
@@ -840,7 +840,7 @@ Une seule entrée peut avoir : `glob` ou une combinaison de `method`, `url`, `qu
 
 ### Test de sécurité de Dispatcher {#testing-dispatcher-security}
 
-Les filtres de Dispatcher doivent bloquer l’accès aux pages et scripts suivants sur les instances de publication AEM. Utilisez un navigateur web pour tenter d’ouvrir les pages suivantes en tant que visiteur du site et vérifier qu’un code 404 est renvoyé. Si un autre résultat est obtenu, ajustez vos filtres.
+Les filtres de Dispatcher doivent bloquer l’accès aux pages et scripts suivants sur les instances de publication AEM. Utilisez un navigateur web pour tenter d’ouvrir les pages suivantes en tant que visiteur du site et vérifier qu’un code 403 est renvoyé. Si un autre résultat est obtenu, ajustez vos filtres.
 
 Notez que le rendu normal de la page doit s’afficher pour `/content/add_valid_page.html?debug=layout`.
 
@@ -1343,7 +1343,6 @@ Voici ci-dessous un exemple de la configuration par défaut :
 >
 >* Ajoutez le nom de l’en-tête dans la section`/cache/headers`.
 >* Ajoutez ce qui suit : [directive Apache](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) dans la section relative à Dispatcher :
-
 >
 >```xml
 >FileETag none
