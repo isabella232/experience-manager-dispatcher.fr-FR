@@ -1,8 +1,8 @@
 ---
 title: 'Utilisation de Dispatcher avec plusieurs domaines '
-seo-title: 'Utilisation de Dispatcher avec plusieurs domaines '
+seo-title: Using Dispatcher with Multiple Domains
 description: Découvrez comment utiliser Dispatcher pour traiter les requêtes de pages dans plusieurs domaines web.
-seo-description: Découvrez comment utiliser Dispatcher pour traiter les requêtes de pages dans plusieurs domaines web.
+seo-description: Learn how to use Dispatcher to process page requests in multiple web domains.
 uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
 contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
@@ -11,9 +11,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 9d168ab7139e46b0c768fc3bab37245459eca002
 workflow-type: tm+mt
-source-wordcount: '2983'
+source-wordcount: '2965'
 ht-degree: 99%
 
 ---
@@ -150,7 +150,7 @@ Avec cette configuration, le serveur web effectue les actions suivantes lorsqu�
 
 * Transfère l’URL à Dispatcher.
 
-### httpd.conf   {#httpd-conf}
+### httpd.conf  {#httpd-conf}
 
 ```xml
 # load the Dispatcher module
@@ -200,7 +200,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 Notez que les hôtes virtuels héritent de la valeur de la propriété [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) configurée dans la section du serveur principal. Les hôtes virtuels peuvent inclure leur propre propriété DispatcherConfig pour remplacer la configuration du serveur principal.
 
-### Configuration de Dispatcher pour gérer plusieurs domaines   {#configure-dispatcher-to-handle-multiple-domains}
+### Configuration de Dispatcher pour gérer plusieurs domaines  {#configure-dispatcher-to-handle-multiple-domains}
 
 Pour prendre en charge les URL qui contiennent des noms de domaine et leurs hôtes virtuels correspondants, définissez les fermes de serveurs suivantes pour Dispatcher :
 
@@ -282,7 +282,7 @@ Dispatcher initializing (build 4.1.2)
 [Fri Nov 02 16:27:18 2012] [I] [24974(140006182991616)] Dispatcher initialized (build 4.1.2)
 ```
 
-### Configuration du mappage Sling pour la résolution des ressources   {#configure-sling-mapping-for-resource-resolution}
+### Configuration du mappage Sling pour la résolution des ressources  {#configure-sling-mapping-for-resource-resolution}
 
 Utilisez le mappage Sling pour la résolution des ressources afin que les URL basées sur le domaine se résolvent sur le contenu de l’instance de publication AEM. Le mappage des ressources convertit les URL entrantes provenant de Dispatcher (à l’origine provenant des requêtes HTTP du client) en nœuds de contenu.
 
@@ -360,7 +360,7 @@ Par exemple, le serveur web effectue les actions suivantes lorsqu’il reçoit u
 * Réécrit l’URL pour qu’elle devienne `/content/sitea/en/products.html.`
 * Transfère l’URL à Dispatcher.
 
-### httpd.conf  {#httpd-conf-1}
+### httpd.conf {#httpd-conf-1}
 
 ```xml
 # load the Dispatcher module
@@ -500,11 +500,11 @@ Comme d’habitude, la racine du document du cache est identique à la racine du
 >
 >Comme une seule ferme de serveurs de Dispatcher est définie, l’agent de réplication du vidage de Dispatcher de l’instance de publication AEM ne nécessite aucune configuration spéciale.
 
-## Réécriture de liens vers des fichiers non HTML   {#rewriting-links-to-non-html-files}
+## Réécriture de liens vers des fichiers non HTML  {#rewriting-links-to-non-html-files}
 
 Pour réécrire des références à des fichiers dont l’extension est autre que .html ou .htm, créez un composant de transformateur de réécriture Sling et ajoutez-le au pipeline de réécriture par défaut.
 
-Réécrivez les références lorsque les chemins d’accès aux ressources ne se résolvent pas correctement dans le contexte du serveur web. Par exemple, un transformateur est requis lorsque les composants de génération des images créent des liens tels que /content/sitea/en/products.navimage.png. Le composant topnav de la section [Création d’un site web haut de Gamme](https://helpx.adobe.com/fr/experience-manager/6-3/sites/developing/using/the-basics.html) crée des liens de ce type.
+Réécrivez les références lorsque les chemins d’accès aux ressources ne se résolvent pas correctement dans le contexte du serveur web. Par exemple, un transformateur est requis lorsque les composants de génération des images créent des liens tels que /content/sitea/en/products.navimage.png. Le composant topnav de la section [Création d’un site web haut de Gamme](https://helpx.adobe.com/fr/experience-manager/6-5/sites/developing/using/the-basics.html) crée des liens de ce type.
 
 Le [module de réécriture Sling](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) est un module qui post-traite la sortie Sling. Les mises en œuvre de pipeline SAX du module de réécriture se composent d’un générateur, d’un ou de plusieurs transformateurs et d’un sérialiseur :
 
@@ -514,7 +514,7 @@ Le [module de réécriture Sling](https://sling.apache.org/documentation/bundles
 
 ![](assets/chlimage_1-15.png)
 
-### Pipeline de module de réécriture par défaut d’AEM   {#the-aem-default-rewriter-pipeline}
+### Pipeline de module de réécriture par défaut d’AEM  {#the-aem-default-rewriter-pipeline}
 
 AEM utilise un pipeline de module de réécriture par défaut qui traite les documents de type text/html :
 
@@ -552,7 +552,7 @@ Les exemples suivants mettent en œuvre un transformateur qui réécrit les réf
 
 Les exemples ne sont pas concrets et ne doivent pas être utilisés dans un environnement de production.
 
-### Exemple de mise en œuvre de TransformerFactory   {#example-transformerfactory-implementation}
+### Exemple de mise en œuvre de TransformerFactory  {#example-transformerfactory-implementation}
 
 ```java
 package com.adobe.example;
