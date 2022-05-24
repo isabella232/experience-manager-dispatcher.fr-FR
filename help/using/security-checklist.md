@@ -1,8 +1,8 @@
 ---
 title: Liste de contrôle de sécurité de Dispatcher
-seo-title: Liste de contrôle de sécurité de Dispatcher
+seo-title: The Dispatcher Security Checklist
 description: Liste de contrôle de sécurité, qui doit être renseignée avant la mise en production.
-seo-description: Liste de contrôle de sécurité, qui doit être renseignée avant la mise en production.
+seo-description: A security checklist that should be completed before going on production.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -14,10 +14,10 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
 workflow-type: tm+mt
-source-wordcount: '653'
-ht-degree: 86%
+source-wordcount: '638'
+ht-degree: 85%
 
 ---
 
@@ -38,7 +38,7 @@ Adobe vous recommande vivement de suivre la liste de contrôle suivante avant de
 
 >[!CAUTION]
 >
->Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html) correspondante.
+>Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/fr/experience-manager/6-5/sites/administering/using/security-checklist.html) correspondante.
 
 ## Utilisation de la version la plus récente de Dispatcher {#use-the-latest-version-of-dispatcher}
 
@@ -87,7 +87,7 @@ Assurez-vous d’utiliser des filtres pour bloquer l’accès externe aux URL d�
 
 Voir [Test de la sécurité de Dispatcher](dispatcher-configuration.md#testing-dispatcher-security) pour obtenir une liste des URL qui doivent être bloquées.
 
-## Utilisez des Listes autorisées plutôt que des Listes bloquées {#use-allowlists-instead-of-blocklists}
+## Utilisation de Listes autorisées plutôt que de Listes bloquées {#use-allowlists-instead-of-blocklists}
 
 Les Listes autorisées sont un meilleur moyen de fournir un contrôle d’accès, car elles supposent par nature que toutes les demandes d’accès doivent être refusées, sauf si elles font explicitement partie de la liste autorisée. Ce modèle fournit un contrôle plus restrictif des nouvelles demandes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
 
@@ -100,7 +100,7 @@ En outre, les utilisateurs d&#39;IIS doivent configurer leur site web comme suit
 1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
 1. Définissez l’utilisateur.
 
-## Prévention des attaques par déni de service (DoS)   {#prevent-denial-of-service-dos-attacks}
+## Prévention des attaques par déni de service (DoS)  {#prevent-denial-of-service-dos-attacks}
 
 Une attaque par déni de service (DoS) est une tentative de rendre une ressource informatique indisponible à ses utilisateurs ciblés.
 
@@ -150,7 +150,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configure-dispatcher-to-prevent-csrf-attacks}
+## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery) {#configure-dispatcher-to-prevent-csrf-attacks}
 
 AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur la liste autorisée la prise en charge du jeton CSRF dans le Dispatcher. Vous pouvez le faire en procédant comme suit :
 
