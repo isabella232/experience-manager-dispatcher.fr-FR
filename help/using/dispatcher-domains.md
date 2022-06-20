@@ -11,10 +11,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 2aed8101766363834c2fb5b27e0dbd004fc5daf9
+source-git-commit: 7d2d1cbbb2fb444769239d48c9fbff4cfd2373a2
 workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+source-wordcount: '2965'
+ht-degree: 99%
 
 ---
 
@@ -62,9 +62,11 @@ Lorsque les agents de réplication de purge de Dispatcher demandent que ce derni
 
 ![](assets/chlimage_1-9.png)
 
-1. Une page est activée dans l’instance de création d’AEM et le contenu est répliqué vers l’instance de publication.
-1. L’agent de purge de Dispatcher appelle Dispatcher afin d’invalider le cache pour le contenu répliqué.
-1. Dispatcher modifie un ou plusieurs fichiers .stat afin d’invalider les fichiers mis en cache.
+<ol type="a">
+  <li>Une page est activée dans l’instance de création d’AEM et le contenu est répliqué vers l’instance de publication.</li>
+  <li>L’agent de purge de Dispatcher appelle Dispatcher afin d’invalider le cache pour le contenu répliqué.</li>
+  <li>Dispatcher modifie un ou plusieurs fichiers .stat afin d’invalider les fichiers mis en cache.</li>
+</ol>
 
 Pour utiliser Dispatcher avec plusieurs domaines, vous devez configurer AEM, Dispatcher et le serveur web. Les solutions décrites dans cette page sont générales et s’appliquent à la plupart des environnements. En raison de la complexité de certaines topologies AEM, votre solution peut nécessiter d’autres configurations personnalisées afin de résoudre des problèmes spécifiques. Vous devrez probablement adapter les exemples en fonction de votre infrastructure informatique et de vos stratégies de gestion existantes.
 
