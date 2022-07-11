@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
+source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
 workflow-type: tm+mt
-source-wordcount: '638'
+source-wordcount: '639'
 ht-degree: 85%
 
 ---
@@ -161,7 +161,7 @@ AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/
 
 Pour empêcher le détournement de clic, il est conseillé de configurer le serveur web afin que l’en-tête HTTP `X-FRAME-OPTIONS` soit défini sur `SAMEORIGIN`.
 
-Pour plus [d’informations sur le détournement de clic, voir le site OWASP](https://www.owasp.org/index.php/Clickjacking).
+Pour plus [d’informations sur le détournement de clic, voir le site OWASP](https://owasp.org/www-community/attacks/Clickjacking).
 
 ## Test de pénétration {#perform-a-penetration-test}
 
