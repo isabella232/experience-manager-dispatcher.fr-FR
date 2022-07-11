@@ -1,8 +1,8 @@
 ---
 title: Invalidation de pages mises en cache depuis AEM
-seo-title: Invalidation de pages mises en cache depuis Adobe AEM
+seo-title: Invalidating Cached Pages From Adobe AEM
 description: Découvrez comment configurer l’interaction entre Dispatcher et AEM pour assurer une gestion efficace du cache.
-seo-description: Découvrez comment configurer l’interaction entre Adobe AEM Dispatcher et AEM pour assurer une gestion efficace du cache.
+seo-description: Learn how to configure the interaction between Adobe AEM Dispatcher and AEM to ensure effective cache management.
 uuid: 66533299-55c0-4864-9beb-77e281af9359
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -13,9 +13,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 25f8569bdeb6b675038bea02637900e9d0fc1f27
 workflow-type: tm+mt
-source-wordcount: '1427'
+source-wordcount: '1404'
 ht-degree: 97%
 
 ---
@@ -28,7 +28,7 @@ Lors de l’utilisation de Dispatcher avec AEM, vous devez configurer l’intera
 
 Le compte d’utilisateur `admin` par défaut est utilisé pour authentifier les agents de réplication qui sont installés par défaut. Vous devez créer un compte utilisateur dédié pour l’utiliser avec des agents de réplication.
 
-Pour plus d’informations, voir la section [Configuration de la réplication et du transport d’utilisateurs](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) de la liste de contrôle de sécurité d’AEM.
+Pour plus d’informations, voir [Configuration des utilisateurs de réplication et de transport](https://helpx.adobe.com/fr/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) de la section Liste de contrôle de sécurité d’AEM.
 
 ## Invalidation du cache de Dispatcher depuis l’environnement de création {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -67,7 +67,7 @@ Procédez comme suit pour configurer un agent de réplication sur l’instance d
 1. Configurez les autres paramètres selon vos besoins.
 1. Cliquez sur OK pour activer l’agent.
 
-Vous pouvez également accéder à l’agent de purge de Dispatcher et le configurer à partir de l’[interface utilisateur tactile d’AEM](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent).
+Vous pouvez également accéder à l’agent de vidage de Dispatcher et le configurer à partir de la page [Interface utilisateur tactile d’AEM](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent).
 
 Pour plus d’informations sur l’activation d’accès aux URL de redirection vers les microsites, voir [Activation de l’accès aux URL de redirection vers les microsites](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
@@ -81,7 +81,7 @@ Il existe deux problèmes potentiels liés à cette approche :
 
 * La publication et l’invalidation du cache ont lieu en même temps. En fonction de la synchronisation, un utilisateur peut demander une page immédiatement après sa suppression du cache et juste avant que la nouvelle page ne soit publiée. AEM renvoie désormais l’ancienne page et Dispatcher la met à nouveau en cache. Cela est davantage problématique pour les sites volumineux.
 
-## Invalidation du cache de Dispatcher depuis une instance de publication   {#invalidating-dispatcher-cache-from-a-publishing-instance}
+## Invalidation du cache de Dispatcher depuis une instance de publication  {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
 Dans certains cas, vous pouvez améliorer les performances en transférant la gestion des caches de l’environnement de création à une instance de publication. C’est alors l’environnement de publication (et non l’environnement de création AEM) qui envoie une demande d’invalidation du cache à Dispatcher lorsqu’une page publiée est reçue.
 
@@ -126,7 +126,7 @@ Pour invalider (ou vider) le cache de Dispatcher sans activer une page, vous pou
 
 La demande HTTP entraîne Dispatcher à supprimer des fichiers spécifiques du cache. Éventuellement, Dispatcher actualise alors le cache avec une nouvelle copie.
 
-### Suppression de fichiers mis en cache   {#delete-cached-files}
+### Suppression de fichiers mis en cache  {#delete-cached-files}
 
 Envoyez une requête HTTP qui entraîne Dispatcher à supprimer des fichiers du cache. Dispatcher met à nouveau les fichiers en cache uniquement lorsqu’il reçoit une requête client pour la page. Cette méthode de suppression de fichiers mis en cache convient aux sites web peu susceptibles de recevoir des requêtes simultanées pour la même page.
 
@@ -149,7 +149,7 @@ Tous les autres fichiers du cache de Dispatcher (ou jusqu’à un niveau spécif
 
 L’invalidation (c’est-à-dire la modification des fichiers .stat) peut être évitée en envoyant un en-tête supplémentaire `CQ-Action-Scope: ResourceOnly`. Ceci peut être utilisé pour vider des ressources spécifiques sans invalider d’autres parties du cache, comme les données JSON qui sont créées dynamiquement et nécessitent un vidage normal indépendant du cache (par exemple, des données obtenues à partir d’un système tiers pour afficher l’actualité, les cours de la bourse, etc.).
 
-### Suppression et nouvelle mise en cache de fichiers   {#delete-and-recache-files}
+### Suppression et nouvelle mise en cache de fichiers  {#delete-and-recache-files}
 
 Envoyez une requête HTTP qui entraîne Dispatcher à supprimer des fichiers mis en cache, à récupérer immédiatement le fichier et à le remettre en cache. Supprimez les fichiers et remettez-les immédiatement en cache lorsque les sites web sont susceptibles de recevoir des demandes client simultanées pour la même page. La remise en cache immédiate garantit que Dispatcher récupère et mette en cache la page une seule fois, plutôt qu’à chaque demande client simultanée.
 
@@ -192,7 +192,6 @@ Lorsque le servlet est déployé sur l’instance de publication, l’URL suivan
 >[!NOTE]
 >
 >Cet exemple de servlet n’est pas sécurisé et ne présente que l’utilisation du message de requête HTTP POST. Votre solution doit sécuriser l’accès au servlet.
-
 
 ```java
 package com.adobe.example;
