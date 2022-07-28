@@ -2,12 +2,11 @@
 cloud: Experience Cloud
 solution: Experience Manager
 type: Documentation
-git-repo: https://git.corp.adobe.com/AdobeDocs/experience-manager-dispatcher.fr-FR
+git-repo: https://github.com/AdobeDocs/experience-manager-dispatcher.fr-FR
 index: y
-translation-type: tm+mt
 source-git-commit: da6af93fa3dec8e3b2f146e9c8c6183a3185199b
 workflow-type: tm+mt
-source-wordcount: '112'
+source-wordcount: '111'
 ht-degree: 100%
 
 ---
@@ -21,7 +20,7 @@ Le fichier metadata.md comprend des métadonnées de niveau référentiel qui tr
 |--- |--- |
 | solution-title | Utilisé dans l’en-tête de l’article en tant que lien. |
 | solution-hub-url | Ouvre la page hub helpx. |
-| solution-icon | Affiche l’icône de solution en regard du titre de la solution. Pas encore implémenté |
+| solution-icon | Affiche l’icône de solution en regard du titre de la solution. Pas encore implémenté. |
 | getting-started-url | Lien vers la page de démarrage helpx. |
 | tutorials-url | Lien vers les tutoriels vidéo : tutoriels helpx ou KT. |
 | mini-toc-levels | Détermine le nombre de niveaux d’en-tête qui apparaissent dans le rail droit. La valeur par défaut est 2. |
