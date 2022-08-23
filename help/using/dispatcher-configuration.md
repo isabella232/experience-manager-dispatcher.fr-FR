@@ -2,10 +2,10 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher. Découvrez la prise en charge d’IPv4 et IPv6, des fichiers de configuration, des variables d’environnement, de l’attribution de noms à l’instance, de la définition de fermes de serveurs, de l’identification des hôtes virtuels, etc.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: aed3c791a308b37ac493a78e918da3a4db1c8a64
+source-git-commit: 385495c76cd770409e9a002c685e8d375b159207
 workflow-type: tm+mt
-source-wordcount: '8549'
-ht-degree: 84%
+source-wordcount: '8573'
+ht-degree: 83%
 
 ---
 
@@ -1374,7 +1374,11 @@ Pour plus de détails, vous pouvez aussi lire les sections `/invalidate` et `/st
 
 ### Configuration d’une invalidation temporelle du cache - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Si la propriété `/enableTTL` est définie, elle évalue les en-têtes de réponse du serveur principal et, s’ils contiennent un âge maximal `Cache-Control` ou une date `Expires`, un fichier vide auxiliaire en regard du fichier de cache est créé, avec l’heure de modification définie sur la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
+Si elle est définie sur 1 (/enableTTL &quot;1&quot;), la variable `/enableTTL` évalue les en-têtes de réponse du serveur principal et, s’ils contiennent une propriété `Cache-Control` max-age ou `Expires` date, un fichier vide auxiliaire en regard du fichier de cache est créé, avec l’heure de modification égale à la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
+
+>[!NOTE]
+>
+>Gardez à l’esprit que la mise en cache basée sur TTL est un sur-ensemble de la mise en cache de l’en-tête et que, par conséquent, la fonction `/headers` doit également être correctement configurée.
 
 >[!NOTE]
 >
