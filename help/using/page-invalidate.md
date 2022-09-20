@@ -13,10 +13,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: f447ff9b3785248a4906c1c9abdcbd18576aa36d
+source-git-commit: f255701f23a628ba0d8b6cd91228462e1b552ffa
 workflow-type: tm+mt
-source-wordcount: '1404'
-ht-degree: 97%
+source-wordcount: '1421'
+ht-degree: 95%
 
 ---
 
@@ -114,6 +114,7 @@ Le vidage de Dispatcher est contrôlé par un agent de réplication s’exécuta
    **Remarque :** Pour les agents de purge de Dispatcher, la propriété URI n’est utilisée que si vous utilisez des entrées virtualhost basées sur un chemin pour différencier les fermes de serveurs. Utilisez ce champ pour cibler la ferme de serveurs à invalider. Par exemple, la ferme de serveurs n°1 dispose d’un hôte virtuel de `www.mysite.com/path1/*` et la ferme de serveurs n°2 d’un hôte virtuel de `www.mysite.com/path2/*`. Vous pouvez utiliser une URL de `/path1/invalidate.cache` pour cibler la première ferme de serveurs et `/path2/invalidate.cache` pour cibler la seconde ferme de serveurs. Pour plus d’informations, voir [Utilisation de Dispatcher avec plusieurs domaines](dispatcher-domains.md).
 
 1. Configurez les autres paramètres selon vos besoins.
+1. Connectez-vous à l’instance de publication et validez la configuration de l’agent de vidage. Vérifiez également qu’il est activé.
 1. Répétez la procédure pour chaque instance de publication affectée.
 
 Après la configuration, lorsque vous faites passer la page de l’état de création à celui de publication, l’agent lance une réplication standard. Le journal comprend des messages indiquant des demandes provenant du serveur de publication, comme illustré dans l’exemple suivant :
