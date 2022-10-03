@@ -2,10 +2,10 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher. Découvrez la prise en charge d’IPv4 et IPv6, des fichiers de configuration, des variables d’environnement, de l’attribution de noms à l’instance, de la définition de fermes de serveurs, de l’identification des hôtes virtuels, etc.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
+source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
 workflow-type: tm+mt
-source-wordcount: '8636'
-ht-degree: 82%
+source-wordcount: '8675'
+ht-degree: 81%
 
 ---
 
@@ -406,7 +406,7 @@ Dans cet exemple, le tableau suivant affiche les hôtes virtuels qui sont résol
 
 >[!CAUTION]
 >
->`/allowAuthorized` **doit** être défini sur `"0"` dans la section `/cache` afin d’activer cette fonction.
+>`/allowAuthorized` **doit** être défini sur `"0"` dans la section `/cache` afin d’activer cette fonction. Comme indiqué dans la section [Mise en cache lors de l’utilisation de l’authentification](#caching-when-authentication-is-used) , lorsque vous définissez `/allowAuthorized 0 ` les demandes contenant des informations d’authentification sont **not** mis en cache. Si la mise en cache sensible aux autorisations est requise, reportez-vous à la section [Mise en cache de contenu sécurisé](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html?lang=fr) page.
 
 Créez une session sécurisée pour l’accès à la ferme de serveurs de rendus, de sorte que les utilisateurs doivent ouvrir une session pour accéder à n’importe quelle page de la ferme de serveurs. Après avoir ouvert une session, les utilisateurs peuvent accéder à toutes les pages de la ferme de serveurs. Voir [Création d’un groupe d’utilisateurs fermé](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=en#creating-the-user-group-to-be-used) pour plus d’informations sur l’utilisation de cette fonction avec des groupes d’utilisateurs fermés. Consultez également la [Liste de contrôle de sécurité](/help/using/security-checklist.md) de Dispatcher avant la mise en ligne.
 
