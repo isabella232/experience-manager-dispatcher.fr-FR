@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: d19a27256c44ec00fd440b2f8a2fe408a4a4b7c8
+source-git-commit: 63dc6184b502b517238c60ef6223b39bd7594306
 workflow-type: tm+mt
 source-wordcount: '3693'
-ht-degree: 97%
+ht-degree: 96%
 
 ---
 
@@ -177,7 +177,7 @@ L’agent de réplication de vidage par défaut de l’instance de création est
 
 Si votre site web utilise une méthode d’authentification, vous devez configurer l’agent de réplication de vidage en conséquence.
 
-1. Ouvrez le Gestionnaire des services Internet et sélectionnez le site web que vous utilisez comme cache de Dispatcher.
+1. Ouvrez le Gestionnaire IIS et sélectionnez le site web que vous utilisez comme cache de Dispatcher.
 1. En mode d’affichage des fonctionnalités, dans la section IIS, double-cliquez sur Authentification.
 1. Si l’authentification anonyme n’est pas activée, sélectionnez Authentification anonyme puis, dans la zone Actions, cliquez sur Activer.
 
@@ -190,7 +190,7 @@ Procédez comme suit pour ajouter le module ISAPI de Dispatcher à IIS.
 1. En mode d’affichage des fonctionnalités, dans la section IIS, double-cliquez sur Mappages de gestionnaires.
 1. Dans le panneau Actions de la page Mappages de gestionnaires, cliquez sur Ajouter un mappage de scripts générique, ajoutez les valeurs des propriétés suivantes, puis cliquez sur OK :
 
-   * Chemin d’accès aux demandes : *
+   * Chemin de la requête : &#42;
    * Exécutable : chemin d’accès absolu au fichier disp_iis.dll, par exemple `C:\inetpub\Scripts\disp_iis.dll`.
    * Nom : nom descriptif pour le mappage du gestionnaire, par exemple `Dispatcher`.
 
