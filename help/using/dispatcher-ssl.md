@@ -1,8 +1,8 @@
 ---
 title: Utilisation du protocole SSL avec Dispatcher
-seo-title: Utilisation du protocole SSL avec Dispatcher
+seo-title: Using SSL with Dispatcher
 description: Découvrez comment configurer Dispatcher pour communiquer avec AEM à l’aide de connexions SSL.
-seo-description: Découvrez comment configurer Dispatcher pour communiquer avec AEM à l’aide de connexions SSL.
+seo-description: Learn how to configure Dispatcher to communicate with AEM using SSL connections.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -13,9 +13,9 @@ index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 0debee043078b869d0af3258075bd83bf0312c8f
 workflow-type: tm+mt
-source-wordcount: '1375'
+source-wordcount: '1359'
 ht-degree: 94%
 
 ---
@@ -77,7 +77,7 @@ L’exemple de fichier dispatcher.any suivant affiche les valeurs des propriét�
    { 
       /virtualhosts
       {
-         # select this farm for all incoming HTTPS requestss
+         # select this farm for all incoming HTTPS requests
          "https://*"
       }
       /renders
@@ -100,7 +100,7 @@ L’exemple de fichier dispatcher.any suivant affiche les valeurs des propriét�
       /virtualhosts
       {
          # select this farm for all incoming HTTP requests
-         "https://*"
+         "http://*"
       }
       /renders
       {
@@ -142,7 +142,7 @@ Procédez comme suit pour configurer le protocole SSL mutuel :
 
 Créez ou obtenez des certificats signés par une autorité de certification qui authentifient l’instance de publication et Dispatcher.
 
-#### Création de l’autorité de certification   {#creating-your-ca}
+#### Création de l’autorité de certification  {#creating-your-ca}
 
 Si vous agissez comme autorité de certification, utilisez [OpenSSL](https://www.openssl.org/) pour créer l’autorité de certification qui signe les certificats du serveur et du client (vous devez disposer des bibliothèques OpenSSL). Si vous utilisez une autorité de certification tierce, ne suivez pas cette procédure.
 
@@ -157,7 +157,7 @@ Si vous agissez comme autorité de certification, utilisez [OpenSSL](https://www
    >
    >Plusieurs propriétés du fichier openssl.cnf contrôlent le comportement du script CA.sh. Vous devez modifier ce fichier selon vos besoins avant de créer votre autorité de certification.
 
-#### Création de certificats   {#creating-the-certificates}
+#### Création de certificats  {#creating-the-certificates}
 
 Utilisez OpenSSL pour créer des demandes de certificat à envoyer à l’autorité de certification tierce ou à signer avec votre autorité de certification.
 
@@ -184,11 +184,11 @@ Lorsque vous créez un certificat, OpenSSL utilise la propriété Nom commun pou
 1. Répétez les étapes 2 et 3 pour créer un nouveau certificat et une nouvelle clé publique pour le module de Dispatcher. Assurez-vous que vous utilisez un Nom commun qui est spécifique à l’instance de Dispatcher.
 1. Renommez newcert.pem en dispcert.pem et newkey.pem en dispkey.pem.
 
-### Configuration du protocole SSL sur l’ordinateur de rendu   {#configuring-ssl-on-the-render-computer}
+### Configuration du protocole SSL sur l’ordinateur de rendu  {#configuring-ssl-on-the-render-computer}
 
 Configurez le protocole SSL sur l’instance de rendu à l’aide des fichiers rendercert.pem et renderkey.pem.
 
-#### Conversion du certificat du rendu au format JKS   {#converting-the-render-certificate-to-jks-format}
+#### Conversion du certificat du rendu au format JKS  {#converting-the-render-certificate-to-jks-format}
 
 Utilisez la commande suivante pour convertir le certificat du rendu, qui est un fichier PEM, en un fichier PKCS#12. Incluez également le certificat de l’autorité de certification qui a signé le certificat du rendu :
 
@@ -211,7 +211,7 @@ Utilisez la commande suivante pour convertir le certificat du rendu, qui est un 
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
    ```
 
-#### Ajout du certificat de l’autorité de certification au TrustStore du rendu   {#adding-the-ca-cert-to-the-render-s-truststore}
+#### Ajout du certificat de l’autorité de certification au TrustStore du rendu  {#adding-the-ca-cert-to-the-render-s-truststore}
 
 Si vous agissez comme autorité de certification, importez le certificat dans un magasin de clés. Ensuite, configurez la machine virtuelle Java exécutant l’instance de rendu pour approuver le magasin de clés.
 
@@ -249,7 +249,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=512M -Djavax.net.ssl.trustStore=/usr/lib/cq6.0/publish/ssl/cacerts.keystore'
    ```
 
-#### Configuration de l’instance de rendu   {#configuring-the-render-instance}
+#### Configuration de l’instance de rendu  {#configuring-the-render-instance}
 
 Utilisez le certificat de rendu avec les instructions de la section *Activation du protocole SSL sur l’instance Publish* pour configurer le service HTTP de l’instance de rendu de sorte qu’il utilise le protocole SSL :
 
@@ -261,7 +261,7 @@ Utilisez le certificat de rendu avec les instructions de la section *Activation
 
 Pour configurer Dispatcher de sorte qu’il utilise le protocole SSL mutuel, préparez le certificat de Dispatcher, puis configurez le module de serveur web.
 
-### Création d’un certificat de Dispatcher unifié   {#creating-a-unified-dispatcher-certificate}
+### Création d’un certificat de Dispatcher unifié  {#creating-a-unified-dispatcher-certificate}
 
 Combinez le certificat de Dispatcher et la clé privée non chiffrée dans un seul fichier PEM. Utilisez un éditeur de texte ou la commande `cat` pour créer un fichier semblable à l’exemple suivant :
 
