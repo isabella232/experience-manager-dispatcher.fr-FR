@@ -2,7 +2,7 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher. Découvrez la prise en charge d’IPv4 et IPv6, des fichiers de configuration, des variables d’environnement, de l’attribution de noms à l’instance, de la définition de fermes de serveurs, de l’identification des hôtes virtuels, etc.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0debee043078b869d0af3258075bd83bf0312c8f
+source-git-commit: 9ee19d28b9d18f2ffd4f45129e48b5431beacc77
 workflow-type: tm+mt
 source-wordcount: '8675'
 ht-degree: 81%
@@ -435,7 +435,7 @@ Répertoire qui stocke les informations de session. Si le répertoire n’existe
 
 **/encode** (facultatif)
 
-Comment les informations de session sont codées. Utilisation `md5` pour le chiffrement à l’aide de l’algorithme md5, ou `hex` pour le codage hexadécimal. Si vous chiffrez les données de session, un utilisateur ayant accès au système de fichiers ne peut pas lire le contenu de la session. La valeur par défaut est de `md5`.
+Comment les informations de session sont codées. Utilisation `md5` pour le chiffrement à l’aide de l’algorithme md5, ou `hex` pour le codage hexadécimal. Si vous chiffrez les données de session, un utilisateur ayant accès au système de fichiers ne peut pas lire le contenu de la session. La valeur par défaut est `md5`.
 
 **/header** (facultatif)
 
@@ -625,7 +625,7 @@ Si vos filtres ne se déclenchent pas comme prévu, activez l’option [Journali
 La section d’exemple de filtre suivante entraîne le refus des demandes par Dispatcher pour tous les fichiers. Vous devez refuser l’accès à tous les fichiers, puis activer l’accès à des zones spécifiques.
 
 ```xml
-  /0001  { /glob "*" /type "deny" }
+/0001  { /type "deny" /url "*"  }
 ```
 
 Les demandes concernant une zone explicitement refusée renvoient le code d’erreur 404 (page introuvable).
@@ -692,8 +692,8 @@ Voici un exemple de règle qui bloque la récupération de contenu du chemin `/c
 /006 {
         /type "deny"
         /path "/content/*"
-        /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy)'
-        /extension '(json|xml|html)'
+        /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy|sysview|docview|query|jcr:content|_jcr_content|search|childrenlist|ext|assets|assetsearch|[0-9-]+)'
+        /extension '(json|xml|html|feed))'
         }
 ```
 
@@ -729,7 +729,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
   /filter
       {
       # Deny everything first and then allow specific entries
-      /0001 { /type "deny" /glob "*" }
+      /0001  { /type "deny" /url "*"  }
 
       # Open consoles
 #     /0011 { /type "allow" /url "/admin/*"  }  # allow servlet engine admin
@@ -1053,7 +1053,7 @@ La propriété `/rules` contrôle les documents qui sont mis en cache selon le c
    * Cela indique généralement une page dynamique, par exemple un résultat de recherche qui n’a pas besoin d’être mis en cache.
 * L’extension de fichier est manquante.
    * Le serveur web a besoin de l’extension pour déterminer le type de document (type MIME).
-* L’en-tête d’authentification est défini (vous pouvez le configurer)..
+* L’en-tête d’authentification est défini (vous pouvez le configurer). 
 * Si l’instance AEM répond avec les en-têtes suivants :
 
    * `no-cache`
