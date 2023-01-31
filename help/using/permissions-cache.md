@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 18fa55f4be3a93b5484c3a0fa408031a43944f27
+source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
 workflow-type: tm+mt
-source-wordcount: '829'
-ht-degree: 83%
+source-wordcount: '856'
+ht-degree: 80%
 
 ---
 
@@ -144,6 +144,10 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 ```
 
 ## Configuration de Dispatcher pour la mise en cache sensible aux autorisations {#configure-dispatcher-for-permission-sensitive-caching}
+
+>[!NOTE]
+>
+>Si vos besoins permettent la mise en cache de documents authentifiés, définissez la propriété /allowAuthorized sous la section /cache sur `/allowAuthorized 1`. Voir [Mise en cache lors de l’utilisation de l’authentification](/help/using/dispatcher-configuration.md) pour plus d’informations.
 
 La section auth_checker du fichier dispatcher.any contrôle le comportement de la mise en cache sensible aux autorisations. La section auth_checker comprend les sous-sections suivantes :
 
