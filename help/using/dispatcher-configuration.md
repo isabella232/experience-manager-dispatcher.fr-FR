@@ -2,9 +2,9 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher. Découvrez la prise en charge d’IPv4 et IPv6, des fichiers de configuration, des variables d’environnement, de l’attribution de noms à l’instance, de la définition de fermes de serveurs, de l’identification des hôtes virtuels, etc.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 51be516f90587ceda19180f13727c8372a794261
+source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
 workflow-type: tm+mt
-source-wordcount: '8675'
+source-wordcount: '8710'
 ht-degree: 81%
 
 ---
@@ -1049,7 +1049,7 @@ La propriété `/rules` contrôle les documents qui sont mis en cache selon le c
    * Cela indique généralement une page dynamique, par exemple un résultat de recherche qui n’a pas besoin d’être mis en cache.
 * L’extension de fichier est manquante.
    * Le serveur web a besoin de l’extension pour déterminer le type de document (type MIME).
-* L’en-tête d’authentification est défini (vous pouvez le configurer). 
+* L’en-tête d’authentification est défini (vous pouvez le configurer)..
 * Si l’instance AEM répond avec les en-têtes suivants :
 
    * `no-cache`
@@ -1284,6 +1284,11 @@ Pour spécifier les paramètres qui sont ignorés, ajoutez les règles glob à l
 
 * Pour mettre en cache une page en dépit de la requête contenant un paramètre d’URL, créez une propriété glob qui permet au paramètre (d’être ignoré).
 * Pour empêcher la mise en cache de la page, créez une propriété glob qui refuse le paramètre (à ignorer).
+
+>[!NOTE]
+>
+>Lors de la configuration de la propriété glob, notez qu’elle doit correspondre au nom du paramètre de requête. Par exemple, si vous souhaitez ignorer le paramètre &quot;p1&quot; de l’URL suivante `http://example.com/path/test.html?p1=test&p2=v2`, alors la propriété glob doit être :
+> `/0002 { /glob "p1" /type "allow" }`
 
 L’exemple suivant fait en sorte que Dispatcher ignore tous les paramètres, à l’exception de la variable `nocache` . Par conséquent, demandez des URL qui incluent la variable `nocache` ne sont jamais mis en cache par Dispatcher :
 
