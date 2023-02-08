@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
+source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
 workflow-type: tm+mt
-source-wordcount: '856'
-ht-degree: 80%
+source-wordcount: '918'
+ht-degree: 75%
 
 ---
 
@@ -60,7 +60,6 @@ Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisen
 1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChcker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
 1. Dispatcher transfère la réponse au navigateur. Dispatcher ajoute le corps du message de réponse du rendu au cache.
 
-
 ## Mise en œuvre de la mise en cache sensible aux autorisations {#implementing-permission-sensitive-caching}
 
 Pour mettre en œuvre la mise en cache sensible aux autorisations, procédez comme suit :
@@ -71,6 +70,11 @@ Pour mettre en œuvre la mise en cache sensible aux autorisations, procédez com
 >[!NOTE]
 >
 >En règle générale, les ressources sécurisées sont stockées dans un dossier distinct des fichiers non sécurisés. Par exemple, /content/secure/
+
+>[!NOTE]
+>
+>Lorsqu’un CDN (ou tout autre cache) se trouve devant le Dispatcher, vous devez définir les en-têtes de mise en cache en conséquence afin que le CDN ne mette pas en cache le contenu privé. Par exemple : `Header always set Cache-Control private`.
+>Pour AEM as a Cloud Service, voir [Mise en cache](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) pour plus d’informations sur la définition des en-têtes de mise en cache privés.
 
 ## Création du servlet Auth Checker {#create-the-auth-checker-servlet}
 
