@@ -2,10 +2,10 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher. Découvrez la prise en charge d’IPv4 et IPv6, des fichiers de configuration, des variables d’environnement, de l’attribution de noms à l’instance, de la définition de fermes de serveurs, de l’identification des hôtes virtuels, etc.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
+source-git-commit: 0ac7c1cf3fc9330665b7a758cea38410c1958f1c
 workflow-type: tm+mt
-source-wordcount: '8710'
-ht-degree: 81%
+source-wordcount: '8984'
+ht-degree: 79%
 
 ---
 
@@ -1383,7 +1383,31 @@ Pour plus de détails, vous pouvez aussi lire les sections `/invalidate` et `/st
 
 ### Configuration d’une invalidation temporelle du cache - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Si elle est définie sur 1 (`/enableTTL "1"`), la variable `/enableTTL` évalue les en-têtes de réponse du serveur principal et, s’ils contiennent une propriété `Cache-Control` max-age ou `Expires` date, un fichier vide auxiliaire en regard du fichier de cache est créé, avec l’heure de modification égale à la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
+L’invalidation du cache basée sur le temps dépend de la variable `/enableTTL` et la présence d’en-têtes d’expiration standard à partir de la norme HTTP. Si vous définissez la propriété sur 1 (`/enableTTL "1"`), il évalue les en-têtes de réponse du serveur principal et, si les en-têtes contiennent un événement `Cache-Control`, `max-age` ou `Expires` date, un fichier vide auxiliaire en regard du fichier mis en cache est créé, avec l’heure de modification égale à la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
+
+Avant la version 4.3.5 du Dispatcher, la logique d’invalidation TTL ne reposait que sur la valeur TTL configurée. Avec la version 4.3.5 de Dispatcher, la durée de vie définie **et** les règles d’invalidation du cache du dispatcher sont prises en compte. Par conséquent, pour un fichier mis en cache :
+
+1. If `/enableTTL` est définie sur 1, l’expiration du fichier est vérifiée. Si le fichier a expiré conformément au délai d’activation défini, aucune autre vérification n’est effectuée et le fichier mis en cache est redemandé au serveur principal.
+2. Si le fichier n’a pas expiré ou `/enableTTL` n’est pas configuré, les règles d’invalidation du cache standard sont appliquées, telles que celles définies par [/statfileslevel](#invalidating-files-by-folder-level) et [/invalidate](#automatically-invalidating-cached-files). Cela signifie que Dispatcher peut invalider les fichiers pour lesquels la durée de vie n’a pas expiré.
+
+Cette nouvelle mise en oeuvre prend en charge les cas d’utilisation où les fichiers ont un délai d’activation plus long (par exemple, sur le réseau de diffusion de contenu) mais peuvent toujours être invalidés même si le délai d’activation n’a pas expiré. Elle favorise l’actualisation du contenu par rapport au taux d’accès au cache sur le Dispatcher.
+
+Au cas où vous auriez besoin de **only** la logique d’expiration appliquée à un fichier, puis définie ; `/enableTTL` à 1 et excluez ce fichier du mécanisme d’invalidation du cache standard. Par exemple, vous pouvez effectuer les actions suivantes :
+
+* Configurez la variable [règles d’invalidation](#automatically-invalidating-cached-files) dans la section cache pour ignorer le fichier. Dans le fragment de code ci-dessous, tous les fichiers se terminant par `.example.html` sont ignorées et expirent uniquement lorsque la durée de vie définie est dépassée.
+
+```xml
+  /invalidate
+  {
+   /0000  { /glob "*" /type "deny" }
+   /0001  { /glob "*.html" /type "allow" }
+   /0002  { /glob "*.example.html" /type "deny" }
+  }
+```
+
+* Concevez la structure de contenu de telle sorte que vous puissiez définir une valeur élevée. [/statfilelevel](#invalidating-files-by-folder-level) par conséquent, le fichier n’est pas automatiquement invalidé.
+
+Cela garantit que `.stat` L’invalidation de fichier n’est pas utilisée et seule l’expiration TTL est principale pour les fichiers spécifiés.
 
 >[!NOTE]
 >
