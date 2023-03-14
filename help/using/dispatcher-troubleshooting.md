@@ -1,8 +1,8 @@
 ---
 title: Résolution des problèmes liés à Dispatcher
-seo-title: Résolution des problèmes liés à AEM Dispatcher
+seo-title: Troubleshooting AEM Dispatcher Problems
 description: Découvrez comment résoudre les problèmes liés à Dispatcher.
-seo-description: Découvrez comment résoudre les problèmes liés à AEM Dispatcher.
+seo-description: Learn to troubleshoot AEM Dispatcher issues.
 uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -13,10 +13,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
 workflow-type: tm+mt
-source-wordcount: '553'
-ht-degree: 90%
+source-wordcount: '560'
+ht-degree: 43%
 
 ---
 
@@ -24,20 +24,20 @@ ht-degree: 90%
 
 >[!NOTE]
 >
->Les versions du dispatcher sont indépendantes d’AEM. Cependant, la documentation du dispatcher est incluse dans la documentation d’AEM. Utilisez toujours la documentation du dispatcher incluse dans la documentation de la dernière version d’AEM.
+>Les versions de Dispatcher sont indépendantes d’AEM. Cependant, la documentation de Dispatcher est incluse dans la documentation d’AEM. Utilisez toujours la documentation du dispatcher incluse dans la documentation de la dernière version d’AEM.
 >
 >Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
 >[!NOTE]
 >
->Pour plus d’informations, consultez également la [Base de connaissances de Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Dépannage des problèmes de purge du Dispatcher](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) et la [FAQ sur les problèmes fréquents de Dispatcher](dispatcher-faq.md).
+>Vérifiez les [Base de connaissances de Dispatcher](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [Résolution des problèmes de purge de Dispatcher](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]) et le [FAQ sur les problèmes fréquents de Dispatcher](dispatcher-faq.md) pour plus d’informations.
 
 ## Vérification de la configuration de base {#check-the-basic-configuration}
 
 Comme toujours, les premières étapes consistent à vérifier les principes de base :
 
 * [Confirmation du fonctionnement de base](/help/using/dispatcher-configuration.md#confirming-basic-operation)
-* Passez en revue tous les fichiers journaux du serveur web et de Dispatcher. Si nécessaire, augmentez le paramètre `loglevel` utilisé pour la [journalisation](/help/using/dispatcher-configuration.md#logging) de Dispatcher.
+* Vérifiez tous les fichiers journaux de votre serveur web et de Dispatcher. Si nécessaire, augmentez la variable `loglevel` utilisé pour Dispatcher [connexion](/help/using/dispatcher-configuration.md#logging).
 
 * [Vérifiez votre configuration](/help/using/dispatcher-configuration.md) :
 
@@ -46,7 +46,7 @@ Comme toujours, les premières étapes consistent à vérifier les principes de 
       * Avez-vous déterminé quelle est instance de Dispatcher qui gère le site web ou la page en cours de test ?
    * Avez-vous implémenté des filtres ?
 
-      * Ont-ils une incidence sur ce que vous êtes en train de tester ?
+      * Ces filtres ont-ils un impact sur le sujet que vous étudiez ?
 
 
 ## Outils de diagnostic IIS  {#iis-diagnostic-tools}
@@ -58,14 +58,14 @@ IIS propose divers outils de trace, en fonction de la version :
 
 Ces outils peuvent vous aider à surveiller l’activité.
 
-## IIS et « Erreur 404 - Page introuvable » (404 Not Found)   {#iis-and-not-found}
+## IIS et « Erreur 404 - Page introuvable » (404 Not Found)  {#iis-and-not-found}
 
-Lorsque vous utilisez IIS, une erreur `404 Not Found` peut survenir dans plusieurs cas de figure. Si cela se produit, consultez les articles suivants de la base de connaissances.
+Lorsque vous utilisez IIS, vous pouvez rencontrer des problèmes `404 Not Found` renvoyée dans divers scénarios. Si cela se produit, consultez les articles suivants de la base de connaissances.
 
-* [IIS 6/7 : la méthode POST renvoie une erreur 404.](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6 : Requêtes aux URL contenant le  `/bin` retour du chemin d’accès de base  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7 : la méthode POST renvoie une erreur 404.](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
+* [IIS 6 : Requêtes aux URL contenant le chemin d’accès de base `/bin` renvoyer une `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-Vous devez également vérifier que la racine du cache de Dispatcher et la racine du document IIS sont placées dans le même répertoire.
+Vérifiez également que la racine du cache de Dispatcher et la racine du document IIS sont définies sur le même répertoire.
 
 ## Problèmes lors de la suppression des modèles de processus {#problems-deleting-workflow-models}
 
@@ -75,13 +75,13 @@ Problèmes lors de la tentative de suppression des modèles de processus lorsque
 
 **Étapes à reproduire :**
 
-1. Connectez-vous à l’instance de création (vérifiez que les demandes sont redirigées vers Dispatcher).
-1. Créez un processus ; par exemple, en définissant le titre processusASupprimer.
+1. Connectez-vous à votre instance d’auteur (vérifiez que les demandes sont acheminées via Dispatcher).
+1. créer un workflow ; par exemple, avec le titre défini sur workflowToDelete.
 1. Vérifiez que le processus a été correctement créé.
-1. Sélectionnez un processus puis cliquez dessus avec le bouton droit, puis cliquez sur **Supprimer**.
+1. Sélectionnez le workflow et cliquez dessus avec le bouton droit, puis cliquez sur **Supprimer**.
 
 1. Cliquez sur **Oui** pour confirmer.
-1. La boîte de message d’erreur suivante s’affiche :\
+1. Une boîte de message d’erreur s’affiche. Elle affiche les informations suivantes :\
     « `ERROR 'Could not delete workflow model!!` ».
 
 **Résolution**
@@ -104,27 +104,27 @@ Ajoutez les en-têtes suivants à la section `/clientheaders` du fichier `dispat
 
 ## Interférence avec mod_dir (Apache) {#interference-with-mod-dir-apache}
 
-Ceci décrit comment Dispatcher interagit avec `mod_dir` dans le serveur web Apache, car cela peut entraîner des effets variés, potentiellement inattendus :
+Ce processus décrit la manière dont Dispatcher interagit avec `mod_dir` à l’intérieur du serveur web Apache, car il peut entraîner des effets variés, potentiellement inattendus :
 
 ### Apache 1.3 {#apache}
 
-Dans Apache 1.3, `mod_dir` traite chaque demande pour laquelle l’URL est mappée à un répertoire du système de fichiers.
+Dans Apache 1.3, `mod_dir` gère chaque demande pour laquelle l’URL est mappée à un répertoire du système de fichiers.
 
 mod_dir :
 
 * redirige la demande vers un fichier `index.html` existant ;
 * génère une liste de répertoires.
 
-Lorsque Dispatcher est activé, il traite ces demandes en s’enregistrant lui-même en tant que gestionnaire pour le type de contenu `httpd/unix-directory`.
+Lorsque Dispatcher est activé, il traite ces requêtes en s’enregistrant lui-même en tant que gestionnaire pour le type de contenu. `httpd/unix-directory`.
 
 ### Apache 2.x {#apache-x}
 
-Dans Apache 2.x, les choses sont différentes. Un module peut gérer différentes étapes de la demande, telles les corrections d’URL. `mod_dir` gère cette étape en redirigeant une demande (lorsque l’URL est mappée à un répertoire) vers l’URL comportant un signe `/` ajouté.
+Dans Apache 2.x, les choses sont différentes. Un module peut gérer différentes étapes de la demande, telles les corrections d’URL. Le `mod_dir` gère cette étape en redirigeant une requête (lorsque l’URL est mappée à un répertoire) vers l’URL comportant une `/` ajouté.
 
-Dispatcher n’intercepte pas la correction `mod_dir` mais gère entièrement la demande vers l’URL redirigée (c’est-à-dire avec le signe `/` ajouté). Un problème peut se poser si le serveur distant (par exemple AEM) gère les requêtes envoyées à `/a_path` différemment des requêtes envoyées à `/a_path/` (lorsque `/a_path` est mappé sur un répertoire existant).
+Dispatcher n’intercepte pas la variable `mod_dir` correction, mais gère entièrement la requête vers l’URL redirigée (c’est-à-dire, avec `/` annexé). Ce processus peut poser un problème si le serveur distant (par exemple, AEM) traite les demandes envoyées à la fonction `/a_path` différemment des requêtes envoyées à `/a_path/` (lorsque `/a_path` est mappé à un répertoire existant).
 
-Si cela se produit, vous devez effectuer l’une des opérations suivantes :
+Si cette situation se produit, vous devez :
 
-* Désactivez `mod_dir` pour la sous-arborescence `Directory` ou `Location` gérée par Dispatcher.
+* disable `mod_dir` pour le `Directory` ou `Location` Sous-arborescence gérée par Dispatcher
 
 * Utilisez `DirectorySlash Off` pour configurer `mod_dir` de manière à ne pas ajouter le signe `/`.

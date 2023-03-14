@@ -1,13 +1,13 @@
 ---
 title: Problèmes fréquents de Dispatcher
-seo-title: Problèmes fréquents d’AEM Dispatcher
+seo-title: Top issues for AEM Dispatcher
 description: Problèmes fréquents d’AEM Dispatcher
-seo-description: Problèmes fréquents d’Adobe AEM Dispatcher
+seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
 workflow-type: tm+mt
-source-wordcount: '1644'
-ht-degree: 95%
+source-wordcount: '1578'
+ht-degree: 71%
 
 ---
 
@@ -19,7 +19,7 @@ ht-degree: 95%
 
 ### Qu’est-ce que Dispatcher ?
 
-Dispatcher est l’outil de répartition de charge et/ou de mise en cache d’Adobe Experience Manager qui permet de créer un environnement de création web rapide et dynamique. Pour la mise en cache, Dispatcher fonctionne comme faisant partie d’un serveur HTTP, tel qu’Apache, dans le but de stocker (ou de « mettre en cache ») autant de contenus du site web statique que possible et d’accéder le plus souvent possible au moteur de mise en page du site web. Dans un rôle de répartition de charge, Dispatcher répartit les requêtes des utilisateurs (charge) sur différentes instances (rendus) AEM.
+Dispatcher est un outil de mise en cache et/ou d’équilibrage de charge Adobe Experience Manager qui permet de créer un environnement de création web dynamique et rapide. Pour la mise en cache, Dispatcher fonctionne comme faisant partie d’un serveur HTTP, tel qu’Apache. Il a pour but de stocker (ou de &quot;mettre en cache&quot;) autant de contenu statique que possible du site web et d’accéder aussi rarement que possible au moteur de mise en page du site web. Dans un rôle d’équilibrage de charge, Dispatcher répartit les requêtes utilisateur (charge) sur différentes instances AEM (rendus).
 
 Pour la mise en cache, le module Dispatcher utilise la capacité du serveur web à fournir du contenu statique. Dispatcher place les documents mis en cache à la racine du document du serveur web.
 
@@ -27,15 +27,15 @@ Pour la mise en cache, le module Dispatcher utilise la capacité du serveur web 
 
 Dispatcher utilise la capacité du serveur web pour diffuser du contenu statique. Dispatcher stocke les documents mis en cache dans la racine du document du serveur web. Dispatcher dispose de deux méthodes principales pour mettre à jour le contenu du cache lorsque des modifications sont apportées au site web.
 
-* **Les mises à jour de contenu** suppriment les pages qui ont été modifiées, ainsi que les fichiers qui leur sont directement associés.
+* **Mises à jour du contenu** supprimez les pages qui ont été modifiées et les fichiers qui y sont directement associés.
 * **L’invalidation automatique** invalide automatiquement les parties du cache susceptibles d’être obsolètes après une mise à jour. Par exemple, l’invalidation automatique marque les pages correspondantes comme étant obsolètes, sans rien supprimer.
 
 ### Quels sont les avantages de la répartition de charge ?
 
-La répartition de charge répartit les requêtes utilisateur (charge) sur plusieurs instances AEM. La liste suivante décrit les avantages de la répartition de charge :
+L’équilibrage de charge répartit les requêtes utilisateur (charge) sur plusieurs instances AEM. La liste suivante décrit les avantages de l’équilibrage de charge :
 
-* **Puissance de traitement accrue** : en pratique, cela signifie que Dispatcher partage des requêtes de document entre plusieurs instances d’AEM. Chaque instance ayant désormais moins de documents à traiter, les délais de réponse sont plus rapides. Dispatcher conserve les statistiques internes pour chaque catégorie de document afin qu’il puisse estimer la charge et distribuer les requêtes efficacement.
-* **Couverture de sécurité intégrée accrue** : si Dispatcher ne reçoit aucune réponse de la part d’une instance, il transmet automatiquement les demandes à l’une des autres instances. Par conséquent, si une instance n’est plus disponible, le seul effet est un ralentissement du site, proportionnel à la puissance de calcul perdue.
+* **Puissance de traitement accrue**: En pratique, cette méthode signifie que Dispatcher partage des demandes de document entre plusieurs instances d’AEM. Chaque instance ayant désormais moins de documents à traiter, les délais de réponse sont plus rapides. Dispatcher conserve les statistiques internes pour chaque catégorie de document afin qu’il puisse estimer la charge et distribuer les requêtes efficacement.
+* **Couverture de sécurité intégrée accrue**: Si Dispatcher ne reçoit pas de réponses d’une instance, il transmet automatiquement les requêtes à l’une des autres instances. Par conséquent, si une instance n’est plus disponible, le seul effet est un ralentissement du site, proportionnel à la puissance de calcul perdue.
 
 >[!NOTE]
 >
@@ -105,9 +105,8 @@ Content-Length: 0
 
 Dispatcher supprime les fichiers et les dossiers mis en cache et dont les noms correspondent à la valeur de l’en-tête CQ. Par exemple, une CQ-Handle de `/content/geomtrixx-outdoors/en` correspond aux éléments suivants :
 
-Tous les fichiers (d’une extension de fichier) nommés en dans le répertoire geometrixx-outdoors.
-Les répertoires nommés `_jcr_content` sous le répertoire en (qui, s’il existe, contient des rendus en mémoire cache des sous-nœuds de la page).
-Le répertoire en ne sera supprimé que si le `CQ-Action` est `Delete` ou `Deactivate`.
+Tous les fichiers (quelle que soit leur extension) nommés en dans le répertoire geometrixx-outdoors. N’importe quel répertoire nommé `_jcr_content` sous le répertoire en (qui, s’il existe, contient les rendus mis en cache des sous-noeuds de la page).
+Répertoire `en` n’est supprimé que si la variable `CQ-Action` is `Delete` ou `Deactivate`.
 
 Pour plus d’informations sur cette rubrique, voir [Invalidation manuelle du cache de Dispatcher](page-invalidate.md).
 
@@ -117,13 +116,13 @@ Voir la page [Mise en cache de contenu sécurisé](permissions-cache.md).
 
 ### Comment sécuriser les communications entre les instances Dispatcher et CQ ?
 
-Voir les [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) et les [Pages Liste de contrôle de sécurité AEM](https://helpx.adobe.com/fr/experience-manager/6-4/sites/administering/using/security-checklist.html) .
+Voir [Liste de contrôle de sécurité de Dispatcher](security-checklist.md) et le [Liste de contrôle AEM sécurité](https://experienceleague.adobe.com/docs/experience-manager-64/administering/security/security-checklist.html?lang=fr) pages.
 
 ### Le problème lié à `jcr:content` de Dispatcher a été remplacé par `jcr%3acontent`
 
-**Question** : nous avons récemment rencontré un problème au niveau de Dispatcher, dans lequel l’un des appels ajax qui obtient un référentiel CQ de formulaire de données contenait `jcr:content` et qui était codé pour `jcr%3acontent` produisant ainsi un jeu de résultats incorrect.
+**Question**: L’entreprise a récemment rencontré un problème au niveau de Dispatcher. Un des appels AJAX qui obtenait un référentiel CQ de formulaire de données avait `jcr:content` dans . qui a été codé en `jcr%3acontent` ce qui entraîne un jeu de résultats incorrect.
 
-**Réponse** : utilisez la méthode `ResourceResolver.map()` pour obtenir une URL « conviviale » qui permet d’utiliser/recevoir des requêtes d’origine et de résoudre le problème de mise en cache avec Dispatcher. La méthode map() code les deux points `:` en caractères de soulignement et la méthode resolve() les décode au format lisible SLING JCR. Utilisez la méthode map() pour générer l’URL utilisée dans l’appel Ajax.
+**Réponse**: Utilisation `ResourceResolver.map()` pour obtenir une URL &quot;conviviale&quot; à utiliser/émettre des requêtes de et pour résoudre le problème de mise en cache avec Dispatcher. La méthode map() code la variable `:` deux-points en caractères de soulignement et la méthode resolve() les décode au format lisible SLING JCR. Utilisez la méthode map() pour générer l’URL utilisée dans l’appel Ajax.
 
 En savoir plus : [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
@@ -131,26 +130,22 @@ En savoir plus : [https://sling.apache.org/documentation/the-sling-engine/mappin
 
 ### Comment configurer les agents de purge de Dispatcher sur une instance de publication ?
 
-Voir la page [Réplication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
+Voir [Réplication](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) page.
 
 ### Comment résoudre les problèmes de purge de Dispatcher ?
 
-[Reportez-vous à cet ](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) article de dépannage qui répond aux questions suivantes :
+[Consultez ces articles de dépannage](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
 
-* Comment déboguer une situation où aucun contenu n’est enregistré dans le cache de Dispatcher ?
-* Comment déboguer une situation où les fichiers de cache ne sont pas mis à jour ?
-* Comment déboguer une situation bloquée en raison de la purge de Dispatcher ?
-
-Si les opérations de suppression incitent Dispatcher à vider, [utilisez la solution dans cette publication de blog de la communauté de Sensei Martin](https://mkalugin-cq.blogspot.in/2012/04/i-have-been-working-on-following.html).
+Si les opérations de suppression incitent Dispatcher à vider, [utilisez la solution dans cette publication de blog de la communauté de Sensei Martin](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
 
 ### Comment vider les ressources DAM du cache de Dispatcher ?
 
-Vous pouvez utiliser la fonctionnalité de « réplication de chaînes ».  Lorsque cette fonction est activée, l’agent de purge de Dispatcher envoie une requête de purge lorsqu’une réplication est reçue de l’auteur.
+Vous pouvez utiliser la fonctionnalité de « réplication de chaînes ». Lorsque cette fonction est activée, l’agent de purge de Dispatcher envoie une demande de purge lorsqu’une réplication est reçue de l’auteur.
 
 Pour l’activer :
 
 1. [Suivez les étapes ci-dessous](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) pour créer des agents de purge sur publication.
-1. Accédez à chaque configuration de l’agent et, sous l’onglet **Déclencheurs**, activez la case à cocher **À réception**.
+1. Accédez à la configuration de chaque agent et au **Triggers** , vérifiez les **À réception** de la boîte.
 
 ## Divers
 
@@ -166,11 +161,11 @@ Vous pouvez définir si Dispatcher met en cache un document à l’aide [du fich
 
 La propriété `/rules` contrôle les documents qui sont mis en cache selon le chemin d’accès au document. Quelle que soit la propriété `/rules`, Dispatcher ne procède jamais à la mise en cache d’un document dans les cas suivants :
 
-* Si l’URI de demande contient un point d’interrogation `(?)`.
-* Cela indique généralement une page dynamique, par exemple un résultat de recherche qui n’a pas besoin d’être mis en cache.
+* L’URI de requête contient une `(?)` point d’interrogation.
+* Elle indique une page dynamique, telle qu’un résultat de recherche qui n’a pas besoin d’être mis en cache.
 * L’extension de fichier est manquante.
 * Le serveur web a besoin de l’extension pour déterminer le type de document (type MIME).
-* L’en-tête d’authentification est défini (vous pouvez le configurer).
+* L’en-tête d’authentification est défini (configurable).
 * Si l’instance AEM répond avec les en-têtes suivants :
    * no-cache
    * no-store
