@@ -4,10 +4,10 @@ seo-title: Top issues for AEM Dispatcher
 description: Problèmes fréquents d’AEM Dispatcher
 seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
+source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
 workflow-type: tm+mt
 source-wordcount: '1578'
-ht-degree: 71%
+ht-degree: 66%
 
 ---
 
@@ -130,7 +130,7 @@ En savoir plus : [https://sling.apache.org/documentation/the-sling-engine/mappin
 
 ### Comment configurer les agents de purge de Dispatcher sur une instance de publication ?
 
-Voir [Réplication](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) page.
+Voir [Réplication](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) page.
 
 ### Comment résoudre les problèmes de purge de Dispatcher ?
 
@@ -157,7 +157,7 @@ Si le document est configuré pour l’invalidation automatique, Dispatcher vér
 
 ### Comment Dispatcher renvoie-t-il des documents ?
 
-Vous pouvez définir si Dispatcher met en cache un document à l’aide [du fichier de configuration](dispatcher-configuration.md) de Dispatcher `dispatcher.any`. Dispatcher vérifie la demande au niveau de la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à l’instance AEM.
+Vous pouvez définir si Dispatcher met en cache un document à l’aide [du fichier de configuration](dispatcher-configuration.md) de Dispatcher `dispatcher.any`. Dispatcher vérifie la demande par rapport à la liste des documents pouvant être mis en cache. Si le document ne figure pas dans cette liste, Dispatcher demande le document à partir de l’instance AEM.
 
 La propriété `/rules` contrôle les documents qui sont mis en cache selon le chemin d’accès au document. Quelle que soit la propriété `/rules`, Dispatcher ne procède jamais à la mise en cache d’un document dans les cas suivants :
 
