@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 3bb9cb81ac98147bf12e9370d02002dd91ee374e
+source-git-commit: 570eafa7889ff4db820f80eccd529046464d9cfb
 workflow-type: tm+mt
-source-wordcount: '3726'
-ht-degree: 62%
+source-wordcount: '3797'
+ht-degree: 50%
 
 ---
 
@@ -90,14 +90,14 @@ Comment Type: draft
 
  -->
 
-## Microsoft Internet Information Server {#microsoft-internet-information-server}
+## Serveur d’informations Internet Microsoft {#microsoft-internet-information-server}
 
 Pour plus d&#39;informations sur l&#39;installation de ce serveur web, consultez les ressources suivantes :
 
 * Microsoft de sa propre documentation sur le serveur d’informations Internet
 * [&quot;Site officiel Microsoft IIS&quot;](https://www.iis.net/)
 
-### Composants IIS requis {#required-iis-components}
+### Composants IIS requis {#required-iis-components}
 
 Les versions 8.5 et 10 d’IIS nécessitent que les composants IIS suivants soient installés :
 
@@ -134,7 +134,7 @@ Procédez comme suit pour copier les fichiers de Dispatcher vers l’emplacement
       * Instance de création: `author_dispatcher.any`
       * Instance de publication: `dispatcher.any`
 
-## Microsoft IIS - Configuration du fichier INI de Dispatcher {#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft IIS - Configuration du fichier INI de Dispatcher {#microsoft-iis-configure-the-dispatcher-ini-file}
 
 Modifiez le fichier `disp_iis.ini` pour configurer l’installation de Dispatcher. Le format de base du fichier `.ini` se présente comme suit :
 
@@ -152,7 +152,7 @@ Le tableau suivant décrit chaque propriété.
 |--- |--- |
 | configpath | Emplacement du fichier `dispatcher.any` dans le système de fichiers local (chemin d’accès absolu). |
 | logfile | Emplacement du fichier `dispatcher.log`. Si cet emplacement n’est pas défini, les messages du journal se déplacent vers le journal des événements de Windows. |
-| loglevel | Définit le niveau de journalisation utilisé pour générer les messages dans le journal des événements. Les valeurs suivantes peuvent être spécifiées : Niveau de journal du fichier journal : <br/>0 - messages d’erreur uniquement. <br/>1 - Erreurs et avertissements. <br/>2 - Erreurs, avertissements et messages d’information <br/>3 - Erreurs, avertissements, informations et messages de débogage. <br/>**Remarque :** Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis de repasser à 0 lors de l’exécution dans un environnement de production. |
+| loglevel | Définit le niveau de journalisation utilisé pour générer les messages dans le journal des événements. Les valeurs suivantes peuvent être spécifiées : Niveau de journal du fichier journal : <br/>0 - messages d’erreur uniquement. <br/>1 - Erreurs et avertissements. <br/>2 - Erreurs, avertissements et messages d’information <br/>3 - Erreurs, avertissements, informations et messages de débogage. <br/>**Remarque**: il est recommandé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
 | replaceauthorization | Indique le mode de traitement des en-têtes d’autorisation dans la requête HTTP. Les valeurs suivantes sont valides :<br/>0 - Les en-têtes d’autorisation ne sont pas modifiés. <br/>1 - Remplace n’importe quel en-tête appelé « Authorization » autre que l’en-tête « Basic » par son équivalent `Basic <IIS:LOGON\_USER>`.<br/> |
 | servervariables | Définit le mode de traitement des variables de serveur.<br/>0 - Les variables du serveur IIS ne sont envoyées ni à Dispatcher ni à AEM. <br/>1 - Toutes les variables du serveur IIS (telles que `LOGON\_USER, QUERY\_STRING, ...`) sont envoyées à Dispatcher, ainsi que les en-têtes de requêtes (et également à l’instance AEM si elle n’est pas mise en cache).  <br/>Les variables de serveur incluent `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` et beaucoup d’autres. Voir la documentation d’IIS pour obtenir la liste complète des variables, avec des informations. |
 | enable_chunked_transfer | Définit s’il faut activer (1) ou désactiver le transfert fragmenté (0) pour la réponse du client. La valeur par défaut est 0. |
@@ -167,11 +167,11 @@ servervariables=1
 replaceauthorization=0
 ```
 
-### Configuration de Microsoft IIS {#configuring-microsoft-iis}
+### Configuration de Microsoft IIS {#configuring-microsoft-iis}
 
 Configurez IIS pour intégrer le module ISAPI de Dispatcher. Dans IIS, vous utilisez le mappage d&#39;application générique.
 
-### Configuration de l’accès anonyme - IIS 8.5 et 10 {#configuring-anonymous-access-iis-and}
+### Configuration de l’accès anonyme - IIS 8.5 et 10 {#configuring-anonymous-access-iis-and}
 
 L’agent de réplication de purge par défaut sur l’instance d’auteur est configuré de sorte qu’il n’envoie pas d’informations d’identification de sécurité avec les demandes de purge. Par conséquent, le site web que vous utilisez dans le cache de Dispatcher doit autoriser l’accès anonyme.
 
@@ -181,7 +181,7 @@ Si votre site web utilise une méthode d’authentification, l’agent de répli
 1. En mode Affichage des fonctionnalités , dans la section IIS, double-cliquez sur Authentification.
 1. Si l’option Authentification anonyme n’est pas activée, sélectionnez Authentification anonyme et, dans la zone Actions, cliquez sur Activer.
 
-### Intégration du module ISAPI de Dispatcher - IIS 8.5 et 10 {#integrating-the-dispatcher-isapi-module-iis-and}
+### Intégration du module ISAPI de Dispatcher - IIS 8.5 et 10 {#integrating-the-dispatcher-isapi-module-iis-and}
 
 Procédez comme suit pour ajouter le module ISAPI de Dispatcher à IIS.
 
@@ -203,7 +203,7 @@ Procédez comme suit pour ajouter le module ISAPI de Dispatcher à IIS.
 1. (IIS 8.0) Pour s’assurer que le gestionnaire est utilisé pour les fichiers et dossiers qui ne sont pas encore mis en cache, annulez la sélection de l’option Appeler le gestionnaire seulement si une demande est mappée à, puis cliquez sur OK.
 1. (IIS 8.0) Dans la boîte de dialogue Modifier le mappage de scripts, cliquez sur OK.
 
-### Configuration de l’accès au cache - IIS 8.5 et 10 {#configuring-access-to-the-cache-iis-and}
+### Configuration de l’accès au cache - IIS 8.5 et 10 {#configuring-access-to-the-cache-iis-and}
 
 Accordez à l’utilisateur par défaut du pool d’applications l’accès en écriture au dossier utilisé comme cache de Dispatcher.
 
@@ -221,7 +221,7 @@ Accordez à l’utilisateur par défaut du pool d’applications l’accès en �
 1. Cliquez sur le bouton Vérifier les noms . Lorsque Windows résout le compte utilisateur, cliquez sur OK.
 1. Dans la boîte de dialogue Autorisations du dossier de Dispatcher, sélectionnez le compte que vous venez d’ajouter. Activez toutes les autorisations pour le compte, à **l’exception du contrôle total**, puis cliquez sur OK. Cliquez sur OK pour fermer la boîte de dialogue Propriétés du dossier.
 
-### Enregistrement du type Mime JSON - IIS 8.5 et 10 {#registering-the-json-mime-type-iis-and}
+### Enregistrement du type MIME JSON - IIS 8.5 et 10 {#registering-the-json-mime-type-iis-and}
 
 Utilisez la procédure suivante pour enregistrer le type MIME JSON, lorsque vous souhaitez que Dispatcher autorise les appels JSON.
 
@@ -231,14 +231,14 @@ Utilisez la procédure suivante pour enregistrer le type MIME JSON, lorsque vous
    * Extension de nom de fichier : `.json`
    * MIME Type: `application/json`
 
-### Suppression du segment masqué bin - IIS 8.5 et 10 {#removing-the-bin-hidden-segment-iis-and}
+### Suppression du segment masqué bin - IIS 8.5 et 10 {#removing-the-bin-hidden-segment-iis-and}
 
 Suivez la procédure ci-dessous pour supprimer le segment masqué `bin`. Les sites web qui ne sont pas nouveaux peuvent contenir ce segment masqué.
 
 1. Dans le Gestionnaire des services Internet, sélectionnez votre site Web et, en mode d’affichage des fonctionnalités, double-cliquez sur Filtrage des demandes.
 1. Sélectionnez le segment `bin`, cliquez sur Supprimer, puis sur Oui dans la boîte de dialogue de confirmation.
 
-### Consignation des messages IIS dans un fichier - IIS 8.5 et 10 {#logging-iis-messages-to-a-file-iis-and}
+### Consignation des messages IIS dans un fichier - IIS 8.5 et 10 {#logging-iis-messages-to-a-file-iis-and}
 
 Utilisez la procédure suivante pour écrire des messages de journal de Dispatcher dans un fichier journal plutôt que dans le journal des événements Windows. Vous devez configurer Dispatcher pour utiliser le fichier journal et fournir à IIS un accès en écriture au fichier.
 
@@ -334,7 +334,7 @@ Cela est probablement dû à une sécurité SELinux activée. Ensuite, vous deve
 * Activez les scripts et modules HTTPD pour établir des connexions réseau.
 * Configurez le contexte SELinux du docroot, dans lequel les fichiers mis en cache sont stockés.
 
-Entrez les commandes suivantes dans une fenêtre de terminal en remplaçant `[path to the dispatcher.so file]` par le chemin d’accès au module de Dispatcher que vous avez installé sur le serveur web Apache, et *`path to the docroot`* par le chemin d’accès à l’emplacement du docroot (par exemple `/opt/cq/cache`) :
+Saisissez les commandes suivantes dans une fenêtre de terminal en remplaçant `[path to the dispatcher.so file]` avec le chemin d’accès au module de Dispatcher que vous avez installé sur le serveur web Apache, et *`path to the docroot`* avec le chemin où se trouve le docroot (par exemple, `/opt/cq/cache`) :
 
 ```shell
 semanage fcontext -a -t httpd_modules_t [path to the dispatcher.so file]
@@ -343,7 +343,7 @@ chcon -R --type httpd_sys_rw_content_t [path to the docroot]
 semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 ```
 
-### Serveur web Apache - Configuration du serveur web Apache pour Dispatcher. {#apache-web-server-configure-apache-web-server-for-dispatcher}
+### Serveur web Apache - Configuration du serveur web Apache pour Dispatcher {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
 Le serveur web Apache doit être configuré à l’aide de `httpd.conf`. Le kit d’installation de Dispatcher contient un exemple de fichier de configuration nommé `httpd.conf.disp<x>`.
 
@@ -411,13 +411,13 @@ Vous trouverez les paramètres de configuration dans le tableau suivant :
 |--- |--- |
 | DispatcherConfig | Emplacement et nom du fichier de configuration de Dispatcher. <br/>Lorsque cette propriété est située dans la configuration du serveur principal, tous les hôtes virtuels héritent de la valeur de la propriété. Toutefois, les hôtes virtuels peuvent inclure une propriété DispatcherConfig pour remplacer la configuration du serveur principal. |
 | DispatcherLog | Emplacement et nom du fichier journal. |
-| DispatcherLogLevel | Niveau de journal du fichier journal :<br/> 0 - Erreurs<br/> 1 - Avertissements<br/> 2 - Infos<br/> 3 - Déboguer <br/>**Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
-| DispatcherNoServerHeader | *Ce paramètre est obsolète et n’a plus aucun effet.*<br/><br/> Définit l’en-tête du serveur à utiliser : <br/><ul><li>Non défini ou 0 - L’en-tête du serveur HTTP contient la version AEM. </li><li>1 - L’en-tête du serveur Apache est utilisé.</li></ul> |
-| DispatcherDeclineRoot | Définit le refus ou l’acceptation des demandes à la racine « / » :<br/>**0** - accepte des requêtes à / <br/>**1** - les requêtes à / ne sont pas gérées par Dispatcher ; utilisez mod_alias pour le mappage correct. |
-| DispatcherUseProcessedURL | Définit s’il faut utiliser des URL prétraitées pour tout traitement supplémentaire par Dispatcher :<br/>**0** - utilise l’URL d’origine transmise au serveur web. <br/>**1** - Dispatcher utilise l’URL déjà traitée par les gestionnaires qui précèdent Dispatcher (c’est-à-dire `mod_rewrite`) à la place de l’URL d’origine transmise au serveur. Par exemple, l’URL d’origine ou l’URL traitée est mise en correspondance avec des filtres de Dispatcher. L’URL est également utilisée comme base de la structure de fichiers du cache.   Pour plus d’informations sur mod_rewrite, voir la documentation sur le site web d’Apache, par exemple Apache 2.4. Lors de l’utilisation de mod_rewrite, il est conseillé d’utiliser l’indicateur &#39;passthrough | PT&#39; (transmis au gestionnaire suivant) pour forcer le moteur de réécriture à définir le champ uri de la structure request_rec interne sur la valeur du champ de nom de fichier. |
-| DispatcherPassError | Définit comment prendre en charge les codes d’erreur pour le traitement de ErrorDocument :<br/>**0** - Dispatcher met en file d’attente toutes les réponses d’erreur envoyées au client. <br/>**1** - Dispatcher ne met pas en file d’attente une réponse d’erreur envoyée au client (dont le code d’état est supérieur ou égal à 400), mais transfère le code d’état à Apache qui permet, par exemple, à une directive ErrorDocument de traiter ce code d’état. <br/>**Plage de codes** - Indiquez une plage de codes d’erreur pour lesquels la réponse est transmise à Apache. D’autres codes d’erreur sont transmis au client. Par exemple, la configuration suivante transmet les réponses au client pour l’erreur 412 et toutes les autres erreurs sont transmises à Apache : DispatcherPassError 400-411,413-417 |
+| DispatcherLogLevel | Niveau de journal du fichier journal : <br/>0 - Erreurs <br/>1 - Avertissements <br/>2 - Infos <br/>3 - Débogage <br/>**Remarque**: il est recommandé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
+| DispatcherNoServerHeader | *Ce paramètre est obsolète et n’a plus aucun effet.*<br/><br/> Définit l’en-tête du serveur à utiliser : <br/><ul><li>Non défini ou 0 - L’en-tête du serveur HTTP contient la version AEM. </li><li>1 - L’en-tête du serveur Apache est utilisé.</li></ul> |
+| DispatcherDeclineRoot | Définit s’il faut refuser des requêtes à la racine &quot;/&quot; : <br/>**0** - accepte les demandes à / <br/>**1** - les requêtes envoyées à / ne sont pas gérées par Dispatcher ; utilisez mod_alias pour le mappage correct. |
+| DispatcherUseProcessedURL | Définit s’il faut utiliser des URL prétraitées pour tout traitement supplémentaire par Dispatcher : <br/>**0** : utilisez l’URL d’origine transmise au serveur web. <br/>**1** - Dispatcher utilise l’URL déjà traitée par les gestionnaires qui précèdent Dispatcher (c.-à-d. `mod_rewrite`) au lieu de l’URL d’origine transmise au serveur web.  Par exemple, l’URL d’origine ou l’URL traitée est mise en correspondance avec des filtres de Dispatcher. L’URL est également utilisée comme base de la structure de fichiers du cache.   Pour plus d’informations sur mod_rewrite, voir la documentation sur le site web d’Apache, par exemple Apache 2.4. Lors de l’utilisation de mod_rewrite, il est conseillé d’utiliser l’indicateur &#39;passthrough | PT&#39; (transmis au gestionnaire suivant) pour forcer le moteur de réécriture à définir le champ uri de la structure request_rec interne sur la valeur du champ de nom de fichier. |
+| DispatcherPassError | Définit comment prendre en charge les codes d’erreur pour la gestion d’ErrorDocument : <br/>**0** - Dispatcher met en file d’attente toutes les réponses d’erreur envoyées au client. <br/>**1** - Dispatcher ne met pas en file d’attente une réponse d’erreur au client (où le code d’état est supérieur ou égal à 400), mais transmet le code d’état à Apache, qui permet, par exemple, à une directive ErrorDocument de traiter un tel code d’état. <br/>**Plage de code** - Indiquez une plage de codes d’erreur pour lesquels la réponse est transmise à Apache. D’autres codes d’erreur sont transmis au client. Par exemple, la configuration suivante transmet les réponses au client pour l’erreur 412 et toutes les autres erreurs sont transmises à Apache : DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Indique le délai d’expiration de la persistance, en secondes. Depuis la version 4.2.0 de Dispatcher, la valeur de persistance par défaut est 60. La valeur 0 désactive la persistance. |
-| DispatcherNoCanonURL | Si vous définissez ce paramètre sur On, l’URL brute sera transmise au serveur principal au lieu de celle qui est canonisée et remplacera les paramètres de DispatcherUseProcessedURL. La valeur par défaut est Off. <br/>**Remarque** : Les règles de filtrage de la configuration Dispatcher sont toujours évaluées par rapport à l’URL expurgée et non à l’URL brute. |
+| DispatcherNoCanonURL | Si vous définissez ce paramètre sur On, l’URL brute sera transmise au serveur principal au lieu de celle qui est canonisée et remplacera les paramètres de DispatcherUseProcessedURL. La valeur par défaut est Off. <br/>**Remarque**: les règles de filtrage de la configuration de Dispatcher seront toujours évaluées par rapport à l’URL expurgée et non à l’URL brute. |
 
 
 
@@ -428,13 +428,13 @@ Vous trouverez les paramètres de configuration dans le tableau suivant :
 
 >[!NOTE]
 >
->Les paramètres par défaut de l’en-tête du serveur sont les suivants :  
+>Les paramètres par défaut de l’en-tête du serveur sont les suivants :
 >
 >`ServerTokens Full`
 >
 >`DispatcherNoServerHeader 0`
 >
->Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir : 
+>Indique la version d’AEM (à des fins statistiques). Si vous souhaitez désactiver ces informations dans l’en-tête que vous pouvez définir :
 >
 >`ServerTokens Prod`
 >
@@ -449,7 +449,7 @@ Après ces entrées, vous devez ajouter une instruction **SetHandler** au contex
 ```
 ...  
 <Directory />  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 </IfModule>  
   
@@ -469,7 +469,7 @@ L’exemple suivant configure Dispatcher pour traiter les demandes d’un domain
 ServerName www.mycompany.com  
 DocumentRoot _\[cache-path\]_\\docs  
 <Directory _\[cache-path\]_\\docs>  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 </IfModule>  
 AllowOverride None  
@@ -486,7 +486,7 @@ AllowOverride None
 ServerName www.mycompany.com  
 DocumentRoot /usr/apachecache/docs  
 <Directory /usr/apachecache/docs>  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 </IfModule>  
 AllowOverride None  
@@ -526,7 +526,7 @@ L’exemple suivant active **ModMimeUsePathInfo** :
 ```
 ...  
 <Directory />  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 ModMimeUsePathInfo On  
 </IfModule>  
@@ -647,7 +647,7 @@ où :
 |--- |--- |
 | config | Emplacement et nom du fichier de configuration `dispatcher.any.` |
 | logfile | Emplacement et nom du fichier journal. |
-| loglevel | Niveau de journal lors de l’écriture de messages dans le fichier journal :<br/>**0** erreur <br/>**1** avertissement <br/>**2** infos <br/>**3** messages de débogage <br/>**Remarque** : Il est conseillé de définir le niveau de journal sur 3 pendant l’installation et le test, puis sur 0 lors de l’exécution dans un environnement de production. |
+| loglevel | Niveau de journal lors de l’écriture de messages dans le fichier journal : <br/>**0** Erreurs <br/>**1** Avertissements <br/>**2** Infos <br/>**3** Déboguer <br/>**Remarque :** Il est recommandé de définir le niveau de journal sur 3 pendant l’installation et le test, et sur 0 lors de l’exécution dans un environnement de production. |
 | keepalivetimeout | Indique le délai d’expiration de la persistance, en secondes. Depuis la version 4.2.0 de Dispatcher, la valeur de persistance par défaut est 60. La valeur 0 désactive la persistance. |
 
 Selon vos besoins, vous pouvez définir Dispatcher comme service pour vos objets. Pour configurer Dispatcher pour l’ensemble de votre site web, modifiez l’objet par défaut :
