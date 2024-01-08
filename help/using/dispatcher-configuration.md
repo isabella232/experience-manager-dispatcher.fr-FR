@@ -2,10 +2,10 @@
 title: Configuration de Dispatcher
 description: Découvrez comment configurer Dispatcher. Découvrez la prise en charge d’IPv4 et IPv6, des fichiers de configuration, des variables d’environnement, de l’attribution de noms à l’instance, de la définition de fermes de serveurs, de l’identification des hôtes virtuels, etc.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
+source-git-commit: 410346694a134c0f32a24de905623655f15269b4
 workflow-type: tm+mt
-source-wordcount: '8941'
-ht-degree: 43%
+source-wordcount: '8857'
+ht-degree: 39%
 
 ---
 
@@ -310,7 +310,7 @@ Le code suivant est un exemple de configuration pour `/clientheaders` :
   }
 ```
 
-## Identification des hôtes virtuels  {#identifying-virtual-hosts-virtualhosts}
+## Identification des hôtes virtuels {#identifying-virtual-hosts-virtualhosts}
 
 La propriété `/virtualhosts` définit une liste de toutes les combinaisons de nom d’hôte/URI que Dispatcher accepte pour cette ferme de serveurs. Vous pouvez utiliser l’astérisque (`*`) comme caractère générique. Les valeurs de la propriété /`virtualhosts` utilisent le format suivant :
 
@@ -355,9 +355,9 @@ Dispatcher détecte la valeur d’hôte virtuel correspondant le mieux comme sui
 * Si non `virtualhosts` les valeurs ont `scheme` et `uri` parties qui correspondent toutes deux à la variable `scheme` et `uri` de la requête, l’hôte virtuel rencontré en premier qui correspond à la variable `host` de la requête est utilisée.
 * Si aucune valeur `virtualhosts` ne comporte une partie host qui correspond à la partie host de la demande, l’hôte virtuel le plus élevé de la ferme de serveurs la plus élevée est utilisé.
 
-Par conséquent, vous devez définir l’hôte virtuel par défaut dans la partie supérieure de la propriété `virtualhosts` dans la ferme de serveurs la plus élevée de votre fichier `dispatcher.any`
+Par conséquent, vous devez placer l’hôte virtuel par défaut en haut de la page `virtualhosts` dans la ferme de serveurs la plus élevée de votre `dispatcher.any` fichier .
 
-### Exemple de résolution du nom d’hôte virtuel {#example-virtual-host-resolution}
+### Exemple de résolution d’hôte virtuel {#example-virtual-host-resolution}
 
 L’exemple suivant représente un extrait de code d’une `dispatcher.any` fichier qui définit deux fermes de serveurs de Dispatcher et chaque ferme définit une `virtualhosts` .
 
@@ -393,7 +393,7 @@ L’exemple suivant représente un extrait de code d’une `dispatcher.any` fich
 
 En utilisant cet exemple, le tableau suivant affiche les hôtes virtuels qui sont résolus pour les requêtes HTTP données :
 
-| URL de la demande | Hôte virtuel résolu |
+| URL de la requête | Hôte virtuel résolu |
 |---|---|
 | `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
@@ -578,7 +578,7 @@ Chaque élément de la section `/filter` comprend un type et un modèle associé
 
 >[!NOTE]
 >
->Pour plus dʼinformations sur la partie de la ligne de demande à laquelle ces éléments font référence, consultez la page wiki [Décomposition des URL Sling](https://sling.apache.org/documentation/the-sling-engine/url-decomposition.html).
+>Pour plus d’informations sur la partie de la ligne de demande à laquelle chacun de ces éléments fait référence, voir la section [Décomposition d’URL Sling](https://sling.apache.org/documentation/the-sling-engine/url-decomposition.html) page wiki.
 
 * **Propriété glob** : la propriété `/glob` est utilisée pour la correspondance avec l’ensemble de la ligne de demande de la requête HTTP.
 
@@ -612,11 +612,11 @@ Lors de la création de vos règles de filtrage, utilisez des guillemets doubles
 
 Dans les versions de Dispatcher ultérieures à la version 4.2.0, vous pouvez inclure des expressions régulières POSIX étendues dans vos modèles de filtre.
 
-#### Résolution des problèmes de filtres {#troubleshooting-filters}
+#### Dépannage des filtres {#troubleshooting-filters}
 
 Si vos filtres ne se déclenchent pas comme prévu, activez [Journalisation de trace](#trace-logging) sur Dispatcher afin que vous puissiez voir quel filtre intercepte la requête.
 
-#### Exemple de filtre : Tout refuser {#example-filter-deny-all}
+#### Exemple de filtre : Tout refuser {#example-filter-deny-all}
 
 La section d’exemple de filtre suivante entraîne Dispatcher à refuser les demandes pour tous les fichiers. Refusez l’accès à tous les fichiers, puis autorisez l’accès à des zones spécifiques.
 
@@ -634,7 +634,7 @@ Les filtres vous permettent également de refuser l’accès à divers élément
 /0002  { /type "deny" /url "*.asp"  }
 ```
 
-#### Exemple de filtre : Activer les demandes POST {#example-filter-enable-post-requests}
+#### Exemple de filtre : Activer les demandes de POST {#example-filter-enable-post-requests}
 
 L’exemple de filtre suivant permet d’envoyer des données de formulaire par la méthode POST :
 
@@ -645,7 +645,7 @@ L’exemple de filtre suivant permet d’envoyer des données de formulaire par 
 }
 ```
 
-#### Exemple de filtre : Activer l’accès à la console Processus {#example-filter-allow-access-to-the-workflow-console}
+#### Exemple de filtre : Autoriser l’accès à la console Processus {#example-filter-allow-access-to-the-workflow-console}
 
 L’exemple suivant illustre un filtre utilisé pour autoriser l’accès externe à la console Processus :
 
@@ -672,7 +672,7 @@ Si vous devez accéder à des pages uniques dans la zone restreinte, vous pouvez
 >
 >Lorsque plusieurs modèles de filtres s’appliquent à une requête, le dernier modèle de filtre appliqué est effectif.
 
-#### Exemple de filtre : Utilisation d’expressions régulières {#example-filter-using-regular-expressions}
+#### Exemple de filtre : Utilisation d’expressions régulières {#example-filter-using-regular-expressions}
 
 Ce filtre permet des extensions dans des répertoires de contenu non publics à l’aide d’une expression régulière, définie ici entre guillemets simples :
 
@@ -693,12 +693,12 @@ Vous trouverez ci-dessous un exemple de règle qui bloque la saisie de contenu �
         }
 ```
 
-### Section d’exemple /filter {#example-filter-section}
+### Exemple de section /filter {#example-filter-section}
 
 Lors de la configuration de Dispatcher, vous devez restreindre l’accès externe autant que possible. L’exemple suivant offre un accès minimal aux visiteurs externes :
 
 * `/content`
-* contenu divers tel que des conceptions et des bibliothèques clientes. Par exemple :
+* contenu divers tel que des conceptions et des bibliothèques clientes. Par exemple :
 
    * `/etc/designs/default*`
    * `/etc/designs/mydesign*`
@@ -836,7 +836,7 @@ Une seule entrée peut avoir : `glob` ou une combinaison de `method`, `url`, `qu
 }  
 ```
 
-### Test de sécurité de Dispatcher {#testing-dispatcher-security}
+### Test de la sécurité de Dispatcher {#testing-dispatcher-security}
 
 Les filtres de Dispatcher doivent bloquer l’accès aux pages et scripts suivants sur AEM instances de publication. Utilisez un navigateur web pour tenter d’ouvrir les pages suivantes en tant que visiteur du site et vérifier qu’un code 404 est renvoyé. Si un autre résultat est obtenu, ajustez vos filtres.
 
@@ -1029,8 +1029,8 @@ If `/serveStaleOnError` est défini sur `"1"`, Dispatcher ne supprime pas le con
 La propriété `/allowAuthorized` contrôle si les demandes contenant les informations d’authentification suivantes sont mises en cache :
 
 * La variable `authorization` header
-* Un cookie appelé `authorization`
-* Un cookie appelé `login-token`
+* Un cookie nommé `authorization`
+* Un cookie nommé `login-token`
 
 Par défaut, les demandes contenant ces informations d’authentification ne sont pas mises en cache, car l’authentification n’est pas effectuée lorsqu’un document mis en cache est renvoyé au client. Cette configuration empêche Dispatcher de diffuser des documents mis en cache aux utilisateurs qui ne disposent pas des droits nécessaires.
 
@@ -1264,7 +1264,7 @@ Pour plus d’informations sur les propriétés glob, voir [Création de modèl
 
 >[!CAUTION]
 >
->Il est recommandé de définir la propriété `/allowedClients`.
+>Il est recommandé de définir la variable `/allowedClients`.
 >
 >Si ce n’est pas le cas, n’importe quel client peut émettre un appel pour effacer le cache. Si cette opération est effectuée à plusieurs reprises, elle peut fortement affecter les performances du site.
 
@@ -1296,10 +1296,10 @@ L’exemple suivant fait en sorte que Dispatcher ignore tous les paramètres, à
 ```xml
 /ignoreUrlParams
 {
+    # ignore-all-url-parameters-by-dispatcher-and-requests-are-cached
+    /0001 { /glob "*" /type "allow" }
     # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
-    /0001 { /glob "nocache" /type "deny" }
-    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
-    /0002 { /glob "*" /type "allow" }
+    /0002 { /glob "nocache" /type "deny" }
 }
 ```
 
@@ -1363,14 +1363,14 @@ Voici ci-dessous un exemple de la configuration par défaut :
 La propriété `mode` définit les autorisations de fichier appliquées aux nouveaux répertoires et fichiers du cache. Ce paramètre est limité par le `umask` du processus appelant. Il s’agit d’un nombre octal construit à partir de la somme d’une ou de plusieurs des valeurs suivantes :
 
 * `0400` Autoriser la lecture par le propriétaire.
-* `0200` Autoriser l’écriture par le propriétaire.
-* `0100` Autoriser le propriétaire à effectuer une recherche dans les répertoires.
+* `0200` Autoriser l’écriture par propriétaire.
+* `0100` Permet au propriétaire de rechercher dans les répertoires.
 * `0040` Autoriser la lecture par les membres du groupe.
 * `0020` Autoriser l’écriture par les membres du groupe.
-* `0010` Autoriser les membres du groupe à effectuer une recherche dans le répertoire.
+* `0010` Permet aux membres du groupe de rechercher dans l’annuaire.
 * `0004` Autoriser la lecture par d’autres personnes.
 * `0002` Autoriser l’écriture par d’autres personnes.
-* `0001` Autoriser d’autres personnes à effectuer une recherche dans le répertoire.
+* `0001` Permet à d’autres personnes de rechercher dans l’annuaire.
 
 La valeur par défaut est `0755` qui permet au propriétaire de lire, d’écrire ou de rechercher et au groupe et à d’autres personnes de lire ou de rechercher.
 
@@ -1382,7 +1382,7 @@ La variable `/gracePeriod` définit le nombre de secondes pendant lesquelles une
 
 Pour plus de détails, vous pouvez aussi lire les sections `/invalidate` et `/statfileslevel` ci-dessus.
 
-### Configuration d’une invalidation temporelle du cache - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### Configuration de l’invalidation temporelle du cache - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
 L’invalidation du cache basée sur le temps dépend du `/enableTTL` et la présence d’en-têtes d’expiration standard à partir de la norme HTTP. Si vous définissez la propriété sur 1 (`/enableTTL "1"`), il évalue les en-têtes de réponse du serveur principal. Si les en-têtes contiennent un `Cache-Control`, `max-age` ou `Expires` date, un fichier vide auxiliaire en regard du fichier mis en cache est créé, avec l’heure de modification égale à la date d’expiration. Lorsque le fichier mis en cache est demandé après l’heure de modification, il est automatiquement redemandé depuis le serveur principal.
 
@@ -1393,7 +1393,7 @@ Avant la version 4.3.5 de Dispatcher, la logique d’invalidation TTL ne reposai
 
 Cette nouvelle mise en oeuvre prend en charge les cas d’utilisation où les fichiers ont un délai d’activation plus long (par exemple, sur le réseau de diffusion de contenu) mais peuvent toujours être invalidés même si le délai d’activation n’a pas expiré. Elle favorise l’actualisation du contenu par rapport au taux d’accès au cache sur Dispatcher.
 
-Inversement, si vous avez besoin de **only** la logique d’expiration appliquée à un fichier, puis définie ; `/enableTTL` à 1 et excluez ce fichier du mécanisme d’invalidation du cache standard. Par exemple, vous pouvez effectuer les actions suivantes :
+Inversement, si vous avez besoin de **only** la logique d’expiration appliquée à un fichier, puis définie ; `/enableTTL` à 1 et excluez ce fichier du mécanisme d’invalidation du cache standard. Par exemple, vous pouvez :
 
 * Pour ignorer le fichier, configurez la variable [règles d’invalidation](#automatically-invalidating-cached-files) dans la section cache . Dans le fragment de code ci-dessous, tous les fichiers se terminant par `.example.html` sont ignorées et expirent uniquement lorsque la durée de vie définie est dépassée.
 
@@ -1530,7 +1530,7 @@ Pour plus d’informations sur la variable `httponly` indicateur, lire [cette pa
 
 Lorsque les connexions persistantes sont activées, le module Dispatcher définit la variable `renderid` du cookie. Ce cookie n’a pas la variable `secure` indicateur , qui doit être ajouté pour améliorer la sécurité. Vous ajoutez le `secure` indicateur définissant la variable `secure` dans la propriété `/stickyConnections` noeud d’un `dispatcher.any` fichier de configuration. La valeur de la propriété (soit `0` ou `1`) définit si la variable `renderid` a la variable `secure` Ajout de l’attribut . La valeur par défaut est `0`, ce qui signifie que l’attribut est ajouté. **if** la requête entrante est sécurisée. Si la valeur est définie sur `1`, l’indicateur sécurisé est ajouté, que la requête entrante soit sécurisée ou non.
 
-## Gestion des erreurs de connexion au serveur de rendu {#handling-render-connection-errors}
+## Gestion des erreurs de connexion au rendu {#handling-render-connection-errors}
 
 Configurez le comportement de Dispatcher lorsque le serveur de rendu renvoie une erreur 500 ou n’est pas disponible.
 
@@ -1546,7 +1546,7 @@ Utilisez la propriété `/health_check` pour indiquer une URL qui est vérifiée
   }
 ```
 
-### Définition du délai entre deux tentatives de connexion à une page {#specifying-the-page-retry-delay}
+### Spécification du délai de reprise de page {#specifying-the-page-retry-delay}
 
 La variable `/retryDelay` définit le temps (en secondes) pendant lequel Dispatcher attend entre les séries de tentatives de connexion aux rendus de la ferme de serveurs. Pour chaque série, le nombre maximal de tentatives de connexion de Dispatcher à un rendu est le nombre de rendus de la ferme de serveurs.
 
@@ -1619,17 +1619,17 @@ La définition du paramètre `/ignoreEINTR` sur `"1"` fait en sorte que Dispatch
 
 ## Création de modèles pour les propriétés glob {#designing-patterns-for-glob-properties}
 
-Plusieurs sections du fichier de configuration de Dispatcher utilisent les propriétés `glob` comme critères de sélection des demandes du client. Les valeurs de `glob` Les propriétés sont des modèles que Dispatcher compare à un aspect de la requête, tel que le chemin d’accès à la ressource demandée ou l’adresse IP du client. Par exemple, les éléments de la section `/filter` utilisent les modèles pour identifier les chemins d’accès des pages que Dispatcher traite ou rejette.`glob`
+Plusieurs sections du fichier de configuration de Dispatcher utilisent les propriétés `glob` comme critères de sélection des demandes du client. Les valeurs de `glob` Les propriétés sont des modèles que Dispatcher compare à un aspect de la requête, tel que le chemin d’accès à la ressource demandée ou l’adresse IP du client. Par exemple, les éléments de la `/filter` utilisation des sections `glob` modèles permettant d’identifier les chemins d’accès des pages que Dispatcher traite ou rejette.
 
 La variable `glob` peuvent inclure des caractères génériques et des caractères alphanumériques pour définir le modèle.
 
 | Caractère générique | Description | Exemples |
 |--- |--- |--- |
-| `*` | Correspond à aucune ou à plusieurs instances contiguës de n’importe quel caractère de la chaîne. Le dernier caractère de la correspondance est déterminé par l’une des situations suivantes :  <br/>Un caractère de la chaîne correspond au caractère suivant du modèle, et le caractère du modèle possède les caractéristiques suivantes :<br/><ul><li>Pas un *</li><li>Pas un ?</li><li>Un caractère littéral (incluant un espace) ou une classe de caractères.</li><li>La fin du modèle est atteinte.</li></ul>Dans une classe de caractères, le caractère est interprété littéralement. | `*/geo*`Correspond à n’importe quelle page sous les nœud `/content/geometrixx` et `/content/geometrixx-outdoors`. Les demandes HTTP suivantes correspondent au modèle glob : <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*`<br/>Représente n’importe quelle page sous le nœud `/content/geometrixx-outdoors`. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
-| `?` | Correspond à tout caractère unique. Utilisation en dehors des classes de caractères. Dans une classe de caractères, ce caractère est interprété littéralement. | `*outdoors/??/*`<br/> Correspond aux pages du site geometrixx-outdoor dans n’importe quelle langue. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>La demande suivante ne correspond pas au modèle glob : <br/><ul><li>&quot;GET /content/geometrixx-outdoors/fr.html&quot;</li></ul> |
-| `[ and ]` | Marque le début et la fin d’une classe de caractères. Les classes de caractères peuvent inclure une ou plusieurs plages de caractères et des caractères uniques.<br/>Une correspondance se produit si le caractère cible correspond à n’importe quel caractère de la classe de caractères ou d’une plage définie.<br/>Si le crochet fermant n’est pas inclus, le modèle ne produit pas de correspondance. | `*[o]men.html*`<br/>Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>Correspond aux requêtes HTTP suivantes : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `*` | Correspond à aucune ou à plusieurs instances contiguës de n’importe quel caractère de la chaîne. Le dernier caractère de la correspondance est déterminé par l’une des situations suivantes : <br/>Un caractère de la chaîne correspond au caractère suivant du modèle, et le caractère du modèle possède les caractéristiques suivantes :<br/><ul><li>Pas un *</li><li>Pas un ?</li><li>Un caractère littéral (incluant un espace) ou une classe de caractères.</li><li>La fin du modèle est atteinte.</li></ul>Dans une classe de caractères, le caractère est interprété littéralement. | `*/geo*`Correspond à n’importe quelle page sous les nœud `/content/geometrixx` et `/content/geometrixx-outdoors`. Les demandes HTTP suivantes correspondent au modèle glob : <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*`<br/>Représente n’importe quelle page sous le nœud `/content/geometrixx-outdoors`. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
+| `?` | Correspond à tout caractère unique. Utilisation en dehors des classes de caractères. Dans une classe de caractères, ce caractère est interprété littéralement. | `*outdoors/??/*`<br/> Correspond aux pages de n’importe quelle langue du site geometrixx-outdoors. Par exemple, la demande HTTP suivante correspond au modèle glob :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>La demande suivante ne correspond pas au modèle glob : <br/><ul><li>&quot;GET /content/geometrixx-outdoors/fr.html&quot;</li></ul> |
+| `[ and ]` | Marque le début et la fin d’une classe de caractères. Les classes de caractères peuvent inclure une ou plusieurs plages de caractères et des caractères uniques.<br/>Une correspondance se produit si le caractère cible correspond à n’importe quel caractère de la classe de caractères ou d’une plage définie.<br/>Si le crochet fermant n’est pas inclus, le modèle ne produit pas de correspondance. | `*[o]men.html*`<br/> Correspond à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*`<br/>Correspond aux requêtes HTTP suivantes : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | Indique une plage de caractères. À utiliser dans des classes de caractères. En dehors d’une classe de caractères, ce caractère est interprété littéralement. | `*[m-p]men.html*`Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | Négalise le caractère ou la classe de caractères qui suit. À utiliser uniquement pour annuler des caractères et des plages de caractères dans des classes de caractères. Équivalent au `^ wildcard` <br/>En dehors d’une classe de caractères, ce caractère est interprété littéralement. | `*[!o]men.html*`<br/>Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` ou `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
+| `!` | Négalise le caractère ou la classe de caractères qui suit. À utiliser uniquement pour annuler des caractères et des plages de caractères dans des classes de caractères. Équivalent au `^ wildcard` <br/>En dehors d’une classe de caractères, ce caractère est interprété littéralement. | `*[!o]men.html*`<br/>Correspond à la requête HTTP suivante : <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> Ne correspond pas à la requête HTTP suivante :<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` ou `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | Négalise le caractère ou la plage de caractères qui suit. À utiliser pour annuler uniquement les caractères et les plages de caractères dans les classes de caractères. Équivalent au caractère générique `!`. <br/>En dehors d’une classe de caractères, ce caractère est interprété littéralement. | Les exemples pour le caractère générique `!` s’appliquent, en remplaçant les caractères `!` dans les exemples de motifs par des caractères `^`. |
 
 
@@ -1793,7 +1793,7 @@ Pour confirmer le fonctionnement de base et l’interaction du serveur web, de D
 1. Définissez le niveau du journal `loglevel` sur `3`.
 
 1. Démarrez le serveur web. Cela permet également de lancer Dispatcher.
-1. Démarrez l’instance AEM.
+1. Démarrez l’instance AEM.
 1. Vérifiez les fichiers journaux et d’erreurs de votre serveur web et de Dispatcher.
    * Selon votre serveur web, vous devriez voir des messages tels que :
       * `[Thu May 30 05:16:36 2002] [notice] Apache/2.0.50 (Unix) configured` et
