@@ -1,5 +1,5 @@
 ---
-title: Mise en cache du contenu sécurisé
+title: Mettre en cache le contenu sécurisé
 seo-title: Caching Secured Content in AEM Dispatcher
 description: Découvrez le fonctionnement de la mise en cache sensible aux autorisations dans Dispatcher.
 seo-description: Learn how permission-sensitive caching works in AEM Dispatcher.
@@ -11,42 +11,42 @@ content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
-workflow-type: tm+mt
-source-wordcount: '918'
-ht-degree: 75%
+workflow-type: ht
+source-wordcount: '910'
+ht-degree: 100%
 
 ---
 
-# Mise en cache du contenu sécurisé {#caching-secured-content}
+# Mettre en cache le contenu sécurisé {#caching-secured-content}
 
 La mise en cache sensible aux autorisations vous permet de mettre en cache des pages sécurisées. Dispatcher vérifie les droits d’accès à une page avant de diffuser la page en cache.
 
-Dispatcher inclut le module AuthChecker, qui met en œuvre la mise en cache sensible aux autorisations. Lorsque le module est activé, Dispatcher appelle une servlet AEM pour effectuer l’authentification et l’autorisation de l’utilisateur pour le contenu demandé. La réponse du servlet détermine si le contenu est diffusé dans le navigateur web à partir du cache ou non.
+Dispatcher inclut le module AuthChecker, qui met en œuvre la mise en cache sensible aux autorisations. Lorsque le module est activé, Dispatcher appelle un servlet AEM afin qu’il effectue l’authentification et l’autorisation de l’utilisateur ou l’utilisatrice vis-à-vis du contenu demandé. La réponse du servlet détermine si le contenu est diffusé dans le navigateur web à partir du cache ou non.
 
-Les méthodes d’authentification et d’autorisation étant spécifiques au déploiement d’AEM, vous devez créer le servlet.
+Les méthodes d’authentification et d’autorisation étant spécifiques au déploiement AEM, vous devez créer le servlet.
 
 >[!NOTE]
 >
->Utilisez les filtres `deny` pour appliquer des restrictions liées à la couverture de sécurité. Utilisez la mise en cache sensible aux autorisations pour les pages qui sont configurées de manière à accorder l’accès à un sous-ensemble d’utilisateurs ou de groupes.
+>Utilisez les filtres `deny` pour appliquer des restrictions liées à la couverture de sécurité. Utilisez la mise en cache sensible aux autorisations pour les pages configurées pour autoriser l’accès à un sous-ensemble d’utilisateurs, d’utilisatrices ou de groupes.
 
-Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisent lorsqu’un navigateur web demande une page sur laquelle la mise en cache sensible aux autorisations est utilisée.
+Les diagrammes suivants illustrent l’ordre d’apparition des événements lorsqu’un navigateur web demande une page pour laquelle on utilise la mise en cache sensible aux autorisations.
 
 ## La page est mise en cache et l’utilisateur est autorisé  {#page-is-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1.png)
 
 1. Dispatcher détermine que le contenu demandé est mis en cache et valide.
-1. Dispatcher envoie une requête la fonctionnalité de rendu. La section HEAD inclut toutes les lignes d’en-tête de la requête du navigateur.
-1. Le rendu appelle le servlet Auth checker pour effectuer la vérification de sécurité et répond à Dispatcher. Le message de réponse comprend le code d’état HTTP 200 pour indiquer que l’utilisateur est autorisé.
-1. Dispatcher envoie un message de réponse au navigateur, avec les lignes d’en-tête de la réponse du rendu et le contenu mis en cache dans le corps.
+1. Dispatcher envoie un message de requête au rendu. La section HEAD comprend toutes les lignes d’en-tête de la requête du navigateur.
+1. Le rendu appelle le servlet auth checker pour effectuer la vérification de sécurité et répond à Dispatcher. Le message de réponse comprend un code d’état HTTP 200 pour indiquer que la personne est autorisée.
+1. Dispatcher envoie un message de réponse au navigateur, constitué des lignes d’en-tête de la réponse de rendu et du contenu mis en cache dans le corps.
 
 ## La page n’est pas mise en cache et l’utilisateur est autorisé  {#page-is-not-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1-1.png)
 
 1. Dispatcher détermine que le contenu n’est pas mis en cache ou nécessite une mise à jour.
-1. Dispatcher transfère la demande d’origine à la fonctionnalité de rendu.
-1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChcker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
+1. Dispatcher transfère la requête d’origine au rendu.
+1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChecker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque la personne est autorisée, le rendu inclut la page rendue dans le corps du message de réponse.
 1. Dispatcher transfère la réponse au navigateur. Dispatcher ajoute le corps du message de réponse du rendu au cache.
 
 ## L’utilisateur n’est pas autorisé  {#user-is-not-authorized}
@@ -54,33 +54,33 @@ Les diagrammes ci-dessous illustrent l’ordre des événements qui se produisen
 ![](assets/chlimage_1-2.png)
 
 1. Dispatcher vérifie le cache.
-1. Dispatcher envoie un message de demande à la fonctionnalité de rendu, avec toutes les lignes d’en-tête de la demande du navigateur.
-1. Le rendu appelle le servlet Auth Checker pour effectuer une vérification de sécurité qui échoue et le rendu transfère la demande d’origine à Dispatcher.
-1. Dispatcher transfère la demande d’origine à la fonctionnalité de rendu.
-1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChcker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque l’utilisateur est autorisé, l’affichage inclut la page restituée dans le corps du message de réponse.
+1. Dispatcher envoie un message de requête au rendu qui inclut toutes les lignes d’en-tête de la requête du navigateur.
+1. Le rendu appelle le servlet Auth Checker pour effectuer une vérification de sécurité qui échoue, puis transfère la requête d’origine à Dispatcher.
+1. Dispatcher transfère la requête d’origine au rendu.
+1. Le rendu appelle le servlet d’autorisation d’AEM (il ne s’agit pas du servlet AuthChecker de Dispatcher) pour effectuer une vérification de sécurité. Lorsque la personne est autorisée, le rendu inclut la page rendue dans le corps du message de réponse.
 1. Dispatcher transfère la réponse au navigateur. Dispatcher ajoute le corps du message de réponse du rendu au cache.
 
-## Mise en œuvre de la mise en cache sensible aux autorisations {#implementing-permission-sensitive-caching}
+## Mettre en œuvre la mise en cache sensible aux autorisations {#implementing-permission-sensitive-caching}
 
-Pour mettre en œuvre la mise en cache sensible aux autorisations, procédez comme suit :
+Pour mettre en œuvre la mise en cache sensible aux autorisations, effectuez les tâches suivantes :
 
-* Développez un servlet qui effectue l’authentification et l’autorisation.
-* Configurez Dispatcher.
-
->[!NOTE]
->
->En règle générale, les ressources sécurisées sont stockées dans un dossier distinct des fichiers non sécurisés. Par exemple, /content/secure/
+* Développer un servlet qui effectue l’authentification et l’autorisation
+* Configurer Dispatcher
 
 >[!NOTE]
 >
->Lorsqu’un CDN (ou tout autre cache) se trouve devant le Dispatcher, vous devez définir les en-têtes de mise en cache en conséquence afin que le CDN ne mette pas en cache le contenu privé. Par exemple : `Header always set Cache-Control private`.
->Pour AEM as a Cloud Service, voir [Mise en cache](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) pour plus d’informations sur la définition des en-têtes de mise en cache privés.
+>En règle générale, les ressources sécurisées sont stockées dans un dossier distinct des fichiers non sécurisés. Par exemple, /content/secure/.
 
-## Création du servlet Auth Checker {#create-the-auth-checker-servlet}
+>[!NOTE]
+>
+>Lorsqu’un réseau CDN (ou tout autre cache) se trouve devant Dispatcher, vous devez définir les en-têtes de mise en cache en conséquence, afin que le réseau CDN ne mette pas en cache le contenu privé. Par exemple : `Header always set Cache-Control private`.
+>Pour AEM as a Cloud Service, voir la page [Mettre en cache](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html?lang=fr) pour en savoir plus sur la définition des en-têtes de mise en cache privés.
 
-Créez et déployez un servlet qui authentifie et autorise l’utilisateur qui demande le contenu web. Le servlet peut utiliser n’importe quelle méthode d’authentification et d’autorisation, par exemple le compte utilisateur AEM, les listes de contrôle d’accès des référentiels ou un service de recherche LDAP. Déployez le servlet vers l’instance AEM que Dispatcher utilise comme rendu.
+## Créer le servlet Auth Checker {#create-the-auth-checker-servlet}
 
-Le servlet doit être accessible à tous les utilisateurs. Par conséquent, votre servlet doit étendre la classe `org.apache.sling.api.servlets.SlingSafeMethodsServlet`, qui offre un accès en lecture seule au système.
+Créez et déployez un servlet qui effectue l’authentification et l’autorisation de l’utilisateur ou de l’utilisatrice qui demande le contenu web. Le servlet peut utiliser n’importe quelle méthode d’authentification et d’autorisation, comme les ACL de compte d’utilisateur ou d’utilisatrice et de référentiel d’AEM, ou un service de recherche LDAP. Vous déployez le servlet vers l’instance AEM que Dispatcher utilise comme rendu.
+
+Le servlet doit être accessible à tous les utilisateurs et utilisatrices. Par conséquent, votre servlet doit étendre la classe `org.apache.sling.api.servlets.SlingSafeMethodsServlet`, qui offre un accès en lecture seule au système.
 
 Le servlet reçoit uniquement les demandes HEAD du rendu. Il suffit donc de mettre en œuvre la méthode `doHead`.
 
@@ -90,9 +90,9 @@ Le rendu inclut l’URI de la ressource demandée sous la forme d’un paramètr
 
 Le message de réponse du servlet doit contenir les codes d’état HTTP suivants :
 
-* 200 : Authentification et autorisation réussies.
+* 200 : authentification et autorisation transmises.
 
-L’exemple de servlet suivant obtient l’URL de la ressource demandée depuis la requête HTTP. Le code utilise l’annotation `Property` Felix SCR pour définir la valeur de la propriété `sling.servlet.paths` sur /bin/permissioncheck. Dans la méthode `doHead`, le servlet récupère l’objet session et utilise la méthode `checkPermission` pour déterminer le code de réponse approprié.
+L’exemple de servlet suivant obtient l’URL de la ressource demandée à partir de la requête HTTP. Le code utilise l’annotation `Property` Felix SCR pour définir la valeur de la propriété `sling.servlet.paths` sur /bin/permissioncheck. Dans la méthode `doHead`, le servlet récupère l’objet session et utilise la méthode `checkPermission` pour déterminer le code de réponse approprié.
 
 >[!NOTE]
 >
@@ -147,7 +147,7 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 }
 ```
 
-## Configuration de Dispatcher pour la mise en cache sensible aux autorisations {#configure-dispatcher-for-permission-sensitive-caching}
+## Configurer Dispatcher pour la mise en cache sensible aux autorisations {#configure-dispatcher-for-permission-sensitive-caching}
 
 >[!NOTE]
 >
@@ -165,7 +165,7 @@ Lorsque Dispatcher démarre, son fichier journal comprend le message de débogag
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-L’exemple de section auth_checker suivant configure Dispatcher pour utiliser le servlet de la rubrique précédente. La section filter entraîne des vérifications d’autorisation à exécuter uniquement sur les ressources HTML sécurisées.
+L’exemple de section auth_checker suivant configure Dispatcher pour utiliser le servlet de la rubrique précédente. La section des filtres entraîne des vérifications d’autorisation uniquement sur les ressources HTML sécurisées.
 
 ### Exemple de configuration  {#example-configuration}
 

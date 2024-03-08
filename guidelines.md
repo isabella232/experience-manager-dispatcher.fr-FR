@@ -1,49 +1,51 @@
 ---
 source-git-commit: 053f90d9a0574c7d470cec6794498919e3340713
-translation-type: tm+mt
+workflow-type: ht
+source-wordcount: '740'
+ht-degree: 100%
 
 ---
 # Instructions relatives à la contribution à la documentation d’Adobe Experience Manager
 
 ## Philosophie de la documentation
 
-Nous savons que les utilisateurs d’Adobe Experience Manager travaillent dans des environnements très concurrentiels, afin de créer des expériences numériques qui les distingueront de leurs concurrents. Par conséquent, lorsqu’Adobe fournit de nouveaux outils avancés dans AEM, il est essentiel que ces outils soient complétés par une documentation précise et claire pour permettre au client d’exploiter immédiatement son investissement AEM et maximiser le ROI.
+Nous savons que les utilisateurs d’Adobe Experience Manager travaillent dans des environnements très concurrentiels, afin de créer des expériences digitales qui les distingueront de leurs concurrents. Par conséquent, lorsqu’Adobe fournit de nouveaux outils avancés dans AEM, il est essentiel que ces outils soient complétés par une documentation précise et claire pour permettre au client d’exploiter immédiatement son investissement AEM et maximiser le ROI.
 
-L’objectif de la documentation AEM est de la placer entre les mains des utilisateurs d’AEM dès que possible. Par conséquent, nous privilégions une documentation précise et utilisable et nous la mettons à jour et l’améliorons constamment.
+L’objectif de la documentation AEM est de la placer entre les mains des utilisateurs d’AEM dès que possible. Nous privilégions donc une documentation précise et utilisable, et nous la mettons à jour et l’améliorons constamment.
 
 ## Contributions à la documentation
 
-Dans l’intérêt d’une amélioration continue de la documentation AEM, la communauté entière des utilisateurs d’AEM est invitée à contribuer à la documentation. Que ce soit par le biais de requêtes d’extraction ou de problèmes, les améliorations apportées à la documentation peuvent être des corrections, des clarifications, des extensions et des exemples supplémentaires.
+Afin d’améliorer continuellement la documentation d’AEM, toute la communauté des utilisateurs d’AEM peut apporter sa contribution. Que ce soit par le biais de demandes d’extraction ou de demandes, les améliorations apportées à la documentation peuvent être des corrections, des clarifications, des extensions et des exemples supplémentaires.
 
 ## Normes de la documentation
 
-Bien que nous soyons heureux de recevoir des contributions à notre documentation, toute contribution à la documentation AEM, sous la forme d’une demande d’extraction ou d’un problème, doit être conforme à nos normes de contribution et de documentation.
+Bien que nous nous félicitions des contributions à notre documentation, toute contribution à la documentation d’AEM, sous la forme d’une requête d’extraction ou d’un problème, doit être conforme à nos normes de contribution et de documentation.
 
 Les contributions qui ne satisfont pas à ces normes peuvent être rejetées.
 
 ### Nous documenterons les cas d’utilisation standard.
 
-La documentation AEM couvre les cas d’utilisation standard. Les cas d’utilisation au-delà de la portée de l’installation et de l’utilisation standard du produit ne font pas partie de la documentation AEM.
+La documentation d’AEM couvre les cas d’utilisation standard. Les cas d’utilisation au-delà de la portée de l’installation et de l’utilisation standard du produit ne font pas partie de la documentation AEM.
 
-### Nous n&#39;avons généralement pas de problèmes  ou leurs solutions.
+### En général, nous ne documentons pas les bogues ni leurs solutions.
 
-La documentation AEM couvre les cas d’utilisation standard. Pour cette raison, les bogues, les effets causés par les bogues et les solutions de contournement des bogues ne sont généralement pas documentés.
+La documentation d’AEM couvre les cas d’utilisation standard. Pour cette raison, les bogues, leurs effets et leurs solutions ne sont généralement pas documentés.
 
-Les exceptions à cette règle s’appliquent aux notes de mise à jour où des problèmes connus peuvent être répertoriés avec des solutions possibles qui ont été approuvées par la gestion des produits AEM.
+Les exceptions à cette règle concernent les notes de mise à jour qui répertorient les problèmes connus ainsi que les solutions possibles après approbation par l’équipe de gestion des produits AEM.
 
 ### Les contributions à la documentation ne sont pas destinées à répondre aux questions techniques.
 
-Toute opinion susceptible d’améliorer la documentation AEM est la bienvenue sous forme de contributions. Toutefois, les commentaires, les problèmes et les requêtes d’extraction sont destinés uniquement aux *contributions*. Elles ne sont pas destinées à être utilisées pour répondre à vos questions sur l’utilisation d’AEM, la mise en oeuvre de votre projet AEM ou la résolution de problèmes techniques.
+Toute opinion susceptible d’améliorer la documentation AEM est la bienvenue sous forme de contributions. Toutefois, les commentaires, les demandes et les demandes d’extraction sont destinés uniquement aux *contributions*. Ils ne sont pas censés être utilisés pour répondre à vos questions sur l’utilisation d’AEM, pour implémenter votre projet AEM ni pour résoudre des problèmes techniques.
 
-Any questions about the usage of AEM or technical errors you may have should be reported through the normal support process via the [Experience Cloud Enterprise Support portal](https://helpx.adobe.com/contact/enterprise-support.ec.html) or discussed in the [Experience Manager community](https://forums.adobe.com/community/experience-cloud/marketing-cloud/experience-manager).
+Toute question relative à l’utilisation d’AEM ou à la résolution d’erreurs techniques doit être soumise au moyen du processus d’assistance classique via le [Portail d’assistance entreprise d’Experience Cloud](https://helpx.adobe.com/fr/contact/enterprise-support.ec.html) ou posée à la [communauté Experience Manager](https://forums.adobe.com/community/experience-cloud/marketing-cloud/experience-manager).
 
-***Les contributions à la documentation d’AEM ne remplacent pas celles du service à la clientèle*** d’Adobe et toute contribution de ce type demandant des réponses à des questions d’assistance sera rejetée.
+***Les contributions à la documentation d’AEM ne remplacent pas celles de l’assistance clientèle Adobe*** et toute contribution de ce type qui recherche des réponses aux questions liées au support technique sera rejetée.
 
 ### Les contributions doivent clairement référencer les pages de documentation concernées.
 
-Si vous créez un problème pour suggérer des améliorations à la documentation, vous devez inclure des liens vers les pages concernées. Si vous créez un problème à l’aide du lien **Modifier cette page** sur une page de documentation, le problème sera créé automatiquement avec un lien vers la page.
+Si vous créez une demande pour suggérer des améliorations à la documentation, vous devez inclure des liens vers les pages concernées. Si vous créez un problème à l’aide du lien **Modifier cette page** sur une page de documentation, le problème sera créé automatiquement avec un lien vers la page.
 
-Cela ne s’applique pas aux demandes d’extraction, car les demandes d’extraction par nature référencent la ou les pages concernées.
+Cette méthode ne s’applique pas aux requêtes d’extraction qui, par nature, font référence à la page ou aux pages concernées.
 
 ## Directives relatives à la documentation
 
@@ -63,7 +65,7 @@ Souvenez-vous que les lecteurs de la documentation AEM sont internationaux et pe
 
 #### Suivi du guide de style Microsoft
 
-[Le Manuel de style](https://docs.microsoft.com/en-us/style-guide/welcome/) de Microsoft est un guide de style de documentation disponible gratuitement qui se concentre sur la documentation logicielle et la documentation AEM suit ce guide chaque fois que possible.
+[Le guide de style Microsoft](https://docs.microsoft.com/fr-fr/style-guide/welcome/) est gratuit et concerne la documentation logicielle. Il s’applique à la documentation AEM, dans la mesure du possible.
 
 ### Mise en forme
 

@@ -1,14 +1,13 @@
 ---
 source-git-commit: d83eb9ce10c2f324163ac629ea7c02d154dc387d
-workflow-type: tm+mt
-translation-type: tm+mt
+workflow-type: ht
 source-wordcount: '73'
-ht-degree: 79%
+ht-degree: 100%
 
 ---
-# Documentation du répartiteur Adobe Experience Manager
+# Documentation du Dispatcher d’Adobe Experience Manager
 
-Il s’agit du référentiel de la documentation du répartiteur Adobe Experience Manager.
+Il s’agit du référentiel relatif à la documentation du Dispatcher d’Adobe Experience Manager.
 
 Vos contributions à la documentation sont les bienvenues. Veuillez consulter les ressources suivantes :
 

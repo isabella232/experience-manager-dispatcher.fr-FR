@@ -1,5 +1,5 @@
 ---
-title: Optimisation d’un site web pour les performances du cache
+title: Optimiser un site web pour les performances du cache
 seo-title: Optimizing a Website for Cache Performance
 description: Apprenez comment concevoir votre site web afin de tirer le meilleur parti des avantages de la mise en cache.
 seo-description: Dispatcher offers a number of built-in mechanisms that you can use to optimize performance. Learn how to design your web site to maximize the benefits of caching.
@@ -14,14 +14,14 @@ index: y
 internal: n
 snippet: y
 source-git-commit: 762f575a58f53d25565fb9f67537e372c760674f
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1134'
 ht-degree: 100%
 
 ---
 
 
-# Optimisation d’un site web pour les performances du cache {#optimizing-a-website-for-cache-performance}
+# Optimiser un site web pour les performances du cache {#optimizing-a-website-for-cache-performance}
 
 <!-- 
 
@@ -37,22 +37,22 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 >
 >Les versions de Dispatcher sont indépendantes d’AEM. Vous avez été redirigé vers cette page si vous avez suivi un lien vers la documentation de Dispatcher incluse dans la documentation d’une précédente version d’AEM.
 
-Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez utiliser pour optimiser les performances. Cette section vous indique comment concevoir votre site web afin de profiter au mieux des avantages de la mise en cache.
+Dispatcher propose un certain nombre de mécanismes intégrés que vous pouvez utiliser pour optimiser les performances. Dans cette section, vous apprendrez comment concevoir votre site web afin de tirer le meilleur parti des avantages de la mise en cache.
 
 >[!NOTE]
 >
 >Il peut être utile de vous rappeler que le dispatcher stocke le cache sur un serveur web standard. Cela signifie que :
 >
->* vous pouvez mettre en cache tous les éléments que vous pouvez enregistrer en tant que page et demander à l’aide d’une URL ;
+>* vous pouvez mettre en cache tous les éléments que vous pouvez enregistrer en tant que page et effectuer une requête à l’aide d’une URL ;
 >* vous ne pouvez pas enregistrer d’autres éléments, tels que des en-têtes HTTP, des cookies, des données de session et des données de formulaire.
 >
 >En général, de nombreuses stratégies de mise en cache impliquent de sélectionner les URL appropriées et de ne pas s’en tenir à ces informations supplémentaires.
 
 ## Utilisation d’un codage cohérent de page  {#using-consistent-page-encoding}
 
-Les en-têtes de requête HTTP ne sont pas mis en cache. Par conséquent, des problèmes peuvent survenir si vous enregistrez des informations de codage de page dans l’en-tête. Dans ce cas, lorsque Dispatcher diffuse une page du cache, le codage par défaut du serveur web est utilisé pour la page. Il existe deux méthodes pour contourner ce problème :
+Les en-têtes de requête HTTP ne sont pas mis en cache. Des problèmes peuvent donc survenir si vous stockez les informations de codage de page dans l’en-tête. Dans ce cas, lorsque le Dispatcher diffuse une page du cache, le codage par défaut du serveur web est utilisé pour la page. Deux méthodes permettent d’éviter ce problème :
 
-* Si vous utilisez un seul codage, assurez-vous que le codage utilisé sur le serveur web est le même que le codage par défaut du site web AEM.
+* Si vous n’utilisez qu’un seul encodage, assurez-vous que le codage utilisé sur le serveur web est identique à celui par défaut du site web AEM.
 * Utilisez une balise `<META>` dans la section `head` du code HTML pour définir le codage, comme dans l’exemple suivant :
 
 ```xml
@@ -61,13 +61,13 @@ Les en-têtes de requête HTTP ne sont pas mis en cache. Par conséquent, des pr
 
 ## Contournement des paramètres d’URL {#avoid-url-parameters}
 
-Si possible, évitez les paramètres d’URL pour les pages que vous souhaitez mettre en cache. Par exemple, si vous disposez d’une galerie d’images, l’URL suivante n’est jamais mise en cache (sauf si le dispatcher [est configuré en conséquence](dispatcher-configuration.md#main-pars_title_24)) :
+Si possible, évitez les paramètres d’URL des pages que vous souhaitez mettre en cache. Par exemple, si vous disposez d’une galerie d’images, l’URL suivante n’est jamais mise en cache (sauf si le Dispatcher est [configuré en conséquence](dispatcher-configuration.md#main-pars_title_24)) :
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
 ```
 
-Cependant, vous pouvez placer les paramètres suivants dans l’URL de la page, comme suit :
+Vous pouvez toutefois placer ces paramètres dans l’URL de page, comme suit :
 
 ```xml
 www.myCompany.com/pictures/gallery.christmas.1.html
@@ -75,15 +75,15 @@ www.myCompany.com/pictures/gallery.christmas.1.html
 
 >[!NOTE]
 >
->Cette URL invoque la même page et le même modèle que gallery.html. Dans la définition du modèle, vous pouvez spécifier le script qui effectue le rendu de la page ou utiliser le même script pour toutes les pages.
+>Cette URL invoque la même page et le même modèle que gallery.html. Dans la définition du modèle, vous pouvez spécifier le script qui effectue le rendu de la page ou vous pouvez utiliser le même script pour toutes les pages.
 
 ## Personnalisation par URL  {#customize-by-url}
 
-Si vous autorisez les utilisateurs à modifier la taille de police des caractères (ou toute autre personnalisation de la mise en page), assurez-vous que les différentes personnalisations sont répercutées dans l’URL.
+Si vous autorisez les utilisateurs et utilisatrices à modifier la taille de la police (ou toute autre personnalisation de la disposition), assurez-vous que les différentes personnalisations sont reflétées dans l’URL.
 
-Par exemple, les cookies ne sont pas mis en cache. Par conséquent, si vous stockez la taille de police des caractères dans un cookie (ou un mécanisme similaire), la taille de la police n’est pas conservée pour la page en cache. Ainsi, le dispatcher renvoie de manière aléatoire des documents comportant toutes tailles de police.
+Par exemple, les cookies ne sont pas mis en cache. Par conséquent, si vous stockez la taille de police dans un cookie (ou un mécanisme similaire), celle-ci ne sera pas conservée pour la page mise en cache. Par conséquent, le Dispatcher renvoie aléatoirement des documents de n’importe quelle taille de police.
 
-L’inclusion de la taille de police dans L’URL sous la forme d’un sélecteur évite ce problème :
+L’inclusion de la taille de police dans l’URL en tant que sélecteur évite ce problème :
 
 ```xml
 www.myCompany.com/news/main.large.html
@@ -91,81 +91,80 @@ www.myCompany.com/news/main.large.html
 
 >[!NOTE]
 >
->Pour la plupart des aspects de mise en page, il est également possible d’utiliser des feuilles de style et/ou des scripts côté client. Ces deux options fonctionnent généralement bien avec la mise en cache.
+>Pour la plupart des aspects de disposition, il est également possible d’utiliser des feuilles de style et/ou des scripts côté client. Ces options fonctionnent généralement très bien avec la mise en cache.
 >
 >Elles sont également utiles pour une version imprimée. Dans ce cas, vous pouvez également utiliser une URL telle que : 
 >
 >`www.myCompany.com/news/main.print.html`
 >
->En utilisant l’expansion de nom de fichier du script de la définition du modèle, vous pouvez définir un script distinct qui effectue le rendu des pages d’impression.
+>À l’aide de l’extension métacaractère du script de la définition du modèle, vous pouvez spécifier un script distinct qui effectue le rendu des pages d’impression.
 
 ## Invalidation de fichiers image utilisés comme titres  {#invalidating-image-files-used-as-titles}
 
-Si vous affichez les titres de page ou tout autre texte sous la forme d’images, il est conseillé de stocker les fichiers de manière à ce qu’ils soient supprimés lors de la mise à jour du contenu de la page :
+Si vous effectuez le rendu des titres de page, ou d’un autre texte, sous forme d’images, il est recommandé de stocker les fichiers afin qu’ils soient supprimés lors d’une mise à jour du contenu sur la page :
 
 1. Placez le fichier image dans le même dossier que la page.
 1. Utilisez le format d’affectation de nom suivant pour le fichier image :
 
    `<page file name>.<image file name>`
 
-Par exemple, vous pouvez stocker le titre de la page maPage.html dans le fichier maPage.titre.gif. Ce fichier est automatiquement supprimé lorsque la page est mise à jour, de sorte que toute modification du titre de la page est automatiquement répercutée dans le cache.
+Par exemple, vous pouvez stocker le titre de la page myPage.html dans le fichier myPage.title.gif. Ce fichier est automatiquement supprimé si la page est mise à jour. Toute modification du titre de la page est donc automatiquement répercutée dans le cache.
 
 >[!NOTE]
 >
->Le fichier image n’existe pas nécessairement physiquement sur l’instance AEM. Vous pouvez utiliser un script qui crée dynamiquement le fichier image. Dispatcher stocke ensuite le fichier sur le serveur web.
+>Le fichier image n’existe pas nécessairement physiquement sur l’instance AEM. Vous pouvez utiliser un script qui crée dynamiquement le fichier image. Dispatcher stocke ensuite le fichier sur le serveur web.
 
 ## Invalidation des fichiers image utilisés pour la navigation  {#invalidating-image-files-used-for-navigation}
 
-Si vous utilisez des images pour les entrées de navigation, la méthode est fondamentalement la même qu’avec les titres. Elle est seulement un peu plus complexe. Stockez toutes les images de navigation avec les pages cibles. Si vous utilisez deux images pour les modes normal et actif, vous pouvez utiliser les scripts suivants :
+Si vous utilisez des images pour les entrées de navigation, la méthode est fondamentalement la même qu’avec les titres. Elle est seulement un peu plus complexe. Stockez toutes les images de navigation avec les pages cibles. Si vous utilisez deux images pour « normale » et « active », vous pouvez utiliser les scripts suivants :
 
-* Un script affichant la page, en mode normal.
-* Un script qui traite la demande « .normal » et renvoie l’image normale.
-* Un script qui traite la demande « .active » et renvoie l’image activée.
+* Script qui affiche la page, en tant que normale.
+* Un script qui traite les requêtes « .normal » et renvoie l’image normale.
+* Un script qui traite les demandes « .active » et renvoie l’image activée.
 
-Il est important de créer ces images avec le même descripteur de nommage que la page, pour s’assurer qu’une mise à jour du contenu supprime ces images ainsi que la page.
+Il est important que vous créiez ces images avec le même nom d’utilisateur ou d’utilisatrice que la page, afin de vous assurer qu’une mise à jour du contenu supprime ces images ainsi que la page.
 
-Pour les pages qui ne sont pas modifiées, les images sont toujours dans le cache, bien que les pages elles-mêmes soient généralement invalidées automatiquement.
+Pour les pages qui ne sont pas modifiées, les images restent en cache, bien que les pages elles-mêmes soient généralement automatiquement invalidées.
 
 ## Personnalisation  {#personalization}
 
-Le dispatcher ne peut pas mettre en cache des données personnalisées. Il est donc recommandé de n’utiliser la personnalisation que lorsque cela est nécessaire. Explications :
+Dispatcher ne peut pas mettre en cache les données personnalisées. Il est donc recommandé de limiter la personnalisation aux éléments nécessaires. En voici la raison :
 
-* Si vous utilisez une page de démarrage personnalisable librement, cette page doit être affichée chaque fois qu’un utilisateur la demande.
-* Si, en revanche, vous offrez un choix de 10 pages de démarrage différentes, vous pouvez mettre en cache chacune d’entre elles afin d’améliorer les performances.
+* Si vous utilisez une page de démarrage personnalisable librement, cette page doit être composée à chaque fois qu’un utilisateur ou une utilisatrice la demande.
+* Si, en revanche, vous proposez un choix de 10 pages de démarrage différentes, vous pouvez mettre en cache chacune d’elles, améliorant ainsi les performances.
 
 >[!NOTE]
 >
->Si vous personnalisez chaque page (par exemple en mettant le nom d’utilisateur dans la barre de titre), vous ne pouvez pas la mettre en cache, ce qui peut avoir un impact significatif sur les performances.
+>Si vous personnalisez chaque page (par exemple en indiquant le nom de l’utilisateur ou de l’utilisatrice dans la barre de titre), vous ne pourrez pas les mettre en cache, et cela peut engendrer un impact significatif sur les performances.
 >
->Toutefois, si vous devez mettre en place un tel système, vous pouvez :
+>Cependant, si vous devez nécessairement le faire, vous pouvez :
 >
->* Utiliser des iFrames pour partager la page en une partie identique pour tous les utilisateurs et une partie identique pour toutes les pages de l’utilisateur. Vous pouvez ensuite mettre en cache les deux parties.
->* Utiliser du JavaScript côté client pour afficher des informations personnalisées. Cependant, vous devez vous assurer que la page s’affiche toujours correctement si un utilisateur désactive JavaScript.
+>* utiliser iFrames pour diviser la page en une partie identique pour tous les utilisateurs et utilisatrices et une partie identique à toutes les pages de l’utilisateur ou de l’utilisatrice. Vous pouvez ensuite mettre en cache ces deux parties ;
+>* utiliser du JavaScript côté client pour afficher des informations personnalisées. Cependant, vous devez vous assurer que la page s’affiche toujours correctement si un utilisateur ou une utilisatrice désactive JavaScript.
 >
 
+## Connexions persistantes {#sticky-connections}
 
-## Connexions persistantes  {#sticky-connections}
+Les [connexions persistantes](dispatcher.md#TheBenefitsofLoadBalancing) garantissent que les documents d’un utilisateur ou d’une utilisatrice sont tous composés sur le même serveur. Si un utilisateur ou une utilisatrice quitte ce dossier et y revient ultérieurement, la connexion reste établie. Définissez un dossier pour contenir tous les documents qui nécessitent des connexions persistantes sur le site web. Essayez de ne pas y avoir d’autres documents. Cela impacte l’équilibrage de la charge si vous utilisez des pages personnalisées et des données de session.
 
-Les [connections persistantes](dispatcher.md#TheBenefitsofLoadBalancing) garantissent que les documents d’un utilisateur sont tous composés sur le même serveur. Si un utilisateur quitte ce dossier et y revient ultérieurement, la connexion reste valide. Définissez un dossier pour stocker tous les documents qui nécessitent des connexions persistantes pour le site web. Essayez de ne pas placer d’autres documents dans ce dossier. Si vous utilisez des pages personnalisées et des données de session, cela impacte l’équilibrage de charge.
+## Types MIME {#mime-types}
 
-## Types MIME  {#mime-types}
+Un navigateur peut déterminer le type d’un fichier de deux façons différentes :
 
-Pour un navigateur, il existe deux manières de déterminer le type d’un fichier :
+1. Par son extension (par exemple, .html, .gif, .jpg, etc.).
+1. Par le type MIME que le serveur envoie avec le fichier.
 
-1. Grâce à son extension (par exemple .html, .gif, .jpg, etc.)
-1. Grâce au type MIME que le serveur envoie avec le fichier.
+Pour la plupart des fichiers, le type MIME est implicite dans l’extension de fichier. C’est-à-dire :
 
-Pour la plupart des fichiers, le type MIME est implicite dans l’extension du fichier. C’est-à-dire :
+1. Par son extension (par exemple, .html, .gif, .jpg, etc.).
+1. Par le type MIME que le serveur envoie avec le fichier.
 
-1. Grâce à son extension (par exemple .html, .gif, .jpg, etc.)
-1. Grâce au type MIME que le serveur envoie avec le fichier.
+Si le nom de fichier ne comporte aucune extension, il s’affiche sous forme de texte brut.
 
-Si le nom de fichier n’a pas d’extension, il s’affiche en tant que texte brut.
+Le type MIME fait partie de l’en-tête HTTP et, en tant que tel, Dispatcher ne le met pas en cache. Si votre application AEM renvoie des fichiers qui n’ont pas d’extension reconnue, mais utilisent le type MIME à la place, ces fichiers risquent d’être affichés de manière erronée.
 
-Le type MIME fait partie de l’en-tête HTTP. Par conséquent, Dispatcher ne le met pas en cache. Si votre application AEM renvoie des fichiers qui n’ont pas d’extension reconnue, mais utilisent le type MIME à la place, ces fichiers risquent d’être affichés de manière erronée.
-
-Pour s’assurer que ces fichiers sont correctement mis en cache, suivez les consignes suivantes :
+Pour vous assurer que les fichiers sont correctement mis en cache, suivez ces instructions :
 
 * Assurez-vous que les fichiers ont toujours l’extension appropriée.
-* Évitez les scripts génériques de diffusion de fichiers avec une URL de type : download.jsp?file=2214. Réécrivez le script afin d’utiliser les URL contenant la spécification de fichier ; pour l’exemple précédent, il s’agit de download.2214.pdf.
+* Évitez les scripts génériques de diffusion de fichiers avec des URL de type : download.jsp?file=2214. Réécrivez le script afin d’utiliser des URL contenant la spécification du fichier. Pour l’exemple précédent, il s’agirait de : download.2214.pdf.
 

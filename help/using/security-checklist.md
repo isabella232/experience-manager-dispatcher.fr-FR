@@ -15,9 +15,9 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
-workflow-type: tm+mt
-source-wordcount: '639'
-ht-degree: 85%
+workflow-type: ht
+source-wordcount: '611'
+ht-degree: 100%
 
 ---
 
@@ -34,29 +34,29 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-Adobe vous recommande vivement de suivre la liste de contrôle suivante avant de passer en production.
+Adobe recommande vivement de suivre la liste de contrôle suivante avant de passer en production.
 
 >[!CAUTION]
 >
->Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Reportez-vous à la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/fr/experience-manager/6-5/sites/administering/using/security-checklist.html) correspondante.
+>Vous devez également suivre la liste de contrôle de sécurité de votre version d’AEM avant de passer en production. Voir la [documentation d’Adobe Experience Manager](https://helpx.adobe.com/fr/experience-manager/6-5/sites/administering/using/security-checklist.html) correspondante.
 
-## Utilisation de la version la plus récente de Dispatcher {#use-the-latest-version-of-dispatcher}
+## Utiliser la version la plus récente de Dispatcher {#use-the-latest-version-of-dispatcher}
 
-Il est conseillé d’installer la dernière version disponible pour votre plate-forme. Vous devez mettre à niveau votre instance de Dispatcher afin d’utiliser la version la plus récente. Cela vous permet de tirer parti des améliorations du produit et de la sécurité. Voir [Installation de Dispatcher](dispatcher-install.md).
+Vous devez installer la version la plus récente pour votre plateforme. Vous devez mettre à niveau votre instance de Dispatcher afin d’utiliser la dernière version en date et ainsi tirer parti des améliorations apportées au produit et à la sécurité. Voir [Installer Dispatcher](dispatcher-install.md).
 
 >[!NOTE]
 >
->Vous pouvez vérifier la version actuelle de votre installation de Dispatcher en consultant le fichier journal de ce dernier.
+>Vous pouvez déterminer quelle est la version actuelle de votre installation de Dispatcher en consultant le fichier journal du logiciel.
 >
 >`[Thu Apr 30 17:30:49 2015] [I] [23171(140735307338496)] Dispatcher initialized (build 4.1.9)`
 >
 >Pour trouver le fichier journal, consultez la configuration de Dispatcher de `httpd.conf`.
 
-## Limitation des clients qui peuvent vider le cache {#restrict-clients-that-can-flush-your-cache}
+## Restreindre le nombre de clients qui peuvent vider le cache {#restrict-clients-that-can-flush-your-cache}
 
 Adobe recommande de [limiter les clients qui peuvent vider la mémoire cache.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
-## Activation du protocole HTTPS pour la sécurité des couches de transfert {#enable-https-for-transport-layer-security}
+## Activer le protocole HTTPS pour la sécurité des couches de transfert {#enable-https-for-transport-layer-security}
 
 Adobe conseille d’activer la couche de transfert HTTPS sur les instances de création et de publication.
 
@@ -77,9 +77,9 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
  -->
 
-## Limitation de l’accès {#restrict-access}
+## Restreindre l’accès {#restrict-access}
 
-Lors de la configuration de Dispatcher, vous devez limiter l’accès externe autant que possible. Voir [Exemple de section /filter](dispatcher-configuration.md#main-pars_184_1_title) dans la documentation de Dispatcher.
+Lors de la configuration de Dispatcher, vous devez restreindre autant que possible l’accès externe. Voir [Exemple de section /filter](dispatcher-configuration.md#main-pars_184_1_title) dans la documentation de Dispatcher.
 
 ## S’assurer que l’accès aux URL d’administration est refusé  {#make-sure-access-to-administrative-urls-is-denied}
 
@@ -87,29 +87,29 @@ Assurez-vous d’utiliser des filtres pour bloquer l’accès externe aux URL d�
 
 Voir [Test de la sécurité de Dispatcher](dispatcher-configuration.md#testing-dispatcher-security) pour obtenir une liste des URL qui doivent être bloquées.
 
-## Utilisation de Listes autorisées plutôt que de Listes bloquées {#use-allowlists-instead-of-blocklists}
+## Utiliser les listes autorisées plutôt que les listes bloquées {#use-allowlists-instead-of-blocklists}
 
-Les Listes autorisées sont un meilleur moyen de fournir un contrôle d’accès, car elles supposent par nature que toutes les demandes d’accès doivent être refusées, sauf si elles font explicitement partie de la liste autorisée. Ce modèle fournit un contrôle plus restrictif des nouvelles demandes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
+Les listes autorisées sont le meilleur moyen d’assurer un contrôle d’accès puisque, de fait, toutes les requêtes d’accès doivent être refusées, à moins qu’elles ne figurent explicitement sur ces listes. Ce modèle fournit un contrôle plus restrictif des nouvelles requêtes qui peuvent ne pas avoir encore été testées ou prises en compte lors d’une étape spécifique de la configuration.
 
-## Exécution de Dispatcher avec un utilisateur système dédié {#run-dispatcher-with-a-dedicated-system-user}
+## Exécuter Dispatcher avec une personne dédiée utilisant le système {#run-dispatcher-with-a-dedicated-system-user}
 
-Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par un utilisateur dédié, doté de privilèges limités. Il est recommandé d’accorder uniquement l’accès en écriture au dossier du cache du Dispatcher.
+Lors de la configuration de Dispatcher, assurez-vous que le serveur web est exécuté par une personne dédiée, dotée de privilèges limités. Il est conseillé d’octroyer l’accès en écriture uniquement au dossier du cache de Dispatcher.
 
-En outre, les utilisateurs d&#39;IIS doivent configurer leur site web comme suit :
+En outre, les utilisateurs et utilisatrices d’IIS doivent configurer leur site web comme suit :
 
-1. Dans le paramètre de chemin d’accès physique du site web, sélectionnez **Se connecter comme utilisateur spécifique**.
-1. Définissez l’utilisateur.
+1. Dans le paramètre de chemin physique de votre site web, sélectionnez **Se connecter en tant qu’utilisateur ou utilisatrice spécifique**.
+1. Définissez l’utilisateur ou l’utilisatrice.
 
 ## Prévention des attaques par déni de service (DoS)  {#prevent-denial-of-service-dos-attacks}
 
-Une attaque par déni de service (DoS) est une tentative de rendre une ressource informatique indisponible à ses utilisateurs ciblés.
+Une attaque par déni de service (DoS) est une tentative de rendre une ressource informatique indisponible à ses utilisateurs et utilisatrices ciblés.
 
-Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’empêcher les attaques DoS :  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filtres))
+Au niveau de Dispatcher, il existe deux méthodes de configuration permettant d’empêcher les attaques DoS : [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filtres))
 
-* Utilisez le module mod_rewrite (par exemple [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) pour effectuer des validations d’URL (si les règles de modèle d’URL ne sont pas trop complexes).
+* Utilisez le module mod_rewrite (par exemple, [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) pour effectuer des validations d’URL (si les règles de modèle d’URL ne sont pas trop complexes).
 
 * Empêchez Dispatcher de mettre en cache les URL dotées d’extensions parasites à l’aide de [filtres](dispatcher-configuration.md#configuring-access-to-conten-tfilter).\
-    Par exemple, modifiez les règles de mise en cache afin de limiter la mise en cache des types MIME prévus, par exemple :
+   Par exemple, modifiez les règles de mise en cache afin de limiter la mise en cache des types MIME prévus, par exemple :
 
    * `.html`
    * `.jpg`
@@ -120,7 +120,7 @@ Au niveau de Dispatcher, il existe deux méthodes de configuration afin d’emp�
    * `.pdf`
    * `.ppt`
 
-   Un exemple de fichier de configuration peut être consulté pour [limiter l’accès externe](#restrict-access). Il comprend les limitations pour les types MIME.
+  Un exemple de fichier de configuration peut être consulté pour [limiter l’accès externe](#restrict-access). Il comprend les limitations pour les types MIME.
 
 Pour activer la fonctionnalité complète sur les instances de publication en toute sécurité, configurez les filtres pour empêcher l’accès aux nœuds suivants :
 
@@ -150,9 +150,9 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## Configuration de Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery) {#configure-dispatcher-to-prevent-csrf-attacks}
+## Configurer Dispatcher pour empêcher les attaques CSRF {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez placer sur la liste autorisée la prise en charge du jeton CSRF dans le Dispatcher. Vous pouvez le faire en procédant comme suit :
+AEM fournit un [framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) visant à empêcher les attaques CSRF. Pour utiliser correctement ce framework, vous devez placer dans la liste autorisée la prise en charge du jeton CSRF dans Dispatcher. Vous pouvez le faire en procédant comme suit :
 
 1. Créez un filtre pour autoriser le chemin d’accès `/libs/granite/csrf/token.json` ;
 1. Ajoutez l’en-tête `CSRF-Token` à la section `clientheaders` de la configuration Dispatcher.
@@ -161,8 +161,8 @@ AEM fournit une [infrastructure](https://helpx.adobe.com/experience-manager/6-3/
 
 Pour empêcher le détournement de clic, il est conseillé de configurer le serveur web afin que l’en-tête HTTP `X-FRAME-OPTIONS` soit défini sur `SAMEORIGIN`.
 
-Pour plus [d’informations sur le détournement de clic, voir le site OWASP](https://owasp.org/www-community/attacks/Clickjacking).
+Pour plus [d’informations sur le détournement de clic, consultez le site de l’OWASP](https://owasp.org/www-community/attacks/Clickjacking).
 
 ## Test de pénétration {#perform-a-penetration-test}
 
-Adobe recommande vivement d’effectuer un test de pénétration de l’infrastructure AEM avant la mise en production.
+Adobe recommande vivement d’effectuer un test de pénétration de l’infrastructure AEM avant la mise en exploitation.

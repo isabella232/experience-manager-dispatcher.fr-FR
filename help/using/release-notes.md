@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
-workflow-type: tm+mt
-source-wordcount: '1063'
-ht-degree: 50%
+workflow-type: ht
+source-wordcount: '1040'
+ht-degree: 100%
 
 ---
 
@@ -25,15 +25,15 @@ ht-degree: 50%
 | Produits | Adobe Experience Manager (AEM) Dispatcher |
 | Version | 4.3.6 |
 | Type | Version mineure |
-| Date | 25 juillet 2023 |
+| Date | 25 juillet 2023 |
 | URL de téléchargement | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services (IIS)](release-notes.md#iis)</li></ul> |
 | Compatibilité | AEM 6.1 ou version ultérieure |
 
 ## Configuration requise et conditions préalables {#system-requirements-and-prerequisites}
 
-Veuillez consulter la [Plateformes prises en charge](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/technical-requirements.html)pour plus d’informations sur les conditions requises et les conditions préalables.
+Pour plus d’informations sur la configuration requise et sur les conditions préalables, consultez la page [Plateformes prises en charge](https://helpx.adobe.com/fr/experience-manager/6-4/sites/deploying/using/technical-requirements.html).
 
-Adobe recommande vivement d’utiliser la dernière version d’AEM Dispatcher afin de bénéficier des dernières fonctionnalités, des correctifs de bogues les plus récents et des meilleures performances possibles.
+Adobe recommande vivement d’utiliser la dernière version d’AEM Dispatcher afin de profiter des dernières fonctionnalités, des correctifs de bugs les plus récents et des meilleures performances possibles.
 
 ## Instructions d’installation {#installation-instructions}
 
@@ -41,22 +41,22 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 
 ## Historique des versions {#release-history}
 
-### Version 4.3.6 (25 juillet 2023) {#jyly}
+### Version 4.3.6 (25 juillet 2023) {#jyly}
 
 **Améliorations** :
 
 * DISP-911 AEM-05 - X-Edge-Key peut être divulgué dans disp_apache2.c
-* Journalisation DISP-937 de tous les sélecteurs
-* DISP-998 chargement des URL Vanity au démarrage configurable
+* DISP-937 - Journalisation de tous les sélecteurs
+* DISP-998 - Possibilité de configurer le chargement des URL de redirection au démarrage
 
-### Version 4.3.5 (2022-Apr-04) {#apr}
+### Version 4.3.5 (4 avril 2022) {#apr}
 
 **Améliorations** :
 
-* DISP-954 - Prise en charge de l’invalidation même si l’expiration n’est pas dépassée
-* DISP-949 - Dispatcher renvoie 200 au lieu de 404 même si la demande du POST est bloquée par le filtre
+* DISP-954 - Prise en charge de l’invalidation même si l’expiration n’est pas dépassée.
+* DISP-949 - Dispatcher renvoie 200 au lieu de 404 même si la requête POST est bloquée par le filtre.
 
-### Version 4.3.4 (2021-Nov-29) {#nov}
+### Version 4.3.4 (29 novembre 2021) {#nov}
 
 **Correctifs** :
 
@@ -65,35 +65,35 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 
 **Améliorations** :
 
-* DISP-874 - Crée une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818 par le biais d’un indicateur `DispatcherRestrictUncacheableContent`. La valeur par défaut est Off. Lorsqu’elle est activée, elle supprime tous les en-têtes de mise en cache définis par mod qui arrivent à expiration pour le contenu pouvant être mis en cache. Il s’agit d’un comportement différent de celui de la version 4.3.3 (où la valeur par défaut était Activé), mais identique à celui des versions antérieures à la version 4.3.3 (où la valeur par défaut était Désactivé). Maintien `DispatcherRestrictUncacheableContent`La valeur par défaut de &quot;Désactivé&quot; est l’approche recommandée, de sorte que le cache du navigateur dispose d’une plus grande flexibilité. Si, lors de la mise à niveau de la version 4.3.3 vers la version 4.3.4, vous souhaitez conserver le même comportement que dans la version 4.3.3, vous devez définir explicitement `DispatcherRestrictUncacheableContent` sur Activé.
-* DISP-841 - Dispatcher ne respecte pas /serverStaleOnError pour le code de réponse 504
-* DISP-874 - Créez une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818.
-* DISP-883 - Trace affichant la décomposition de requête d’URL dans Dispatcher
-* DISP-944 - URL Vanity de préchargement
+* DISP-874 - Crée une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818 par le biais d’un indicateur `DispatcherRestrictUncacheableContent`. La valeur par défaut est Désactivé. Lorsqu’elle la valeur est Activé, elle supprime tous les en-têtes de mise en cache définis par mod expires pour le contenu ne pouvant être mis en cache. Il s’agit d’un comportement différent de celui de la version 4.3.3 (où la valeur par défaut était Activé), mais identique à celui des versions antérieures à la version 4.3.3 (où la valeur par défaut était Désactivé). Maintenir la valeur par défaut Désactivé de `DispatcherRestrictUncacheableContent` est l’approche recommandée, de sorte que la mémoire cache du navigateur dispose d’une plus grande flexibilité. Si, lors de la mise à niveau de la version 4.3.3 vers la version 4.3.4, vous souhaitez conserver le même comportement que dans la version 4.3.3, vous devez définir explicitement `DispatcherRestrictUncacheableContent` sur Activé.
+* DISP-841 - Dispatcher ne respecte pas /serverStaleOnError pour le code de réponse 504
+* DISP-874 - Créer une configuration Dispatcher pour activer ou désactiver l’implémentation de DISP-818
+* DISP-883 - TRACE affichant la décomposition de requête d’URL dans Dispatcher
+* DISP-944 - Précharger des URL de redirection
 
-### Version 4.3.3 (18 octobre 2019) {#october}
+### Version 4.3.3 (18 octobre 2019) {#october}
 
 **Correctifs** :
 
-* DISP-739 - Dispatcher LogLevel : **level** ne fonctionne pas
-* DISP-749 - Le dispatcher Alpine Linux se bloque avec le niveau de journal de trace
+* DISP-739 - Dispatcher LogLevel : **level** ne fonctionne pas
+* DISP-749 - Le dispatcher Alpine Linux se bloque avec le niveau de journalisation de trace
 
 **Améliorations** :
 
-* DISP-813 - Prise en charge dans Dispatcher pour openssl 1.1.x
-* DISP-814 - Erreurs Apache 40x lors des vidages du cache
-* DISP-818 - mod_expires ajoute des en-têtes de contrôle du cache pour le contenu pouvant être mis en cache
+* DISP-813 - Prise en charge dans Dispatcher pour OpenSSL 1.1.x
+* DISP-814 - Erreurs Apache 40x lors des vidages du cache
+* DISP-818 - mod_expires ajoute des en-têtes de contrôle du cache pour le contenu ne pouvant être mis en cache.
 * DISP-821 - Ne pas stocker le contexte du journal dans le socket
-* DISP-822 - Dispatcher doit utiliser le sondage au lieu de sélectionner
-* DISP-824 - Secure DispatcherUseForwardedHost
-* DISP-825 - Enregistrer un message spécial lorsqu&#39;il n&#39;y a plus d&#39;espace sur le disque
-* DISP-826 - Prise en charge des URI de récupération avec une chaîne de requête
+* DISP-822 - Dispatcher doit utiliser ppoll au lieu de pselect
+* DISP-824 - DispatcherUseForwardedHost sécurisé
+* DISP-825 - Enregistrer un message spécial lorsqu’il n’y a plus d’espace sur le disque.
+* DISP-826 - Prendre en charge les URI de récupération avec une chaîne de requête
 
-**Nouvelles fonctionnalités**:
+**Nouvelles fonctionnalités** :
 
-* DISP-703 - Ratio d’accès au cache spécifique à la ferme
+* DISP-703 - Ratio d’accès au cache spécifique à la batterie
 * DISP-827 - Serveur local pour le test
-* DISP-828 - Création d’une image Docker de test pour Dispatcher
+* DISP-828 - Créer une image Docker de test pour Dispatcher
 
 ### Version 4.3.2 (31 janvier 2019) {#jan}
 
@@ -140,7 +140,7 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 * DISP-722 - Les fichiers cache sont créés avec le mode octal 0600
 * DISP-726 - Consignez un avertissement lorsqu’aucune ferme de serveurs ne correspond réellement à l’hôte entrant
 
-### Version 4.3.0 (13 juin 2018) {#jun}
+### Version 4.3.0 (13 juin 2018) {#jun}
 
 **Correctifs** :
 
@@ -165,7 +165,7 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 
 ## Ressources utiles {#helpful-resources}
 
-* [Présentation d’AEM Dispatcher](dispatcher.md)
+* [Vue d’ensemble d’AEM Dispatcher](dispatcher.md)
 
 ## Téléchargements {#downloads}
 
@@ -179,11 +179,11 @@ Pour obtenir des instructions détaillées, voir [Installation de Dispatcher](di
 | Linux | x86_64 (64 bits) | Aucun | [dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz) |
 | Linux | x86_64 (64 bits) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz) |
 | Linux | x86_64 (64 bits) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz) |
-| Linux | aarch64 (64 bits) | Aucun | [dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz) |
-| Linux | aarch64 (64 bits) | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz) |
-| Linux | aarch64 (64 bits) | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz) |
-| macOS | arm64 (64 bits) | Aucun | [dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz) |
-| Mac OS | x86_64 (64 bits) | Aucun | [dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz) |
+| Linux | aarch64 (64 bits) | Aucun | [dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz) |
+| Linux | aarch64 (64 bits) | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz) |
+| Linux | aarch64 (64 bits) | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz) |
+| macOS | arm64 (64 bits) | Aucun | [dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz) |
+| macOS | x86_64 (64 bits) | Aucun | [dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz) |
 
 ### IIS {#iis}
 

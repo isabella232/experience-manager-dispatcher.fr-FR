@@ -1,27 +1,27 @@
 ---
-title: Configuration de Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery)
-seo-title: Configuration d’Adobe AEM Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery)
+title: Configurer Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery)
+seo-title: Configuring Adobe AEM Dispatcher to Prevent CSRF Attacks
 description: Découvrez comment configurer AEM Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery).
-seo-description: Découvrez comment configurer Adobe AEM Dispatcher pour empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery).
+seo-description: Learn how to configure Adobe AEM Dispatcher to prevent Cross-Site Request Forgery attacks.
 uuid: f290bdeb-54e2-4649-b0fc-6257b422af2d
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: d61d021e-b338-4a1d-91ee-55427557e931
 exl-id: bcd38878-f977-46a6-b01a-03e4d90aef01
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: tm+mt
-source-wordcount: '246'
+workflow-type: ht
+source-wordcount: '227'
 ht-degree: 100%
 
 ---
 
-# Configuration de Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configuring-dispatcher-to-prevent-csrf-attacks}
+# Configurer Dispatcher afin d’empêcher les attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery){#configuring-dispatcher-to-prevent-csrf-attacks}
 
-AEM fournit une infrastructure visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette structure, vous devez apporter les modifications suivantes à la configuration de Dispatcher :
+AEM fournit une infrastructure visant à empêcher les attaques par falsification de requête intersites. Pour utiliser correctement cette infrastructure, vous devez apporter les modifications suivantes à la configuration de Dispatcher :
 
 >[!NOTE]
 >
->Prenez soin de mettre à jour les numéros des règles dans les exemples ci-dessous en fonction de la configuration existante. Rappelez-vous que les instances de Dispatcher utilisent la dernière règle correspondante pour accorder une autorisation ou un refus. De ce fait, placez les règles à proximité de la partie inférieure de la liste existante.
+>Veillez à mettre à jour les numéros des règles dans les exemples ci-dessous en fonction de votre configuration existante. N’oubliez pas que Dispatcher utilisera la dernière règle correspondante pour accorder une autorisation ou un refus. Par conséquent, placez les règles près du bas de votre liste existante.
 
 1. Dans la section `/clientheaders` de vos fichiers author-farm.any et publish-farm.any, ajoutez l’entrée suivante au bas de la liste :\
    `CSRF-Token`
